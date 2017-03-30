@@ -13,6 +13,8 @@
 
 import UIKit
 
+let recordTypes = ["Meeting", "Topic", "Comment", "User", "TimeControl"]
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

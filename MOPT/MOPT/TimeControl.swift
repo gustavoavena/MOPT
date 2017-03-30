@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum TimeError: Error {
+    
+    case StartError
+    case EndError
+    
+}
+
 class TimeControl: NSObject {
     var expectedTime: TimeInterval?
     var startTime: Date?
@@ -19,7 +26,7 @@ class TimeControl: NSObject {
 //    }
     
     
-    init(expectedTime: TimeInterval? = nil) {
+    init(_ expectedTime: TimeInterval? = nil) {
         self.expectedTime = expectedTime
         self.startTime = nil
         self.endTime = nil

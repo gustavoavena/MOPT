@@ -25,6 +25,15 @@ class User: NSObject {
         self.profilePicture = profilePicture
     }
     
+    func joinMeeting(meeting: Meeting) {
+        self.meetings.append(meeting)
+        meeting.addParticipant(participant: self)
+    }
+    
+    // TODO: implement leaveMeeting.
+    
+    
+    
     public static func test() {
         
         let userRecordID = CKRecordID(recordName: "First User")

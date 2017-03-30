@@ -8,12 +8,7 @@
 
 import UIKit
 
-enum TimeError: Error {
-    
-    case StartError
-    case EndError
-    
-}
+
 
 class Meeting: NSObject {
     let moderator: User

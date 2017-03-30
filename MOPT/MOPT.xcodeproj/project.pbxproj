@@ -14,6 +14,8 @@
 		4D19E7521E8D3705003782E6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E7511E8D3705003782E6 /* Comment.swift */; };
 		4D19E7541E8D3758003782E6 /* TimeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E7531E8D3758003782E6 /* TimeControl.swift */; };
 		4D19E7561E8D3A66003782E6 /* TopicDBLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E7551E8D3A66003782E6 /* TopicDBLayer.swift */; };
+		4D19E7591E8D507A003782E6 /* MeetingDBLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E7581E8D507A003782E6 /* MeetingDBLayer.swift */; };
+		4D19E75B1E8D508D003782E6 /* MeetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E75A1E8D508D003782E6 /* MeetingController.swift */; };
 		4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */; };
 		4D3CC5761E8AA6A3000136FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC5751E8AA6A3000136FB /* ViewController.swift */; };
 		4D3CC5791E8AA6A3000136FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC5771E8AA6A3000136FB /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		4D19E7531E8D3758003782E6 /* TimeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeControl.swift; sourceTree = "<group>"; };
 		4D19E7551E8D3A66003782E6 /* TopicDBLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicDBLayer.swift; sourceTree = "<group>"; };
 		4D19E7571E8D4173003782E6 /* TestPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestPlayground.playground; sourceTree = "<group>"; };
+		4D19E7581E8D507A003782E6 /* MeetingDBLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDBLayer.swift; sourceTree = "<group>"; };
+		4D19E75A1E8D508D003782E6 /* MeetingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingController.swift; sourceTree = "<group>"; };
 		4D3CC5701E8AA6A3000136FB /* MOPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D3CC5751E8AA6A3000136FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				4D19E74D1E8D2839003782E6 /* Meeting.swift */,
+				4D19E7581E8D507A003782E6 /* MeetingDBLayer.swift */,
+				4D19E75A1E8D508D003782E6 /* MeetingController.swift */,
 			);
 			name = Meeting;
 			sourceTree = "<group>";
@@ -221,10 +227,12 @@
 			files = (
 				4D19E7541E8D3758003782E6 /* TimeControl.swift in Sources */,
 				4D19E7471E8C4480003782E6 /* User.swift in Sources */,
+				4D19E7591E8D507A003782E6 /* MeetingDBLayer.swift in Sources */,
 				4D19E7521E8D3705003782E6 /* Comment.swift in Sources */,
 				4D19E7501E8D2A3E003782E6 /* Topic.swift in Sources */,
 				4D19E74E1E8D2839003782E6 /* Meeting.swift in Sources */,
 				4D3CC5761E8AA6A3000136FB /* ViewController.swift in Sources */,
+				4D19E75B1E8D508D003782E6 /* MeetingController.swift in Sources */,
 				4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */,
 				4D19E7561E8D3A66003782E6 /* TopicDBLayer.swift in Sources */,
 			);

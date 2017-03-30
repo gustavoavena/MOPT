@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class Topic: NSObject {
     let title: String
     let text: String
@@ -19,7 +21,7 @@ class Topic: NSObject {
     let isSubtopic: Bool
     let meeting: Meeting
     
-    init(title: String, text: String, creator: User, subtopics: [Topic]?, comments: [Comment]?, timeController: TimeControl, isSubtopic: Bool, meeting: Meeting) {
+    init(title: String, text: String, creator: User, subtopics: [Topic]?, comments: [Comment]?, timeController: TimeControl = TimeControl(), isSubtopic: Bool, meeting: Meeting) {
         self.title =  title
         self.text =  text
         self.creator =  creator
@@ -29,7 +31,6 @@ class Topic: NSObject {
         self.conclusion =  nil
         self.isSubtopic =  isSubtopic
         self.meeting = meeting
-        
     }
     
     func addComment(comment: Comment) {
@@ -65,17 +66,32 @@ class Topic: NSObject {
         // TODO: Check if the startTime is nil. If not, throw error. If it is, start the meeting at the current time.
         // Remember to call the self.meeting.changeCurrentTopic()
         
-        guard (self.timeController.startTime != nil && self.timeController.endTime == nil) else {
-            print("topic has already started.")
+        guard ( self.timeController.startTime != nil &&
+                self.timeController.endTime == nil &&
+                self.meeting.currentTopic == nil)
+        else {
+            print("Can't start topic.")
             throw TimeError.StartError
         }
         
         self.timeController.startTime = Date()
+        
+        self.meeting.changeCurrentTopic(currentTopic: self)
 
     }
     
     func endTopic() throws {
         // TODO: Check if startTime is NOT nil and endTime IS nil.
+        
+        guard ( self.timeController.endTime == nil &&
+                self.timeController.startTime != nil &&
+                self.meeting.currentTopic == self) else {
+            print("Can't end topic.")
+            throw TimeError.EndError
+        }
+        
+        self.timeController.endTime = Date()
+        self.meeting.changeCurrentTopic(currentTopic: nil)
     }
     
 
