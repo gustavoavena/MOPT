@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Logo mOpt 58x58.png",
+      "filename" : "Meetings 1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Meetings 2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Meetings 3x.png",
       "scale" : "3x"
     }
   ],
