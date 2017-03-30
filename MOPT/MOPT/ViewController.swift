@@ -2,7 +2,12 @@
 //  ViewController.swift
 //  MOPT
 //
-//  Created by Gustavo Avena on 28/03/17.
+//  Created by Slackers: on 28/03/17.
+//  Gustavo Avena
+//  Filipe Marques
+//  Rodrigo Hilkner
+//  Adann Sergio
+// 
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
@@ -13,6 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        User.test()
     }
 
     override func didReceiveMemoryWarning() {

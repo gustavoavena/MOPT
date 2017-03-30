@@ -7,20 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D19E7451E8C3E20003782E6 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D19E7441E8C3E20003782E6 /* CloudKit.framework */; };
+		4D19E7471E8C4480003782E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E7461E8C4480003782E6 /* User.swift */; };
+		4D19E74E1E8D2839003782E6 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E74D1E8D2839003782E6 /* Meeting.swift */; };
+		4D19E7501E8D2A3E003782E6 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E74F1E8D2A3E003782E6 /* Topic.swift */; };
+		4D19E7521E8D3705003782E6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E7511E8D3705003782E6 /* Comment.swift */; };
+		4D19E7541E8D3758003782E6 /* TimeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E7531E8D3758003782E6 /* TimeControl.swift */; };
+		4D19E7561E8D3A66003782E6 /* TopicDBLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19E7551E8D3A66003782E6 /* TopicDBLayer.swift */; };
 		4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */; };
 		4D3CC5761E8AA6A3000136FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC5751E8AA6A3000136FB /* ViewController.swift */; };
 		4D3CC5791E8AA6A3000136FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC5771E8AA6A3000136FB /* Main.storyboard */; };
-		4D3CC57C1E8AA6A3000136FB /* MOPT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC57A1E8AA6A3000136FB /* MOPT.xcdatamodeld */; };
 		4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */; };
 		4D3CC5811E8AA6A3000136FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D19E7421E8C3E16003782E6 /* MOPT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MOPT.entitlements; sourceTree = "<group>"; };
+		4D19E7441E8C3E20003782E6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		4D19E7461E8C4480003782E6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
+		4D19E74D1E8D2839003782E6 /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		4D19E74F1E8D2A3E003782E6 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		4D19E7511E8D3705003782E6 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		4D19E7531E8D3758003782E6 /* TimeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeControl.swift; sourceTree = "<group>"; };
+		4D19E7551E8D3A66003782E6 /* TopicDBLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicDBLayer.swift; sourceTree = "<group>"; };
+		4D19E7571E8D4173003782E6 /* TestPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestPlayground.playground; sourceTree = "<group>"; };
 		4D3CC5701E8AA6A3000136FB /* MOPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D3CC5751E8AA6A3000136FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4D3CC5781E8AA6A3000136FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4D3CC57B1E8AA6A3000136FB /* MOPT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MOPT.xcdatamodel; sourceTree = "<group>"; };
 		4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D3CC5801E8AA6A3000136FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D3CC5821E8AA6A3000136FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,17 +45,69 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D19E7451E8C3E20003782E6 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D19E7431E8C3E20003782E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D19E7441E8C3E20003782E6 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D19E7481E8C4AEA003782E6 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				4D19E7461E8C4480003782E6 /* User.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		4D19E7491E8D27DF003782E6 /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				4D19E74F1E8D2A3E003782E6 /* Topic.swift */,
+				4D19E7551E8D3A66003782E6 /* TopicDBLayer.swift */,
+			);
+			name = Topic;
+			sourceTree = "<group>";
+		};
+		4D19E74A1E8D27E4003782E6 /* Meeting */ = {
+			isa = PBXGroup;
+			children = (
+				4D19E74D1E8D2839003782E6 /* Meeting.swift */,
+			);
+			name = Meeting;
+			sourceTree = "<group>";
+		};
+		4D19E74B1E8D27E9003782E6 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				4D19E7511E8D3705003782E6 /* Comment.swift */,
+			);
+			name = Comment;
+			sourceTree = "<group>";
+		};
+		4D19E74C1E8D27F1003782E6 /* TimeControl */ = {
+			isa = PBXGroup;
+			children = (
+				4D19E7531E8D3758003782E6 /* TimeControl.swift */,
+			);
+			name = TimeControl;
+			sourceTree = "<group>";
+		};
 		4D3CC5671E8AA6A2000136FB = {
 			isa = PBXGroup;
 			children = (
+				4D19E7571E8D4173003782E6 /* TestPlayground.playground */,
 				4D3CC5721E8AA6A3000136FB /* MOPT */,
 				4D3CC5711E8AA6A3000136FB /* Products */,
+				4D19E7431E8C3E20003782E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +122,18 @@
 		4D3CC5721E8AA6A3000136FB /* MOPT */ = {
 			isa = PBXGroup;
 			children = (
+				4D19E74C1E8D27F1003782E6 /* TimeControl */,
+				4D19E74B1E8D27E9003782E6 /* Comment */,
+				4D19E74A1E8D27E4003782E6 /* Meeting */,
+				4D19E7491E8D27DF003782E6 /* Topic */,
+				4D19E7481E8C4AEA003782E6 /* User */,
+				4D19E7421E8C3E16003782E6 /* MOPT.entitlements */,
 				4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */,
 				4D3CC5751E8AA6A3000136FB /* ViewController.swift */,
 				4D3CC5771E8AA6A3000136FB /* Main.storyboard */,
 				4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */,
 				4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */,
 				4D3CC5821E8AA6A3000136FB /* Info.plist */,
-				4D3CC57A1E8AA6A3000136FB /* MOPT.xcdatamodeld */,
 			);
 			path = MOPT;
 			sourceTree = "<group>";
@@ -101,6 +172,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = X5G89Y4L38;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -140,9 +219,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D19E7541E8D3758003782E6 /* TimeControl.swift in Sources */,
+				4D19E7471E8C4480003782E6 /* User.swift in Sources */,
+				4D19E7521E8D3705003782E6 /* Comment.swift in Sources */,
+				4D19E7501E8D2A3E003782E6 /* Topic.swift in Sources */,
+				4D19E74E1E8D2839003782E6 /* Meeting.swift in Sources */,
 				4D3CC5761E8AA6A3000136FB /* ViewController.swift in Sources */,
-				4D3CC57C1E8AA6A3000136FB /* MOPT.xcdatamodeld in Sources */,
 				4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */,
+				4D19E7561E8D3A66003782E6 /* TopicDBLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
 				DEVELOPMENT_TEAM = X5G89Y4L38;
 				INFOPLIST_FILE = MOPT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -276,6 +361,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
 				DEVELOPMENT_TEAM = X5G89Y4L38;
 				INFOPLIST_FILE = MOPT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -304,21 +390,9 @@
 				4D3CC5871E8AA6A3000136FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4D3CC57A1E8AA6A3000136FB /* MOPT.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4D3CC57B1E8AA6A3000136FB /* MOPT.xcdatamodel */,
-			);
-			currentVersion = 4D3CC57B1E8AA6A3000136FB /* MOPT.xcdatamodel */;
-			path = MOPT.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 4D3CC5681E8AA6A2000136FB /* Project object */;
 }
