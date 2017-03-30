@@ -13,6 +13,7 @@
 		4D3CC57C1E8AA6A3000136FB /* MOPT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC57A1E8AA6A3000136FB /* MOPT.xcdatamodeld */; };
 		4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */; };
 		4D3CC5811E8AA6A3000136FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */; };
+		A448E28A1E8D47B80066DB6B /* NewMeeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A448E2891E8D47B80066DB6B /* NewMeeting.storyboard */; };
 		D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */; };
 		D449F8FE1E8C050E006E60DB /* Program Flux.png in Resources */ = {isa = PBXBuildFile; fileRef = D449F8FD1E8C050E006E60DB /* Program Flux.png */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D3CC5801E8AA6A3000136FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D3CC5821E8AA6A3000136FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A448E2891E8D47B80066DB6B /* NewMeeting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewMeeting.storyboard; sourceTree = "<group>"; };
 		D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "KeepCalm-Medium.ttf"; path = "../../../../Slackers/Design/Resources/KeepCalm-Medium.ttf"; sourceTree = "<group>"; };
 		D449F8FD1E8C050E006E60DB /* Program Flux.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Program Flux.png"; path = "../../../../Slackers/Design/Logo/Logo Kit/Program Flux.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,17 +62,26 @@
 		4D3CC5721E8AA6A3000136FB /* MOPT */ = {
 			isa = PBXGroup;
 			children = (
+				A448E28B1E8D47D60066DB6B /* storyboards */,
 				4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */,
 				4D3CC5751E8AA6A3000136FB /* ViewController.swift */,
 				4D3CC5771E8AA6A3000136FB /* Main.storyboard */,
 				4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */,
-				4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */,
 				4D3CC5821E8AA6A3000136FB /* Info.plist */,
 				4D3CC57A1E8AA6A3000136FB /* MOPT.xcdatamodeld */,
 				D449F8FD1E8C050E006E60DB /* Program Flux.png */,
 				D449F8FA1E8BFF0A006E60DB /* Fonts */,
 			);
 			path = MOPT;
+			sourceTree = "<group>";
+		};
+		A448E28B1E8D47D60066DB6B /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */,
+				A448E2891E8D47B80066DB6B /* NewMeeting.storyboard */,
+			);
+			name = storyboards;
 			sourceTree = "<group>";
 		};
 		D449F8FA1E8BFF0A006E60DB /* Fonts */ = {
@@ -146,6 +157,7 @@
 				D449F8FE1E8C050E006E60DB /* Program Flux.png in Resources */,
 				4D3CC5791E8AA6A3000136FB /* Main.storyboard in Resources */,
 				D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */,
+				A448E28A1E8D47B80066DB6B /* NewMeeting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
