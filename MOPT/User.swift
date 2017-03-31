@@ -19,6 +19,7 @@ class User: NSObject {
     let fbUsername: String
     
     
+    
     init(name: String, fbUsername: String, email: String, meetings: [Meeting]?, profilePicture: UIImage?) {
         self.name = name
         self.fbUsername = fbUsername
@@ -72,10 +73,15 @@ class User: NSObject {
         let fbUsername = "FBUsername"
         
         do {
-            _ = try UserDBLayer.queryUserByFBUsername(fbUsername: fbUsername)
-//            if result == nil {
-//                print("query returned nil!")
-//            }
+            let userDBLayer = UserDBLayer()
+            _ = try userDBLayer.queryUserByFBUsername(fbUsername: fbUsername) {
+                (user, error) in
+                if user == nil {
+                    print("query returned nil!")
+                } else {
+                    print("user:", user!)
+                }
+            }
         }
         catch {
             print("User queryUserByFBUsername error!")

@@ -19,3 +19,5 @@ enum QueryError: Error {
     case UserError
 }
 
+enum DBLayerError: Error {
+}
