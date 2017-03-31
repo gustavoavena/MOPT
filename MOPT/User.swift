@@ -16,10 +16,12 @@ class User: NSObject {
     let email: String
     var meetings: [Meeting]
     let profilePicture: UIImage?
+    let fbUsername: String
     
     
-    init(name: String, email: String, meetings: [Meeting]?, profilePicture: UIImage?) {
+    init(name: String, fbUsername: String, email: String, meetings: [Meeting]?, profilePicture: UIImage?) {
         self.name = name
+        self.fbUsername = fbUsername
         self.email = email
         self.meetings = meetings ?? [Meeting]()
         self.profilePicture = profilePicture
@@ -31,6 +33,8 @@ class User: NSObject {
     }
     
     // TODO: implement leaveMeeting.
+    
+    
     
     
     

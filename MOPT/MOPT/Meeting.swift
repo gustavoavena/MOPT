@@ -29,7 +29,6 @@ class Meeting: NSObject {
     }
     
     func startMeeting() throws {
-        // TODO: Check if the startTime is nil. If not, throw error. If it is, start the meeting at the current time.
         
         guard (self.timeController.startTime != nil && self.timeController.endTime == nil) else {
             print("can't start meeting that is already running or ended.")
@@ -40,7 +39,6 @@ class Meeting: NSObject {
     }
     
     func endMeeting() throws {
-        // TODO: Check if startTime is NOT nil and endTime IS nil.
         
         guard (self.timeController.endTime == nil && self.timeController.startTime != nil) else {
             print("can't end meeting that hasn't started yet or already ended.")
@@ -51,7 +49,7 @@ class Meeting: NSObject {
 
     }
     
-    // TODO: Call this method when starting/ending a topic.
+    /**Call this method when starting/ending a topic.*/
     func changeCurrentTopic(currentTopic: Topic?) {
         self.currentTopic = currentTopic
     }

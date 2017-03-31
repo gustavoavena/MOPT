@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum TimeError: Error {
-    
-    case StartError
-    case EndError
-    
-}
 
 class TimeControl: NSObject {
     var expectedTime: TimeInterval?
