@@ -18,6 +18,7 @@
 		D484C64A1E8D28320079B34B /* SWANSE_B.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6461E8D28320079B34B /* SWANSE_B.TTF */; };
 		D484C64B1E8D28320079B34B /* SWANSE_I.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6471E8D28320079B34B /* SWANSE_I.TTF */; };
 		D484C64C1E8D28320079B34B /* SWANSEBI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6481E8D28320079B34B /* SWANSEBI.TTF */; };
+		D4E4BBFF1E8EA6E500021F2A /* topicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4BBFE1E8EA6E500021F2A /* topicTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		D484C6461E8D28320079B34B /* SWANSE_B.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE_B.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE_B.TTF"; sourceTree = "<group>"; };
 		D484C6471E8D28320079B34B /* SWANSE_I.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE_I.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE_I.TTF"; sourceTree = "<group>"; };
 		D484C6481E8D28320079B34B /* SWANSEBI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSEBI.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSEBI.TTF"; sourceTree = "<group>"; };
+		D4E4BBFE1E8EA6E500021F2A /* topicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topicTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				4D3CC5821E8AA6A3000136FB /* Info.plist */,
 				4D3CC57A1E8AA6A3000136FB /* MOPT.xcdatamodeld */,
 				D449F8FA1E8BFF0A006E60DB /* Fonts */,
+				D4E4BBFE1E8EA6E500021F2A /* topicTableViewCell.swift */,
 			);
 			path = MOPT;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3CC5761E8AA6A3000136FB /* ViewController.swift in Sources */,
+				D4E4BBFF1E8EA6E500021F2A /* topicTableViewCell.swift in Sources */,
 				4D3CC57C1E8AA6A3000136FB /* MOPT.xcdatamodeld in Sources */,
 				4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */,
 			);
