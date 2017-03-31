@@ -38,7 +38,7 @@ class User: NSObject {
     
     
     
-    public static func test() {
+    public static func testSave() {
         
         let userRecordID = CKRecordID(recordName: "First User")
         
@@ -46,13 +46,15 @@ class User: NSObject {
         
         userRecord["email"] = "fakeemail@gmail.com" as NSString
         userRecord["name"] = "First User" as NSString
+        userRecord["fbUsername"] = "FBUsername" as NSString
+        
         
         let myContainer = CKContainer.default()
         
-        let publicDatabase = myContainer.publicCloudDatabase
+        let privateDB = myContainer.privateCloudDatabase
         
         
-        publicDatabase.save(userRecord) {
+        privateDB.save(userRecord) {
             (record, error) in
             if let error = error {
                 // Insert error handling
@@ -64,6 +66,20 @@ class User: NSObject {
             print("User saved successfully")
         }
         
+    }
+    
+    public static func testQuery() {
+        let fbUsername = "FBUsername"
+        
+        do {
+            _ = try UserDBLayer.queryUserByFBUsername(fbUsername: fbUsername)
+//            if result == nil {
+//                print("query returned nil!")
+//            }
+        }
+        catch {
+            print("User queryUserByFBUsername error!")
+        }
         
     }
     

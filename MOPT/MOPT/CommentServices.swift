@@ -1,5 +1,5 @@
 //
-//  UserController.swift
+//  CommentServices.swift
 //  MOPT
 //
 //  Created by Gustavo Avena on 31/03/17.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class UserController: NSObject {
+class CommentServices: NSObject {
 
 }

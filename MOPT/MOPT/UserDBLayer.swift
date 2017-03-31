@@ -6,7 +6,6 @@
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
-import UIKit
 import CloudKit
 
 class UserDBLayer: NSObject {
@@ -20,33 +19,40 @@ class UserDBLayer: NSObject {
         
         let myContainer = CKContainer.default()
         
-        let publicDatabase = myContainer.publicCloudDatabase
-        var queryError: Error? = nil
-        var queryResult: [CKRecord]? = nil
+        let privateDB = myContainer.privateCloudDatabase
+        var queryError: Error?
+        var queryResult: [CKRecord]?
+        
+        print("Performing query by fbUsername...")
         
         
-        publicDatabase.perform(queryObject, inZoneWith: nil, completionHandler:  {
+        privateDB.perform(queryObject, inZoneWith: nil)  {
             (records, error) in
             if error != nil {
                 print("Error performing query for user")
                 queryError = error
             }
             
-            queryResult = records
+            print("records:", records!)
+            // queryResult = records // Doesn't work! Because it's a reference, when the code leaves the closure, records is deleted, so queryResult becomes nil!
+            queryResult = [CKRecord](records!)
             
-        })
+        }
         
         guard queryError == nil else {
             throw QueryError.UserError
         }
         
-        if let user = queryResult?[0] {
-            return user
+        print("queryResult:", queryResult as Any)
+        
+        if let userRecord = queryResult?[0] {
+            print("userRecord:", userRecord)
+            return nil
         } else {
             return nil
         }
-        
-
     }
+    
+//    static func createUserFromRecord()
 
 }
