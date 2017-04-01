@@ -17,8 +17,10 @@ class Meeting: NSObject {
     var participants: [User]
     let timeController: TimeControl
     var currentTopic: Topic?
+    let title: String
     
-    init(moderator: User, date: Date, timeController: TimeControl = TimeControl()) {
+    init(title: String, moderator: User, date: Date, timeController: TimeControl = TimeControl()) {
+        self.title = title
         self.moderator = moderator
         self.date = date
         self.topics = [Topic]()

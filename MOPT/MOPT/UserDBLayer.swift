@@ -83,8 +83,13 @@ class UserDBLayer: NSObject {
             userRecord["email"] = user.email as NSString
             userRecord["fbUsername"] = user.fbUsername as NSString
             
-            let meetingDBLayer = MeetingDBLayer()
-            userRecord["meetings"] = meetingDBLayer.createRecordFromMeetingObject(user.meetings)
+            userRecord["meetings"] = [CKReference]()
+            
+            for meeting in user.meetings {
+                let recordID = CKRecordID(recordName: String(format: "%@:%@", meeting.title, meeting.moderator.fbUsername))
+                userRecord["meetings"].append(CKReference(recordID: recordID))
+            }
+            
             
             
             return userRecord
