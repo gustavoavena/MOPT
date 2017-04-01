@@ -41,7 +41,7 @@ class User: NSObject {
     
     public static func testSave() {
         
-        let userRecordID = CKRecordID(recordName: "First User")
+        let userRecordID = CKRecordID(recordName: "FBUsername")
         
         let userRecord = CKRecord(recordType: "User", recordID: userRecordID)
         
@@ -89,21 +89,6 @@ class User: NSObject {
         
     }
     
-    public static func testSaveObject() {
-        let user = User(name: "User obecjt", fbUsername: "userobject", email: "fakeemail", meetings: nil, profilePicture: nil)
-        
-        let myContainer = CKContainer.default()
-        
-        let publicDB = myContainer.publicCloudDatabase
-        
-        let userRecordID = CKRecordID(recordName: "UserObject")
-        
-        let userRecord = CKRecord(recordType: "NewUser", recordID: userRecordID)
-        
-        userRecord["object"] = user as NSData
-        
-        
-    }
     
 
 }
