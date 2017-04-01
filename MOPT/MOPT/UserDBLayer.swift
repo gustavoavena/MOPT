@@ -11,10 +11,19 @@ import UIKit
 
 class UserDBLayer: NSObject {
     
+    let myContainer: CKContainer
+    
+    let publicDB: CKDatabase
+    
+    override init() {
+        myContainer = CKContainer.default()
+        publicDB = myContainer.publicCloudDatabase
+    }
     
     
-    // Declaring it as private to be sure that it is only called from withing this class. This ensure separation between layers.
-    private func createUserFromRecord(record: CKRecord) -> User {
+    
+    
+    func createUserFromRecord(record: CKRecord) -> User {
         // TODO: get profilePicture from URL
         let profilePicture = record["profilePicture"]
         let user = User(name: record["name"] as! String,
@@ -25,7 +34,7 @@ class UserDBLayer: NSObject {
         )
         return user
     }
-
+    
     
     // TODO: Query for existing user by fbUsername. Check is such user exists. If yes, return his object, if it doesn't, return nil
     
@@ -34,28 +43,69 @@ class UserDBLayer: NSObject {
         let queryObject = CKQuery(recordType: "User", predicate: queryPredicate)
         
         
-        let myContainer = CKContainer.default()
-        
-        let privateDB = myContainer.privateCloudDatabase
+       
         
         print("Performing query by fbUsername...")
         
         
-        privateDB.perform(queryObject, inZoneWith: nil)  {
+        publicDB.perform(queryObject, inZoneWith: nil)  {
             (records, error) in
             if error != nil {
                 print("Error performing query for user")
             }
             
-            print("records:", records!)
-         
+            print("records:", records!, terminator: "\n\n")
             
-            if let userRecord = records?[0] {
-//                print("userRecord:", userRecord)
+            
+            
+            if let records = records {
+                
+                guard records.count >= 1 else {
+                    print("No records found.")
+                    handleUserObject(nil, QueryError.UserError)
+                    return
+                }
+                
+                let userRecord =  records[0]
                 let user = self.createUserFromRecord(record: userRecord)
                 handleUserObject(user, error)
+                
             } else {
                 handleUserObject(nil, error)
+            }
+        }
+        
+        func createRecordFromUserObject(user: User) -> CKRecord {
+            let userRecordID = CKRecordID(recordName: user.fbUsername)
+            let userRecord = CKRecord(recordType: "User", recordID: userRecordID)
+            
+            userRecord["name"] = user.name as NSString
+            userRecord["email"] = user.email as NSString
+            userRecord["fbUsername"] = user.fbUsername as NSString
+            
+            let meetingDBLayer = MeetingDBLayer()
+            userRecord["meetings"] = meetingDBLayer.createRecordFromMeetingObject(user.meetings)
+            
+            
+            return userRecord
+            
+        }
+        
+        
+        // TODO: Implement error handling with a completionHandler.
+        func storeUserObject(user: User) {
+            let userRecord = createRecordFromUserObject(user: user)
+            
+            publicDB.save(userRecord) {
+                (record, error) in
+                if let error = error {
+                    // Insert error handling
+                    print("Error when saving the user.")
+                    print(error.localizedDescription)
+                    return
+                }
+                // Insert successfully saved record code
+                print("User saved successfully.")
             }
         }
         

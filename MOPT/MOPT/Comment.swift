@@ -18,5 +18,6 @@ class Comment: NSObject {
         self.createdAt = createdAt
         self.creator = creator
     }
-
+    
+    // TODO: implement edit comment method.
 }

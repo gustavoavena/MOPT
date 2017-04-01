@@ -52,10 +52,10 @@ class User: NSObject {
         
         let myContainer = CKContainer.default()
         
-        let privateDB = myContainer.privateCloudDatabase
+        let publicDB = myContainer.publicCloudDatabase
         
         
-        privateDB.save(userRecord) {
+        publicDB.save(userRecord) {
             (record, error) in
             if let error = error {
                 // Insert error handling
@@ -79,7 +79,7 @@ class User: NSObject {
                 if user == nil {
                     print("query returned nil!")
                 } else {
-                    print("user:", user!)
+                    print("user found:", user!)
                 }
             }
         }

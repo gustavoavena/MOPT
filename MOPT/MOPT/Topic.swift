@@ -21,6 +21,7 @@ class Topic: NSObject {
     let isSubtopic: Bool
     let meeting: Meeting
     
+    // TODO: copy Meeting initializer structure.
     init(title: String, text: String, creator: User, subtopics: [Topic]?, comments: [Comment]?, timeController: TimeControl = TimeControl(), isSubtopic: Bool, meeting: Meeting) {
         self.title =  title
         self.text =  text
@@ -59,6 +60,7 @@ class Topic: NSObject {
     }
     
     func addConclusion(conclusion: String) {
+        // TODO: check if topic is being discussed or has already ended. Only then can you insert a conclusion.
         self.conclusion = conclusion
     }
     
@@ -66,7 +68,7 @@ class Topic: NSObject {
         // TODO: Check if the startTime is nil. If not, throw error. If it is, start the meeting at the current time.
         // Remember to call the self.meeting.changeCurrentTopic()
         
-        guard ( self.timeController.startTime != nil &&
+        guard ( self.timeController.startTime == nil &&
                 self.timeController.endTime == nil &&
                 self.meeting.currentTopic == nil)
         else {

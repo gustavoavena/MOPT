@@ -25,12 +25,11 @@ class Meeting: NSObject {
         self.participants = [moderator]
         self.timeController = timeController
         self.currentTopic = nil
-        
     }
     
     func startMeeting() throws {
         
-        guard (self.timeController.startTime != nil && self.timeController.endTime == nil) else {
+        guard (self.timeController.startTime == nil && self.timeController.endTime == nil) else {
             print("can't start meeting that is already running or ended.")
             throw TimeError.StartError
         }
