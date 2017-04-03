@@ -13,7 +13,7 @@ import UIKit
 class Meeting: NSObject {
     let moderator: User
     let date: Date
-    //var topics: [Topic]
+    var topics: [Topic]
     var participants: [User]
     let timeController: TimeControl
     var currentTopic: Topic?
@@ -23,7 +23,7 @@ class Meeting: NSObject {
         self.title = title
         self.moderator = moderator
         self.date = date
-        //self.topics = [Topic]()
+        self.topics = [Topic]()
         self.participants = [moderator]
         self.timeController = timeController
         self.currentTopic = nil
@@ -61,9 +61,9 @@ class Meeting: NSObject {
     
     // TODO: removeParticipant.
     
-//    func addTopic(topic: Topic) {
-//        self.topics.append(topic)
-//    }
+    func addTopic(topic: Topic) {
+        self.topics.append(topic)
+    }
     
     // TODO: removeTopic.
 

@@ -9,7 +9,12 @@
 import UIKit
 
 class TopicsTableViewController: UITableViewController {
-
+    
+    let testUser = User(name: "Farol", fbUsername: "filipemarques.568", email: "fi.marques33@gmail.com", profilePicture: #imageLiteral(resourceName: "example"))
+    
+    var currentMeeting:Meeting?
+    private var topics = [Topic]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,40 +23,67 @@ class TopicsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        topics = (self.currentMeeting?.topics)!
+        topics.append(Topic(title:"Louça", text:"A louça está muito suja, precisamos resolver isso", creator: (currentMeeting?.moderator)!, subtopics: nil, comments: nil, isSubtopic:false, meeting:currentMeeting!))
     }
+    
+    
+ 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        
+        self.navigationItem.title = currentMeeting?.title
+
+        
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return topics.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as!topicsTableViewCell
+        cell.topicName.text = self.topics[indexPath.row].title
+        if self.topics[indexPath.row].subtopics == nil {
+            cell.numberOfSubtopics.text = "0 subtopics"
+        } else {
+            cell.numberOfSubtopics.text = String(describing: self.topics[indexPath.row].subtopics?.count) + (" subtopics")
+        }
+        cell.topicCreatorPicture.image = self.topics[indexPath.row].creator.profilePicture
 
         return cell
     }
-    */
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToTopicInformation",
+            let segueDestination = segue.destination as? topicInformationTableViewController,
+            let indexPath = self.tableView.indexPathForSelectedRow {
+            let selectedTopic = topics[indexPath.row]
+            segueDestination.currentTopic = selectedTopic
+        }
+
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
+     
+     
     }
     */
 

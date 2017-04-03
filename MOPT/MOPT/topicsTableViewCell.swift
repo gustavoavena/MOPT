@@ -10,6 +10,10 @@ import UIKit
 
 class topicsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var topicName: UILabel!
+    @IBOutlet weak var numberOfSubtopics: UILabel!
+    @IBOutlet weak var topicCreatorPicture: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
