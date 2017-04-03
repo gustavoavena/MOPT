@@ -9,5 +9,15 @@
 import UIKit
 
 class CommentDBLayer: NSObject {
+    
+    let myContainer: CKContainer
+    
+    let publicDB: CKDatabase
+    
+    override init() {
+        myContainer = CKContainer.default()
+        publicDB = myContainer.publicCloudDatabase
+    }
+
 
 }

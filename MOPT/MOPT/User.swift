@@ -14,7 +14,6 @@ import CloudKit
 class User: NSObject {
     let name: String
     let email: String
-    var meetings: [Meeting]
     let profilePicture: UIImage?
     let fbUsername: String
     

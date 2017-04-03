@@ -13,7 +13,6 @@ import UIKit
 class Meeting: NSObject {
     let moderator: User
     let date: Date
-    var topics: [Topic]
     var participants: [User]
     let timeController: TimeControl
     var currentTopic: Topic?

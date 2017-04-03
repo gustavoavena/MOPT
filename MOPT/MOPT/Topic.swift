@@ -14,11 +14,9 @@ class Topic: NSObject {
     let title: String
     let text: String
     let creator: User
-    var subtopics: [Topic]?
     var comments: [Comment]?
     let timeController: TimeControl
     var conclusion: String?
-    let isSubtopic: Bool
     let meeting: Meeting
     
     // TODO: copy Meeting initializer structure.

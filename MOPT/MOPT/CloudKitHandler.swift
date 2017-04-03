@@ -1,14 +1,14 @@
 //
-//  MeetingDBLayer.swift
+//  CloudKitHandler.swift
 //  MOPT
 //
-//  Created by Gustavo Avena on 30/03/17.
+//  Created by Gustavo Avena on 03/04/17.
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
 import UIKit
-import CloudKit
-class MeetingDBLayer: NSObject {
+
+class CloudKitHandler: NSObject {
     
     let myContainer: CKContainer
     
@@ -19,12 +19,12 @@ class MeetingDBLayer: NSObject {
         publicDB = myContainer.publicCloudDatabase
     }
     
-    func fetchByID(meetingID: String, handleUserObject: @escaping (CKRecord?, Error?) -> Void) {
+    func fetchByID(recordID: String, handleUserObject: @escaping (CKRecord?, Error?) -> Void) {
         
-        let recordID = CKRecordID(recordName: fbUsername)
+        let recordIDObject = CKRecordID(recordName: recordID)
         
         
-        publicDB.fetch(withRecordID: recordID){
+        publicDB.fetch(withRecordID: recordIDObject){
             (record, error) in
             if error != nil {
                 print("Error performing query for meeting")
@@ -40,8 +40,7 @@ class MeetingDBLayer: NSObject {
             } else {
                 handleUserObject(nil, error)
             }
-    }
-
+        }
 
 
 }
