@@ -39,6 +39,13 @@
 		D45B26BC1E9285EF002A1866 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45B26B81E9285EF002A1866 /* FBSDKLoginKit.framework */; };
 		D45B26BD1E9285EF002A1866 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45B26B91E9285EF002A1866 /* FBSDKShareKit.framework */; };
 		D45B26BF1E928626002A1866 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26BE1E928626002A1866 /* User.swift */; };
+		D45B26C11E9289D2002A1866 /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C01E9289D2002A1866 /* TopicsTableViewController.swift */; };
+		D45B26C31E9289EB002A1866 /* topicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C21E9289EB002A1866 /* topicsTableViewCell.swift */; };
+		D45B26C51E928AB6002A1866 /* topicInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C41E928AB6002A1866 /* topicInformationTableViewController.swift */; };
+		D45B26C71E928B3A002A1866 /* descriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C61E928B3A002A1866 /* descriptionTableViewCell.swift */; };
+		D45B26C91E928B53002A1866 /* commentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C81E928B53002A1866 /* commentsTableViewCell.swift */; };
+		D45B26CB1E928B91002A1866 /* subtopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26CA1E928B91002A1866 /* subtopicsTableViewCell.swift */; };
+		D45B26CE1E928D30002A1866 /* SubtopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26CD1E928D30002A1866 /* SubtopicTableViewController.swift */; };
 		D484C6491E8D28320079B34B /* SWANSE__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6451E8D28320079B34B /* SWANSE__.TTF */; };
 		D484C64A1E8D28320079B34B /* SWANSE_B.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6461E8D28320079B34B /* SWANSE_B.TTF */; };
 		D484C64B1E8D28320079B34B /* SWANSE_I.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6471E8D28320079B34B /* SWANSE_I.TTF */; };
@@ -82,6 +89,13 @@
 		D45B26B81E9285EF002A1866 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D45B26B91E9285EF002A1866 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		D45B26BE1E928626002A1866 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D45B26C01E9289D2002A1866 /* TopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
+		D45B26C21E9289EB002A1866 /* topicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topicsTableViewCell.swift; sourceTree = "<group>"; };
+		D45B26C41E928AB6002A1866 /* topicInformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topicInformationTableViewController.swift; sourceTree = "<group>"; };
+		D45B26C61E928B3A002A1866 /* descriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = descriptionTableViewCell.swift; sourceTree = "<group>"; };
+		D45B26C81E928B53002A1866 /* commentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentsTableViewCell.swift; sourceTree = "<group>"; };
+		D45B26CA1E928B91002A1866 /* subtopicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subtopicsTableViewCell.swift; sourceTree = "<group>"; };
+		D45B26CD1E928D30002A1866 /* SubtopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtopicTableViewController.swift; sourceTree = "<group>"; };
 		D484C6451E8D28320079B34B /* SWANSE__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE__.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE__.TTF"; sourceTree = "<group>"; };
 		D484C6461E8D28320079B34B /* SWANSE_B.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE_B.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE_B.TTF"; sourceTree = "<group>"; };
 		D484C6471E8D28320079B34B /* SWANSE_I.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE_I.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE_I.TTF"; sourceTree = "<group>"; };
@@ -139,7 +153,7 @@
 				D45B26831E926B5B002A1866 /* Meetings View Controllers */,
 				D45B26821E926B49002A1866 /* Topics View Controllers */,
 				D45B26881E92710D002A1866 /* Topic Options View Controllers */,
-				D45B26891E927110002A1866 /* Subtopic View Controllers */,
+				D45B26CC1E928BA9002A1866 /* Subtopics View Controllers */,
 				4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */,
 				4D3CC5751E8AA6A3000136FB /* ViewController.swift */,
 				D45B26B01E928511002A1866 /* Comment */,
@@ -176,6 +190,8 @@
 		D45B26821E926B49002A1866 /* Topics View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D45B26C01E9289D2002A1866 /* TopicsTableViewController.swift */,
+				D45B26C21E9289EB002A1866 /* topicsTableViewCell.swift */,
 			);
 			name = "Topics View Controllers";
 			sourceTree = "<group>";
@@ -192,15 +208,12 @@
 		D45B26881E92710D002A1866 /* Topic Options View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D45B26C41E928AB6002A1866 /* topicInformationTableViewController.swift */,
+				D45B26C61E928B3A002A1866 /* descriptionTableViewCell.swift */,
+				D45B26C81E928B53002A1866 /* commentsTableViewCell.swift */,
+				D45B26CA1E928B91002A1866 /* subtopicsTableViewCell.swift */,
 			);
 			name = "Topic Options View Controllers";
-			sourceTree = "<group>";
-		};
-		D45B26891E927110002A1866 /* Subtopic View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Subtopic View Controllers";
 			sourceTree = "<group>";
 		};
 		D45B26B01E928511002A1866 /* Comment */ = {
@@ -260,6 +273,14 @@
 				D45B268F1E92850A002A1866 /* LoginScreenViewController.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		D45B26CC1E928BA9002A1866 /* Subtopics View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D45B26CD1E928D30002A1866 /* SubtopicTableViewController.swift */,
+			);
+			name = "Subtopics View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,11 +370,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D45B26C71E928B3A002A1866 /* descriptionTableViewCell.swift in Sources */,
 				D45B26A31E92850A002A1866 /* LoginScreenViewController.swift in Sources */,
 				D45B26A41E92850A002A1866 /* Meeting.swift in Sources */,
 				D45B269F1E92850A002A1866 /* CommentDBLayer.swift in Sources */,
 				D45B26AB1E92850A002A1866 /* Topic.swift in Sources */,
 				4D3CC5761E8AA6A3000136FB /* ViewController.swift in Sources */,
+				D45B26C11E9289D2002A1866 /* TopicsTableViewController.swift in Sources */,
 				D45B269E1E92850A002A1866 /* Comment.swift in Sources */,
 				D45B26A51E92850A002A1866 /* MeetingDBLayer.swift in Sources */,
 				D45B26AC1E92850A002A1866 /* TopicDBLayer.swift in Sources */,
@@ -366,13 +389,18 @@
 				D45B26A91E92850A002A1866 /* TimeControlDBLayer.swift in Sources */,
 				D45B26A71E92850A002A1866 /* MOPT.xcdatamodeld in Sources */,
 				4D3CC57C1E8AA6A3000136FB /* (null) in Sources */,
+				D45B26CE1E928D30002A1866 /* SubtopicTableViewController.swift in Sources */,
 				D45B26A81E92850A002A1866 /* TimeControl.swift in Sources */,
 				4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */,
 				D45B26AE1E92850A002A1866 /* UserDBLayer.swift in Sources */,
+				D45B26CB1E928B91002A1866 /* subtopicsTableViewCell.swift in Sources */,
 				D45B26BF1E928626002A1866 /* User.swift in Sources */,
 				D45B26A11E92850A002A1866 /* Errors.swift in Sources */,
+				D45B26C51E928AB6002A1866 /* topicInformationTableViewController.swift in Sources */,
+				D45B26C91E928B53002A1866 /* commentsTableViewCell.swift in Sources */,
 				D45B26AD1E92850A002A1866 /* TopicServices.swift in Sources */,
 				D45B26A01E92850A002A1866 /* CommentServices.swift in Sources */,
+				D45B26C31E9289EB002A1866 /* topicsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,7 +29,7 @@ class UserDBLayer: NSObject {
         let user = User(name: record["name"] as! String,
                         fbUsername: record["fbUsername"] as! String,
                         email: record["email"] as! String,
-                        meetings: record["meetings"] as? [Meeting],
+                        //meetings: record["meetings"] as? [Meeting],
                         profilePicture: profilePicture as? UIImage
         )
         return user

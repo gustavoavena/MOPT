@@ -1,18 +1,15 @@
 //
-//  meetingsTableViewController.swift
+//  topicInformationTableViewController.swift
 //  MOPT
 //
 //  Created by Filipe Marques on 03/04/17.
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
-
 import UIKit
 
-class meetingsTableViewController: UITableViewController {
+class topicInformationTableViewController: UITableViewController {
 
-    public private(set) var meetings = [Meeting]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,37 +28,24 @@ class meetingsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        //return meetings.count
-        return meetings.count
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as! meetingsTableViewCell
-        
-        let dateFormatter = DateFormatter()
-        
-        cell.meetingName.text = self.meetings[indexPath.row].title
-        cell.meetingTime?.text = nil
-        cell.meetingDate?.text = nil
-        cell.moderatorPicture.image = self.meetings[indexPath.row].moderator.profilePicture
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
 
         return cell
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow! as NSIndexPath
-        var destViewController = segue.destination as! TopicsTableViewController
-        
-        
-    }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.

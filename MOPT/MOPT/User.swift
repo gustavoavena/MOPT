@@ -14,24 +14,24 @@ import CloudKit
 class User: NSObject {
     let name: String
     let email: String
-    var meetings: [Meeting]
+    //var meetings: [Meeting]
     let profilePicture: UIImage?
     let fbUsername: String
     
     
     
-    init(name: String, fbUsername: String, email: String, meetings: [Meeting]?, profilePicture: UIImage?) {
+    init(name: String, fbUsername: String, email: String, /*meetings: [Meeting]?,*/ profilePicture: UIImage?) {
         self.name = name
         self.fbUsername = fbUsername
         self.email = email
-        self.meetings = meetings ?? [Meeting]()
+        //self.meetings = meetings ?? [Meeting]()
         self.profilePicture = profilePicture
     }
     
-    func joinMeeting(meeting: Meeting) {
-        self.meetings.append(meeting)
-        meeting.addParticipant(participant: self)
-    }
+//    func joinMeeting(meeting: Meeting) {
+//        self.meetings.append(meeting)
+//        meeting.addParticipant(participant: self)
+//    }
     
     // TODO: implement leaveMeeting.
     
