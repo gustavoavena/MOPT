@@ -3,17 +3,7 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "size" : "20x20",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "iphone",
-      "size" : "20x20",
-      "scale" : "3x"
-    },
-    {
-      "idiom" : "iphone",
-      "size" : "29x29",
+      "filename" : "Logo mOpt 40x40.png",
       "scale" : "2x"
     },
     {
@@ -23,6 +13,7 @@
       "scale" : "3x"
     },
     {
+      "idiom" : "iphone",
       "size" : "29x29",
       "idiom" : "iphone",
       "filename" : "Camada 1_iPhoneSettings_29@2x.png",
