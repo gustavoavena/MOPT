@@ -70,7 +70,7 @@ class UserDBLayer: NSObject {
 //        userRecord["name"] = user.name as NSString
 //        userRecord["email"] = user.email as NSString
 //        userRecord["fbUsername"] = user.fbUsername as NSString
-//        
+//
 //        
 //        
 //        
@@ -86,7 +86,6 @@ class UserDBLayer: NSObject {
 //        return userRecord
 //        
 //    }
-    
         
     // TODO: Implement error handling with a completionHandler.
 //    func storeUserObject(user: User) {
