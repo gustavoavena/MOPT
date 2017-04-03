@@ -12,7 +12,7 @@
 		4D3CC5791E8AA6A3000136FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC5771E8AA6A3000136FB /* Main.storyboard */; };
 		4D3CC57C1E8AA6A3000136FB /* MOPT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC57A1E8AA6A3000136FB /* MOPT.xcdatamodeld */; };
 		4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */; };
-		A420DCE91E927CDE00E602F8 /* NewTopic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420DCE81E927CDE00E602F8 /* NewTopic.storyboard */; };
+		A420DCE91E927CDE00E602F8 /* Topic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420DCE81E927CDE00E602F8 /* Topic.storyboard */; };
 		A420DCEB1E927CE900E602F8 /* NewSubtopic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420DCEA1E927CE900E602F8 /* NewSubtopic.storyboard */; };
 		A420DCEF1E9280A100E602F8 /* AddParticipant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420DCEE1E9280A100E602F8 /* AddParticipant.storyboard */; };
 		A49D6B361E8ECF2D00893688 /* NewMeeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49D6B351E8ECF2D00893688 /* NewMeeting.storyboard */; };
@@ -28,7 +28,7 @@
 		4D3CC57B1E8AA6A3000136FB /* MOPT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MOPT.xcdatamodel; sourceTree = "<group>"; };
 		4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D3CC5821E8AA6A3000136FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A420DCE81E927CDE00E602F8 /* NewTopic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewTopic.storyboard; sourceTree = "<group>"; };
+		A420DCE81E927CDE00E602F8 /* Topic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Topic.storyboard; sourceTree = "<group>"; };
 		A420DCEA1E927CE900E602F8 /* NewSubtopic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewSubtopic.storyboard; sourceTree = "<group>"; };
 		A420DCEE1E9280A100E602F8 /* AddParticipant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddParticipant.storyboard; sourceTree = "<group>"; };
 		A49D6B351E8ECF2D00893688 /* NewMeeting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewMeeting.storyboard; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				A49D6B351E8ECF2D00893688 /* NewMeeting.storyboard */,
-				A420DCE81E927CDE00E602F8 /* NewTopic.storyboard */,
+				A420DCE81E927CDE00E602F8 /* Topic.storyboard */,
 				A420DCEE1E9280A100E602F8 /* AddParticipant.storyboard */,
 				A420DCEA1E927CE900E602F8 /* NewSubtopic.storyboard */,
 			);
@@ -165,7 +165,7 @@
 				4D3CC5791E8AA6A3000136FB /* Main.storyboard in Resources */,
 				D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */,
 				A49D6B361E8ECF2D00893688 /* NewMeeting.storyboard in Resources */,
-				A420DCE91E927CDE00E602F8 /* NewTopic.storyboard in Resources */,
+				A420DCE91E927CDE00E602F8 /* Topic.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
