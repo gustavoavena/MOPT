@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1pe-uN-dMi">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="KeepCalm-Medium.ttf">
+            <string>KeepCalm-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="F98-PF-ZXh">
+            <objects>
+                <viewController id="1pe-uN-dMi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="isL-98-bHf"/>
+                        <viewControllerLayoutGuide type="bottom" id="EcF-rg-G05"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mFW-qL-mXn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Agw-9D-iNN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mOpt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBl-RP-del">
+                                        <rect key="frame" x="118" y="65" width="139" height="57"/>
+                                        <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="47"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzh-yP-cgk">
+                                        <rect key="frame" x="116" y="39" width="143" height="23"/>
+                                        <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="19"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.69803921568627447" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Mzh-yP-cgk" firstAttribute="leading" secondItem="Agw-9D-iNN" secondAttribute="leading" constant="116" id="35v-GD-fjL"/>
+                                    <constraint firstItem="rBl-RP-del" firstAttribute="top" secondItem="Mzh-yP-cgk" secondAttribute="bottom" constant="3" id="3cD-H3-jqJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="rBl-RP-del" secondAttribute="trailing" constant="118" id="EW5-Vu-rwu"/>
+                                    <constraint firstItem="Mzh-yP-cgk" firstAttribute="top" secondItem="Agw-9D-iNN" secondAttribute="top" constant="39" id="WfB-Sm-BYX"/>
+                                    <constraint firstItem="Mzh-yP-cgk" firstAttribute="centerX" secondItem="Agw-9D-iNN" secondAttribute="centerX" id="YUi-cb-tun"/>
+                                    <constraint firstItem="rBl-RP-del" firstAttribute="leading" secondItem="Agw-9D-iNN" secondAttribute="leading" constant="118" id="aDa-33-x5B"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mzh-yP-cgk" secondAttribute="trailing" constant="116" id="cku-Y4-dYY"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbw-FI-85F">
+                                <rect key="frame" x="72" y="308" width="230" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bnQ-IV-bQT"/>
+                                    <constraint firstAttribute="width" constant="230" id="hkY-u7-EII"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Connect with Facebook">
+                                    <color key="titleColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="8hv-aJ-rXJ" kind="show" id="vsm-aD-cDi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Agw-9D-iNN" firstAttribute="leading" secondItem="mFW-qL-mXn" secondAttribute="leading" id="2Yh-im-nPl"/>
+                            <constraint firstItem="Agw-9D-iNN" firstAttribute="top" secondItem="mFW-qL-mXn" secondAttribute="top" id="3TY-6R-aCd"/>
+                            <constraint firstAttribute="trailing" secondItem="Agw-9D-iNN" secondAttribute="trailing" id="4Is-mA-JOW"/>
+                            <constraint firstItem="Sbw-FI-85F" firstAttribute="centerX" secondItem="mFW-qL-mXn" secondAttribute="centerX" id="B8l-qe-dsX"/>
+                            <constraint firstItem="Sbw-FI-85F" firstAttribute="centerY" secondItem="mFW-qL-mXn" secondAttribute="centerY" id="Vl2-dl-aJk"/>
+                            <constraint firstItem="Agw-9D-iNN" firstAttribute="height" secondItem="mFW-qL-mXn" secondAttribute="height" multiplier="0.24" id="qAy-np-B5b"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NzE-NW-jJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-338.39999999999998" y="175.86206896551727"/>
+        </scene>
+        <!--Flow-->
+        <scene sceneID="0oN-4H-9EU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Flow" id="8hv-aJ-rXJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ef-KL-QFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="385" y="175"/>
+        </scene>
+    </scenes>
+</document>

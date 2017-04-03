@@ -35,6 +35,18 @@
 		4D462B781E900FD200FF298D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D462B741E900FD200FF298D /* FBSDKShareKit.framework */; };
 		C6119C251E90081900343FEA /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6119C241E90081900343FEA /* LoginScreenViewController.swift */; };
 		C6119C271E90085C00343FEA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6119C261E90085C00343FEA /* LoginModel.swift */; };
+		4D3CC5791E8AA6A3000136FB /* Flow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC5771E8AA6A3000136FB /* Flow.storyboard */; };
+		4D3CC57C1E8AA6A3000136FB /* MOPT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC57A1E8AA6A3000136FB /* MOPT.xcdatamodeld */; };
+		4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */; };
+		4D3CC5811E8AA6A3000136FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */; };
+		D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */; };
+		D45B26851E926B8B002A1866 /* meetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */; };
+		D45B26871E926D2B002A1866 /* meetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */; };
+		D484C6491E8D28320079B34B /* SWANSE__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6451E8D28320079B34B /* SWANSE__.TTF */; };
+		D484C64A1E8D28320079B34B /* SWANSE_B.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6461E8D28320079B34B /* SWANSE_B.TTF */; };
+		D484C64B1E8D28320079B34B /* SWANSE_I.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6471E8D28320079B34B /* SWANSE_I.TTF */; };
+		D484C64C1E8D28320079B34B /* SWANSEBI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6481E8D28320079B34B /* SWANSEBI.TTF */; };
+		D4BD50EF1E8FD6EB0091A37F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +81,19 @@
 		4D462B741E900FD200FF298D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		C6119C241E90081900343FEA /* LoginScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
 		C6119C261E90085C00343FEA /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		4D3CC5781E8AA6A3000136FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Flow.storyboard; sourceTree = "<group>"; };
+		4D3CC57B1E8AA6A3000136FB /* MOPT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MOPT.xcdatamodel; sourceTree = "<group>"; };
+		4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D3CC5801E8AA6A3000136FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4D3CC5821E8AA6A3000136FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "KeepCalm-Medium.ttf"; path = "../../../../Slackers/Design/Resources/KeepCalm-Medium.ttf"; sourceTree = "<group>"; };
+		D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewController.swift; sourceTree = "<group>"; };
+		D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewCell.swift; sourceTree = "<group>"; };
+		D484C6451E8D28320079B34B /* SWANSE__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE__.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE__.TTF"; sourceTree = "<group>"; };
+		D484C6461E8D28320079B34B /* SWANSE_B.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE_B.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE_B.TTF"; sourceTree = "<group>"; };
+		D484C6471E8D28320079B34B /* SWANSE_I.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE_I.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE_I.TTF"; sourceTree = "<group>"; };
+		D484C6481E8D28320079B34B /* SWANSEBI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSEBI.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSEBI.TTF"; sourceTree = "<group>"; };
+		D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +208,19 @@
 				4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */,
 				4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */,
 				4D3CC5821E8AA6A3000136FB /* Info.plist */,
+				D45B26831E926B5B002A1866 /* Meetings View Controllers */,
+				D45B26821E926B49002A1866 /* Topics View Controllers */,
+				D45B26881E92710D002A1866 /* Topic Options View Controllers */,
+				D45B26891E927110002A1866 /* Subtopic View Controllers */,
+				4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */,
+				4D3CC5751E8AA6A3000136FB /* ViewController.swift */,
+				D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */,
+				4D3CC5771E8AA6A3000136FB /* Flow.storyboard */,
+				4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */,
+				4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */,
+				4D3CC5821E8AA6A3000136FB /* Info.plist */,
+				4D3CC57A1E8AA6A3000136FB /* MOPT.xcdatamodeld */,
+				D449F8FA1E8BFF0A006E60DB /* Fonts */,
 			);
 			path = MOPT;
 			sourceTree = "<group>";
@@ -194,6 +232,46 @@
 				C6119C261E90085C00343FEA /* LoginModel.swift */,
 			);
 			name = Login;
+		D449F8FA1E8BFF0A006E60DB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */,
+				D484C6451E8D28320079B34B /* SWANSE__.TTF */,
+				D484C6461E8D28320079B34B /* SWANSE_B.TTF */,
+				D484C6471E8D28320079B34B /* SWANSE_I.TTF */,
+				D484C6481E8D28320079B34B /* SWANSEBI.TTF */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		D45B26821E926B49002A1866 /* Topics View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Topics View Controllers";
+			sourceTree = "<group>";
+		};
+		D45B26831E926B5B002A1866 /* Meetings View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */,
+				D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */,
+			);
+			name = "Meetings View Controllers";
+			sourceTree = "<group>";
+		};
+		D45B26881E92710D002A1866 /* Topic Options View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Topic Options View Controllers";
+			sourceTree = "<group>";
+		};
+		D45B26891E927110002A1866 /* Subtopic View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Subtopic View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +306,7 @@
 				TargetAttributes = {
 					4D3CC56F1E8AA6A2000136FB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = X5G89Y4L38;
+						DevelopmentTeam = 9WW6YH2P93;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -265,8 +343,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3CC5811E8AA6A3000136FB /* LaunchScreen.storyboard in Resources */,
+				D484C64B1E8D28320079B34B /* SWANSE_I.TTF in Resources */,
+				D4BD50EF1E8FD6EB0091A37F /* Login.storyboard in Resources */,
 				4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */,
-				4D3CC5791E8AA6A3000136FB /* Main.storyboard in Resources */,
+				4D3CC5791E8AA6A3000136FB /* Flow.storyboard in Resources */,
+				D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */,
+				D484C64A1E8D28320079B34B /* SWANSE_B.TTF in Resources */,
+				D484C6491E8D28320079B34B /* SWANSE__.TTF in Resources */,
+				D484C64C1E8D28320079B34B /* SWANSEBI.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +374,9 @@
 				4D19E74E1E8D2839003782E6 /* Meeting.swift in Sources */,
 				4D19E7611E8D5496003782E6 /* CommentDBLayer.swift in Sources */,
 				4D3CC5761E8AA6A3000136FB /* ViewController.swift in Sources */,
+				D45B26851E926B8B002A1866 /* meetingsTableViewController.swift in Sources */,
+				D45B26871E926D2B002A1866 /* meetingsTableViewCell.swift in Sources */,
+				4D3CC57C1E8AA6A3000136FB /* MOPT.xcdatamodeld in Sources */,
 				4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */,
 				4D19E7711E8EDE1D003782E6 /* MeetingServices.swift in Sources */,
 				4D19E76F1E8EDE14003782E6 /* TopicServices.swift in Sources */,
@@ -303,12 +390,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4D3CC5771E8AA6A3000136FB /* Main.storyboard */ = {
+		4D3CC5771E8AA6A3000136FB /* Flow.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4D3CC5781E8AA6A3000136FB /* Base */,
 			);
-			name = Main.storyboard;
+			name = Flow.storyboard;
 			sourceTree = "<group>";
 		};
 		4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */ = {
@@ -420,9 +507,10 @@
 				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
 				DEVELOPMENT_TEAM = X5G89Y4L38;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
+				DEVELOPMENT_TEAM = 9WW6YH2P93;
 				INFOPLIST_FILE = MOPT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.MOPT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FilipeMarques.MOPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -435,9 +523,10 @@
 				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
 				DEVELOPMENT_TEAM = X5G89Y4L38;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
+				DEVELOPMENT_TEAM = 9WW6YH2P93;
 				INFOPLIST_FILE = MOPT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.MOPT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FilipeMarques.MOPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
