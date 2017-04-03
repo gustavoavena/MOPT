@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9kC-BN-hfX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="3FC-XW-nWO">
+            <objects>
+                <navigationController id="9kC-BN-hfX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9kW-7y-NPQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ndx-Tu-VGu" kind="relationship" relationship="rootViewController" id="Ztk-6n-YVp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e2J-ys-3Rh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-766" y="63"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="e9f-8x-fXY">
+            <objects>
+                <viewController id="ndx-Tu-VGu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EFG-T0-uIX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nnm-kh-Xpu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TuC-C2-KuD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x2q-zn-Je1">
+                                <rect key="frame" x="16" y="190.5" width="343" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUBTOPIC NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lO1-P1-1be">
+                                <rect key="frame" x="16" y="167.5" width="98.5" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All participants will see this subtopic" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DA-15-Bx2">
+                                <rect key="frame" x="62.5" y="115" width="249" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" red="0.20784313725490194" green="0.61960784313725492" blue="0.59999999999999998" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Subtopic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tk4-zV-RWF">
+                                <rect key="frame" x="100.5" y="78.5" width="174" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.20784313725490194" green="0.61960784313725492" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tk4-zV-RWF" firstAttribute="top" secondItem="EFG-T0-uIX" secondAttribute="bottom" multiplier="1.1" constant="8" symbolic="YES" id="GWl-pD-idc"/>
+                            <constraint firstItem="3DA-15-Bx2" firstAttribute="top" secondItem="tk4-zV-RWF" secondAttribute="bottom" multiplier="0.95" constant="8" symbolic="YES" id="LUw-2t-29y"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="x2q-zn-Je1" secondAttribute="leading" id="Sf7-d2-T85"/>
+                            <constraint firstItem="tk4-zV-RWF" firstAttribute="centerX" secondItem="TuC-C2-KuD" secondAttribute="centerX" id="aNy-bh-0jg"/>
+                            <constraint firstItem="3DA-15-Bx2" firstAttribute="centerX" secondItem="TuC-C2-KuD" secondAttribute="centerX" id="byq-n3-yxg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x2q-zn-Je1" secondAttribute="trailing" id="c5Q-Fb-01k"/>
+                            <constraint firstItem="x2q-zn-Je1" firstAttribute="top" secondItem="lO1-P1-1be" secondAttribute="bottom" constant="8" symbolic="YES" id="lpN-WP-wZb"/>
+                            <constraint firstItem="lO1-P1-1be" firstAttribute="top" secondItem="3DA-15-Bx2" secondAttribute="bottom" multiplier="1.2" constant="8" symbolic="YES" id="njO-hB-dHi"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="lO1-P1-1be" secondAttribute="leading" id="wfb-Qe-djR"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" id="TdG-h7-cq6">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="U2A-Vb-NMw">
+                            <color key="tintColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="7GB-jq-OW2" kind="show" id="Tkc-UJ-rzT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWm-2q-5xx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.799999999999997" y="61.619190404797607"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="9BF-5z-Ydh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="7GB-jq-OW2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZY4-4X-8af" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="692" y="61"/>
+        </scene>
+    </scenes>
+</document>

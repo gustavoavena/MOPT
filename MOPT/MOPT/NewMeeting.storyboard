@@ -28,23 +28,6 @@
             <point key="canvasLocation" x="-7900" y="-210"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="IUV-qk-2LP">
-            <objects>
-                <viewController id="AQI-Ne-Ls1" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oJE-Ik-83h"/>
-                        <viewControllerLayoutGuide type="bottom" id="Qmm-FI-erq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IbR-hK-IJe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Abs-JK-Ch7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="cM4-V7-oK6">
             <objects>
                 <viewController id="oQk-jj-wLp" sceneMemberID="viewController">
@@ -56,8 +39,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will be able to detail after" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yry-w9-I5y">
-                                <rect key="frame" x="87" y="114.5" width="201.5" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will be able to add details later" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yry-w9-I5y">
+                                <rect key="frame" x="69" y="114.5" width="237.5" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" red="0.23137254900000001" green="0.69803921570000005" blue="0.4823529412" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -93,8 +76,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQa-MD-UWW">
-                                <rect key="frame" x="91" y="78.5" width="193" height="33.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQa-MD-UWW">
+                                <rect key="frame" x="105.5" y="78.5" width="164.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="0.23137254900000001" green="0.69803921570000005" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -121,12 +104,23 @@
                     <navigationItem key="navigationItem" id="i3L-NZ-pZ1">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="tHV-TS-Bqa">
                             <color key="tintColor" red="0.23137254900000001" green="0.69803921570000005" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="b9P-iP-vVt" kind="show" id="VHH-Io-TL5"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GuL-8B-8SE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6983" y="-210"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="AHl-Iu-hNh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="b9P-iP-vVt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Wl-jg-3eX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6179" y="-212"/>
         </scene>
     </scenes>
 </document>
