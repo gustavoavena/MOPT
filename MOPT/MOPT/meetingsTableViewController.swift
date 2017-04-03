@@ -55,12 +55,12 @@ class meetingsTableViewController: UITableViewController {
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow! as NSIndexPath
-        var destViewController = segue.destination as! TopicsTableViewController
-        
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        var indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow! as NSIndexPath
+//        var destViewController = segue.destination as! TopicsTableViewController
+//        
+//        
+//    }
     
 
     /*

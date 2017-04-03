@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8Hk-Zl-hQv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oQk-jj-wLp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,22 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="Rds-p0-waU">
-            <objects>
-                <navigationController id="8Hk-Zl-hQv" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gF0-XN-WVq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="oQk-jj-wLp" kind="relationship" relationship="rootViewController" id="DFg-9s-x3D"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lsl-JK-tz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-7900" y="-210"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="cM4-V7-oK6">
             <objects>
@@ -114,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="-6983" y="-210"/>
         </scene>
-        <!--Main-->
+        <!--Flow-->
         <scene sceneID="AHl-Iu-hNh">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="b9P-iP-vVt" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Flow" id="b9P-iP-vVt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Wl-jg-3eX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6179" y="-212"/>
