@@ -15,6 +15,10 @@ enum TimeError: Error {
     
 }
 
+enum CKHandlerError: Error {
+    case NoRecordFound
+}
+
 enum QueryError: Error {
     case UserError
 }

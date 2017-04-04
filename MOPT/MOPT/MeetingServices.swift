@@ -127,7 +127,10 @@ class MeetingServices: NSObject {
         
     }
     
-    func addParticipant(meetingID: String, username: String)  {
+    // TODO: Follow protocol!!
+    
+    
+    func addParticipant(meetingRecordID: CKRecordID, username: String)  {
         
         print("Adding participant \(username) to meeting \(meetingID)")
         

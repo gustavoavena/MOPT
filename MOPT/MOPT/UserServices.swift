@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CloudKit
+
 
 class UserServices: NSObject {
 

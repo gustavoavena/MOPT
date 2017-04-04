@@ -15,6 +15,7 @@
 		4D3CC57C1E8AA6A3000136FB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */; };
 		4D3CC5811E8AA6A3000136FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */; };
+		4DAEF16A1E93D52C00A99E0D /* ControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEF1691E93D52C00A99E0D /* ControllerProtocols.swift */; };
 		D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */; };
 		D45B26851E926B8B002A1866 /* meetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */; };
 		D45B26871E926D2B002A1866 /* meetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */; };
@@ -51,6 +52,7 @@
 		4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D3CC5801E8AA6A3000136FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D3CC5821E8AA6A3000136FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DAEF1691E93D52C00A99E0D /* ControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerProtocols.swift; sourceTree = "<group>"; };
 		D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "KeepCalm-Medium.ttf"; path = "../../../../Slackers/Design/Resources/KeepCalm-Medium.ttf"; sourceTree = "<group>"; };
 		D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewController.swift; sourceTree = "<group>"; };
 		D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				D45B26B11E92851A002A1866 /* Meeting */,
 				D45B268D1E92850A002A1866 /* Errors.swift */,
 				4D36004B1E929A9F0030574C /* CloudKitHandler.swift */,
+				4DAEF1691E93D52C00A99E0D /* ControllerProtocols.swift */,
 				D45B26931E92850A002A1866 /* MOPT.entitlements */,
 				D45B26941E92850A002A1866 /* MOPT.xcdatamodeld */,
 				D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */,
@@ -330,6 +333,7 @@
 				D45B26A51E92850A002A1866 /* MeetingDBLayer.swift in Sources */,
 				D45B26AC1E92850A002A1866 /* TopicDBLayer.swift in Sources */,
 				D45B26851E926B8B002A1866 /* meetingsTableViewController.swift in Sources */,
+				4DAEF16A1E93D52C00A99E0D /* ControllerProtocols.swift in Sources */,
 				D45B26A61E92850A002A1866 /* MeetingServices.swift in Sources */,
 				D45B26871E926D2B002A1866 /* meetingsTableViewCell.swift in Sources */,
 				D45B26A21E92850A002A1866 /* LoginModel.swift in Sources */,

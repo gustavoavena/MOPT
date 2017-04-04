@@ -6,16 +6,19 @@
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
+import CloudKit
 struct Meeting {
     var name:String
     //var pic:String?
 }
 
+
+
 import UIKit
 
 class meetingsTableViewController: UITableViewController {
 
-    public private(set) var meetings = [Meeting]()
+    public private(set) var meetingRecords = [CKRecord]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +57,7 @@ class meetingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as! meetingsTableViewCell
-        cell.meetingName.text = self.meetings[indexPath.row].name
+        cell.meetingName.text = self.meetings[indexPath.row]["title"]
         cell.meetingTime?.text = nil
         cell.meetingDate?.text = nil
         //cell.moderatorPicture?.image = UIImage(named:self.meetings[indexPath.row].pic!)

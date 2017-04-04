@@ -27,19 +27,19 @@ public class CloudKitHandler: NSObject {
         
         publicDB.fetch(withRecordID: recordIDObject){
             (record, error) in
-            if error != nil {
+            
+            guard error == nil else {
                 print("Error performing query for meeting")
+                return
             }
             
             print("record:", record as Any, terminator: "\n\n")
-            
-            
             
             if let record = record {
                 handleUserObject(record, error)
                 
             } else {
-                handleUserObject(nil, error)
+                handleUserObject(nil, CKHandlerError.NoRecordFound)
             }
         
         }
