@@ -21,74 +21,73 @@ class TopicServices: NSObject {
         topics = [CKRecord]()
     }
     
+    // DONE: obeys protocol.
+    func createTopic(title: String, description: String, meetingRecordID: CKRecordID, creatorRecordID:CKRecordID) {
+        // Default topicID string is: "[title]:[meetingID]"
+        let recordID = CKRecordID(recordName: String(format: "%@:%@", title, meetingRecordID.recordName))
+        
+        let topicRecord = CKRecord(recordType: "Topic", recordID: recordID)
+        
+        print("Creating topic \(title) in meeting = \(meetingRecordID.recordName)")
+        
+        let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
+        let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
+        
+        topicRecord["title"] = title as NSString
+        topicRecord["description"] = description as NSString
+        topicRecord["meeting"] = meetingReference
+        topicRecord["creator"] = creatorReference
+        
+        
+        ckHandler.saveRecord(record: topicRecord)
+    }
+    
+    // DONE: obeys protocol.
+    func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: @escaping ([CKRecord], Error?)->Void) {
+        let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
+        let predicate = NSPredicate(format: "meeting = %@", meetingReference)
+        let query = CKQuery(recordType: "Topic", predicate: predicate)
+        
+        self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
+            (responseData, error) in
+            
+            guard error == nil && responseData != nil else {
+                print("problem getting topics from meeting")
+                return
+            }
+            
+            let records = responseData!
+            
+            completionHandler(records, error)
+            
+        }
+    }
+    
+    // TODO: test it after creating subtopics.
+    func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void) {
+        let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
+        let predicate = NSPredicate(format: "topic = %@", topicReference)
+        let query = CKQuery(recordType: "Subtopic", predicate: predicate)
+        
+        self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
+            (responseData, error) in
+            
+            guard error == nil && responseData != nil else {
+                print("problem getting topics from meeting")
+                return
+            }
+            
+            let records = responseData!
+            
+            completionHandler(records, error)
+            
+        }
+
+    }
 
     
       
     
-    
-//    
-//    func addComment(comment: Comment) {
-//        if var comments = self.comments {
-//            comments.append(comment)
-//        } else {
-//            self.comments = [comment]
-//        }
-//    }
-//    
-//    func removeComment(comment: Comment) {
-//        guard (self.comments != nil) else {
-//            // TODO: Throw error, because comments is nil!!
-//            print("Comments is empty!")
-//            return
-//        }
-//        
-//        if(self.comments?.contains(comment))! {
-//            if let index = self.comments!.index(of: comment) {
-//                self.comments?.remove(at: index)
-//            } else {
-//                // TODO: throw error?
-//                print("Could not remove comment")
-//            }
-//        }
-//    }
-//    
-//    func addConclusion(conclusion: String) {
-//        // TODO: check if topic is being discussed or has already ended. Only then can you insert a conclusion.
-//        self.conclusion = conclusion
-//    }
-//    
-//    func startTopic() throws {
-//        // TODO: Check if the startTime is nil. If not, throw error. If it is, start the meeting at the current time.
-//        // Remember to call the self.meeting.changeCurrentTopic()
-//        
-//        guard ( self.timeController.startTime == nil &&
-//            self.timeController.endTime == nil &&
-//            self.meeting.currentTopic == nil)
-//            else {
-//                print("Can't start topic.")
-//                throw TimeError.StartError
-//        }
-//        
-//        self.timeController.startTime = Date()
-//        
-//        self.meeting.changeCurrentTopic(currentTopic: self)
-//        
-//    }
-//    
-//    func endTopic() throws {
-//        // TODO: Check if startTime is NOT nil and endTime IS nil.
-//        
-//        guard ( self.timeController.endTime == nil &&
-//            self.timeController.startTime != nil &&
-//            self.meeting.currentTopic == self) else {
-//                print("Can't end topic.")
-//                throw TimeError.EndError
-//        }
-//        
-//        self.timeController.endTime = Date()
-//        self.meeting.changeCurrentTopic(currentTopic: nil)
-//    }
-//    
 
 
 

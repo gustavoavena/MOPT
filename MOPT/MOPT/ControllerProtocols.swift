@@ -20,8 +20,8 @@ protocol MeetingDelegate {
 
 
 protocol TopicDelegate {
-    func createTopic(title: String, description: String, meetingRecordID: CKRecordID, creatorRecordID: CKRecordID)
-    func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: ([CKRecord]?, Error?)->Void)
+    func createTopic(title: String, description: String, meetingRecordID: CKRecordID, creatorRecordID: CKRecordID) // DONE
+    func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: ([CKRecord], Error?)->Void) // DONE
     func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void)
     func getTopicComments(commentsReferenceList: NSArray, completionHandler: ([CKRecord]?, Error?) -> Void)
     func addComment(topicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID)
