@@ -11,7 +11,7 @@ import FBSDKLoginKit
 
 class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-    fileprivate var loginModel = LoginModel()
+    fileprivate var userDelegate: UserDelegate
     
     //creating facebook login button instance
     let loginButton: FBSDKLoginButton! = {
@@ -57,7 +57,7 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         else {
             //getting user's facebook informations (id, name, email)
-            loginModel.fetchUserInfo(completionHandler: { (userInfo) in
+            userDelegate.fetchUserInfo(completionHandler: { (userInfo) in
                 let userName = userInfo["name"] as! String
                 let userEmail = userInfo["email"] as! String
                 let userID = Int(userInfo["id"] as! String)!
@@ -65,7 +65,7 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 //[code] procura user no banco de dados
                 //[code] if user == nil, cria novo usuario
-                self.loginModel.createUser(id: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
+                userDelegate.createUser(id: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
                 //[code] pula para proxima viewcontroller enviando user encontrado/criado como parametro
             })
         }

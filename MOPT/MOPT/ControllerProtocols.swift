@@ -42,6 +42,6 @@ protocol SubtopicDelegate {
 protocol UserDelegate {
     func createUser(fbID: Int, name: String, email: String, profilePictureURL: URL)
     func getUserProfilePictureURL(userReference: CKReference, completionHandler: (URL?, Error?) -> Void)
-    func getCurrentUserRecordID() -> CKRecordID
+    func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?))
 }
 

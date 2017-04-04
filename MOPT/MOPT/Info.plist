@@ -23,16 +23,16 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1857271851192864</string>
+				<string>fb144668286060174</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>1857271851192864</string>
+	<string>144668286060174</string>
 	<key>FacebookDisplayName</key>
-	<string>Teste Doido</string>
+	<string>MOPT</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
