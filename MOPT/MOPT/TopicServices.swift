@@ -23,34 +23,7 @@ class TopicServices: NSObject {
     
 
     
-    func addTopicToMeeting(meetingID: String, topicID: String) {
-        ckHandler.fetchByID(recordID: topicID) {
-            (recordResponse, error) in
-            
-            guard error == nil && recordResponse != nil else {
-                print("Error fetching meeting")
-                return
-            }
-            
-            let record = recordResponse!
-            
-            let meetingRecordID = CKRecordID(recordName: meetingID)
-            let meetingReference = CKReference(recordID: meetingRecordID, action: .none)
-            
-            
-            record["meeting"] = meetingReference as CKReference
-            
-            
-            self.ckHandler.publicDB.save(record) {
-                (newRecord, error) in
-                guard error == nil else {
-                    print("Error saving record to DB.")
-                    return
-                }
-            }
-        }
-    }
-    
+      
     
     
 //    
