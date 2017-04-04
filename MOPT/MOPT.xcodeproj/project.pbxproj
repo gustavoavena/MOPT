@@ -62,6 +62,8 @@
 		D4E651B31E9409D00093CEB9 /* meetingMinutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B21E9409D00093CEB9 /* meetingMinutesTableViewController.swift */; };
 		D4E651B51E940B720093CEB9 /* TopicConclusionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B41E940B720093CEB9 /* TopicConclusionTableViewCell.swift */; };
 		D4E651B71E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B61E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift */; };
+		D4E651B91E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */; };
+		D4E651BB1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651BA1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +125,8 @@
 		D4E651B21E9409D00093CEB9 /* meetingMinutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingMinutesTableViewController.swift; sourceTree = "<group>"; };
 		D4E651B41E940B720093CEB9 /* TopicConclusionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicConclusionTableViewCell.swift; sourceTree = "<group>"; };
 		D4E651B61E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtopicsConclusionTableViewCell.swift; sourceTree = "<group>"; };
+		D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousMeetingsTableViewController.swift; sourceTree = "<group>"; };
+		D4E651BA1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrevoiusMeetingsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +232,7 @@
 				D45B26C41E928AB6002A1866 /* topicInformationTableViewController.swift */,
 				D45B26CD1E928D30002A1866 /* SubtopicTableViewController.swift */,
 				D4E651B21E9409D00093CEB9 /* meetingMinutesTableViewController.swift */,
+				D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				D45B26C61E928B3A002A1866 /* descriptionTableViewCell.swift */,
 				D45B26C81E928B53002A1866 /* commentsTableViewCell.swift */,
 				D45B26CA1E928B91002A1866 /* subtopicsTableViewCell.swift */,
+				D4E651BA1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -407,9 +413,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D45B26C71E928B3A002A1866 /* descriptionTableViewCell.swift in Sources */,
+				D4E651BB1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift in Sources */,
 				D4E651B11E93DDC10093CEB9 /* ControllerProtocols.swift in Sources */,
 				D45B26A31E92850A002A1866 /* LoginScreenViewController.swift in Sources */,
 				D4E651AB1E93B5570093CEB9 /* NewTopicViewController.swift in Sources */,
+				D4E651B91E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift in Sources */,
 				D45B26A41E92850A002A1866 /* Meeting.swift in Sources */,
 				D45B269F1E92850A002A1866 /* CommentDBLayer.swift in Sources */,
 				D45B26AB1E92850A002A1866 /* Topic.swift in Sources */,

@@ -81,6 +81,10 @@ class TopicsTableViewController: UITableViewController {
             let segueDestination = segue.destination as? NewTopicViewController {
             segueDestination.currentMeeting = currentMeeting
         }
+        if segue.identifier == "addParticipant",
+            let segueDestination = segue.destination as? AddParticipantsViewController{
+            segueDestination.currentMeeting = currentMeeting
+        }
 
     }
     /*

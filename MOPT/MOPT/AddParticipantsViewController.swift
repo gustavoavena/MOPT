@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import CloudKit
 
 class AddParticipantsViewController: UIViewController {
     
-    @IBOutlet weak var invitedUserName: UITextField!
+    var currentMeeting:CKRecord?
+    private let meetingServices = MeetingServices()
     
     @IBOutlet weak var invitedUserEmail: UITextField!
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        meetingServices.addParticipant(meetingRecordID: currentMeeting?.recordID, userEmail: invitedUserEmail)
         //Code to add a new participant and segue the program back to the meeting
         self.dismiss(animated: true, completion:nil)
     }

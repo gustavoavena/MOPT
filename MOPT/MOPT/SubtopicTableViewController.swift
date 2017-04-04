@@ -13,11 +13,13 @@ class SubtopicTableViewController: UITableViewController {
     
     var currentSubtopic:CKRecord?
     public private (set) var comments = [CKRecord]()
-    
+    private let topicServices = TopicServices()
+    private let subtopicServices = SubtopicServices()
 
     @IBOutlet weak var currentUserPicture: UIImageView!
     @IBOutlet weak var commentTextField: UITextView!
     @IBAction func sendCommentButton(_ sender: UIButton) {
+        subtopicServices.addComment(subtopicRecordID: currentSubtopic?.recordID, commentText: commentTextField, creatorRecordID: CKRecordID)
         commentTextField.text = ""
     }
 

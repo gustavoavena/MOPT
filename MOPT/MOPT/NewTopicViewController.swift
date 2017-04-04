@@ -12,12 +12,14 @@ import CloudKit
 class NewTopicViewController: UIViewController {
     
     var currentMeeting:CKRecord?
+    private let topicServices = TopicServices()
     
     @IBOutlet weak var newTopicName: UITextField!
 
     @IBOutlet weak var newTopicDescription: UITextView!
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        topicServices.createTopic(title: newTopicName, description: newTopicDescription, meetingRecordID: currentMeeting?.recordID, creatorRecordID: CKRecordID)
         //Code to create a new topic and segue the program to the topic created
         self.dismiss(animated: true, completion:nil)
     }

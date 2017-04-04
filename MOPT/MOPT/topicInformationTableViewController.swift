@@ -21,6 +21,7 @@ class topicInformationTableViewController: UITableViewController {
     @IBOutlet weak var currentUserPicture: UIImageView!
     @IBOutlet weak var commentTextField: UITextView!
     @IBAction func sendCommentButton(_ sender: UIButton) {
+        topicServices.addComment(topicRecordID: currentTopic?.recordID, commentText: commentTextField, creatorRecordID: CKRecordID)
         commentTextField.text = ""
     }
     
@@ -110,6 +111,10 @@ class topicInformationTableViewController: UITableViewController {
             let indexPath = self.tableView.indexPathForSelectedRow {
             let selectedSubtopic = subtopics[indexPath.row]
             segueDestination.currentSubtopic = selectedSubtopic
+        }
+        if segue.identifier == "newSubtopic",
+            let segueDestination = segue.destination as? NewSubtopicViewController {
+            segueDestination.currentTopic = currentTopic
         }
     }
     

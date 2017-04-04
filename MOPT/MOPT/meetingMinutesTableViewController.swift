@@ -30,6 +30,11 @@ class meetingMinutesTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = currentMeeting?["title"] as? String
+    }
 
     // MARK: - Table view data source
 

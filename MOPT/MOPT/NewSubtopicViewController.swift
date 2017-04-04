@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import CloudKit
 
 class NewSubtopicViewController: UIViewController {
+    
+    var currentTopic:CKRecord?
+    private let subtopicServices = SubtopicServices()
     
     @IBOutlet weak var newSubtopicName: UITextField!
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        subtopicServices.createSubtopic(topicRecordID: currentTopic?.recordID, subtopicTitle: newSubtopicName, creatorRecordID: CKRecordID)
         //Code to create a new subtopic and segue the program to the subtopic created
         self.dismiss(animated: true, completion:nil)
     }
