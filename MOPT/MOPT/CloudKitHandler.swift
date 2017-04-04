@@ -20,12 +20,9 @@ public class CloudKitHandler: NSObject {
         publicDB = myContainer.publicCloudDatabase
     }
     
-    func fetchByID(recordID: String, handleUserObject: @escaping (CKRecord?, Error?) -> Void) {
+    func fetchByRecordID(recordID: CKRecordID, handleUserObject: @escaping (CKRecord?, Error?) -> Void) {
         
-        let recordIDObject = CKRecordID(recordName: recordID)
-        
-        
-        publicDB.fetch(withRecordID: recordIDObject){
+        publicDB.fetch(withRecordID: recordID){
             (record, error) in
             
             guard error == nil else {
@@ -41,7 +38,25 @@ public class CloudKitHandler: NSObject {
             } else {
                 handleUserObject(nil, CKHandlerError.NoRecordFound)
             }
-        
+            
         }
+    }
+    
+    public func saveRecord(record: CKRecord) {
+        
+        print("Attempting to save record \(record.recordID.recordName)")
+        
+        self.publicDB.save(record) {
+            (record, error) in
+            if let error = error {
+                // Insert error handling
+                print("Error when saving the record \(record?.recordID.recordName).")
+                print(error.localizedDescription)
+                return
+            }
+            // Insert successfully saved record code
+            print("Record \(record?.recordID.recordName) saved successfully.")
+        }
+        
     }
 }

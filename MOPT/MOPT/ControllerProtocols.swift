@@ -11,9 +11,9 @@ import CloudKit
 
 protocol MeetingDelegate {
     // TODO: Default value for getUserNextMeetings
-    func getUserNextMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: ([CKRecord]?, Error?) -> Void)
+    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: ([CKRecord]?, Error?) -> Void)
     func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID)
-    func addParticipant(meetingRecordID: CKRecordID, userEmail: String)
+    func addParticipant(meetingRecordID: CKRecordID, userEmail: String) // DONE
     
     
 }
@@ -37,11 +37,13 @@ protocol SubtopicDelegate {
 
 
 
-// TODO: Write global function to get current user's CKRecordID from his Facebook ID.
 
 protocol UserDelegate {
-    func createUser(fbID: Int, name: String, email: String, profilePictureURL: URL)
+    func createUser(fbID: Int, name: String, email: String, profilePictureURL: URL) // DONE
     func getUserProfilePictureURL(userReference: CKReference, completionHandler: (URL?, Error?) -> Void)
-    func getCurrentUserRecordID() -> CKRecordID
+    func getCurrentUserRecordID() -> CKRecordID // TODO: Write global function to get current user's CKRecordID from his Facebook ID.
+    func getUserRecordFromEmail(email: String, completionHandler: (CKRecord?, Error?)->Void) // DONE
+    
+    
 }
 

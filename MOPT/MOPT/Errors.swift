@@ -21,6 +21,7 @@ enum CKHandlerError: Error {
 
 enum QueryError: Error {
     case UserError
+    case UserByEmail
 }
 
 enum DBLayerError: Error {
