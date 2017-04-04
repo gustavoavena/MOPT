@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Add Participants View Controller-->
         <scene sceneID="Jdo-Os-xtY">
             <objects>
-                <viewController id="mcM-7S-7jP" sceneMemberID="viewController">
+                <viewController id="mcM-7S-7jP" customClass="AddParticipantsViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yti-gm-p7m"/>
                         <viewControllerLayoutGuide type="bottom" id="3hK-3v-pim"/>
@@ -94,22 +94,18 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="FTx-BS-GaC">
                             <color key="tintColor" red="0.21960784310000001" green="0.6588235294" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="vxe-77-YGz" kind="show" id="oiP-nt-1nB"/>
+                                <action selector="doneButton:" destination="mcM-7S-7jP" id="9KT-s6-kxs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="invitedUserEmail" destination="gdc-R3-q95" id="pwg-QL-NLH"/>
+                        <outlet property="invitedUserName" destination="iDY-7V-xTD" id="AqD-Ac-z8l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRg-WS-7Qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1057" y="-49"/>
-        </scene>
-        <!--Flow-->
-        <scene sceneID="5wy-oY-E8W">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Flow" id="vxe-77-YGz" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jbw-cE-Tma" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-444" y="-67"/>
         </scene>
     </scenes>
 </document>

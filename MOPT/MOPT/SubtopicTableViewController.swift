@@ -7,20 +7,39 @@
 //
 
 import UIKit
+import CloudKit
 
 class SubtopicTableViewController: UITableViewController {
     
-    var currentSubtopic:Topic?
-    public private (set) var comments = [Comment]()
+    var currentSubtopic:CKRecord?
+    public private (set) var comments = [CKRecord]()
+    
+
+    @IBOutlet weak var currentUserPicture: UIImageView!
+    @IBOutlet weak var commentTextField: UITextView!
+    @IBAction func sendCommentButton(_ sender: UIButton) {
+        commentTextField.text = ""
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        topicServices.getSubtopicComments(subtopicRecordID: currentSubtopic?.recordID) {
+            (commentRecords, error) in
+            guard error == nil && commentRecords != nil else {
+                print("Error fetching comments")
+                return
+            }
+            self.comments = commentRecords!
+            OperationQueue.main.addOperation({
+                self.tableView.reloadData()
+            })
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = currentSubtopic?["title"] as? String
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,16 +59,14 @@ class SubtopicTableViewController: UITableViewController {
         return comments.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
+        cell.commentText.text = self.comments[indexPath.row]["text"] as! String
+        //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
         return cell
     }
-    */
-
+    
+   
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

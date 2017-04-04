@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--New Topic View Controller-->
         <scene sceneID="RF7-CL-S6d">
             <objects>
-                <viewController id="ifN-mo-te2" sceneMemberID="viewController">
+                <viewController id="ifN-mo-te2" customClass="NewTopicViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7eb-hz-TNW"/>
                         <viewControllerLayoutGuide type="bottom" id="bQ9-KT-KVM"/>
@@ -100,8 +100,15 @@
                     <navigationItem key="navigationItem" id="gRL-g5-BD0">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Qcy-vk-sf3">
                             <color key="tintColor" red="0.2196078431372549" green="0.6588235294117647" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="doneButton:" destination="ifN-mo-te2" id="uF9-rB-BCD"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="newTopicDescription" destination="KgV-T3-Eg1" id="KS4-Fp-rrT"/>
+                        <outlet property="newTopicName" destination="ekP-Vx-Pxw" id="lmg-8a-ulW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TR5-CU-8sx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

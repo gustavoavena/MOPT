@@ -8,34 +8,31 @@
 
 
 import UIKit
+import CloudKit
 
 class meetingsTableViewController: UITableViewController {
     
-    public private(set) var meetings = [Meeting]()
-    
-    
-    //TO ERASE
-    let testUser = User(name: "Farol", fbUsername: "filipemarques.568", email: "fi.marques33@gmail.com", profilePicture: #imageLiteral(resourceName: "example"))
+    public private(set) var meetings = [CKRecord]()
+    private let meetingServices = MeetingServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        //TO ERASE
-        self.meetings.append(Meeting(title:"Amsterdam", moderator: testUser, date: Date()))
-        self.meetings.append(Meeting(title:"mOpt", moderator: testUser, date: Date()))
-        self.meetings.append(Meeting(title:"BEPiD", moderator: testUser, date: Date()))
+        meetingServices.getUserMeetings(userRecordID: CKRecordID, true) {
+            (meetingRecords, error) in
+            guard error == nil && meetingRecords != nil else {
+                print("Error fetching meeting")
+                return
+            }
+            self.meetings = meetingRecords!
+            OperationQueue.main.addOperation({
+                self.tableView.reloadData()
+            })
+        }
     }
         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     // MARK: - Table view data source
@@ -45,8 +42,7 @@ class meetingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        //return meetings.count
+        
         return meetings.count
     }
     
@@ -59,23 +55,21 @@ class meetingsTableViewController: UITableViewController {
         dateFormatter.dateFormat = "dd/MM"
         timeFormatter.dateFormat = "HH:mm"
         
-        cell.meetingName.text = self.meetings[indexPath.row].title
-        cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row].date))"
-        cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row].date))"
-        cell.moderatorPicture.image = self.meetings[indexPath.row].moderator.profilePicture
+        cell.meetingName.text = self.meetings[indexPath.row]["title"] as? String
+        cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
+        cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
+        cell.moderatorPicture.image = self.meetings[indexPath.row][""]
+        
         
         return cell
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "segueToTopics",
             let segueDestination = segue.destination as? TopicsTableViewController,
             let indexPath = self.tableView.indexPathForSelectedRow {
             let selectedMeeting = meetings[indexPath.row]
             segueDestination.currentMeeting = selectedMeeting
-            print("\(selectedMeeting.title)")
         }
     }
     

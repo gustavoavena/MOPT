@@ -1,95 +1,94 @@
 //
-//  TopicsTableViewController.swift
+//  meetingMinutesTableViewController.swift
 //  MOPT
 //
-//  Created by Filipe Marques on 03/04/17.
+//  Created by Filipe Marques on 04/04/17.
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
 import UIKit
 import CloudKit
 
-
-class TopicsTableViewController: UITableViewController {
+class meetingMinutesTableViewController: UITableViewController {
     
     var currentMeeting:CKRecord?
-    private var topics = [CKRecord]()
-    private let topicServices = TopicServices()
+    var topics = [CKRecord]()
+    let topicServices = TopicServices()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        topicServices.getMeetingTopics(userRecordID: currentMeeting?.recordID) {
-            (topicRecords, error) in
-            guard error == nil && topicRecords != nil else {
-                print("Error fetching topics")
-                return
-            }
-            self.topics = topicRecords!
-            OperationQueue.main.addOperation({
-                self.tableView.reloadData()
-            })
-        }
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.title = currentMeeting?["title"] as? String
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        // #warning Incomplete implementation, return the number of sections
+        return topics.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topics.count
+        for i in 0 ..< section {
+            let subtopics = [CKRecord]()
+            topicServices.getSubtopics(userRecordID: topics[i].recordID) {
+                (subtopicRecords, error) in
+                guard error == nil && subtopicRecords != nil else {
+                    print("Error fetching subtopics")
+                    return
+                }
+                self.subtopics = subtopicRecords!
+            }
+            if subtopics.count != 0 {
+                return subtopics.count
+            } else {
+                return 1
+            }
+        }
+        
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let subtopics = [CKRecord]()
-        let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as!topicsTableViewCell
-        cell.topicName.text = self.topics[indexPath.row]["title"] as? String
-        topicServices.getSubtopics(topicRecordID:self.topics[indexPath.row].recordID){
+        topicServices.getSubtopics(userRecordID: topics[indexPath.row].recordID) {
             (subtopicRecords, error) in
-            guard error == nil && topicRecords != nil else {
+            guard error == nil && subtopicRecords != nil else {
                 print("Error fetching subtopics")
                 return
             }
-            subtopics = subtopicRecords!
+            self.subtopics = subtopicRecords!
         }
-        cell.numberOfSubtopics.text = String(describing: subtopics.count) + (" subtopics")
-        //cell.topicCreatorPicture.image = UIImage.self.topics[indexPath.row][""]
-
-        return cell
+        if subtopics.count != 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicConclusionCell", for: indexPath) as! SubtopicsConclusionTableViewCell
+            cell.subtopicTitle.text = subtopics[indexPath.row]["title"] as? String
+            cell.subtopicMinute.text = subtopics[indexPath.row]["concluion"] as? String
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "topicConclusionCell", for: indexPath) as! TopicConclusionTableViewCell
+            cell.topicMinute.text = topics[indexPath.row]["conclusion"] as? String
+            return cell
+        }
     }
-
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToTopicInformation",
-            let segueDestination = segue.destination as? topicInformationTableViewController,
-            let indexPath = self.tableView.indexPathForSelectedRow {
-            let selectedTopic = topics[indexPath.row]
-            segueDestination.currentTopic = selectedTopic
-        }
-        if segue.identifier == "newTopic",
-            let segueDestination = segue.destination as? NewTopicViewController {
-            segueDestination.currentMeeting = currentMeeting
-        }
-
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return topics[section]["title"] as? String
     }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
-     
-     
     }
     */
 
