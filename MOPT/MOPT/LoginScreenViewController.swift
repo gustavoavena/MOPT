@@ -24,6 +24,11 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let meetingServices = MeetingServices()
+        
+        meetingServices.addParticipant(meetingID: "Slackers:gugaavena:04042017", username: "gugaavena")
+
+        
         //checking if user is already logged in
         if (FBSDKAccessToken.current() != nil) {
             print("Usuario logado")

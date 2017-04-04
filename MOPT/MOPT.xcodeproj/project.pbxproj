@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D36004C1E929A9F0030574C /* CloudKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36004B1E929A9F0030574C /* CloudKitHandler.swift */; };
+		4D36004D1E93C1D40030574C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D19E7441E8C3E20003782E6 /* CloudKit.framework */; };
 		4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */; };
 		4D3CC5761E8AA6A3000136FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC5751E8AA6A3000136FB /* ViewController.swift */; };
 		4D3CC5791E8AA6A3000136FB /* Flow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC5771E8AA6A3000136FB /* Flow.storyboard */; };
@@ -37,10 +38,6 @@
 		D45B26BC1E9285EF002A1866 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45B26B81E9285EF002A1866 /* FBSDKLoginKit.framework */; };
 		D45B26BD1E9285EF002A1866 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45B26B91E9285EF002A1866 /* FBSDKShareKit.framework */; };
 		D45B26BF1E928626002A1866 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26BE1E928626002A1866 /* User.swift */; };
-		D484C6491E8D28320079B34B /* SWANSE__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6451E8D28320079B34B /* SWANSE__.TTF */; };
-		D484C64A1E8D28320079B34B /* SWANSE_B.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6461E8D28320079B34B /* SWANSE_B.TTF */; };
-		D484C64B1E8D28320079B34B /* SWANSE_I.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6471E8D28320079B34B /* SWANSE_I.TTF */; };
-		D484C64C1E8D28320079B34B /* SWANSEBI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6481E8D28320079B34B /* SWANSEBI.TTF */; };
 		D4BD50EF1E8FD6EB0091A37F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -78,10 +75,6 @@
 		D45B26B81E9285EF002A1866 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D45B26B91E9285EF002A1866 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		D45B26BE1E928626002A1866 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D484C6451E8D28320079B34B /* SWANSE__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE__.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE__.TTF"; sourceTree = "<group>"; };
-		D484C6461E8D28320079B34B /* SWANSE_B.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE_B.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE_B.TTF"; sourceTree = "<group>"; };
-		D484C6471E8D28320079B34B /* SWANSE_I.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE_I.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE_I.TTF"; sourceTree = "<group>"; };
-		D484C6481E8D28320079B34B /* SWANSEBI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSEBI.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSEBI.TTF"; sourceTree = "<group>"; };
 		D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D36004D1E93C1D40030574C /* CloudKit.framework in Frameworks */,
 				D45B26BD1E9285EF002A1866 /* FBSDKShareKit.framework in Frameworks */,
 				D45B26BA1E9285EF002A1866 /* Bolts.framework in Frameworks */,
 				D45B26BB1E9285EF002A1866 /* FBSDKCoreKit.framework in Frameworks */,
@@ -161,10 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */,
-				D484C6451E8D28320079B34B /* SWANSE__.TTF */,
-				D484C6461E8D28320079B34B /* SWANSE_B.TTF */,
-				D484C6471E8D28320079B34B /* SWANSE_I.TTF */,
-				D484C6481E8D28320079B34B /* SWANSEBI.TTF */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -280,7 +270,7 @@
 				TargetAttributes = {
 					4D3CC56F1E8AA6A2000136FB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9WW6YH2P93;
+						DevelopmentTeam = X5G89Y4L38;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -317,14 +307,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3CC5811E8AA6A3000136FB /* LaunchScreen.storyboard in Resources */,
-				D484C64B1E8D28320079B34B /* SWANSE_I.TTF in Resources */,
 				D4BD50EF1E8FD6EB0091A37F /* Login.storyboard in Resources */,
 				4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */,
 				4D3CC5791E8AA6A3000136FB /* Flow.storyboard in Resources */,
 				D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */,
-				D484C64A1E8D28320079B34B /* SWANSE_B.TTF in Resources */,
-				D484C6491E8D28320079B34B /* SWANSE__.TTF in Resources */,
-				D484C64C1E8D28320079B34B /* SWANSEBI.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,11 +463,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9WW6YH2P93;
+				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = MOPT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.FilipeMarques.MOPT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.MOPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -491,11 +478,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9WW6YH2P93;
+				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = MOPT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.FilipeMarques.MOPT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.MOPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

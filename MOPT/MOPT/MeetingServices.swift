@@ -21,7 +21,7 @@ class MeetingServices: NSObject {
     func startMeeting(meetingID: String) throws {
         
         
-        ckHandler.fetchByID(meetingID: meetingID) {
+        ckHandler.fetchByID(recordID: meetingID) {
             (recordResponse, error) in
             
             guard error == nil && recordResponse != nil else {
@@ -55,7 +55,7 @@ class MeetingServices: NSObject {
     
     func endMeeting(meetingID: String) throws {
         
-        ckHandler.fetchByID(meetingID: meetingID) {
+        ckHandler.fetchByID(recordID: meetingID) {
             (recordResponse, error) in
             
             guard error == nil && recordResponse != nil else {
@@ -90,7 +90,7 @@ class MeetingServices: NSObject {
     /**Call this method when starting/ending a topic.*/
     func changeCurrentTopic(meetingID: String, topicID: String?) throws {
         
-        ckHandler.fetchByID(meetingID: meetingID) {
+        ckHandler.fetchByID(recordID: meetingID) {
             (recordResponse, error) in
             
             guard error == nil && recordResponse != nil else {
@@ -100,15 +100,16 @@ class MeetingServices: NSObject {
             
             let record = recordResponse!
             
-            let topicRecordID =  {
-                if let id = topicID {
-                    return CKRecordID(recordName: id)
-                } else {
-                    return nil
-                }
+            var topicRecordID: CKRecordID?
+            
+            if let id = topicID {
+                 topicRecordID = CKRecordID(recordName: id)
+            } else {
+                topicRecordID =  nil
             }
             
-            let topicReference = CKReference(recordID: topicRecordID, action: nil)
+           
+            let topicReference = CKReference(recordID: topicRecordID!, action: .none)
             
             
             record["currentTopic"] = topicReference
@@ -126,9 +127,11 @@ class MeetingServices: NSObject {
         
     }
     
-    func addParticipant(meetingID: String, username: String) throws {
+    func addParticipant(meetingID: String, username: String)  {
         
-        ckHandler.fetchByID(meetingID: meetingID) {
+        print("Adding participant \(username) to meeting \(meetingID)")
+        
+        ckHandler.fetchByID(recordID: meetingID) {
             (recordResponse, error) in
             
             guard error == nil && recordResponse != nil else {
@@ -140,10 +143,14 @@ class MeetingServices: NSObject {
             
             let userRecordID = CKRecordID(recordName: username)
             
-            let userReference = CKReference(recordID: userRecordID, action: none)
+            let userReference = CKReference(recordID: userRecordID, action: .none)
             
+            var participants: NSArray = record["participants"] as? NSArray ?? NSArray()
             
-            record["participants"].append(userReference)
+            participants =  participants.adding(userReference) as NSArray
+            record["participants"] = participants as CKRecordValue
+            
+            print("participant added to reference list.")
             
             
             
@@ -153,6 +160,7 @@ class MeetingServices: NSObject {
                     print("Error saving record to DB.")
                     return
                 }
+                print("Meeting record saved successfully.")
             }
         }
         

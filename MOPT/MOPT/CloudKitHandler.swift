@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CloudKit
 
-class CloudKitHandler: NSObject {
+public class CloudKitHandler: NSObject {
     
     let myContainer: CKContainer
     
@@ -30,7 +31,7 @@ class CloudKitHandler: NSObject {
                 print("Error performing query for meeting")
             }
             
-            print("record:", record, terminator: "\n\n")
+            print("record:", record as Any, terminator: "\n\n")
             
             
             
@@ -40,7 +41,7 @@ class CloudKitHandler: NSObject {
             } else {
                 handleUserObject(nil, error)
             }
+        
         }
-
-
+    }
 }
