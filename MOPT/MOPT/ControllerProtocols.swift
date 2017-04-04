@@ -41,6 +41,9 @@ protocol SubtopicDelegate {
 protocol UserDelegate {
     func createUser(fbID: Int, name: String, email: String, profilePictureURL: URL) // DONE
     func getUserProfilePictureURL(userReference: CKReference, completionHandler: (URL?, Error?) -> Void)
-    func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?))
+    func getCurrentUserRecordID() -> CKRecordID // TODO: Write global function to get current user's CKRecordID from his Facebook ID.
+    func getUserRecordFromEmail(email: String, completionHandler: (CKRecord?, Error?)->Void) // DONE
+    
+    
 }
 
