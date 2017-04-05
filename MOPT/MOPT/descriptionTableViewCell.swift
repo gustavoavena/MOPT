@@ -10,6 +10,8 @@ import UIKit
 
 class descriptionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var topicDescription: UITextView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

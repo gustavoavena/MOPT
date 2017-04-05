@@ -1,18 +1,17 @@
 //
-//  topicsTableViewCell.swift
+//  SubtopicsConclusionTableViewCell.swift
 //  MOPT
 //
-//  Created by Filipe Marques on 03/04/17.
+//  Created by Filipe Marques on 04/04/17.
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
 import UIKit
 
-class topicsTableViewCell: UITableViewCell {
+class SubtopicsConclusionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var topicName: UILabel!
-    @IBOutlet weak var numberOfSubtopics: UILabel!
-    @IBOutlet weak var topicCreatorPicture: UIImageView!
+    @IBOutlet weak var subtopicTitle: UILabel!
+    @IBOutlet weak var subtopicMinute: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

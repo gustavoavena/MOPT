@@ -10,14 +10,14 @@
 import UIKit
 import CloudKit
 
-class meetingsTableViewController: UITableViewController {
+class PreviousMeetingsTableViewController: UITableViewController {
     
     public private(set) var meetings = [CKRecord]()
     private let meetingServices = MeetingServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        meetingServices.getUserMeetings(userRecordID: CKRecordID, true) {
+        meetingServices.getUserMeetings(userRecordID: CKRecordID, false) {
             (meetingRecords, error) in
             guard error == nil && meetingRecords != nil else {
                 print("Error fetching meeting")
@@ -29,7 +29,7 @@ class meetingsTableViewController: UITableViewController {
             })
         }
     }
-        
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -42,13 +42,12 @@ class meetingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return meetings.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as! meetingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "previousMeetingCell", for: indexPath) as! PrevoiusMeetingsTableViewCell
         
         let dateFormatter = DateFormatter()
         let timeFormatter = DateFormatter()
@@ -65,7 +64,7 @@ class meetingsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToTopics",
+        if segue.identifier == "segueToMinute",
             let segueDestination = segue.destination as? TopicsTableViewController,
             let indexPath = self.tableView.indexPathForSelectedRow {
             let selectedMeeting = meetings[indexPath.row]

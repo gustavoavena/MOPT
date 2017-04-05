@@ -7,17 +7,54 @@
 //
 
 import UIKit
+import CloudKit
 
 class topicInformationTableViewController: UITableViewController {
-
+    
+    let testUser = User(name: "Farol", fbUsername: "filipemarques.568", email: "fi.marques33@gmail.com", profilePicture: #imageLiteral(resourceName: "example"))
+    
+    public var currentTopic:CKRecord?
+    private var subtopics = [CKRecord]()
+    private var comments = [CKRecord]()
+    private let topicServices = TopicServices()
+    
+    @IBOutlet weak var currentUserPicture: UIImageView!
+    @IBOutlet weak var commentTextField: UITextView!
+    @IBAction func sendCommentButton(_ sender: UIButton) {
+        topicServices.addComment(topicRecordID: currentTopic?.recordID, commentText: commentTextField, creatorRecordID: CKRecordID)
+        commentTextField.text = ""
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topicServices.getSubtopics(userRecordID: currentTopic?.recordID) {
+            (subtopicRecords, error) in
+            guard error == nil && subtopicRecords != nil else {
+                print("Error fetching topics")
+                return
+            }
+            self.subtopics = subtopicRecords!
+            OperationQueue.main.addOperation({
+                self.tableView.reloadData()
+            })
+        }
+        topicServices.getTopicComments(userRecordID: currentTopic?.recordID) {
+            (commentRecords, error) in
+            guard error == nil && commentRecords != nil else {
+                print("Error fetching comments")
+                return
+            }
+            self.comments = commentRecords!
+            OperationQueue.main.addOperation({
+                self.tableView.reloadData()
+            })
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = currentTopic?["title"] as? String
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,27 +62,67 @@ class topicInformationTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
+        if section == 0 {
+            return 1
+        }
+        else if section == 1 {
+            return subtopics.count
+        }
+        else {
+            return comments.count
+        }
 
-    /*
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! descriptionTableViewCell
+            cell.topicDescription.text = self.currentTopic?["description"] as? String
+            return cell
+            
+        }
+            
+        else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicCell", for: indexPath) as! subtopicsTableViewCell
+            cell.subtopicTitle.text = self.subtopics[indexPath.row]["title"] as? String
+            //cell.subtopicCreatorPicture.image = self.subtopics[indexPath.row].creator.profilePicture
+            return cell
+            
+        }
+            
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
+            cell.commentText.text = self.comments[indexPath.row]["text"] as? String
+            //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
+            return cell
+        }
     }
-    */
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToSubtopic",
+            let segueDestination = segue.destination as? SubtopicTableViewController,
+            let indexPath = self.tableView.indexPathForSelectedRow {
+            let selectedSubtopic = subtopics[indexPath.row]
+            segueDestination.currentSubtopic = selectedSubtopic
+        }
+        if segue.identifier == "newSubtopic",
+            let segueDestination = segue.destination as? NewSubtopicViewController {
+            segueDestination.currentTopic = currentTopic
+        }
+    }
+    
+    // User commenting space
+    
+
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -79,16 +156,6 @@ class topicInformationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     */
 

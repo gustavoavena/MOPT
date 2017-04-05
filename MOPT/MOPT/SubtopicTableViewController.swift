@@ -7,17 +7,41 @@
 //
 
 import UIKit
+import CloudKit
 
 class SubtopicTableViewController: UITableViewController {
+    
+    var currentSubtopic:CKRecord?
+    public private (set) var comments = [CKRecord]()
+    private let topicServices = TopicServices()
+    private let subtopicServices = SubtopicServices()
+
+    @IBOutlet weak var currentUserPicture: UIImageView!
+    @IBOutlet weak var commentTextField: UITextView!
+    @IBAction func sendCommentButton(_ sender: UIButton) {
+        subtopicServices.addComment(subtopicRecordID: currentSubtopic?.recordID, commentText: commentTextField, creatorRecordID: CKRecordID)
+        commentTextField.text = ""
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        topicServices.getSubtopicComments(subtopicRecordID: currentSubtopic?.recordID) {
+            (commentRecords, error) in
+            guard error == nil && commentRecords != nil else {
+                print("Error fetching comments")
+                return
+            }
+            self.comments = commentRecords!
+            OperationQueue.main.addOperation({
+                self.tableView.reloadData()
+            })
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = currentSubtopic?["title"] as? String
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,24 +53,22 @@ class SubtopicTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return comments.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
+        cell.commentText.text = self.comments[indexPath.row]["text"] as! String
+        //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
         return cell
     }
-    */
-
+    
+   
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

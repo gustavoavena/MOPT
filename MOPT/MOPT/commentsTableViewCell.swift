@@ -10,6 +10,8 @@ import UIKit
 
 class commentsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var commentText: UITextView!
+    @IBOutlet weak var commentCreatorPicture: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
