@@ -101,6 +101,7 @@ class UserServices: NSObject {
             
             guard error == nil && userInfo != nil else {
                 print("error getting current user CK Record ID")
+                return
             }
             
             let userID = CKRecordID(recordName: userInfo?["id"] as! String)
