@@ -11,7 +11,14 @@ import CloudKit
 import FBSDKLoginKit
 
 
-class UserServices: UserDelegate {
+class UserServices: NSObject {
+    
+    let ckHandler: CloudKitHandler
+    
+    override init() {
+        ckHandler = CloudKitHandler()
+    }
+    
     func createUser(fbID: Int, name: String, email: String, profilePictureURL: URL) {
         let recordID = CKRecordID(recordName: String(fbID))
         let userRecord = CKRecord(recordType: "User", recordID: recordID)
@@ -24,7 +31,7 @@ class UserServices: UserDelegate {
         userRecord["profilePictureURL"] = profilePictureURL.absoluteString as NSString
         
         
-        ckHandler.saveRecord(record: userRecord)
+        self.ckHandler.saveRecord(record: userRecord)
         
     }
     
