@@ -109,11 +109,12 @@ class TopicServices: NSObject {
     }
 
     
+    // DONE
     func addComment(topicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID) {
         let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
         let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
         let createdAt = NSDate()
-        let commentIDString = String(format: "%@:%@:%@", topicRecordID.recordName, creatorRecordID.recordName, createdAt.description)
+        let commentIDString = String(format: "%@:%@:%@", topicRecordID.recordName, createdAt.description, creatorRecordID.recordName)
         let commentRecordID = CKRecordID(recordName: commentIDString)
         let record = CKRecord(recordType: "Comment", recordID: commentRecordID)
         

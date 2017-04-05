@@ -14,6 +14,8 @@ protocol MeetingDelegate {
     func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: ([CKRecord]?, Error?) -> Void)
     func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID)
     func addParticipant(meetingRecordID: CKRecordID, userEmail: String) // DONE
+    func startMeeting(meetingID: CKRecordID)
+    func endMeeting(meetingID: CKRecordID)
     
     
 }
@@ -24,7 +26,7 @@ protocol TopicDelegate {
     func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: ([CKRecord], Error?)->Void) // DONE
     func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void)
     func getTopicComments(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void) // TODO: Test it.
-    func addComment(topicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID)
+    func addComment(topicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID) // DONE
     func addTopicConclusion(topicRecordID: CKRecordID, conclusion: String)
 }
 
@@ -58,7 +60,7 @@ protocol UserDelegate {
  User: string of its facebookID, provided by Facebook's API.
  Meeting: "[meeting title]:[creator's record ID]:[created at (use the description attribute from NSDate]
  Topic: "[title]:[meeting record ID]:[creator's ID]"
- Comment: "[topic record ID]:[creator's record ID]:[createdAt string]"
+ Comment: "[topic record ID]:[createdAt string]:[creator's record ID]"
  Subtopic: "[subtopic title]:[topic record ID]:[creator's record ID]"
  
  
