@@ -45,24 +45,20 @@ class MeetingServices: NSObject, MeetingDelegate {
         }
     }
     
-    
+    // TODO: Test it.
     func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID) {
-        //salvar data no meeting record id desta maneira?
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "ddMMyyyy"
-        let dateString = dateFormatter.string(from: date as Date)
         
-        let recordID = CKRecordID(recordName: String(format: "%@%@%@", title, moderatorRecordID.recordName, dateString))
+        let recordID = CKRecordID(recordName: String(format: "%@:%@:%@", title, moderatorRecordID.recordName, date.description))
         let meetingRecord = CKRecord(recordType: "Meeting", recordID: recordID)
         
         print("Creating meeting \(title)")
         
-        let moderatorReference = CKReference(recordID: moderatorRecordID, action: .none)
+        let moderatorReference = CKReference(recordID: moderatorRecordID, action: .deleteSelf)
         
         meetingRecord["title"] = title as NSString
         meetingRecord["date"] = date as NSDate
         meetingRecord["moderator"] = moderatorReference
-        
+        meetingRecord["participants"] = [moderatorReference] as NSArray
         
         ckHandler.saveRecord(record: meetingRecord)
     }
