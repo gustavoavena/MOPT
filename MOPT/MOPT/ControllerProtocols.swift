@@ -23,14 +23,14 @@ protocol TopicDelegate {
     func createTopic(title: String, description: String, meetingRecordID: CKRecordID, creatorRecordID: CKRecordID) // DONE
     func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: ([CKRecord], Error?)->Void) // DONE
     func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void)
-    func getTopicComments(commentsReferenceList: NSArray, completionHandler: ([CKRecord]?, Error?) -> Void)
+    func getTopicComments(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void)
     func addComment(topicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID)
     func addTopicConclusion(topicRecordID: CKRecordID, conclusion: String)
 }
 
 protocol SubtopicDelegate {
     func createSubtopic(topicRecordID: CKRecordID, subtopicTitle: String, creatorRecordID: CKRecordID)
-    func getSubtopicComments(commentsReferenceList: NSArray, completionHandler: ([CKRecord]?, Error?) -> Void)
+    func getSubtopicComments(subtopicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void)
     func addComment(subtopicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID)
     func addSubtopicConclusion(subtopicRecordID: CKRecordID, conclusion: String)
 }

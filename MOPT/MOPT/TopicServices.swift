@@ -63,8 +63,9 @@ class TopicServices: NSObject {
         }
     }
     
+   
     // TODO: test it after creating subtopics.
-    func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void) {
+    func getSubtopics(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?)-> Void) {
         let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
         let predicate = NSPredicate(format: "topic = %@", topicReference)
         let query = CKQuery(recordType: "Subtopic", predicate: predicate)
