@@ -85,7 +85,10 @@ class TopicsTableViewController: UITableViewController {
             let segueDestination = segue.destination as? AddParticipantsViewController{
             segueDestination.currentMeeting = currentMeeting
         }
-
+        if segue.identifier == "startMeeting",
+            let segueDestination = segue.destination as? CurrentMeetingTableViewController {
+            segueDestination.currentMeeting = currentMeeting
+        }
     }
     /*
     // Override to support conditional editing of the table view.
