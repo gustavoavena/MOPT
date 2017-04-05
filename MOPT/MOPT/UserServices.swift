@@ -40,7 +40,12 @@ class UserServices: NSObject {
         
         //getting id, name and email informations from user's facebook
         FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"]).start {
-            (connection, result, error) -> Void in
+            (connection, result, error) in
+            
+            guard error == nil && result != nil else {
+                print("error fetching user's facebook information")
+                return
+            }
             
             let userInfo = (result as? [String:Any])
             completionHandler(userInfo, error)
@@ -48,7 +53,7 @@ class UserServices: NSObject {
     }
     
     // DONE: obeys protocol.
-    public func getUserRecordFromEmail(email: String, completionHandler: @escaping (CKRecord?, Error?)->Void) {
+    public func getUserRecordFromEmail(email: String, completionHandler: @escaping (CKRecord?, Error?) -> Void) {
         let predicate = NSPredicate(format: "email == %@", email)
         let query = CKQuery(recordType: "User", predicate: predicate)
         
@@ -77,9 +82,14 @@ class UserServices: NSObject {
     func getUserProfilePictureURL(userReference: CKReference, completionHandler: @escaping (URL?, Error?) -> Void) {
         fetchFacebookUserInfo {
             (userInfo, error) in
+            
+            guard error == nil && userInfo != nil else {
+                print("error getting user's facebook profile picture URL")
+                return
+            }
+            
             let userID = CKRecordID(recordName: userInfo?["id"] as! String)
             let userPictureURL = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")!
-            
             completionHandler(userPictureURL, error)
         }
     }
@@ -88,12 +98,15 @@ class UserServices: NSObject {
     func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void) {
         fetchFacebookUserInfo {
             (userInfo, error) in
-            let userID = CKRecordID(recordName: userInfo?["id"] as! String)
             
+            guard error == nil && userInfo != nil else {
+                print("error getting current user CK Record ID")
+                return
+            }
+            
+            let userID = CKRecordID(recordName: userInfo?["id"] as! String)
             completionHandler(userID, error)
         }
-        
-        
     }
 
 }

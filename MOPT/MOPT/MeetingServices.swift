@@ -9,14 +9,100 @@
 import UIKit
 import CloudKit
 
-class MeetingServices: NSObject {
+class MeetingServices: NSObject, MeetingDelegate {
+
     
     let ckHandler: CloudKitHandler
     let userServices: UserServices
     
+    
     override init() {
         ckHandler = CloudKitHandler()
         userServices = UserServices()
+    }
+    
+    
+    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
+        
+        print("Getting user meetings")
+        
+        let userReference = CKReference(recordID: userRecordID, action: .none)
+        let predicate = NSPredicate(format: "user = %@ in participants", userReference) //ATENTION!
+        let query = CKQuery(recordType: "Meeting", predicate: predicate)
+        
+        self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
+            (responseData, error) in
+            
+            guard error == nil && responseData != nil else {
+                print("problem getting user meetings")
+                return
+            }
+            
+            let records = responseData!
+            
+            completionHandler(records, error)
+
+        }
+    }
+    
+    // TODO: Test it.
+    func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID) {
+        
+        let recordID = CKRecordID(recordName: String(format: "%@:%@:%@", title, moderatorRecordID.recordName, date.description))
+        let meetingRecord = CKRecord(recordType: "Meeting", recordID: recordID)
+        
+        print("Creating meeting \(title)")
+        
+        let moderatorReference = CKReference(recordID: moderatorRecordID, action: .deleteSelf)
+        
+        meetingRecord["title"] = title as NSString
+        meetingRecord["date"] = date as NSDate
+        meetingRecord["moderator"] = moderatorReference
+        meetingRecord["participants"] = [moderatorReference] as NSArray
+        
+        ckHandler.saveRecord(record: meetingRecord)
+    }
+    
+    
+    // DONE: obeys protocol!
+    func addParticipant(meetingRecordID: CKRecordID, userEmail: String)  {
+        
+        print("Adding participant \(userEmail) to meeting \(meetingRecordID.recordName)")
+        
+        ckHandler.fetchByRecordID(recordID: meetingRecordID) {
+            (recordResponse, error) in
+            
+            guard error == nil && recordResponse != nil else {
+                print("Error fetching meeting")
+                return
+            }
+            
+            let record = recordResponse!
+            
+            self.userServices.getUserRecordFromEmail(email: userEmail) {
+                (user, error) in
+                
+                guard error == nil && user != nil else {
+                    print("Error fetching user by email")
+                    return
+                }
+                
+                let userReference = CKReference(record: user!, action: .none)
+                
+                var participants: NSArray = record["participants"] as? NSArray ?? NSArray()
+                
+                participants =  participants.adding(userReference) as NSArray
+                record["participants"] = participants as CKRecordValue
+                
+                print("participant added to reference list.")
+                
+                
+                self.ckHandler.saveRecord(record: record)
+            }
+            
+        }
+        
+        
     }
     
     
@@ -129,46 +215,6 @@ class MeetingServices: NSObject {
     
     
     
-    // DONE: obeys protocol!
-    func addParticipant(meetingRecordID: CKRecordID, userEmail: String)  {
-        
-        print("Adding participant \(userEmail) to meeting \(meetingRecordID.recordName)")
-        
-        ckHandler.fetchByRecordID(recordID: meetingRecordID) {
-            (recordResponse, error) in
-            
-            guard error == nil && recordResponse != nil else {
-                print("Error fetching meeting")
-                return
-            }
-            
-            let record = recordResponse!
-            
-            self.userServices.getUserRecordFromEmail(email: userEmail) {
-                (user, error) in
-                
-                guard error == nil && user != nil else {
-                    print("Error fetching user by email")
-                    return
-                }
-                
-                let userReference = CKReference(record: user!, action: .none)
-                
-                var participants: NSArray = record["participants"] as? NSArray ?? NSArray()
-                
-                participants =  participants.adding(userReference) as NSArray
-                record["participants"] = participants as CKRecordValue
-                
-                print("participant added to reference list.")
-                
-                
-                self.ckHandler.saveRecord(record: record)
-            }
-            
-        }
-        
-        
-    }
     
  
     
