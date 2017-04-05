@@ -28,6 +28,7 @@
             <point key="canvasLocation" x="-832" y="-6"/>
         </scene>
         <!--View Controller-->
+        <!--Add Participants View Controller-->
         <scene sceneID="Jdo-Os-xtY">
             <objects>
                 <viewController id="mcM-7S-7jP" customClass="AddParticipantsViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite new participants to meeting" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjj-p1-l3R">
-                                <rect key="frame" x="71.5" y="112.5" width="232" height="18"/>
+                                <rect key="frame" x="71" y="64" width="232" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" red="0.21960784310000001" green="0.6588235294" blue="0.54117647059999996" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
