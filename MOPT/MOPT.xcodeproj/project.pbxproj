@@ -20,6 +20,7 @@
 		A420DCFE1E92A3A700E602F8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A420DCFA1E92A3A700E602F8 /* FBSDKCoreKit.framework */; };
 		A420DCFF1E92A3A700E602F8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A420DCFB1E92A3A700E602F8 /* FBSDKLoginKit.framework */; };
 		A420DD001E92A3A700E602F8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A420DCFC1E92A3A700E602F8 /* FBSDKShareKit.framework */; };
+		D432C7C81E95114E00194C9E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D432C7C71E95114E00194C9E /* CloudKit.framework */; };
 		D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */; };
 		D45B26851E926B8B002A1866 /* meetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */; };
 		D45B26871E926D2B002A1866 /* meetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */; };
@@ -67,7 +68,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D19E7441E8C3E20003782E6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4D3CC5701E8AA6A3000136FB /* MOPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D3CC5751E8AA6A3000136FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +82,7 @@
 		A420DCFA1E92A3A700E602F8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A420DCFB1E92A3A700E602F8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A420DCFC1E92A3A700E602F8 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		D432C7C71E95114E00194C9E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "KeepCalm-Medium.ttf"; path = "../../../../Slackers/Design/Resources/KeepCalm-Medium.ttf"; sourceTree = "<group>"; };
 		D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewController.swift; sourceTree = "<group>"; };
 		D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -134,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D432C7C81E95114E00194C9E /* CloudKit.framework in Frameworks */,
 				A420DD001E92A3A700E602F8 /* FBSDKShareKit.framework in Frameworks */,
 				A420DCFD1E92A3A700E602F8 /* Bolts.framework in Frameworks */,
 				A420DCFE1E92A3A700E602F8 /* FBSDKCoreKit.framework in Frameworks */,
@@ -147,11 +149,11 @@
 		4D19E7431E8C3E20003782E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D432C7C71E95114E00194C9E /* CloudKit.framework */,
 				A420DCF91E92A3A700E602F8 /* Bolts.framework */,
 				A420DCFA1E92A3A700E602F8 /* FBSDKCoreKit.framework */,
 				A420DCFB1E92A3A700E602F8 /* FBSDKLoginKit.framework */,
 				A420DCFC1E92A3A700E602F8 /* FBSDKShareKit.framework */,
-				4D19E7441E8C3E20003782E6 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -565,6 +567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
 				DEVELOPMENT_TEAM = 9WW6YH2P93;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = MOPT/Info.plist;
@@ -579,6 +582,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
 				DEVELOPMENT_TEAM = 9WW6YH2P93;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = MOPT/Info.plist;
