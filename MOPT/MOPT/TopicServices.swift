@@ -40,6 +40,36 @@ class TopicServices: NSObject {
         ckHandler.saveRecord(record: topicRecord)
     }
     
+    
+    //TODO: test, insert in protocol
+    func removeTopic(meetingRecordID: CKRecordID, topicRecordID: CKRecordID) {
+        
+        ckHandler.fetchByRecordID(recordID: meetingRecordID) {
+            (recordResponse, error) in
+            
+            guard error == nil && recordResponse != nil else {
+                print("Error fetching meeting")
+                return
+            }
+            
+            let record = recordResponse!
+            var topics: [CKReference] = record["topic"] as! [CKReference]
+            let topicReference = CKReference(recordID: topicRecordID, action: .none)
+            
+            //remover CKReference (participantReference) da NSArray (participants)
+            let index = topics.index(of: topicReference)
+            //index! (force unwrap): posso garantir que index nao sera nil, pois para um topico ser removido ele deve existir na tela do usuario (nao existe possibilidade de tentar remover um topico que nao existe) -- TODO: comentar em ingles
+            topics.remove(at: index!)
+            
+            record["participants"] = topics as NSArray
+            
+            print("topic \(topicRecordID.recordName) removed from meeting \(meetingRecordID.recordName).")
+            
+            self.ckHandler.saveRecord(record: record)
+        }
+    }
+    
+    
     // DONE: obeys protocol.
     func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: @escaping ([CKRecord], Error?)->Void) {
         let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)

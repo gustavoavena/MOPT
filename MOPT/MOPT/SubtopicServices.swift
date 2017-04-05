@@ -20,8 +20,8 @@ class SubtopicServices: NSObject {
     }
     
     
-    func createSubtopic(title: String, description: String, parentTopicRecordID: CKRecordID, creatorRecordID:CKRecordID) {
-        // Default SubtopicID string is: "[title]:[meetingID]"
+    func createSubtopic(title: String, description: String, parentTopicRecordID: CKRecordID, creatorRecordID: CKRecordID) {
+        // Default SubtopicID string is: "[title]:[parentTopicID]:[creatorID]"
         let recordID = CKRecordID(recordName: String(format: "%@:%@:%@", title, parentTopicRecordID.recordName, creatorRecordID.recordName))
         
         let subtopicRecord = CKRecord(recordType: "Subtopic", recordID: recordID)

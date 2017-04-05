@@ -9,8 +9,7 @@
 import UIKit
 import CloudKit
 
-class MeetingServices: NSObject, MeetingDelegate {
-
+class MeetingServices: NSObject {
     
     let ckHandler: CloudKitHandler
     let userServices: UserServices
@@ -21,7 +20,7 @@ class MeetingServices: NSObject, MeetingDelegate {
         userServices = UserServices()
     }
     
-    
+    //TODO: test
     func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
         
         print("Getting user meetings")
@@ -45,7 +44,7 @@ class MeetingServices: NSObject, MeetingDelegate {
         }
     }
     
-    // TODO: Test it.
+    //TODO: test
     func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID) {
         
         let recordID = CKRecordID(recordName: String(format: "%@:%@:%@", title, moderatorRecordID.recordName, date.description))
@@ -89,6 +88,7 @@ class MeetingServices: NSObject, MeetingDelegate {
                 
                 let userReference = CKReference(record: user!, action: .none)
                 
+                //OBS: nao eh necessaria a verificaçao de nil, pois toda reuniao tem pelo menos o moderador como participante
                 var participants: NSArray = record["participants"] as? NSArray ?? NSArray()
                 
                 participants =  participants.adding(userReference) as NSArray
@@ -105,7 +105,7 @@ class MeetingServices: NSObject, MeetingDelegate {
         
     }
     
-    
+    //TODO: test
     func startMeeting(meetingID: CKRecordID)  {
         
         ckHandler.fetchByRecordID(recordID: meetingID) {
@@ -140,6 +140,7 @@ class MeetingServices: NSObject, MeetingDelegate {
         
     }
     
+    //TODO: test
     func endMeeting(meetingID: CKRecordID)  {
         
         ckHandler.fetchByRecordID(recordID: meetingID) {
@@ -214,16 +215,34 @@ class MeetingServices: NSObject, MeetingDelegate {
     }
     
     
-    
-    
- 
-    
-    // TODO: removeParticipant.
-    
-    
-    
+    //TODO: test
+    func removeParticipant(meetingRecordID: CKRecordID, participantRecordID: CKRecordID) {
         
-    // TODO: removeTopic.
+        ckHandler.fetchByRecordID(recordID: meetingRecordID) {
+            (recordResponse, error) in
+            
+            guard error == nil && recordResponse != nil else {
+                print("Error fetching meeting")
+                return
+            }
+            
+            let record = recordResponse!
+            var participants: [CKReference] = record["participants"] as! [CKReference]
+            let participantReference = CKReference(recordID: participantRecordID, action: .none)
+            
+            //remover CKReference (participantReference) da NSArray (participants)
+            let index = participants.index(of: participantReference)
+            //index! (force unwrap): posso garantir que index nao sera nil, pois para um participante ser removido ele deve existir na tela do usuario (nao existe possibilidade de tentar remover um usuario que nao é participante da reuniao) -- TODO: comentar em ingles
+            participants.remove(at: index!)
+            
+            record["participants"] = participants as NSArray
+            
+            print("participant \(participantRecordID.recordName) removed from meeting \(meetingRecordID.recordName).")
+            
+            self.ckHandler.saveRecord(record: record)
+        }
+    }
+
 
 
 }
