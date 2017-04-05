@@ -11,23 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="YNp-tr-uJi">
-            <objects>
-                <navigationController id="Ap0-bo-smC" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xhs-8a-ty9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="mcM-7S-7jP" kind="relationship" relationship="rootViewController" id="HTq-MK-FRo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="so2-58-pCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-832" y="-6"/>
-        </scene>
-        <!--View Controller-->
         <!--Add Participants View Controller-->
         <scene sceneID="Jdo-Os-xtY">
             <objects>

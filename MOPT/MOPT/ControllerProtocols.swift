@@ -19,7 +19,7 @@ protocol TopicDelegate {
     func createTopic(title: String, description: String, meetingRecordID: CKRecordID, creatorRecordID: CKRecordID)
     func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: ([CKRecord]?, Error?)->Void)
     func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void)
-    func getTopicComments(commentsReferenceList: NSArray, completionHandler: ([CKRecord]?, Error?) -> Void)
+    func getTopicComments(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void)
     func addComment(topicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID)
     func addTopicConclusion(topicRecordID: CKRecordID, conclusion: String)
 }

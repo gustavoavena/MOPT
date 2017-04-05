@@ -45,6 +45,14 @@
             </objects>
             <point key="canvasLocation" x="2882" y="-524"/>
         </scene>
+        <!--CurrentMeeting-->
+        <scene sceneID="8vY-5K-q44">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CurrentMeeting" id="9fb-5n-PKx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GX0-bV-M5X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3976" y="-600"/>
+        </scene>
         <!--AddParticipant-->
         <scene sceneID="RN7-xg-2pw">
             <objects>
@@ -275,6 +283,12 @@
                                 <color key="tintColor" red="0.21964994072914124" green="0.65785866975784302" blue="0.53967958688735962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="VUO-Xw-wSU" kind="show" identifier="addParticipant" id="66l-Vj-fAX"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="play" id="m4M-U4-RnH">
+                                <color key="tintColor" red="0.21964994072914124" green="0.65785866975784302" blue="0.53967958688735962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="9fb-5n-PKx" kind="show" id="Qmt-S3-8RP"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>

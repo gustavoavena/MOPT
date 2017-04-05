@@ -25,7 +25,7 @@ class SubtopicTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        topicServices.getSubtopicComments(subtopicRecordID: currentSubtopic?.recordID) {
+        topicServices.getSubtopicComments(topicRecordID: currentSubtopic?.recordID) {
             (commentRecords, error) in
             guard error == nil && commentRecords != nil else {
                 print("Error fetching comments")

@@ -19,7 +19,7 @@ class NewSubtopicViewController: UIViewController {
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         subtopicServices.createSubtopic(topicRecordID: currentTopic?.recordID, subtopicTitle: newSubtopicName, creatorRecordID: CKRecordID)
         //Code to create a new subtopic and segue the program to the subtopic created
-        self.dismiss(animated: true, completion:nil)
+        self.navigationController?.popViewController(animated: true)
     }
 
     override func viewDidLoad() {

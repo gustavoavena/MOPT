@@ -11,8 +11,6 @@ import CloudKit
 
 class topicInformationTableViewController: UITableViewController {
     
-    let testUser = User(name: "Farol", fbUsername: "filipemarques.568", email: "fi.marques33@gmail.com", profilePicture: #imageLiteral(resourceName: "example"))
-    
     public var currentTopic:CKRecord?
     private var subtopics = [CKRecord]()
     private var comments = [CKRecord]()
@@ -27,10 +25,10 @@ class topicInformationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topicServices.getSubtopics(userRecordID: currentTopic?.recordID) {
+        topicServices.getSubtopics(topicRecordID: currentTopic?.recordID) {
             (subtopicRecords, error) in
             guard error == nil && subtopicRecords != nil else {
-                print("Error fetching topics")
+                print("Error fetching subtopics")
                 return
             }
             self.subtopics = subtopicRecords!
@@ -38,7 +36,7 @@ class topicInformationTableViewController: UITableViewController {
                 self.tableView.reloadData()
             })
         }
-        topicServices.getTopicComments(userRecordID: currentTopic?.recordID) {
+        topicServices.getTopicComments(topicRecordID: currentTopic?.recordID) {
             (commentRecords, error) in
             guard error == nil && commentRecords != nil else {
                 print("Error fetching comments")
@@ -54,12 +52,12 @@ class topicInformationTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //self.tableView.reloadData()
         self.navigationItem.title = currentTopic?["title"] as? String
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
