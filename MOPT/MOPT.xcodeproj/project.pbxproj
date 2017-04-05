@@ -356,7 +356,7 @@
 				TargetAttributes = {
 					4D3CC56F1E8AA6A2000136FB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9WW6YH2P93;
+						DevelopmentTeam = X5G89Y4L38;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -568,11 +568,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
-				DEVELOPMENT_TEAM = P89J5888T8;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = MOPT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.FilipeMarques.MOPT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.MOPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -583,11 +583,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
-				DEVELOPMENT_TEAM = P89J5888T8;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = MOPT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.FilipeMarques.MOPT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.MOPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
