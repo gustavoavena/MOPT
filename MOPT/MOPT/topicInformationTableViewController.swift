@@ -20,6 +20,7 @@ class topicInformationTableViewController: UITableViewController {
     @IBOutlet weak var commentTextField: UITextView!
     @IBAction func sendCommentButton(_ sender: UIButton) {
         topicServices.addComment(topicRecordID: currentTopic?.recordID, commentText: commentTextField, creatorRecordID: CKRecordID)
+        self.tableView.reloadData()
         commentTextField.text = ""
     }
     
@@ -52,7 +53,7 @@ class topicInformationTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //self.tableView.reloadData()
+        self.tableView.reloadData()
         self.navigationItem.title = currentTopic?["title"] as? String
     }
 

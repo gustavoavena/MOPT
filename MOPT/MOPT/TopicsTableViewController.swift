@@ -38,6 +38,7 @@ class TopicsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tableView.reloadData()
         self.navigationItem.title = currentMeeting?["title"] as? String
     }
 

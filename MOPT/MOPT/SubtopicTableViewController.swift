@@ -20,6 +20,7 @@ class SubtopicTableViewController: UITableViewController {
     @IBOutlet weak var commentTextField: UITextView!
     @IBAction func sendCommentButton(_ sender: UIButton) {
         subtopicServices.addComment(subtopicRecordID: currentSubtopic?.recordID, commentText: commentTextField, creatorRecordID: CKRecordID)
+        self.tableView.reloadData()
         commentTextField.text = ""
     }
 
