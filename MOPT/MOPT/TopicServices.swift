@@ -13,12 +13,10 @@ class TopicServices: NSObject {
     
     let ckHandler: CloudKitHandler
     
-    var topics: [CKRecord]
     
     
     override init() {
         ckHandler = CloudKitHandler()
-        topics = [CKRecord]()
     }
     
     // DONE: obeys protocol.
@@ -86,7 +84,7 @@ class TopicServices: NSObject {
     }
     
     
-    // TODO: Test it.
+    // DONE
     func getTopicComments(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
         let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
         let predicate = NSPredicate(format: "topic = %@", topicReference)
@@ -126,7 +124,28 @@ class TopicServices: NSObject {
         self.ckHandler.saveRecord(record: record)
     }
     
-      
+    
+    // DONE
+    func addTopicConclusion(topicRecordID: CKRecordID, conclusion: String) {
+        
+        ckHandler.fetchByRecordID(recordID: topicRecordID) {
+            (response, error) in
+            
+            guard error == nil else {
+                print("error fetching topic to add conclusion.")
+                return
+            }
+            
+            if let topic = response {
+                topic["conclusion"] = conclusion as NSString
+                self.ckHandler.saveRecord(record: topic)
+            } else {
+                print("Couldn't save the conclusion.")
+            }
+        }
+
+    }
+    
     
 
 

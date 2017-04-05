@@ -24,10 +24,12 @@ protocol MeetingDelegate {
 protocol TopicDelegate {
     func createTopic(title: String, description: String, meetingRecordID: CKRecordID, creatorRecordID: CKRecordID) // DONE
     func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: ([CKRecord], Error?)->Void) // DONE
-    func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void)
-    func getTopicComments(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void) // TODO: Test it.
+    func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void) // TODO: Test it.
+    func getTopicComments(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void) // DONE
     func addComment(topicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID) // DONE
-    func addTopicConclusion(topicRecordID: CKRecordID, conclusion: String)
+    func addTopicConclusion(topicRecordID: CKRecordID, conclusion: String) // DONE
+    func startTopic(topicID: CKRecordID)
+    func endTopic(topicID: CKRecordID)
 }
 
 protocol SubtopicDelegate {
@@ -35,6 +37,8 @@ protocol SubtopicDelegate {
     func getSubtopicComments(subtopicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void)
     func addComment(subtopicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID)
     func addSubtopicConclusion(subtopicRecordID: CKRecordID, conclusion: String)
+    func startSubtopic(subtopicID: CKRecordID)
+    func endSubtopic(subtopicID: CKRecordID)
 }
 
 
@@ -61,7 +65,7 @@ protocol UserDelegate {
  Meeting: "[meeting title]:[creator's record ID]:[created at (use the description attribute from NSDate]
  Topic: "[title]:[meeting record ID]:[creator's ID]"
  Comment: "[topic record ID]:[createdAt string]:[creator's record ID]"
- Subtopic: "[subtopic title]:[topic record ID]:[creator's record ID]"
+ Subtopic: "[subtopic title]:[parent topic record ID]:[creator's record ID]"
  
  
  **Note: When I say record ID, I'm refering to the recordID object's recordName attribute (the string that we're defining here).
