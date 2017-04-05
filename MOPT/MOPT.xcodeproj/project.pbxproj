@@ -20,7 +20,7 @@
 		A420DCFE1E92A3A700E602F8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A420DCFA1E92A3A700E602F8 /* FBSDKCoreKit.framework */; };
 		A420DCFF1E92A3A700E602F8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A420DCFB1E92A3A700E602F8 /* FBSDKLoginKit.framework */; };
 		A420DD001E92A3A700E602F8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A420DCFC1E92A3A700E602F8 /* FBSDKShareKit.framework */; };
-		A48CD06E1E9512AB0034A8C2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48CD06D1E9512AB0034A8C2 /* CloudKit.framework */; };
+		A4921F211E9516DF002EAC5A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4921F201E9516DF002EAC5A /* CloudKit.framework */; };
 		D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */; };
 		D45B26851E926B8B002A1866 /* meetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */; };
 		D45B26871E926D2B002A1866 /* meetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */; };
@@ -82,7 +82,7 @@
 		A420DCFA1E92A3A700E602F8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A420DCFB1E92A3A700E602F8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A420DCFC1E92A3A700E602F8 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
-		A48CD06D1E9512AB0034A8C2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		A4921F201E9516DF002EAC5A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "KeepCalm-Medium.ttf"; path = "../../../../Slackers/Design/Resources/KeepCalm-Medium.ttf"; sourceTree = "<group>"; };
 		D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewController.swift; sourceTree = "<group>"; };
 		D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A48CD06E1E9512AB0034A8C2 /* CloudKit.framework in Frameworks */,
+				A4921F211E9516DF002EAC5A /* CloudKit.framework in Frameworks */,
 				A420DD001E92A3A700E602F8 /* FBSDKShareKit.framework in Frameworks */,
 				A420DCFD1E92A3A700E602F8 /* Bolts.framework in Frameworks */,
 				A420DCFE1E92A3A700E602F8 /* FBSDKCoreKit.framework in Frameworks */,
@@ -149,7 +149,7 @@
 		4D19E7431E8C3E20003782E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A48CD06D1E9512AB0034A8C2 /* CloudKit.framework */,
+				A4921F201E9516DF002EAC5A /* CloudKit.framework */,
 				A420DCF91E92A3A700E602F8 /* Bolts.framework */,
 				A420DCFA1E92A3A700E602F8 /* FBSDKCoreKit.framework */,
 				A420DCFB1E92A3A700E602F8 /* FBSDKLoginKit.framework */,
@@ -356,11 +356,11 @@
 				TargetAttributes = {
 					4D3CC56F1E8AA6A2000136FB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9WW6YH2P93;
+						DevelopmentTeam = X5G89Y4L38;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
@@ -568,11 +568,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
-				DEVELOPMENT_TEAM = P89J5888T8;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = MOPT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.FilipeMarques.MOPT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.MOPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -583,11 +583,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MOPT/MOPT.entitlements;
-				DEVELOPMENT_TEAM = P89J5888T8;
+				DEVELOPMENT_TEAM = X5G89Y4L38;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = MOPT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.FilipeMarques.MOPT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GustavoAvena.MOPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
