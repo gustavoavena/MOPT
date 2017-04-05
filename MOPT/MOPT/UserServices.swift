@@ -14,11 +14,9 @@ import FBSDKLoginKit
 class UserServices: NSObject {
     
     let ckHandler: CloudKitHandler
-    let userServices: UserServices
     
     override init() {
         ckHandler = CloudKitHandler()
-        userServices = UserServices()
     }
     
     func createUser(fbID: Int, name: String, email: String, profilePictureURL: URL) {
