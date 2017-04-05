@@ -10,6 +10,7 @@ import UIKit
 import CloudKit
 
 class MeetingServices: NSObject, MeetingDelegate {
+
     
     let ckHandler: CloudKitHandler
     let userServices: UserServices
@@ -22,6 +23,9 @@ class MeetingServices: NSObject, MeetingDelegate {
     
     
     func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
+        
+        print("Getting user meetings")
+        
         let userReference = CKReference(recordID: userRecordID, action: .none)
         let predicate = NSPredicate(format: "user = %@ in participants", userReference) //ATENTION!
         let query = CKQuery(recordType: "Meeting", predicate: predicate)
@@ -43,18 +47,24 @@ class MeetingServices: NSObject, MeetingDelegate {
     
     
     func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID) {
-        //qual o recordID de uma meeting?
-        let recordID = CKRecordID(recordName: String(title))
-        let userRecord = CKRecord(recordType: "Meeting", recordID: recordID)
+        //salvar data no meeting record id desta maneira?
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "ddMMyyyy"
+        let dateString = dateFormatter.string(from: date as Date)
+        
+        let recordID = CKRecordID(recordName: String(format: "%@%@%@", title, moderatorRecordID.recordName, dateString))
+        let meetingRecord = CKRecord(recordType: "Meeting", recordID: recordID)
         
         print("Creating meeting \(title)")
         
-        userRecord["title"] = title as NSString
-        userRecord["date"] = date as NSDate
-        userRecord["moderator"] = String(fbID) as NSString
+        let moderatorReference = CKReference(recordID: moderatorRecordID, action: .none)
+        
+        meetingRecord["title"] = title as NSString
+        meetingRecord["date"] = date as NSDate
+        meetingRecord["moderator"] = moderatorReference
         
         
-        ckHandler.saveRecord(record: userRecord)
+        ckHandler.saveRecord(record: meetingRecord)
     }
     
     
