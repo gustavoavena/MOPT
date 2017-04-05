@@ -15,7 +15,7 @@
         <scene sceneID="YNp-tr-uJi">
             <objects>
                 <navigationController id="Ap0-bo-smC" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xhs-8a-ty9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xhs-8a-ty9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -64,7 +64,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite new participants to meeting" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjj-p1-l3R">
-                                <rect key="frame" x="71" y="112.5" width="232" height="18"/>
+                                <rect key="frame" x="71.5" y="112.5" width="232" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" red="0.21960784310000001" green="0.6588235294" blue="0.54117647059999996" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
