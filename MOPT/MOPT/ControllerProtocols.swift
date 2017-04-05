@@ -10,8 +10,7 @@ import UIKit
 import CloudKit
 
 protocol MeetingDelegate {
-    // TODO: Default value for getUserNextMeetings
-    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: ([CKRecord]?, Error?) -> Void)
+    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: ([CKRecord]?, Error?) -> Void) // DONE
     func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID)
     func addParticipant(meetingRecordID: CKRecordID, userEmail: String) // DONE
     func startMeeting(meetingID: CKRecordID)
@@ -33,10 +32,10 @@ protocol TopicDelegate {
 }
 
 protocol SubtopicDelegate {
-    func createSubtopic(topicRecordID: CKRecordID, subtopicTitle: String, creatorRecordID: CKRecordID)
-    func getSubtopicComments(subtopicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void)
-    func addComment(subtopicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID)
-    func addSubtopicConclusion(subtopicRecordID: CKRecordID, conclusion: String)
+    func createSubtopic(topicRecordID: CKRecordID, subtopicTitle: String, creatorRecordID: CKRecordID) // DONE
+    func getSubtopicComments(subtopicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void) // DONE
+    func addComment(subtopicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID) // DONE
+    func addSubtopicConclusion(subtopicRecordID: CKRecordID, conclusion: String) // DONE
     func startSubtopic(subtopicID: CKRecordID)
     func endSubtopic(subtopicID: CKRecordID)
 }

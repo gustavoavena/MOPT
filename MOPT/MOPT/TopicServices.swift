@@ -91,17 +91,17 @@ class TopicServices: NSObject {
     }
     
    
-    // TODO: test it after creating subtopics.
+    // DONE
     func getSubtopics(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?)-> Void) {
         let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
-        let predicate = NSPredicate(format: "topic = %@", topicReference)
+        let predicate = NSPredicate(format: "parentTopic = %@", topicReference)
         let query = CKQuery(recordType: "Subtopic", predicate: predicate)
         
         self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
             (responseData, error) in
             
             guard error == nil && responseData != nil else {
-                print("problem getting topics from meeting")
+                print("problem getting subtopics from meeting")
                 return
             }
             

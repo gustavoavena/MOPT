@@ -20,19 +20,19 @@ class SubtopicServices: NSObject {
     }
     
     
-    func createSubtopic(title: String, description: String, parentTopicRecordID: CKRecordID, creatorRecordID: CKRecordID) {
+    // DONE
+    func createSubtopic(subtopicTitle: String, topicRecordID: CKRecordID, creatorRecordID: CKRecordID) {
         // Default SubtopicID string is: "[title]:[parentTopicID]:[creatorID]"
-        let recordID = CKRecordID(recordName: String(format: "%@:%@:%@", title, parentTopicRecordID.recordName, creatorRecordID.recordName))
+        let recordID = CKRecordID(recordName: String(format: "%@:%@:%@", subtopicTitle, topicRecordID.recordName, creatorRecordID.recordName))
         
         let subtopicRecord = CKRecord(recordType: "Subtopic", recordID: recordID)
         
-        print("Creating Subtopic \(title) for topic = \(parentTopicRecordID.recordName)")
+        print("Creating Subtopic \(subtopicTitle) for topic = \(topicRecordID.recordName)")
         
-        let parentTopicReference = CKReference(recordID: parentTopicRecordID, action: .deleteSelf)
+        let parentTopicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
         let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
         
-        subtopicRecord["title"] = title as NSString
-        subtopicRecord["description"] = description as NSString
+        subtopicRecord["title"] = subtopicTitle as NSString
         subtopicRecord["parentTopic"] = parentTopicReference
         subtopicRecord["creator"] = creatorReference
         
@@ -41,6 +41,7 @@ class SubtopicServices: NSObject {
     }
     
 
+    // DONE
     func getSubtopicComments(subtopicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
         let subtopicReference = CKReference(recordID: subtopicRecordID, action: .deleteSelf)
         let predicate = NSPredicate(format: "subtopic = %@", subtopicReference)
@@ -63,7 +64,7 @@ class SubtopicServices: NSObject {
     }
     
     
-
+    // DONE
     func addComment(subtopicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID) {
         let subtopicReference = CKReference(recordID: subtopicRecordID, action: .deleteSelf)
         let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
@@ -81,7 +82,7 @@ class SubtopicServices: NSObject {
     }
     
     
-
+    // DONE
     func addSubtopicConclusion(subtopicRecordID: CKRecordID, conclusion: String) {
         
         ckHandler.fetchByRecordID(recordID: subtopicRecordID) {

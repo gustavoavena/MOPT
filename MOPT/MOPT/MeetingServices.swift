@@ -20,13 +20,13 @@ class MeetingServices: NSObject {
         userServices = UserServices()
     }
     
-    //TODO: test
-    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
+    // DONE
+    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool = true, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
         
         print("Getting user meetings")
         
         let userReference = CKReference(recordID: userRecordID, action: .none)
-        let predicate = NSPredicate(format: "user = %@ in participants", userReference) //ATENTION!
+        let predicate = NSPredicate(format: "%@ in participants", userReference) //ATENTION!
         let query = CKQuery(recordType: "Meeting", predicate: predicate)
         
         self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
