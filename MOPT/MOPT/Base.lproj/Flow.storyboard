@@ -100,6 +100,11 @@
                                                         <constraint firstAttribute="width" constant="45" id="2LT-Ms-HDC"/>
                                                         <constraint firstAttribute="height" constant="45" id="leX-dl-IuM"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar_white" translatesAutoresizingMaskIntoConstraints="NO" id="Aow-qd-cII">
                                                     <rect key="frame" x="61" y="64" width="22" height="22"/>
@@ -214,6 +219,11 @@
                                                         <constraint firstAttribute="width" constant="45" id="8FP-re-ss1"/>
                                                         <constraint firstAttribute="height" constant="45" id="Wgo-F7-iIb"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 subtopics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flF-NC-7eB">
                                                     <rect key="frame" x="61" y="47" width="142" height="21"/>
@@ -367,6 +377,11 @@
                                                         <constraint firstAttribute="width" constant="45" id="FIx-VY-Zub"/>
                                                         <constraint firstAttribute="height" constant="45" id="xiD-b9-Sq1"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar_white" translatesAutoresizingMaskIntoConstraints="NO" id="jkT-xn-ly9">
                                                     <rect key="frame" x="61" y="64" width="22" height="22"/>
@@ -465,15 +480,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xES-JK-vcU">
-                                            <rect key="frame" x="8" y="37" width="359" height="252"/>
+                                            <rect key="frame" x="8" y="33" width="359" height="256"/>
                                             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVO-35-cBk">
-                                            <rect key="frame" x="8" y="8" width="359" height="24"/>
-                                            <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVO-35-cBk">
+                                            <rect key="frame" x="8" y="8" width="359" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" red="0.20784313725490194" green="0.61960784313725492" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -562,6 +577,11 @@
                                         <constraint firstAttribute="width" constant="35" id="RlO-52-F8H"/>
                                         <constraint firstAttribute="height" constant="35" id="m0t-wo-MPF"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B44-ze-tYD">
                                     <rect key="frame" x="318" y="105" width="49" height="30"/>
@@ -637,6 +657,11 @@
                                                         <constraint firstAttribute="height" constant="35" id="bZi-di-zLV"/>
                                                         <constraint firstAttribute="width" constant="35" id="cmQ-Qc-9pi"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtópico 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTc-3Q-yJm">
                                                     <rect key="frame" x="51" y="15.5" width="119.5" height="24"/>
@@ -687,6 +712,11 @@
                                                 <constraint firstAttribute="width" constant="35" id="Aan-no-Bob"/>
                                                 <constraint firstAttribute="height" constant="35" id="X3i-jR-N75"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6jF-bd-Jh5">
                                             <rect key="frame" x="51" y="8" width="316" height="54"/>
@@ -777,6 +807,11 @@
                                         <constraint firstAttribute="width" constant="35" id="JXJ-au-ssx"/>
                                         <constraint firstAttribute="height" constant="35" id="uFH-6S-7rF"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaX-tB-1W5">
                                     <rect key="frame" x="318" y="105" width="49" height="30"/>
@@ -823,6 +858,11 @@
                                                 <constraint firstAttribute="height" constant="35" id="7UQ-Gw-OPC"/>
                                                 <constraint firstAttribute="width" constant="35" id="fBK-Mm-zdP"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n6Q-FA-7bt">
                                             <rect key="frame" x="51" y="8" width="316" height="83"/>
@@ -869,6 +909,6 @@
         <image name="Clock_white" width="180" height="180"/>
         <image name="Handshake" width="25" height="25"/>
         <image name="Meetings" width="25" height="25"/>
-        <image name="example" width="180" height="180"/>
+        <image name="example" width="500" height="500"/>
     </resources>
 </document>

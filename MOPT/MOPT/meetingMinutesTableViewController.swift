@@ -79,7 +79,7 @@ class meetingMinutesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let subtopics = [CKRecord]()
-        topicServices.getSubtopics(userRecordID: topics[indexPath.row].recordID) {
+        topicServices.getSubtopics(userRecordID: topics[indexPath.section].recordID) {
             (subtopicRecords, error) in
             guard error == nil && subtopicRecords != nil else {
                 print("Error fetching subtopics")

@@ -26,6 +26,10 @@ class topicInformationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.currentUserPicture.image = UIImage(named:"example")
+        //self.currentUserPicture.image = UIImage(named:"example")
+        
         topicServices.getSubtopics(topicRecordID: currentTopic?.recordID) {
             (subtopicRecords, error) in
             guard error == nil && subtopicRecords != nil else {
@@ -55,6 +59,9 @@ class topicInformationTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
         self.navigationItem.title = currentTopic?["title"] as? String
+        
+        self.currentUserPicture.image = UIImage(named:"example")
+        //self.currentUserPicture.image = UIImage(named:"example")
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,6 +98,7 @@ class topicInformationTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicCell", for: indexPath) as! subtopicsTableViewCell
             cell.subtopicTitle.text = self.subtopics[indexPath.row]["title"] as? String
             //cell.subtopicCreatorPicture.image = self.subtopics[indexPath.row].creator.profilePicture
+            cell.subtopicCreatorPicture.image = UIImage(named:"example")
             return cell
             
         }
@@ -99,6 +107,7 @@ class topicInformationTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
             cell.commentText.text = self.comments[indexPath.row]["text"] as? String
             //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
+            cell.commentCreatorPicture.image = UIImage(named:"example")
             return cell
         }
     }

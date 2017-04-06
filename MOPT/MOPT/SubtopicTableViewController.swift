@@ -43,6 +43,9 @@ class SubtopicTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = currentSubtopic?["title"] as? String
+        
+        self.currentUserPicture.image = UIImage(named:"example")
+        //self.currentUserPicture.image = UIImage(named:"example")
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +68,8 @@ class SubtopicTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
         cell.commentText.text = self.comments[indexPath.row]["text"] as! String
+        
+        cell.commentCreatorPicture.image = UIImage(named:"example")
         //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
         return cell
     }
