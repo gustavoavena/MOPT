@@ -1,2 +1,0 @@
-# MOPT
-MOPT: Meeting Optimizer
