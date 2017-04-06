@@ -7,10 +7,22 @@
 //
 
 import UIKit
+import CloudKit
 
 class AddTopicConclusionViewController: UIViewController {
     
     var currentTopic:CKRecord?
+    private var topicServices = TopicServices()
+    
+    @IBOutlet weak var topicConclusion: UITextField!
+    
+    
+    @IBAction func doneConclusionButton(_ sender: UIBarButtonItem) {
+        topicServices.addTopicConclusion(topicRecordID: currentTopic?.recordID, conclusion: self.topicConclusion.text)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

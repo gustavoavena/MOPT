@@ -20,7 +20,7 @@
         <scene sceneID="nQ0-vb-Gs7">
             <objects>
                 <tableViewController id="wvJ-Ye-0n0" customClass="CurrentMeetingTableViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="289" sectionHeaderHeight="28" sectionFooterHeight="28" id="5cM-ae-sl7">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="289" sectionHeaderHeight="28" sectionFooterHeight="28" id="5cM-ae-sl7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m8R-Hi-WfT" id="m7h-KO-N5P">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEd-8b-S04">
@@ -81,7 +81,7 @@
                                 <rect key="frame" x="0.0" y="113" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oaP-Dc-RdM" id="d8c-cZ-bbw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZm-Cs-7kA">
@@ -136,9 +136,11 @@
                             <outlet property="delegate" destination="wvJ-Ye-0n0" id="jjB-qw-Wx3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="Fhy-Hh-Jtx">
-                        <barButtonItem key="rightBarButtonItem" title="End Meeting" style="done" id="wsf-WO-AZ1">
-                            <color key="tintColor" red="0.23137254901960785" green="0.69803921568627447" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <navigationItem key="navigationItem" title="Title" id="h2j-gD-0sL">
+                        <barButtonItem key="rightBarButtonItem" title="End Meeting" style="done" id="HLk-kM-ZY4">
+                            <connections>
+                                <action selector="endMeetingButton:" destination="wvJ-Ye-0n0" id="vwL-En-lOX"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -146,7 +148,7 @@
             </objects>
             <point key="canvasLocation" x="4295.1999999999998" y="427.73613193403304"/>
         </scene>
-        <!--Topic-->
+        <!--Title-->
         <scene sceneID="l23-en-coE">
             <objects>
                 <viewController id="let-av-eAY" customClass="AddTopicConclusionViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
@@ -191,15 +193,22 @@
                             <constraint firstAttribute="trailingMargin" secondItem="N43-4b-qWo" secondAttribute="trailing" id="oGK-hD-KXg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Topic" id="ccQ-42-arz">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="icc-PK-uNA"/>
+                    <navigationItem key="navigationItem" title="Title" id="a7l-fW-x7Y">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="cxc-Ob-h84">
+                            <connections>
+                                <action selector="doneConclusionButton:" destination="let-av-eAY" id="aL9-i5-tRS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="topicConclusion" destination="6Db-WT-d8p" id="qz3-px-HXe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vo-87-xz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5276" y="428"/>
         </scene>
-        <!--Subtopic-->
+        <!--Title-->
         <scene sceneID="YZo-7Q-PlK">
             <objects>
                 <viewController id="19E-Yl-uNy" customClass="AddSubtopicConclusionViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
@@ -244,9 +253,16 @@
                             <constraint firstItem="hL6-HL-HFD" firstAttribute="leading" secondItem="daa-yv-cuE" secondAttribute="leadingMargin" id="b49-Gl-Zct"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Subtopic" id="7B0-jE-ydE">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="acf-h6-QAU"/>
+                    <navigationItem key="navigationItem" title="Title" id="AvI-BX-N83">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="xLY-3L-Gic">
+                            <connections>
+                                <action selector="doneSubtopicConclusion:" destination="19E-Yl-uNy" id="pkn-on-Osv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="subtopicConclusion" destination="Byk-2r-pNp" id="fqw-4u-6VW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGh-yP-I2Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -254,6 +270,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="example" width="180" height="180"/>
+        <image name="example" width="500" height="500"/>
     </resources>
 </document>

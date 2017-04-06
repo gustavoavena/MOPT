@@ -17,7 +17,7 @@ class NewMeetingViewController: UIViewController {
     @IBOutlet weak var newMeetingDate: UIDatePicker!
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        //meetingServices.createMeeting(title: newMeetingName, date: newMeetingDate, moderatorRecordID: CKRecordID)
+        meetingServices.createMeeting(title: self.newMeetingName.text, date: self.newMeetingDate, moderatorRecordID: CKRecordID)
         //Code to create a new meeting and segue the program to the meeting created
         self.navigationController?.popViewController(animated: true)
     }

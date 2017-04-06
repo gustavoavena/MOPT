@@ -19,10 +19,11 @@ class NewTopicViewController: UIViewController {
     @IBOutlet weak var newTopicDescription: UITextView!
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        topicServices.createTopic(title: newTopicName, description: newTopicDescription, meetingRecordID: currentMeeting?.recordID, creatorRecordID: CKRecordID)
+        topicServices.createTopic(title: self.newTopicName.text, description: self.newTopicDescription.text, meetingRecordID: currentMeeting?.recordID, creatorRecordID: CKRecordID)
         //Code to create a new topic and segue the program to the topic created
         self.navigationController?.popViewController(animated: true)
     }
+    
     
     
     override func viewDidLoad() {

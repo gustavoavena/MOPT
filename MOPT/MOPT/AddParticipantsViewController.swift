@@ -17,7 +17,7 @@ class AddParticipantsViewController: UIViewController {
     @IBOutlet weak var invitedUserEmail: UITextField!
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        meetingServices.addParticipant(meetingRecordID: currentMeeting?.recordID, userEmail: invitedUserEmail)
+        meetingServices.addParticipant(meetingRecordID: currentMeeting?.recordID, userEmail: self.invitedUserEmail.text)
         //Code to add a new participant and segue the program back to the meeting
         self.navigationController?.popViewController(animated: true)
     }

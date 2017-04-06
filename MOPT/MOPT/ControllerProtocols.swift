@@ -13,6 +13,8 @@ protocol MeetingDelegate {
     func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: ([CKRecord]?, Error?) -> Void)
     func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID)
     func addParticipant(meetingRecordID: CKRecordID, userEmail: String)
+    func startMeeting(meetingID: CKRecordID)
+    func endMeeting(meetingID: CKRecordID)
 }
 
 protocol TopicDelegate {

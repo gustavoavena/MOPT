@@ -13,12 +13,13 @@ class CurrentMeetingTableViewController: UITableViewController {
     
     var currentMeeting:CKRecord?
     var topics = [CKRecord]()
+    private let meetingServices = MeetingServices()
     private let topicServices = TopicServices()
     private let subtopicServices = SubtopicServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topicServices.getMeetingTopics(userRecordID: currentMeeting?.recordID) {
+        topicServices.getMeetingTopics(meetingRecordID: currentMeeting?.recordID) {
             (topicRecords, error) in
             guard error == nil && topicRecords != nil else {
                 print("Error fetching topics")
@@ -41,6 +42,12 @@ class CurrentMeetingTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = currentMeeting?["title"] as? String
+    }
+    
+    @IBAction func endMeetingButton(_ sender: UIBarButtonItem) {
+        meetingServices.endMeeting(meetingID: currentMeeting?.recordID)
+        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Table view data source

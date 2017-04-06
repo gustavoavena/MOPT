@@ -298,6 +298,7 @@
                             <barButtonItem systemItem="play" id="eKn-2V-VXF">
                                 <color key="tintColor" red="0.21964994072914124" green="0.65785866975784302" blue="0.53967958688735962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <action selector="startMeetingButton:" destination="Kfq-qB-M0F" id="Ojm-8m-Csu"/>
                                     <segue destination="sux-Jl-SUb" kind="show" identifier="startMeeting" id="5nY-4x-kKE"/>
                                 </connections>
                             </barButtonItem>
@@ -314,7 +315,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DdB-yN-1v3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Upcoming" image="Meetings" id="7f8-Nx-Odn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9M8-07-sak">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9M8-07-sak">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -333,7 +334,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mOV-1M-opU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Previous" image="Handshake" id="1aF-4w-Rmk"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LHI-h5-zGX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LHI-h5-zGX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -476,7 +477,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="289"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="goR-Ig-1yv" id="M3N-zW-dUt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="288.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xES-JK-vcU">
@@ -513,7 +514,7 @@
                                 <rect key="frame" x="0.0" y="317" width="375" height="289"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PpA-Uu-bSt" id="s7N-Nc-4EA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="288.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ACI-Mn-LbD">
@@ -849,7 +850,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KEl-uK-Ovy" id="1W5-3p-E8A">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example" translatesAutoresizingMaskIntoConstraints="NO" id="4Ya-Xa-Tgi">

@@ -15,6 +15,7 @@ class TopicsTableViewController: UITableViewController {
     var currentMeeting:CKRecord?
     private var topics = [CKRecord]()
     private let topicServices = TopicServices()
+    private let meetingServices = MeetingServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,11 @@ class TopicsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
         self.navigationItem.title = currentMeeting?["title"] as? String
+    }
+    
+    
+    @IBAction func startMeetingButton(_ sender: UIBarButtonItem) {
+        meetingServices.startMeeting(meetingID: currentMeeting?.recordID)
     }
 
     // MARK: - Table view data source
