@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 
 protocol MeetingDelegate {
-    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: ([CKRecord]?, Error?) -> Void) // DONE
+    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) // DONE
     func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID) // DONE
     func addParticipant(meetingRecordID: CKRecordID, userEmail: String) // DONE
     func startMeeting(meetingID: CKRecordID) // DONE
@@ -25,22 +25,22 @@ protocol MeetingDelegate {
 protocol TopicDelegate {
     func createTopic(title: String, description: String, meetingRecordID: CKRecordID, creatorRecordID: CKRecordID) // DONE
     func removeTopic(meetingRecordID: CKRecordID, topicRecordID: CKRecordID) //TEST
-    func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: ([CKRecord], Error?)->Void) // DONE
-    func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void) // DONE
-    func getTopicComments(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void) // DONE
+    func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: @escaping ([CKRecord], Error?)->Void) // DONE
+    func getSubtopics(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?)-> Void) // DONE
+    func getTopicComments(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) // DONE
     func addComment(topicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID) // DONE
     func addTopicConclusion(topicRecordID: CKRecordID, conclusion: String) // DONE
-    func startTopic(topicID: CKRecordID)
-    func endTopic(topicID: CKRecordID)
+//    func startTopic(topicID: CKRecordID) // For later
+//    func endTopic(topicID: CKRecordID) // For later
 }
 
 protocol SubtopicDelegate {
-    func createSubtopic(topicRecordID: CKRecordID, subtopicTitle: String, creatorRecordID: CKRecordID) // DONE
-    func getSubtopicComments(subtopicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void) // DONE
+    func createSubtopic(subtopicTitle: String, topicRecordID: CKRecordID, creatorRecordID: CKRecordID) // DONE
+    func getSubtopicComments(subtopicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) // DONE
     func addComment(subtopicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID) // DONE
     func addSubtopicConclusion(subtopicRecordID: CKRecordID, conclusion: String) // DONE
-    func startSubtopic(subtopicID: CKRecordID)
-    func endSubtopic(subtopicID: CKRecordID)
+//    func startSubtopic(subtopicID: CKRecordID)
+//    func endSubtopic(subtopicID: CKRecordID)
 }
 
 
@@ -48,9 +48,9 @@ protocol SubtopicDelegate {
 
 protocol UserDelegate {
     func createUser(fbID: Int, name: String, email: String, profilePictureURL: URL) // DONE
-    func getUserProfilePictureURL(userReference: CKReference, completionHandler: (URL?, Error?) -> Void)
-    func getCurrentUserRecordID(completionHandler: (CKRecordID?, Error?) -> Void)
-    func getUserRecordFromEmail(email: String, completionHandler: (CKRecord?, Error?) -> Void) // DONE
+    func getUserProfilePictureURL(userReference: CKReference, completionHandler: @escaping (URL?, Error?) -> Void)
+    func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void)
+    func getUserRecordFromEmail(email: String, completionHandler: @escaping (CKRecord?, Error?) -> Void) // DONE
 }
 
 

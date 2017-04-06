@@ -6,10 +6,9 @@
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
-import UIKit
 import CloudKit
 
-class TopicServices: NSObject {
+class TopicServices: NSObject, TopicDelegate {
     
     let ckHandler: CloudKitHandler
     
@@ -19,7 +18,6 @@ class TopicServices: NSObject {
         ckHandler = CloudKitHandler()
     }
     
-    // DONE: obeys protocol.
     func createTopic(title: String, description: String, meetingRecordID: CKRecordID, creatorRecordID:CKRecordID) {
         // Default topicID string is: "[title]:[meetingID]"
         let recordID = CKRecordID(recordName: String(format: "%@:%@:%@", title, meetingRecordID.recordName, creatorRecordID.recordName))
@@ -70,8 +68,7 @@ class TopicServices: NSObject {
     }
     
     
-    // DONE: obeys protocol.
-    func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: @escaping ([CKRecord], Error?)->Void) {
+    func getMeetingTopics(meetingRecordID: CKRecordID, completionHandler: @escaping ([CKRecord], Error?)->Void) {
         let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
         let predicate = NSPredicate(format: "meeting = %@", meetingReference)
         let query = CKQuery(recordType: "Topic", predicate: predicate)
@@ -91,7 +88,6 @@ class TopicServices: NSObject {
     }
     
    
-    // DONE
     func getSubtopics(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?)-> Void) {
         let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
         let predicate = NSPredicate(format: "parentTopic = %@", topicReference)
@@ -114,7 +110,6 @@ class TopicServices: NSObject {
     }
     
     
-    // DONE
     func getTopicComments(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
         let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
         let predicate = NSPredicate(format: "topic = %@", topicReference)
@@ -137,7 +132,6 @@ class TopicServices: NSObject {
     }
 
     
-    // DONE
     func addComment(topicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID) {
         let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
         let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
@@ -155,7 +149,6 @@ class TopicServices: NSObject {
     }
     
     
-    // DONE
     func addTopicConclusion(topicRecordID: CKRecordID, conclusion: String) {
         
         ckHandler.fetchByRecordID(recordID: topicRecordID) {

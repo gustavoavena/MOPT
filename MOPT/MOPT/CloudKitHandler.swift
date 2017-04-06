@@ -42,7 +42,7 @@ public class CloudKitHandler: NSObject {
         }
     }
     
-    public func saveRecord(record: CKRecord) {
+    func saveRecord(record: CKRecord) {
         
         print("Attempting to save record \(record.recordID.recordName)")
         
@@ -50,12 +50,12 @@ public class CloudKitHandler: NSObject {
             (record, error) in
             if let error = error {
                 // Insert error handling
-                print("Error when saving the record \(record?.recordID.recordName).")
+                print("Error when saving the record \(String(describing: record?.recordID.recordName)).")
                 print(error.localizedDescription)
                 return
             }
             // Insert successfully saved record code
-            print("Record \(record?.recordID.recordName) saved successfully.")
+            print("Record \(String(describing: record?.recordID.recordName)) saved successfully.")
         }
         
     }

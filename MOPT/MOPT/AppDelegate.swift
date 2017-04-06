@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //initializing application
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        print("Starting up mOpt...")
+        print("Current user:", CurrentUser.shared().currentUserRecordID as Any, terminator: "\n\n")
         
         //getting result from launching facebook linked application
         let result = FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

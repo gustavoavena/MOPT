@@ -11,25 +11,25 @@ import CloudKit
 
 class CurrentUser: NSObject {
     
-    static private var currentUserRecordID: CKRecordID
-    
-    
-    override init() {
-        
-        fetchFacebookUserInfo {
-            (userInfo, error) in
-            
-            guard error == nil && userInfo != nil else {
-                print("error getting current user CK Record ID")
-                return
-            }
-            
-            self.currentUserRecordID = CKRecordID(recordName: userInfo?["id"] as! String)
+    public var currentUserRecordID: CKRecordID? {
+        didSet {
+            print("Changing currentUserRecordID from \(String(describing: oldValue)) to \(String(describing: currentUserRecordID))")
         }
     }
     
-    static public func userRecordID() -> CKRecordID {
-        return currentUserRecordID
+    private static var sharedCurrentUser: CurrentUser = {
+        let currentUser = CurrentUser(userRecordID: nil)
+        
+        return currentUser
+    }()
+    
+    
+    private init(userRecordID: CKRecordID? = nil) {
+        self.currentUserRecordID = userRecordID
     }
-
+    
+    class func shared() -> CurrentUser {
+        return sharedCurrentUser
+    }
+    
 }

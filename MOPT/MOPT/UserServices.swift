@@ -11,7 +11,7 @@ import CloudKit
 import FBSDKLoginKit
 
 
-class UserServices: NSObject {
+class UserServices: NSObject, UserDelegate {
     
     let ckHandler: CloudKitHandler
     

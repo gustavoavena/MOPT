@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class MeetingServices: NSObject {
+class MeetingServices: NSObject, MeetingDelegate {
     
     let ckHandler: CloudKitHandler
     let userServices: UserServices
@@ -171,7 +171,7 @@ class MeetingServices: NSObject {
     }
     
     /**Call this method when starting/ending a topic.*/
-    func changeCurrentTopic(meetingRecordID: CKRecordID, topicRecordID: CKRecordID?) throws {
+    func changeCurrentTopic(meetingRecordID: CKRecordID, topicRecordID: CKRecordID?) {
         
         ckHandler.fetchByRecordID(recordID: meetingRecordID) {
             (recordResponse, error) in
@@ -197,13 +197,7 @@ class MeetingServices: NSObject {
             record["currentTopic"] = topicReference
             
                       
-            self.ckHandler.saveRecord(record: record) {
-                (newRecord, error) in
-                guard error == nil else {
-                    print("Error saving record to DB.")
-                    return
-                }
-            }
+            self.ckHandler.saveRecord(record: record)
         }
         
         

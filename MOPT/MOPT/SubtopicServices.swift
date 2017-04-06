@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class SubtopicServices: NSObject {
+class SubtopicServices: NSObject, SubtopicDelegate {
     
     let ckHandler: CloudKitHandler
     
@@ -20,7 +20,7 @@ class SubtopicServices: NSObject {
     }
     
     
-    // DONE
+
     func createSubtopic(subtopicTitle: String, topicRecordID: CKRecordID, creatorRecordID: CKRecordID) {
         // Default SubtopicID string is: "[title]:[parentTopicID]:[creatorID]"
         let recordID = CKRecordID(recordName: String(format: "%@:%@:%@", subtopicTitle, topicRecordID.recordName, creatorRecordID.recordName))
@@ -41,7 +41,7 @@ class SubtopicServices: NSObject {
     }
     
 
-    // DONE
+
     func getSubtopicComments(subtopicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
         let subtopicReference = CKReference(recordID: subtopicRecordID, action: .deleteSelf)
         let predicate = NSPredicate(format: "subtopic = %@", subtopicReference)
@@ -64,7 +64,7 @@ class SubtopicServices: NSObject {
     }
     
     
-    // DONE
+
     func addComment(subtopicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID) {
         let subtopicReference = CKReference(recordID: subtopicRecordID, action: .deleteSelf)
         let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
@@ -82,7 +82,7 @@ class SubtopicServices: NSObject {
     }
     
     
-    // DONE
+
     func addSubtopicConclusion(subtopicRecordID: CKRecordID, conclusion: String) {
         
         ckHandler.fetchByRecordID(recordID: subtopicRecordID) {
