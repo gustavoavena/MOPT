@@ -47,10 +47,11 @@ protocol SubtopicDelegate {
 
 
 protocol UserDelegate {
-    func createUser(fbID: Int, name: String, email: String, profilePictureURL: URL) // DONE
+    func createUser(fbID: String, name: String, email: String, profilePictureURL: URL) // DONE
     func getUserProfilePictureURL(userReference: CKReference, completionHandler: @escaping (URL?, Error?) -> Void)
-    func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void)
+//    func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void)
     func getUserRecordFromEmail(email: String, completionHandler: @escaping (CKRecord?, Error?) -> Void) // DONE
+    func fetchFacebookUserInfo(completionHandler:@escaping ([String:Any]?, Error?) -> Void)
 }
 
 

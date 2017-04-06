@@ -19,7 +19,7 @@ class UserServices: NSObject, UserDelegate {
         ckHandler = CloudKitHandler()
     }
     
-    func createUser(fbID: Int, name: String, email: String, profilePictureURL: URL) {
+    func createUser(fbID: String, name: String, email: String, profilePictureURL: URL) {
         let recordID = CKRecordID(recordName: String(fbID))
         let userRecord = CKRecord(recordType: "User", recordID: recordID)
         
@@ -29,6 +29,10 @@ class UserServices: NSObject, UserDelegate {
         userRecord["email"] = email as NSString
         userRecord["fbID"] = String(fbID) as NSString
         userRecord["profilePictureURL"] = profilePictureURL.absoluteString as NSString
+        
+        // Logs user in:
+        let currentUser = CurrentUser.shared()
+        currentUser.userRecordID = userRecord.recordID // logged in
         
         
         self.ckHandler.saveRecord(record: userRecord)
@@ -95,18 +99,18 @@ class UserServices: NSObject, UserDelegate {
     }
     
     
-    func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void) {
-        fetchFacebookUserInfo {
-            (userInfo, error) in
-            
-            guard error == nil && userInfo != nil else {
-                print("error getting current user CK Record ID")
-                return
-            }
-            
-            let userID = CKRecordID(recordName: userInfo?["id"] as! String)
-            completionHandler(userID, error)
-        }
-    }
+//    func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void) {
+//        fetchFacebookUserInfo {
+//            (userInfo, error) in
+//            
+//            guard error == nil && userInfo != nil else {
+//                print("error getting current user CK Record ID")
+//                return
+//            }
+//            
+//            let userID = CKRecordID(recordName: userInfo?["id"] as! String)
+//            completionHandler(userID, error)
+//        }
+//    }
 
 }

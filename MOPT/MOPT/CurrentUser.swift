@@ -11,9 +11,9 @@ import CloudKit
 
 class CurrentUser: NSObject {
     
-    public var currentUserRecordID: CKRecordID? {
+    public var userRecordID: CKRecordID? {
         didSet {
-            print("Changing currentUserRecordID from \(String(describing: oldValue)) to \(String(describing: currentUserRecordID))")
+            print("Changing currentUserRecordID from \(String(describing: oldValue)) to \(String(describing: userRecordID))")
         }
     }
     
@@ -25,7 +25,7 @@ class CurrentUser: NSObject {
     
     
     private init(userRecordID: CKRecordID? = nil) {
-        self.currentUserRecordID = userRecordID
+        self.userRecordID = userRecordID
     }
     
     class func shared() -> CurrentUser {

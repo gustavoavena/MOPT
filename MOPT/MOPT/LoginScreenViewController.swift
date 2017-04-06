@@ -8,10 +8,12 @@
 
 import UIKit
 import FBSDKLoginKit
+import CloudKit
 
 class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     fileprivate var userDelegate: UserDelegate
+    fileprivate let ckHandler: CloudKitHandler
     
     //creating facebook login button instance
     let loginButton: FBSDKLoginButton! = {
@@ -19,15 +21,22 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         button.readPermissions = ["public_profile", "email"]
         return button
     }()
+
+    
+
+    
+    required  init?(coder aDecoder: NSCoder) {
+        self.ckHandler = CloudKitHandler()
+        
+        self.userDelegate = UserServices()
+        super.init(coder: aDecoder)
+    }
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let meetingServices = MeetingServices()
-        
-        meetingServices.addParticipant(meetingID: "Slackers:gugaavena:04042017", username: "gugaavena")
-
         
         //checking if user is already logged in
         if (FBSDKAccessToken.current() != nil) {
@@ -57,15 +66,42 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         else {
             //getting user's facebook informations (id, name, email)
-            userDelegate.fetchUserInfo(completionHandler: { (userInfo) in
-                let userName = userInfo["name"] as! String
-                let userEmail = userInfo["email"] as! String
-                let userID = Int(userInfo["id"] as! String)!
-                let userPictureURL = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")!
+            self.userDelegate.fetchFacebookUserInfo(completionHandler: {
+                (response, error) in
+                
+                guard error == nil else {
+                    print("Error fetching user's facebook info.")
+                    return
+                }
+                
+                if let userInfo = response {
+                    let userName = userInfo["name"] as! String
+                    let userEmail = userInfo["email"] as! String
+                    let userID = userInfo["id"] as! String
+                    let userPictureURL = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")!
+                    
+                    let userRecordID = CKRecordID(recordName: userID)
+                    self.ckHandler.fetchByRecordID(recordID: userRecordID) {
+                        (response, error) in
+                        
+
+                        if let userRecord = response {
+                            let currentUser = CurrentUser.shared()
+                            currentUser.userRecordID = userRecord.recordID // Logged user in
+                        } else {
+                            self.userDelegate.createUser(fbID: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
+                        }
+                        
+                        
+                    }
+                    
+
+                }
+               
                 
                 //[code] procura user no banco de dados
                 //[code] if user == nil, cria novo usuario
-                userDelegate.createUser(id: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
+                
                 //[code] pula para proxima viewcontroller enviando user encontrado/criado como parametro
             })
         }
