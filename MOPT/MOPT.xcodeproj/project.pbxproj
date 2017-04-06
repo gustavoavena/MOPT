@@ -59,7 +59,6 @@
 		D4E651AB1E93B5570093CEB9 /* NewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651AA1E93B5570093CEB9 /* NewTopicViewController.swift */; };
 		D4E651AD1E93B5650093CEB9 /* NewSubtopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651AC1E93B5650093CEB9 /* NewSubtopicViewController.swift */; };
 		D4E651AF1E93B5840093CEB9 /* AddParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651AE1E93B5840093CEB9 /* AddParticipantsViewController.swift */; };
-		D4E651B11E93DDC10093CEB9 /* ControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B01E93DDC10093CEB9 /* ControllerProtocols.swift */; };
 		D4E651B31E9409D00093CEB9 /* meetingMinutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B21E9409D00093CEB9 /* meetingMinutesTableViewController.swift */; };
 		D4E651B51E940B720093CEB9 /* TopicConclusionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B41E940B720093CEB9 /* TopicConclusionTableViewCell.swift */; };
 		D4E651B71E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B61E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift */; };
@@ -122,7 +121,6 @@
 		D4E651AA1E93B5570093CEB9 /* NewTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTopicViewController.swift; sourceTree = "<group>"; };
 		D4E651AC1E93B5650093CEB9 /* NewSubtopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubtopicViewController.swift; sourceTree = "<group>"; };
 		D4E651AE1E93B5840093CEB9 /* AddParticipantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddParticipantsViewController.swift; sourceTree = "<group>"; };
-		D4E651B01E93DDC10093CEB9 /* ControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerProtocols.swift; sourceTree = "<group>"; };
 		D4E651B21E9409D00093CEB9 /* meetingMinutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingMinutesTableViewController.swift; sourceTree = "<group>"; };
 		D4E651B41E940B720093CEB9 /* TopicConclusionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicConclusionTableViewCell.swift; sourceTree = "<group>"; };
 		D4E651B61E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtopicsConclusionTableViewCell.swift; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 				D45B26B31E928527002A1866 /* Topic */,
 				D45B26B41E92855A002A1866 /* User */,
 				D45B268D1E92850A002A1866 /* Errors.swift */,
-				D4E651B01E93DDC10093CEB9 /* ControllerProtocols.swift */,
 				4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */,
 				4D3CC5821E8AA6A3000136FB /* Info.plist */,
 				D449F8FA1E8BFF0A006E60DB /* Fonts */,
@@ -416,7 +413,6 @@
 			files = (
 				D45B26C71E928B3A002A1866 /* descriptionTableViewCell.swift in Sources */,
 				D4E651BB1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift in Sources */,
-				D4E651B11E93DDC10093CEB9 /* ControllerProtocols.swift in Sources */,
 				D45B26A31E92850A002A1866 /* LoginScreenViewController.swift in Sources */,
 				D4E651AB1E93B5570093CEB9 /* NewTopicViewController.swift in Sources */,
 				D4E651B91E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift in Sources */,
