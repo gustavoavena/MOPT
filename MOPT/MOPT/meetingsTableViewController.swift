@@ -28,10 +28,7 @@ class meetingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        meetings.append(Meeting(name: "mOpt"))
-        meetings.append(Meeting(name:"Amsterdam"))
-        meetings.append(Meeting(name:"BEPiD"))
-
+       
                 
         
         
@@ -50,17 +47,14 @@ class meetingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        //return meetings.count
-        return meetings.count
+
+        return 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as! meetingsTableViewCell
-        cell.meetingName.text = self.meetings[indexPath.row]["title"]
-        cell.meetingTime?.text = nil
-        cell.meetingDate?.text = nil
-        //cell.moderatorPicture?.image = UIImage(named:self.meetings[indexPath.row].pic!)
+               //cell.moderatorPicture?.image = UIImage(named:self.meetings[indexPath.row].pic!)
         //cell.moderatorPicture?.image = UIImage(named: nil)
        
 

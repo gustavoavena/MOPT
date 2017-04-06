@@ -26,7 +26,8 @@ public class CloudKitHandler: NSObject {
             (record, error) in
             
             guard error == nil else {
-                print("Error performing query for meeting")
+                print("Error fetching record by ID.")
+                handleUserObject(nil, error)
                 return
             }
             

@@ -23,7 +23,7 @@ class UserServices: NSObject, UserDelegate {
         let recordID = CKRecordID(recordName: String(fbID))
         let userRecord = CKRecord(recordType: "User", recordID: recordID)
         
-        print("Creating user \(name) with fbID = \(String(fbID))")
+        print("Creating user \(name) with fbID = \(String(describing: String(fbID)))")
         
         userRecord["name"] = name as NSString
         userRecord["email"] = email as NSString
@@ -99,18 +99,18 @@ class UserServices: NSObject, UserDelegate {
     }
     
     
-//    func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void) {
-//        fetchFacebookUserInfo {
-//            (userInfo, error) in
-//            
-//            guard error == nil && userInfo != nil else {
-//                print("error getting current user CK Record ID")
-//                return
-//            }
-//            
-//            let userID = CKRecordID(recordName: userInfo?["id"] as! String)
-//            completionHandler(userID, error)
-//        }
-//    }
+    func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void) {
+        fetchFacebookUserInfo {
+            (userInfo, error) in
+            
+            guard error == nil && userInfo != nil else {
+                print("error getting current user CK Record ID")
+                return
+            }
+            
+            let userID = CKRecordID(recordName: userInfo?["id"] as! String)
+            completionHandler(userID, error)
+        }
+    }
 
 }
