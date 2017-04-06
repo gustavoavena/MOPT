@@ -1,20 +1,20 @@
 //
-//  TopicsTableViewController.swift
+//  CurrentMeetingTableViewController.swift
 //  MOPT
 //
-//  Created by Filipe Marques on 03/04/17.
+//  Created by Adann Sérgio Simões on 05/04/17.
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
 import UIKit
 import CloudKit
 
-
-class TopicsTableViewController: UITableViewController {
+class CurrentMeetingTableViewController: UITableViewController {
     
     var currentMeeting:CKRecord?
-    private var topics = [CKRecord]()
+    var topics = [CKRecord]()
     private let topicServices = TopicServices()
+    private let subtopicServices = SubtopicServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,75 +30,90 @@ class TopicsTableViewController: UITableViewController {
             })
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableView.reloadData()
-        self.navigationItem.title = currentMeeting?["title"] as? String
-    }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = currentMeeting?["title"] as? String
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return topics.count
     }
-
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        for i in 0 ..< section {
+            let subtopics = [CKRecord]()
+            topicServices.getSubtopics(userRecordID: topics[i].recordID) {
+                (subtopicRecords, error) in
+                guard error == nil && subtopicRecords != nil else {
+                    print("Error fetching subtopics")
+                    return
+                }
+                self.subtopics = subtopicRecords!
+            }
+            if subtopics.count != 0 {
+                return subtopics.count
+            } else {
+                return 1
+            }
+        }
+        
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let subtopics = [CKRecord]()
-        let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as!topicsTableViewCell
-        cell.topicName.text = self.topics[indexPath.row]["title"] as? String
-        topicServices.getSubtopics(topicRecordID:self.topics[indexPath.row].recordID){
+        topicServices.getSubtopics(userRecordID: topics[indexPath.section].recordID) {
             (subtopicRecords, error) in
-            guard error == nil && topicRecords != nil else {
+            guard error == nil && subtopicRecords != nil else {
                 print("Error fetching subtopics")
                 return
             }
-            subtopics = subtopicRecords!
+            self.subtopics = subtopicRecords!
         }
-        cell.numberOfSubtopics.text = String(describing: subtopics.count) + (" subtopics")
-        //cell.topicCreatorPicture.image = UIImage.self.topics[indexPath.row][""]
-        cell.topicCreatorPicture.image = UIImage(named:"example")
-
-        return cell
+        if subtopics.count != 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicAddConclusionCell", for: indexPath) as! subtopicsTableViewCell
+            cell.subtopicTitle.text = subtopics[indexPath.row]["title"] as? String
+            //cell.subtopicCreatorPicture.image =
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "topicAddConclusionCell", for: indexPath) as!topicsTableViewCell
+            cell.topicName.text = self.topics[indexPath.row]["title"] as? String
+            cell.numberOfSubtopics.text = ""
+            //cell.topicCreatorPicture.image = UIImage.self.topics[indexPath.row][""]
+        }
     }
-
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return topics[section]["title"] as? String
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToTopicInformation",
-            let segueDestination = segue.destination as? topicInformationTableViewController,
+     
+        if segue.identifier == "addTopicConclusion",
+            let segueDestination = segue.destination as? AddTopicConclusionViewController,
             let indexPath = self.tableView.indexPathForSelectedRow {
-            let selectedTopic = topics[indexPath.row]
-            segueDestination.currentTopic = selectedTopic
+                let selectedTopic = topics[indexPath.row]
+                segueDestination.currentTopic = selectedTopic
         }
-        if segue.identifier == "newTopic",
-            let segueDestination = segue.destination as? NewTopicViewController {
-            segueDestination.currentMeeting = currentMeeting
-        }
-        if segue.identifier == "addParticipant",
-            let segueDestination = segue.destination as? AddParticipantsViewController{
-            segueDestination.currentMeeting = currentMeeting
-        }
-        if segue.identifier == "startMeeting",
-            let segueDestination = segue.destination as? CurrentMeetingTableViewController {
-            segueDestination.currentMeeting = currentMeeting
-        }
+        
+        
     }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
-     
-     
     }
     */
 
