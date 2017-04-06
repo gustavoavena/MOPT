@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mcM-7S-7jP">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="YNp-tr-uJi">
+            <objects>
+                <navigationController id="Ap0-bo-smC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xhs-8a-ty9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mcM-7S-7jP" kind="relationship" relationship="rootViewController" id="HTq-MK-FRo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="so2-58-pCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-832" y="-6"/>
+        </scene>
+        <!--View Controller-->
+        <!--Add Participants View Controller-->
+        <scene sceneID="Jdo-Os-xtY">
+            <objects>
+                <viewController id="mcM-7S-7jP" customClass="AddParticipantsViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yti-gm-p7m"/>
+                        <viewControllerLayoutGuide type="bottom" id="3hK-3v-pim"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iEF-CO-nLk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bs1-lr-cy0">
+                                <rect key="frame" x="86" y="30" width="204" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.6588235294" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite new participants to meeting" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjj-p1-l3R">
+                                <rect key="frame" x="71" y="64" width="232" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.6588235294" blue="0.54117647059999996" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="father@starwars.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gdc-R3-q95">
+                                <rect key="frame" x="16" y="113" width="343" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-MAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKm-Yp-Psv">
+                                <rect key="frame" x="16" y="90" width="42" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Bs1-lr-cy0" firstAttribute="centerX" secondItem="iEF-CO-nLk" secondAttribute="centerX" id="CYE-1m-66K"/>
+                            <constraint firstItem="Fjj-p1-l3R" firstAttribute="top" secondItem="Bs1-lr-cy0" secondAttribute="bottom" id="XLX-OZ-RNM"/>
+                            <constraint firstItem="Fjj-p1-l3R" firstAttribute="centerX" secondItem="iEF-CO-nLk" secondAttribute="centerX" id="aqV-bz-aKG"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="oKm-Yp-Psv" secondAttribute="leading" id="bz7-go-ede"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gdc-R3-q95" secondAttribute="trailing" id="cLk-nI-XvZ"/>
+                            <constraint firstItem="gdc-R3-q95" firstAttribute="top" secondItem="oKm-Yp-Psv" secondAttribute="bottom" constant="8" symbolic="YES" id="dco-Ed-5p6"/>
+                            <constraint firstItem="Bs1-lr-cy0" firstAttribute="top" secondItem="Yti-gm-p7m" secondAttribute="bottom" multiplier="1.1" constant="8" symbolic="YES" id="mc0-nU-FFN"/>
+                            <constraint firstItem="oKm-Yp-Psv" firstAttribute="top" secondItem="Fjj-p1-l3R" secondAttribute="bottom" constant="8" id="pRC-hQ-q8o"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="gdc-R3-q95" secondAttribute="leading" id="upF-pc-u6s"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5dd-af-LPd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FTx-BS-GaC">
+                            <color key="tintColor" red="0.21960784310000001" green="0.6588235294" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="doneButton:" destination="mcM-7S-7jP" id="9KT-s6-kxs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="invitedUserEmail" destination="gdc-R3-q95" id="pwg-QL-NLH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sRg-WS-7Qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1057" y="-49"/>
+        </scene>
+    </scenes>
+</document>

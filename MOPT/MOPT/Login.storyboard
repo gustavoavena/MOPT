@@ -36,22 +36,22 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzh-yP-cgk">
-                                        <rect key="frame" x="116" y="39" width="143" height="23"/>
-                                        <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzh-yP-cgk">
+                                        <rect key="frame" x="117" y="39" width="141" height="27"/>
+                                        <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="22"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23137254901960785" green="0.69803921568627447" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Mzh-yP-cgk" firstAttribute="leading" secondItem="Agw-9D-iNN" secondAttribute="leading" constant="116" id="35v-GD-fjL"/>
+                                    <constraint firstItem="Mzh-yP-cgk" firstAttribute="leading" secondItem="Agw-9D-iNN" secondAttribute="leading" constant="117" id="35v-GD-fjL"/>
                                     <constraint firstItem="rBl-RP-del" firstAttribute="top" secondItem="Mzh-yP-cgk" secondAttribute="bottom" constant="3" id="3cD-H3-jqJ"/>
                                     <constraint firstAttribute="trailing" secondItem="rBl-RP-del" secondAttribute="trailing" constant="118" id="EW5-Vu-rwu"/>
                                     <constraint firstItem="Mzh-yP-cgk" firstAttribute="top" secondItem="Agw-9D-iNN" secondAttribute="top" constant="39" id="WfB-Sm-BYX"/>
                                     <constraint firstItem="Mzh-yP-cgk" firstAttribute="centerX" secondItem="Agw-9D-iNN" secondAttribute="centerX" id="YUi-cb-tun"/>
                                     <constraint firstItem="rBl-RP-del" firstAttribute="leading" secondItem="Agw-9D-iNN" secondAttribute="leading" constant="118" id="aDa-33-x5B"/>
-                                    <constraint firstAttribute="trailing" secondItem="Mzh-yP-cgk" secondAttribute="trailing" constant="116" id="cku-Y4-dYY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mzh-yP-cgk" secondAttribute="trailing" constant="117" id="cku-Y4-dYY"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbw-FI-85F">
