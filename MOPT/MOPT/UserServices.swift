@@ -52,7 +52,7 @@ class UserServices: NSObject {
         }
     }
     
-    // DONE: obeys protocol.
+
     public func getUserRecordFromEmail(email: String, completionHandler: @escaping (CKRecord?, Error?) -> Void) {
         let predicate = NSPredicate(format: "email == %@", email)
         let query = CKQuery(recordType: "User", predicate: predicate)

@@ -20,7 +20,6 @@ class MeetingServices: NSObject {
         userServices = UserServices()
     }
     
-    // DONE
     func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool = true, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
         
         print("Getting user meetings")
@@ -44,7 +43,6 @@ class MeetingServices: NSObject {
         }
     }
     
-    //TODO: test
     func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID) {
         
         let recordID = CKRecordID(recordName: String(format: "%@:%@:%@", title, moderatorRecordID.recordName, date.description))
@@ -63,7 +61,6 @@ class MeetingServices: NSObject {
     }
     
     
-    // DONE: obeys protocol!
     func addParticipant(meetingRecordID: CKRecordID, userEmail: String)  {
         
         print("Adding participant \(userEmail) to meeting \(meetingRecordID.recordName)")
@@ -105,7 +102,6 @@ class MeetingServices: NSObject {
         
     }
     
-    //TODO: test
     func startMeeting(meetingID: CKRecordID)  {
         
         ckHandler.fetchByRecordID(recordID: meetingID) {
@@ -140,7 +136,6 @@ class MeetingServices: NSObject {
         
     }
     
-    //TODO: test
     func endMeeting(meetingID: CKRecordID)  {
         
         ckHandler.fetchByRecordID(recordID: meetingID) {
@@ -202,7 +197,7 @@ class MeetingServices: NSObject {
             record["currentTopic"] = topicReference
             
                       
-            self.ckHandler.publicDB.save(record) {
+            self.ckHandler.saveRecord(record: record) {
                 (newRecord, error) in
                 guard error == nil else {
                     print("Error saving record to DB.")
@@ -215,7 +210,6 @@ class MeetingServices: NSObject {
     }
     
     
-    //TODO: test
     func removeParticipant(meetingRecordID: CKRecordID, participantRecordID: CKRecordID) {
         
         ckHandler.fetchByRecordID(recordID: meetingRecordID) {

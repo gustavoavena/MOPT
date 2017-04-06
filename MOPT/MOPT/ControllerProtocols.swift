@@ -11,10 +11,12 @@ import CloudKit
 
 protocol MeetingDelegate {
     func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool, completionHandler: ([CKRecord]?, Error?) -> Void) // DONE
-    func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID)
+    func createMeeting(title: String, date: NSDate, moderatorRecordID: CKRecordID) // DONE
     func addParticipant(meetingRecordID: CKRecordID, userEmail: String) // DONE
-    func startMeeting(meetingID: CKRecordID)
-    func endMeeting(meetingID: CKRecordID)
+    func startMeeting(meetingID: CKRecordID) // DONE
+    func endMeeting(meetingID: CKRecordID) // DONE
+    func changeCurrentTopic(meetingRecordID: CKRecordID, topicRecordID: CKRecordID?) // Test
+    func removeParticipant(meetingRecordID: CKRecordID, participantRecordID: CKRecordID) // TEST
     
     
 }
@@ -22,8 +24,9 @@ protocol MeetingDelegate {
 
 protocol TopicDelegate {
     func createTopic(title: String, description: String, meetingRecordID: CKRecordID, creatorRecordID: CKRecordID) // DONE
+    func removeTopic(meetingRecordID: CKRecordID, topicRecordID: CKRecordID) //TEST
     func getMeetingTopics(meetingRecordID:CKRecordID, completionHandler: ([CKRecord], Error?)->Void) // DONE
-    func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void) // TODO: Test it.
+    func getSubtopics(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?)-> Void) // DONE
     func getTopicComments(topicRecordID: CKRecordID, completionHandler: ([CKRecord]?, Error?) -> Void) // DONE
     func addComment(topicRecordID: CKRecordID, commentText: String, creatorRecordID: CKRecordID) // DONE
     func addTopicConclusion(topicRecordID: CKRecordID, conclusion: String) // DONE
