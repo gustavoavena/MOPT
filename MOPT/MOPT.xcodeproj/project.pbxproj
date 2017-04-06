@@ -14,20 +14,27 @@
 		4D3CC5791E8AA6A3000136FB /* Flow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC5771E8AA6A3000136FB /* Flow.storyboard */; };
 		4D3CC57C1E8AA6A3000136FB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */; };
-		4D3CC5811E8AA6A3000136FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57F1E8AA6A3000136FB /* LaunchScreen.storyboard */; };
+		4D3CC5811E8AA6A3000136FB /* (null) in Resources */ = {isa = PBXBuildFile; };
 		4DAEF16A1E93D52C00A99E0D /* ControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEF1691E93D52C00A99E0D /* ControllerProtocols.swift */; };
 		4DAEF16C1E95227100A99E0D /* TestingFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEF16B1E95227100A99E0D /* TestingFile.swift */; };
 		4DAEF16F1E952DC400A99E0D /* SubtopicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEF16E1E952DC400A99E0D /* SubtopicServices.swift */; };
 		4DB933021E96668900C647C6 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB933011E96668900C647C6 /* CurrentUser.swift */; };
-		A420DCF41E92A20800E602F8 /* AddParticipant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420DCF01E92A20800E602F8 /* AddParticipant.storyboard */; };
-		A420DCF51E92A20800E602F8 /* NewMeeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420DCF11E92A20800E602F8 /* NewMeeting.storyboard */; };
-		A420DCF61E92A20800E602F8 /* NewSubtopic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420DCF21E92A20800E602F8 /* NewSubtopic.storyboard */; };
-		A420DCF71E92A20800E602F8 /* NewTopic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A420DCF31E92A20800E602F8 /* NewTopic.storyboard */; };
-		A420DCFD1E92A3A700E602F8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A420DCF91E92A3A700E602F8 /* Bolts.framework */; };
-		A420DCFE1E92A3A700E602F8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A420DCFA1E92A3A700E602F8 /* FBSDKCoreKit.framework */; };
-		A420DCFF1E92A3A700E602F8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A420DCFB1E92A3A700E602F8 /* FBSDKLoginKit.framework */; };
-		A420DD001E92A3A700E602F8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A420DCFC1E92A3A700E602F8 /* FBSDKShareKit.framework */; };
-		A48CD06E1E9512AB0034A8C2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48CD06D1E9512AB0034A8C2 /* CloudKit.framework */; };
+		4DD2AD811E96886E00DB8899 /* AddParticipant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2AD711E96886D00DB8899 /* AddParticipant.storyboard */; };
+		4DD2AD821E96886E00DB8899 /* AddParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD721E96886D00DB8899 /* AddParticipantsViewController.swift */; };
+		4DD2AD831E96886E00DB8899 /* commentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD731E96886D00DB8899 /* commentsTableViewCell.swift */; };
+		4DD2AD841E96886E00DB8899 /* descriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD741E96886D00DB8899 /* descriptionTableViewCell.swift */; };
+		4DD2AD851E96886E00DB8899 /* NewMeeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2AD751E96886E00DB8899 /* NewMeeting.storyboard */; };
+		4DD2AD861E96886E00DB8899 /* NewMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD761E96886E00DB8899 /* NewMeetingViewController.swift */; };
+		4DD2AD871E96886E00DB8899 /* NewSubtopic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2AD771E96886E00DB8899 /* NewSubtopic.storyboard */; };
+		4DD2AD881E96886E00DB8899 /* NewSubtopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD781E96886E00DB8899 /* NewSubtopicViewController.swift */; };
+		4DD2AD891E96886E00DB8899 /* NewTopic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2AD791E96886E00DB8899 /* NewTopic.storyboard */; };
+		4DD2AD8A1E96886E00DB8899 /* NewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD7A1E96886E00DB8899 /* NewTopicViewController.swift */; };
+		4DD2AD8B1E96886E00DB8899 /* PrevoiusMeetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD7B1E96886E00DB8899 /* PrevoiusMeetingsTableViewCell.swift */; };
+		4DD2AD8C1E96886E00DB8899 /* SubtopicsConclusionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD7C1E96886E00DB8899 /* SubtopicsConclusionTableViewCell.swift */; };
+		4DD2AD8D1E96886E00DB8899 /* subtopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD7D1E96886E00DB8899 /* subtopicsTableViewCell.swift */; };
+		4DD2AD8E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD7E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift */; };
+		4DD2AD8F1E96886E00DB8899 /* topicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD7F1E96886E00DB8899 /* topicsTableViewCell.swift */; };
+		4DD2AD901E96886E00DB8899 /* meetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD801E96886E00DB8899 /* meetingsTableViewCell.swift */; };
 		D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */; };
 		D45B26851E926B8B002A1866 /* meetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */; };
 		D45B26871E926D2B002A1866 /* meetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */; };
@@ -47,16 +54,9 @@
 		D45B26C11E9289D2002A1866 /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C01E9289D2002A1866 /* TopicsTableViewController.swift */; };
 		D45B26C31E9289EB002A1866 /* topicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C21E9289EB002A1866 /* topicsTableViewCell.swift */; };
 		D45B26C51E928AB6002A1866 /* topicInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C41E928AB6002A1866 /* topicInformationTableViewController.swift */; };
-		D45B26C71E928B3A002A1866 /* descriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C61E928B3A002A1866 /* descriptionTableViewCell.swift */; };
 		D45B26C91E928B53002A1866 /* commentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C81E928B53002A1866 /* commentsTableViewCell.swift */; };
 		D45B26CB1E928B91002A1866 /* subtopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26CA1E928B91002A1866 /* subtopicsTableViewCell.swift */; };
-		D45B26CE1E928D30002A1866 /* SubtopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26CD1E928D30002A1866 /* SubtopicTableViewController.swift */; };
-		D484C6491E8D28320079B34B /* SWANSE__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6451E8D28320079B34B /* SWANSE__.TTF */; };
-		D484C64A1E8D28320079B34B /* SWANSE_B.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6461E8D28320079B34B /* SWANSE_B.TTF */; };
-		D484C64B1E8D28320079B34B /* SWANSE_I.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6471E8D28320079B34B /* SWANSE_I.TTF */; };
-		D484C64C1E8D28320079B34B /* SWANSEBI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D484C6481E8D28320079B34B /* SWANSEBI.TTF */; };
 		D4BD50EF1E8FD6EB0091A37F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */; };
-		D4E651A91E93B5040093CEB9 /* NewMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651A81E93B5040093CEB9 /* NewMeetingViewController.swift */; };
 		D4E651AB1E93B5570093CEB9 /* NewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651AA1E93B5570093CEB9 /* NewTopicViewController.swift */; };
 		D4E651AD1E93B5650093CEB9 /* NewSubtopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651AC1E93B5650093CEB9 /* NewSubtopicViewController.swift */; };
 		D4E651AF1E93B5840093CEB9 /* AddParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651AE1E93B5840093CEB9 /* AddParticipantsViewController.swift */; };
@@ -64,7 +64,6 @@
 		D4E651B51E940B720093CEB9 /* TopicConclusionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B41E940B720093CEB9 /* TopicConclusionTableViewCell.swift */; };
 		D4E651B71E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B61E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift */; };
 		D4E651B91E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */; };
-		D4E651BB1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651BA1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,15 +79,22 @@
 		4DAEF16B1E95227100A99E0D /* TestingFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingFile.swift; sourceTree = "<group>"; };
 		4DAEF16E1E952DC400A99E0D /* SubtopicServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtopicServices.swift; sourceTree = "<group>"; };
 		4DB933011E96668900C647C6 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
-		A420DCF01E92A20800E602F8 /* AddParticipant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddParticipant.storyboard; sourceTree = "<group>"; };
-		A420DCF11E92A20800E602F8 /* NewMeeting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewMeeting.storyboard; sourceTree = "<group>"; };
-		A420DCF21E92A20800E602F8 /* NewSubtopic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewSubtopic.storyboard; sourceTree = "<group>"; };
-		A420DCF31E92A20800E602F8 /* NewTopic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewTopic.storyboard; sourceTree = "<group>"; };
-		A420DCF91E92A3A700E602F8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
-		A420DCFA1E92A3A700E602F8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		A420DCFB1E92A3A700E602F8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		A420DCFC1E92A3A700E602F8 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
-		A48CD06D1E9512AB0034A8C2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		4DD2AD711E96886D00DB8899 /* AddParticipant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddParticipant.storyboard; sourceTree = "<group>"; };
+		4DD2AD721E96886D00DB8899 /* AddParticipantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddParticipantsViewController.swift; sourceTree = "<group>"; };
+		4DD2AD731E96886D00DB8899 /* commentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentsTableViewCell.swift; sourceTree = "<group>"; };
+		4DD2AD741E96886D00DB8899 /* descriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = descriptionTableViewCell.swift; sourceTree = "<group>"; };
+		4DD2AD751E96886E00DB8899 /* NewMeeting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewMeeting.storyboard; sourceTree = "<group>"; };
+		4DD2AD761E96886E00DB8899 /* NewMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingViewController.swift; sourceTree = "<group>"; };
+		4DD2AD771E96886E00DB8899 /* NewSubtopic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewSubtopic.storyboard; sourceTree = "<group>"; };
+		4DD2AD781E96886E00DB8899 /* NewSubtopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubtopicViewController.swift; sourceTree = "<group>"; };
+		4DD2AD791E96886E00DB8899 /* NewTopic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewTopic.storyboard; sourceTree = "<group>"; };
+		4DD2AD7A1E96886E00DB8899 /* NewTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTopicViewController.swift; sourceTree = "<group>"; };
+		4DD2AD7B1E96886E00DB8899 /* PrevoiusMeetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrevoiusMeetingsTableViewCell.swift; sourceTree = "<group>"; };
+		4DD2AD7C1E96886E00DB8899 /* SubtopicsConclusionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtopicsConclusionTableViewCell.swift; sourceTree = "<group>"; };
+		4DD2AD7D1E96886E00DB8899 /* subtopicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subtopicsTableViewCell.swift; sourceTree = "<group>"; };
+		4DD2AD7E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicConclusionTableViewCell.swift; sourceTree = "<group>"; };
+		4DD2AD7F1E96886E00DB8899 /* topicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topicsTableViewCell.swift; sourceTree = "<group>"; };
+		4DD2AD801E96886E00DB8899 /* meetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewCell.swift; sourceTree = "<group>"; };
 		D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "KeepCalm-Medium.ttf"; path = "../../../../Slackers/Design/Resources/KeepCalm-Medium.ttf"; sourceTree = "<group>"; };
 		D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewController.swift; sourceTree = "<group>"; };
 		D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -109,16 +115,10 @@
 		D45B26C01E9289D2002A1866 /* TopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
 		D45B26C21E9289EB002A1866 /* topicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topicsTableViewCell.swift; sourceTree = "<group>"; };
 		D45B26C41E928AB6002A1866 /* topicInformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topicInformationTableViewController.swift; sourceTree = "<group>"; };
-		D45B26C61E928B3A002A1866 /* descriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = descriptionTableViewCell.swift; sourceTree = "<group>"; };
 		D45B26C81E928B53002A1866 /* commentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentsTableViewCell.swift; sourceTree = "<group>"; };
 		D45B26CA1E928B91002A1866 /* subtopicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subtopicsTableViewCell.swift; sourceTree = "<group>"; };
 		D45B26CD1E928D30002A1866 /* SubtopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtopicTableViewController.swift; sourceTree = "<group>"; };
-		D484C6451E8D28320079B34B /* SWANSE__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE__.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE__.TTF"; sourceTree = "<group>"; };
-		D484C6461E8D28320079B34B /* SWANSE_B.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE_B.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE_B.TTF"; sourceTree = "<group>"; };
-		D484C6471E8D28320079B34B /* SWANSE_I.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSE_I.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSE_I.TTF"; sourceTree = "<group>"; };
-		D484C6481E8D28320079B34B /* SWANSEBI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SWANSEBI.TTF; path = "../../../../../Downloads/roger-white_swansea/SWANSEBI.TTF"; sourceTree = "<group>"; };
 		D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		D4E651A81E93B5040093CEB9 /* NewMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingViewController.swift; sourceTree = "<group>"; };
 		D4E651AA1E93B5570093CEB9 /* NewTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTopicViewController.swift; sourceTree = "<group>"; };
 		D4E651AC1E93B5650093CEB9 /* NewSubtopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubtopicViewController.swift; sourceTree = "<group>"; };
 		D4E651AE1E93B5840093CEB9 /* AddParticipantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddParticipantsViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +126,6 @@
 		D4E651B41E940B720093CEB9 /* TopicConclusionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicConclusionTableViewCell.swift; sourceTree = "<group>"; };
 		D4E651B61E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtopicsConclusionTableViewCell.swift; sourceTree = "<group>"; };
 		D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousMeetingsTableViewController.swift; sourceTree = "<group>"; };
-		D4E651BA1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrevoiusMeetingsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,15 +134,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D36004D1E93C1D40030574C /* CloudKit.framework in Frameworks */,
-				D45B26BD1E9285EF002A1866 /* FBSDKShareKit.framework in Frameworks */,
-				D45B26BA1E9285EF002A1866 /* Bolts.framework in Frameworks */,
-				D45B26BB1E9285EF002A1866 /* FBSDKCoreKit.framework in Frameworks */,
-				D45B26BC1E9285EF002A1866 /* FBSDKLoginKit.framework in Frameworks */,
-				A48CD06E1E9512AB0034A8C2 /* CloudKit.framework in Frameworks */,
-				A420DD001E92A3A700E602F8 /* FBSDKShareKit.framework in Frameworks */,
-				A420DCFD1E92A3A700E602F8 /* Bolts.framework in Frameworks */,
-				A420DCFE1E92A3A700E602F8 /* FBSDKCoreKit.framework in Frameworks */,
-				A420DCFF1E92A3A700E602F8 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,11 +143,6 @@
 		4D19E7431E8C3E20003782E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A48CD06D1E9512AB0034A8C2 /* CloudKit.framework */,
-				A420DCF91E92A3A700E602F8 /* Bolts.framework */,
-				A420DCFA1E92A3A700E602F8 /* FBSDKCoreKit.framework */,
-				A420DCFB1E92A3A700E602F8 /* FBSDKLoginKit.framework */,
-				A420DCFC1E92A3A700E602F8 /* FBSDKShareKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,8 +167,7 @@
 		4D3CC5721E8AA6A3000136FB /* MOPT */ = {
 			isa = PBXGroup;
 			children = (
-				D45B26831E926B5B002A1866 /* Meetings View Controllers */,
-				D45B26821E926B49002A1866 /* Topics View Controllers */,
+				D45B26831E926B5B002A1866 /* Table View Controllers */,
 				D45B26881E92710D002A1866 /* Topic Options View Controllers */,
 				D45B26891E927110002A1866 /* Subtopic View Controllers */,
 				D45B26B51E928575002A1866 /* Login */,
@@ -193,6 +177,22 @@
 				D45B26B11E92851A002A1866 /* Meeting */,
 				4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */,
 				4D3CC5751E8AA6A3000136FB /* ViewController.swift */,
+				4DD2AD711E96886D00DB8899 /* AddParticipant.storyboard */,
+				4DD2AD721E96886D00DB8899 /* AddParticipantsViewController.swift */,
+				4DD2AD731E96886D00DB8899 /* commentsTableViewCell.swift */,
+				4DD2AD741E96886D00DB8899 /* descriptionTableViewCell.swift */,
+				4DD2AD751E96886E00DB8899 /* NewMeeting.storyboard */,
+				4DD2AD761E96886E00DB8899 /* NewMeetingViewController.swift */,
+				4DD2AD771E96886E00DB8899 /* NewSubtopic.storyboard */,
+				4DD2AD781E96886E00DB8899 /* NewSubtopicViewController.swift */,
+				4DD2AD791E96886E00DB8899 /* NewTopic.storyboard */,
+				4DD2AD7A1E96886E00DB8899 /* NewTopicViewController.swift */,
+				4DD2AD7B1E96886E00DB8899 /* PrevoiusMeetingsTableViewCell.swift */,
+				4DD2AD7C1E96886E00DB8899 /* SubtopicsConclusionTableViewCell.swift */,
+				4DD2AD7D1E96886E00DB8899 /* subtopicsTableViewCell.swift */,
+				4DD2AD7E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift */,
+				4DD2AD7F1E96886E00DB8899 /* topicsTableViewCell.swift */,
+				4DD2AD801E96886E00DB8899 /* meetingsTableViewCell.swift */,
 				D45B268D1E92850A002A1866 /* Errors.swift */,
 				4D36004B1E929A9F0030574C /* CloudKitHandler.swift */,
 				4DAEF1691E93D52C00A99E0D /* ControllerProtocols.swift */,
@@ -202,21 +202,6 @@
 				D45B26941E92850A002A1866 /* MOPT.xcdatamodeld */,
 				D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */,
 				4D3CC5771E8AA6A3000136FB /* Flow.storyboard */,
-				A420DCF81E92A21600E602F8 /* Storyboards */,
-				D45B26831E926B5B002A1866 /* Table View Controllers */,
-				D4E651A71E93B4DC0093CEB9 /* View Controllers */,
-				D45B26881E92710D002A1866 /* Table View Cells */,
-				4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */,
-				4D3CC5751E8AA6A3000136FB /* ViewController.swift */,
-				D45B26B01E928511002A1866 /* Comment */,
-				D45B26B51E928575002A1866 /* Login */,
-				D45B26B11E92851A002A1866 /* Meeting */,
-				D45B26931E92850A002A1866 /* MOPT.entitlements */,
-				D45B26941E92850A002A1866 /* MOPT.xcdatamodeld */,
-				D45B26B21E928520002A1866 /* TimeControl */,
-				D45B26B31E928527002A1866 /* Topic */,
-				D45B26B41E92855A002A1866 /* User */,
-				D45B268D1E92850A002A1866 /* Errors.swift */,
 				4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */,
 				4D3CC5821E8AA6A3000136FB /* Info.plist */,
 				D449F8FA1E8BFF0A006E60DB /* Fonts */,
@@ -230,17 +215,6 @@
 				4DAEF16E1E952DC400A99E0D /* SubtopicServices.swift */,
 			);
 			name = Subtopic;
-		A420DCF81E92A21600E602F8 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				A420DCF01E92A20800E602F8 /* AddParticipant.storyboard */,
-				A420DCF11E92A20800E602F8 /* NewMeeting.storyboard */,
-				A420DCF21E92A20800E602F8 /* NewSubtopic.storyboard */,
-				A420DCF31E92A20800E602F8 /* NewTopic.storyboard */,
-				D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */,
-				4D3CC5771E8AA6A3000136FB /* Flow.storyboard */,
-			);
-			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		D449F8FA1E8BFF0A006E60DB /* Fonts */ = {
@@ -264,19 +238,18 @@
 			name = "Table View Controllers";
 			sourceTree = "<group>";
 		};
-		D45B26881E92710D002A1866 /* Table View Cells */ = {
+		D45B26881E92710D002A1866 /* Topic Options View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D4E651B41E940B720093CEB9 /* TopicConclusionTableViewCell.swift */,
-				D4E651B61E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift */,
-				D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */,
-				D45B26C21E9289EB002A1866 /* topicsTableViewCell.swift */,
-				D45B26C61E928B3A002A1866 /* descriptionTableViewCell.swift */,
-				D45B26C81E928B53002A1866 /* commentsTableViewCell.swift */,
-				D45B26CA1E928B91002A1866 /* subtopicsTableViewCell.swift */,
-				D4E651BA1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift */,
 			);
-			name = "Table View Cells";
+			name = "Topic Options View Controllers";
+			sourceTree = "<group>";
+		};
+		D45B26891E927110002A1866 /* Subtopic View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Subtopic View Controllers";
 			sourceTree = "<group>";
 		};
 		D45B26B11E92851A002A1866 /* Meeting */ = {
@@ -316,17 +289,6 @@
 				D45B268F1E92850A002A1866 /* LoginScreenViewController.swift */,
 			);
 			name = Login;
-			sourceTree = "<group>";
-		};
-		D4E651A71E93B4DC0093CEB9 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D4E651AE1E93B5840093CEB9 /* AddParticipantsViewController.swift */,
-				D4E651A81E93B5040093CEB9 /* NewMeetingViewController.swift */,
-				D4E651AC1E93B5650093CEB9 /* NewSubtopicViewController.swift */,
-				D4E651AA1E93B5570093CEB9 /* NewTopicViewController.swift */,
-			);
-			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,15 +359,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D3CC5811E8AA6A3000136FB /* LaunchScreen.storyboard in Resources */,
-				A420DCF61E92A20800E602F8 /* NewSubtopic.storyboard in Resources */,
-				D484C64B1E8D28320079B34B /* SWANSE_I.TTF in Resources */,
+				4DD2AD871E96886E00DB8899 /* NewSubtopic.storyboard in Resources */,
+				4DD2AD851E96886E00DB8899 /* NewMeeting.storyboard in Resources */,
+				4D3CC5811E8AA6A3000136FB /* (null) in Resources */,
 				D4BD50EF1E8FD6EB0091A37F /* Login.storyboard in Resources */,
 				4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */,
-				A420DCF51E92A20800E602F8 /* NewMeeting.storyboard in Resources */,
+				4DD2AD891E96886E00DB8899 /* NewTopic.storyboard in Resources */,
 				4D3CC5791E8AA6A3000136FB /* Flow.storyboard in Resources */,
-				A420DCF71E92A20800E602F8 /* NewTopic.storyboard in Resources */,
-				A420DCF41E92A20800E602F8 /* AddParticipant.storyboard in Resources */,
+				4DD2AD811E96886E00DB8899 /* AddParticipant.storyboard in Resources */,
 				D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,8 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DAEF16F1E952DC400A99E0D /* SubtopicServices.swift in Sources */,
-				D45B26C71E928B3A002A1866 /* descriptionTableViewCell.swift in Sources */,
-				D4E651BB1E941A730093CEB9 /* PrevoiusMeetingsTableViewCell.swift in Sources */,
+				4DD2AD831E96886E00DB8899 /* commentsTableViewCell.swift in Sources */,
 				D45B26A31E92850A002A1866 /* LoginScreenViewController.swift in Sources */,
 				D4E651AB1E93B5570093CEB9 /* NewTopicViewController.swift in Sources */,
 				D4E651B91E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift in Sources */,
@@ -427,29 +387,32 @@
 				D45B26AB1E92850A002A1866 /* Topic.swift in Sources */,
 				4D3CC5761E8AA6A3000136FB /* ViewController.swift in Sources */,
 				D45B26C11E9289D2002A1866 /* TopicsTableViewController.swift in Sources */,
-				D45B269E1E92850A002A1866 /* Comment.swift in Sources */,
 				D45B26A51E92850A002A1866 /* MeetingDBLayer.swift in Sources */,
 				4DB933021E96668900C647C6 /* CurrentUser.swift in Sources */,
+				4DD2AD861E96886E00DB8899 /* NewMeetingViewController.swift in Sources */,
 				D45B26AC1E92850A002A1866 /* TopicDBLayer.swift in Sources */,
 				D45B26851E926B8B002A1866 /* meetingsTableViewController.swift in Sources */,
+				4DD2AD8D1E96886E00DB8899 /* subtopicsTableViewCell.swift in Sources */,
 				4DAEF16A1E93D52C00A99E0D /* ControllerProtocols.swift in Sources */,
+				4DD2AD841E96886E00DB8899 /* descriptionTableViewCell.swift in Sources */,
+				4DD2AD901E96886E00DB8899 /* meetingsTableViewCell.swift in Sources */,
+				4DD2AD8E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift in Sources */,
 				4DAEF16C1E95227100A99E0D /* TestingFile.swift in Sources */,
-				D4E651A91E93B5040093CEB9 /* NewMeetingViewController.swift in Sources */,
+				4DD2AD8F1E96886E00DB8899 /* topicsTableViewCell.swift in Sources */,
 				D45B26A61E92850A002A1866 /* MeetingServices.swift in Sources */,
 				D45B26871E926D2B002A1866 /* meetingsTableViewCell.swift in Sources */,
 				D45B26A21E92850A002A1866 /* LoginModel.swift in Sources */,
 				D45B26AF1E92850A002A1866 /* UserServices.swift in Sources */,
-				D45B26AA1E92850A002A1866 /* TimeControlServices.swift in Sources */,
-				D45B26A91E92850A002A1866 /* TimeControlDBLayer.swift in Sources */,
 				D4E651B51E940B720093CEB9 /* TopicConclusionTableViewCell.swift in Sources */,
 				D45B26A71E92850A002A1866 /* MOPT.xcdatamodeld in Sources */,
 				D4E651B31E9409D00093CEB9 /* meetingMinutesTableViewController.swift in Sources */,
+				4DD2AD8B1E96886E00DB8899 /* PrevoiusMeetingsTableViewCell.swift in Sources */,
 				4D3CC57C1E8AA6A3000136FB /* (null) in Sources */,
 				4D36004C1E929A9F0030574C /* CloudKitHandler.swift in Sources */,
-				D45B26CE1E928D30002A1866 /* SubtopicTableViewController.swift in Sources */,
-				D45B26A81E92850A002A1866 /* TimeControl.swift in Sources */,
+				4DD2AD8C1E96886E00DB8899 /* SubtopicsConclusionTableViewCell.swift in Sources */,
 				4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */,
 				D4E651AD1E93B5650093CEB9 /* NewSubtopicViewController.swift in Sources */,
+				4DD2AD8A1E96886E00DB8899 /* NewTopicViewController.swift in Sources */,
 				D45B26AE1E92850A002A1866 /* UserDBLayer.swift in Sources */,
 				D4E651B71E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift in Sources */,
 				D45B26CB1E928B91002A1866 /* subtopicsTableViewCell.swift in Sources */,
@@ -457,9 +420,10 @@
 				D4E651AF1E93B5840093CEB9 /* AddParticipantsViewController.swift in Sources */,
 				D45B26A11E92850A002A1866 /* Errors.swift in Sources */,
 				D45B26C51E928AB6002A1866 /* topicInformationTableViewController.swift in Sources */,
+				4DD2AD821E96886E00DB8899 /* AddParticipantsViewController.swift in Sources */,
+				4DD2AD881E96886E00DB8899 /* NewSubtopicViewController.swift in Sources */,
 				D45B26C91E928B53002A1866 /* commentsTableViewCell.swift in Sources */,
 				D45B26AD1E92850A002A1866 /* TopicServices.swift in Sources */,
-				D45B26A01E92850A002A1866 /* CommentServices.swift in Sources */,
 				D45B26C31E9289EB002A1866 /* topicsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
