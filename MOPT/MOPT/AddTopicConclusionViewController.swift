@@ -1,26 +1,28 @@
 //
-//  AddParticipantsViewController.swift
+//  AddTopicConclusionViewController.swift
 //  MOPT
 //
-//  Created by Filipe Marques on 04/04/17.
+//  Created by Adann Sérgio Simões on 05/04/17.
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
 import UIKit
 import CloudKit
 
-class AddParticipantsViewController: UIViewController {
+class AddTopicConclusionViewController: UIViewController {
     
-    var currentMeeting:CKRecord?
-    private let meetingServices = MeetingServices()
+    var currentTopic:CKRecord?
+    private var topicServices = TopicServices()
     
-    @IBOutlet weak var invitedUserEmail: UITextField!
+    @IBOutlet weak var topicConclusion: UITextField!
     
-    @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        meetingServices.addParticipant(meetingRecordID: currentMeeting?.recordID, userEmail: self.invitedUserEmail.text)
-        //Code to add a new participant and segue the program back to the meeting
+    
+    @IBAction func doneConclusionButton(_ sender: UIBarButtonItem) {
+        topicServices.addTopicConclusion(topicRecordID: currentTopic?.recordID, conclusion: self.topicConclusion.text)
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

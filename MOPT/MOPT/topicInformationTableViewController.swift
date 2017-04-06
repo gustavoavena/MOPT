@@ -11,8 +11,6 @@ import CloudKit
 
 class topicInformationTableViewController: UITableViewController {
     
-    let testUser = User(name: "Farol", fbUsername: "filipemarques.568", email: "fi.marques33@gmail.com", profilePicture: #imageLiteral(resourceName: "example"))
-    
     public var currentTopic:CKRecord?
     private var subtopics = [CKRecord]()
     private var comments = [CKRecord]()
@@ -22,15 +20,20 @@ class topicInformationTableViewController: UITableViewController {
     @IBOutlet weak var commentTextField: UITextView!
     @IBAction func sendCommentButton(_ sender: UIButton) {
         topicServices.addComment(topicRecordID: currentTopic?.recordID, commentText: commentTextField, creatorRecordID: CKRecordID)
+        self.tableView.reloadData()
         commentTextField.text = ""
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topicServices.getSubtopics(userRecordID: currentTopic?.recordID) {
+        
+        self.currentUserPicture.image = UIImage(named:"example")
+        //self.currentUserPicture.image = UIImage(named:"example")
+        
+        topicServices.getSubtopics(topicRecordID: currentTopic?.recordID) {
             (subtopicRecords, error) in
             guard error == nil && subtopicRecords != nil else {
-                print("Error fetching topics")
+                print("Error fetching subtopics")
                 return
             }
             self.subtopics = subtopicRecords!
@@ -38,7 +41,7 @@ class topicInformationTableViewController: UITableViewController {
                 self.tableView.reloadData()
             })
         }
-        topicServices.getTopicComments(userRecordID: currentTopic?.recordID) {
+        topicServices.getTopicComments(topicRecordID: currentTopic?.recordID) {
             (commentRecords, error) in
             guard error == nil && commentRecords != nil else {
                 print("Error fetching comments")
@@ -54,12 +57,15 @@ class topicInformationTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tableView.reloadData()
         self.navigationItem.title = currentTopic?["title"] as? String
+        
+        self.currentUserPicture.image = UIImage(named:"example")
+        //self.currentUserPicture.image = UIImage(named:"example")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,6 +98,7 @@ class topicInformationTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicCell", for: indexPath) as! subtopicsTableViewCell
             cell.subtopicTitle.text = self.subtopics[indexPath.row]["title"] as? String
             //cell.subtopicCreatorPicture.image = self.subtopics[indexPath.row].creator.profilePicture
+            cell.subtopicCreatorPicture.image = UIImage(named:"example")
             return cell
             
         }
@@ -100,6 +107,7 @@ class topicInformationTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
             cell.commentText.text = self.comments[indexPath.row]["text"] as? String
             //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
+            cell.commentCreatorPicture.image = UIImage(named:"example")
             return cell
         }
     }

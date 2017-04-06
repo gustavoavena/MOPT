@@ -1,24 +1,23 @@
 //
-//  AddParticipantsViewController.swift
+//  AddSubtopicConclusionViewController.swift
 //  MOPT
 //
-//  Created by Filipe Marques on 04/04/17.
+//  Created by Adann Sérgio Simões on 05/04/17.
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
 import UIKit
 import CloudKit
 
-class AddParticipantsViewController: UIViewController {
+class AddSubtopicConclusionViewController: UIViewController {
     
-    var currentMeeting:CKRecord?
-    private let meetingServices = MeetingServices()
+    var currentSubtopic:CKRecord?
+    private var subtopicServices = SubtopicServices()
     
-    @IBOutlet weak var invitedUserEmail: UITextField!
+    @IBOutlet weak var subtopicConclusion: UITextField!
     
-    @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        meetingServices.addParticipant(meetingRecordID: currentMeeting?.recordID, userEmail: self.invitedUserEmail.text)
-        //Code to add a new participant and segue the program back to the meeting
+    @IBAction func doneSubtopicConclusion(_ sender: UIBarButtonItem) {
+        subtopicServices.addSubopicConclusion(topicRecordID: currentSubtopic?.recordID, conclusion: self.subtopicConclusion.text)
         self.navigationController?.popViewController(animated: true)
     }
 

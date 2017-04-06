@@ -24,6 +24,20 @@ class meetingMinutesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        topicServices.getMeetingTopics(userRecordID: currentMeeting?.recordID) {
+            (topicRecords, error) in
+            guard error == nil && topicRecords != nil else {
+                print("Error fetching topics")
+                return
+            }
+            self.topics = topicRecords!
+            OperationQueue.main.addOperation({
+                self.tableView.reloadData()
+            })
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,7 +79,7 @@ class meetingMinutesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let subtopics = [CKRecord]()
-        topicServices.getSubtopics(userRecordID: topics[indexPath.row].recordID) {
+        topicServices.getSubtopics(userRecordID: topics[indexPath.section].recordID) {
             (subtopicRecords, error) in
             guard error == nil && subtopicRecords != nil else {
                 print("Error fetching subtopics")

@@ -41,8 +41,13 @@ class meetingsTableViewController: UITableViewController {
         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     
     // MARK: - Table view data source
     
@@ -67,7 +72,8 @@ class meetingsTableViewController: UITableViewController {
         cell.meetingName.text = self.meetings[indexPath.row]["title"] as? String
         cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
-        cell.moderatorPicture.image = self.meetings[indexPath.row][""]
+        //cell.moderatorPicture.image = self.meetings[indexPath.row][""]
+        cell.moderatorPicture.image = UIImage(named:"example")
         
         
         return cell

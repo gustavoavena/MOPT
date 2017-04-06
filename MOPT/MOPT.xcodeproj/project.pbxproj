@@ -35,6 +35,10 @@
 		4DD2AD8E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD7E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift */; };
 		4DD2AD8F1E96886E00DB8899 /* topicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD7F1E96886E00DB8899 /* topicsTableViewCell.swift */; };
 		4DD2AD901E96886E00DB8899 /* meetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD801E96886E00DB8899 /* meetingsTableViewCell.swift */; };
+		4DD2AD971E96899100DB8899 /* AddSubtopicConclusionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD931E96899100DB8899 /* AddSubtopicConclusionViewController.swift */; };
+		4DD2AD981E96899100DB8899 /* AddTopicConclusionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD941E96899100DB8899 /* AddTopicConclusionViewController.swift */; };
+		4DD2AD991E96899100DB8899 /* CurrentMeeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2AD951E96899100DB8899 /* CurrentMeeting.storyboard */; };
+		4DD2AD9A1E96899100DB8899 /* CurrentMeetingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD961E96899100DB8899 /* CurrentMeetingTableViewController.swift */; };
 		D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */; };
 		D45B26851E926B8B002A1866 /* meetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */; };
 		D45B26871E926D2B002A1866 /* meetingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */; };
@@ -95,6 +99,10 @@
 		4DD2AD7E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicConclusionTableViewCell.swift; sourceTree = "<group>"; };
 		4DD2AD7F1E96886E00DB8899 /* topicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topicsTableViewCell.swift; sourceTree = "<group>"; };
 		4DD2AD801E96886E00DB8899 /* meetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewCell.swift; sourceTree = "<group>"; };
+		4DD2AD931E96899100DB8899 /* AddSubtopicConclusionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSubtopicConclusionViewController.swift; sourceTree = "<group>"; };
+		4DD2AD941E96899100DB8899 /* AddTopicConclusionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTopicConclusionViewController.swift; sourceTree = "<group>"; };
+		4DD2AD951E96899100DB8899 /* CurrentMeeting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CurrentMeeting.storyboard; sourceTree = "<group>"; };
+		4DD2AD961E96899100DB8899 /* CurrentMeetingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMeetingTableViewController.swift; sourceTree = "<group>"; };
 		D449F8FB1E8BFF30006E60DB /* KeepCalm-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "KeepCalm-Medium.ttf"; path = "../../../../Slackers/Design/Resources/KeepCalm-Medium.ttf"; sourceTree = "<group>"; };
 		D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewController.swift; sourceTree = "<group>"; };
 		D45B26861E926D2B002A1866 /* meetingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -168,8 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				D45B26831E926B5B002A1866 /* Table View Controllers */,
-				D45B26881E92710D002A1866 /* Topic Options View Controllers */,
-				D45B26891E927110002A1866 /* Subtopic View Controllers */,
+				4DD2AD9D1E9689F700DB8899 /* TableViewCells */,
+				4DD2AD9B1E9689A900DB8899 /* Storyboards */,
+				4DD2AD9C1E9689DD00DB8899 /* ViewControllers */,
 				D45B26B51E928575002A1866 /* Login */,
 				D45B26B31E928527002A1866 /* Topic */,
 				4DAEF16D1E952DA500A99E0D /* Subtopic */,
@@ -177,22 +186,6 @@
 				D45B26B11E92851A002A1866 /* Meeting */,
 				4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */,
 				4D3CC5751E8AA6A3000136FB /* ViewController.swift */,
-				4DD2AD711E96886D00DB8899 /* AddParticipant.storyboard */,
-				4DD2AD721E96886D00DB8899 /* AddParticipantsViewController.swift */,
-				4DD2AD731E96886D00DB8899 /* commentsTableViewCell.swift */,
-				4DD2AD741E96886D00DB8899 /* descriptionTableViewCell.swift */,
-				4DD2AD751E96886E00DB8899 /* NewMeeting.storyboard */,
-				4DD2AD761E96886E00DB8899 /* NewMeetingViewController.swift */,
-				4DD2AD771E96886E00DB8899 /* NewSubtopic.storyboard */,
-				4DD2AD781E96886E00DB8899 /* NewSubtopicViewController.swift */,
-				4DD2AD791E96886E00DB8899 /* NewTopic.storyboard */,
-				4DD2AD7A1E96886E00DB8899 /* NewTopicViewController.swift */,
-				4DD2AD7B1E96886E00DB8899 /* PrevoiusMeetingsTableViewCell.swift */,
-				4DD2AD7C1E96886E00DB8899 /* SubtopicsConclusionTableViewCell.swift */,
-				4DD2AD7D1E96886E00DB8899 /* subtopicsTableViewCell.swift */,
-				4DD2AD7E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift */,
-				4DD2AD7F1E96886E00DB8899 /* topicsTableViewCell.swift */,
-				4DD2AD801E96886E00DB8899 /* meetingsTableViewCell.swift */,
 				D45B268D1E92850A002A1866 /* Errors.swift */,
 				4D36004B1E929A9F0030574C /* CloudKitHandler.swift */,
 				4DAEF1691E93D52C00A99E0D /* ControllerProtocols.swift */,
@@ -200,8 +193,6 @@
 				4DB933011E96668900C647C6 /* CurrentUser.swift */,
 				D45B26931E92850A002A1866 /* MOPT.entitlements */,
 				D45B26941E92850A002A1866 /* MOPT.xcdatamodeld */,
-				D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */,
-				4D3CC5771E8AA6A3000136FB /* Flow.storyboard */,
 				4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */,
 				4D3CC5821E8AA6A3000136FB /* Info.plist */,
 				D449F8FA1E8BFF0A006E60DB /* Fonts */,
@@ -217,6 +208,48 @@
 			name = Subtopic;
 			sourceTree = "<group>";
 		};
+		4DD2AD9B1E9689A900DB8899 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4DD2AD711E96886D00DB8899 /* AddParticipant.storyboard */,
+				4DD2AD751E96886E00DB8899 /* NewMeeting.storyboard */,
+				D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */,
+				4D3CC5771E8AA6A3000136FB /* Flow.storyboard */,
+				4DD2AD771E96886E00DB8899 /* NewSubtopic.storyboard */,
+				4DD2AD791E96886E00DB8899 /* NewTopic.storyboard */,
+				4DD2AD951E96899100DB8899 /* CurrentMeeting.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		4DD2AD9C1E9689DD00DB8899 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4DD2AD721E96886D00DB8899 /* AddParticipantsViewController.swift */,
+				4DD2AD761E96886E00DB8899 /* NewMeetingViewController.swift */,
+				4DD2AD781E96886E00DB8899 /* NewSubtopicViewController.swift */,
+				4DD2AD7A1E96886E00DB8899 /* NewTopicViewController.swift */,
+				4DD2AD931E96899100DB8899 /* AddSubtopicConclusionViewController.swift */,
+				4DD2AD941E96899100DB8899 /* AddTopicConclusionViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4DD2AD9D1E9689F700DB8899 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4DD2AD731E96886D00DB8899 /* commentsTableViewCell.swift */,
+				4DD2AD741E96886D00DB8899 /* descriptionTableViewCell.swift */,
+				4DD2AD7B1E96886E00DB8899 /* PrevoiusMeetingsTableViewCell.swift */,
+				4DD2AD7C1E96886E00DB8899 /* SubtopicsConclusionTableViewCell.swift */,
+				4DD2AD7D1E96886E00DB8899 /* subtopicsTableViewCell.swift */,
+				4DD2AD7E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift */,
+				4DD2AD7F1E96886E00DB8899 /* topicsTableViewCell.swift */,
+				4DD2AD801E96886E00DB8899 /* meetingsTableViewCell.swift */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
 		D449F8FA1E8BFF0A006E60DB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,26 +263,13 @@
 			children = (
 				D45B26841E926B8B002A1866 /* meetingsTableViewController.swift */,
 				D45B26C01E9289D2002A1866 /* TopicsTableViewController.swift */,
+				4DD2AD961E96899100DB8899 /* CurrentMeetingTableViewController.swift */,
 				D45B26C41E928AB6002A1866 /* topicInformationTableViewController.swift */,
 				D45B26CD1E928D30002A1866 /* SubtopicTableViewController.swift */,
 				D4E651B21E9409D00093CEB9 /* meetingMinutesTableViewController.swift */,
 				D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */,
 			);
 			name = "Table View Controllers";
-			sourceTree = "<group>";
-		};
-		D45B26881E92710D002A1866 /* Topic Options View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Topic Options View Controllers";
-			sourceTree = "<group>";
-		};
-		D45B26891E927110002A1866 /* Subtopic View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Subtopic View Controllers";
 			sourceTree = "<group>";
 		};
 		D45B26B11E92851A002A1866 /* Meeting */ = {
@@ -327,7 +347,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
@@ -365,6 +385,7 @@
 				D4BD50EF1E8FD6EB0091A37F /* Login.storyboard in Resources */,
 				4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */,
 				4DD2AD891E96886E00DB8899 /* NewTopic.storyboard in Resources */,
+				4DD2AD991E96899100DB8899 /* CurrentMeeting.storyboard in Resources */,
 				4D3CC5791E8AA6A3000136FB /* Flow.storyboard in Resources */,
 				4DD2AD811E96886E00DB8899 /* AddParticipant.storyboard in Resources */,
 				D449F8FC1E8BFF30006E60DB /* KeepCalm-Medium.ttf in Resources */,
@@ -396,6 +417,7 @@
 				4DAEF16A1E93D52C00A99E0D /* ControllerProtocols.swift in Sources */,
 				4DD2AD841E96886E00DB8899 /* descriptionTableViewCell.swift in Sources */,
 				4DD2AD901E96886E00DB8899 /* meetingsTableViewCell.swift in Sources */,
+				4DD2AD971E96899100DB8899 /* AddSubtopicConclusionViewController.swift in Sources */,
 				4DD2AD8E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift in Sources */,
 				4DAEF16C1E95227100A99E0D /* TestingFile.swift in Sources */,
 				4DD2AD8F1E96886E00DB8899 /* topicsTableViewCell.swift in Sources */,
@@ -404,6 +426,7 @@
 				D45B26A21E92850A002A1866 /* LoginModel.swift in Sources */,
 				D45B26AF1E92850A002A1866 /* UserServices.swift in Sources */,
 				D4E651B51E940B720093CEB9 /* TopicConclusionTableViewCell.swift in Sources */,
+				4DD2AD981E96899100DB8899 /* AddTopicConclusionViewController.swift in Sources */,
 				D45B26A71E92850A002A1866 /* MOPT.xcdatamodeld in Sources */,
 				D4E651B31E9409D00093CEB9 /* meetingMinutesTableViewController.swift in Sources */,
 				4DD2AD8B1E96886E00DB8899 /* PrevoiusMeetingsTableViewCell.swift in Sources */,
@@ -413,6 +436,7 @@
 				4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */,
 				D4E651AD1E93B5650093CEB9 /* NewSubtopicViewController.swift in Sources */,
 				4DD2AD8A1E96886E00DB8899 /* NewTopicViewController.swift in Sources */,
+				4DD2AD9A1E96899100DB8899 /* CurrentMeetingTableViewController.swift in Sources */,
 				D45B26AE1E92850A002A1866 /* UserDBLayer.swift in Sources */,
 				D4E651B71E940B880093CEB9 /* SubtopicsConclusionTableViewCell.swift in Sources */,
 				D45B26CB1E928B91002A1866 /* subtopicsTableViewCell.swift in Sources */,
