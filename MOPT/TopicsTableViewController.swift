@@ -19,6 +19,7 @@ class TopicsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         topicServices.getMeetingTopics(meetingRecordID: (currentMeeting?.recordID)!) {
             (topicRecords, error) in
             guard error == nil else {
@@ -43,10 +44,11 @@ class TopicsTableViewController: UITableViewController {
         self.navigationItem.title = currentMeeting?["title"] as? String
     }
     
-    
     @IBAction func startMeetingButton(_ sender: UIBarButtonItem) {
         meetingServices.startMeeting(meetingID: (currentMeeting?.recordID)!)
+        
     }
+    
 
     // MARK: - Table view data source
 

@@ -105,12 +105,16 @@ class TopicServices: NSObject, TopicDelegate {
             
             guard error == nil && responseData != nil else {
                 print("problem getting subtopics from meeting")
+                completionHandler([CKRecord](), error)
                 return
             }
             
-            let records = responseData!
-            
-            completionHandler(records, error)
+            if let records = responseData {
+                completionHandler(records, nil)
+            } else {
+                completionHandler([CKRecord](), nil)
+            }
+
             
         }
 

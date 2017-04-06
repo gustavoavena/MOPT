@@ -23,9 +23,15 @@ class MeetingServices: NSObject, MeetingDelegate {
     func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool = true, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
         
         print("Getting user meetings")
+        var predicate: NSPredicate
         
         let userReference = CKReference(recordID: userRecordID, action: .none)
-        let predicate = NSPredicate(format: "%@ in participants", userReference) //ATENTION!
+        if(nextMeetings) {
+            predicate = NSPredicate(format: "%@ in participants", userReference) // next meetings (date same day or later as current date).
+        } else {
+            predicate = NSPredicate(format: "%@ in participants", userReference)
+        }
+        
         let query = CKQuery(recordType: "Meeting", predicate: predicate)
         
         self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
@@ -113,35 +119,34 @@ class MeetingServices: NSObject, MeetingDelegate {
         ckHandler.fetchByRecordID(recordID: meetingID) {
             (recordResponse, error) in
             
-            guard error == nil && recordResponse != nil else {
+            guard error == nil else {
                 print("Error fetching meeting")
                 return
             }
             
-            let record = recordResponse!
-            
-            let startTime = record["startTime"] as! NSDate?
-            let endTime = record["endTime"] as! NSDate?
-            
-            guard (startTime == nil && endTime == nil) else {
-                print("can't start meeting that is already running or ended.")
-                return
-            }
-            
-            record["startTime"] = Date() as NSDate
-            
-            self.ckHandler.publicDB.save(record) {
-                (newRecord, error) in
-                guard error == nil else {
-                    print("Error saving record to DB.")
+            if let record = recordResponse {
+                let startTime = record["startTime"] as! NSDate?
+                let endTime = record["endTime"] as! NSDate?
+                
+                print("starting meeting \(meetingID.recordName)")
+                
+                guard (startTime == nil && endTime == nil) else {
+                    print("can't start meeting that is already running or ended.")
                     return
                 }
+                
+                record["startTime"] = Date() as NSDate
+                
+                self.ckHandler.saveRecord(record: record)
             }
+            
+            
         }
       
         
     }
     
+    // TODO: Modify it and make it like startMeeting (using if let)
     func endMeeting(meetingID: CKRecordID)  {
         
         ckHandler.fetchByRecordID(recordID: meetingID) {
