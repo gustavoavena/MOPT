@@ -84,10 +84,24 @@ class TopicsTableViewController: UITableViewController {
             subtopics = subtopicRecords
         }
         cell.numberOfSubtopics.text = String(describing: subtopics.count) + (" subtopics")
-        cell.topicCreatorPicture.image = UIImage(named:"example")
-        //cell.topicCreatorPicture.image = self.topics[indexPath.row]["profilePicture"] as? UIImage
+        let userServices = UserServices()
+        userServices.downloadImage(imageURL: self.topics[indexPath.row]["profilePictureURL"]) {
+            (data, error) in
+            
+            guard error == nil else {
+                print("Error setting profile picture.")
+                return
+            }
+            
+            if let image = data {
+                cell.topicCreatorPicture.image = image
+            } else {
+                cell.topicCreatorPicture.image = UIImage(named:"example")
+            }
+            
+        }
+        return cell        //cell.topicCreatorPicture.image = self.topics[indexPath.row]["profilePicture"] as? UIImage
 
-        return cell
     }
 
     
