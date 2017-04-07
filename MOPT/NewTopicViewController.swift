@@ -18,17 +18,22 @@ class NewTopicViewController: UIViewController {
 
     @IBOutlet weak var newTopicDescription: UITextView!
     
+    @IBAction func newTopicNameKeyboardAction(_ sender: UITextField) {
+        hideKeyboard(textField: newTopicName)
+    }
+    
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         topicServices.createTopic(title: self.newTopicName.text!, description: self.newTopicDescription.text, meetingRecordID: (currentMeeting?.recordID)!, creatorRecordID: CurrentUser.shared().userRecordID!)
         //Code to create a new topic and segue the program to the topic created
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+    func hideKeyboard(textField: UITextField) {
+        self.newTopicName.resignFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

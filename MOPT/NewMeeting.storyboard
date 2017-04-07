@@ -40,6 +40,9 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="newMeetingNameKeyboardAction:" destination="oQk-jj-wLp" eventType="primaryActionTriggered" id="KYa-Ws-Flk"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STARTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8L-EE-bre">
                                 <rect key="frame" x="16" y="180.5" width="45.5" height="14.5"/>

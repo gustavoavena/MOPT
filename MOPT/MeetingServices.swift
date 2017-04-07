@@ -34,6 +34,8 @@ class MeetingServices: NSObject, MeetingDelegate {
         
         let query = CKQuery(recordType: "Meeting", predicate: predicate)
         
+        query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        
         self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
             (responseData, error) in
             

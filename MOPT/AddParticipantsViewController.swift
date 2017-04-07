@@ -9,24 +9,35 @@
 import UIKit
 import CloudKit
 
-class AddParticipantsViewController: UIViewController {
+class AddParticipantsViewController: UIViewController, UITextFieldDelegate {
     
     var currentMeeting:CKRecord?
     private let meetingServices = MeetingServices()
     
     @IBOutlet weak var invitedUserEmail: UITextField!
     
+    @IBAction func inviteUserKeyboardAction(_ sender: UITextField) {
+       hideKeyboard(textField: invitedUserEmail)
+    }
+    
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         meetingServices.addParticipant(meetingRecordID: (currentMeeting?.recordID)!, userEmail: self.invitedUserEmail.text!)
         //Code to add a new participant and segue the program back to the meeting
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func hideKeyboard(textField: UITextField) {
+        self.invitedUserEmail.resignFirstResponder()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        invitedUserEmail.delegate = self
+        
         // Do any additional setup after loading the view.
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
