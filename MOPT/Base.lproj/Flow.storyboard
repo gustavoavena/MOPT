@@ -236,7 +236,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tópico 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fO-qe-w9u">
-                                                    <rect key="frame" x="61" y="8" width="105" height="36"/>
+                                                    <rect key="frame" x="61" y="8" width="98" height="36"/>
                                                     <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="25"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -350,7 +350,7 @@
         <!--Previous-->
         <scene sceneID="w1r-Sa-qqG">
             <objects>
-                <tableViewController id="wDo-Nn-8ER" sceneMemberID="viewController">
+                <tableViewController id="wDo-Nn-8ER" customClass="PreviousMeetingsTableViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="135" sectionHeaderHeight="28" sectionFooterHeight="28" id="IEP-DS-KAI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

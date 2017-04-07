@@ -23,8 +23,6 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     }()
     
     
-    
-    
     required  init?(coder aDecoder: NSCoder) {
         self.ckHandler = CloudKitHandler()
         
@@ -33,10 +31,8 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         //checking if user is already logged in
         if (FBSDKAccessToken.current() != nil) {
