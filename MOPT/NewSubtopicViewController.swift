@@ -16,12 +16,20 @@ class NewSubtopicViewController: UIViewController {
     
     @IBOutlet weak var newSubtopicName: UITextField!
     
+    @IBAction func newSubtopicNameKeyboardAction(_ sender: UITextField) {
+        hideKeyboard(textField: newSubtopicName)
+    }
+    
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         subtopicServices.createSubtopic(subtopicTitle: self.newSubtopicName.text!, topicRecordID: (currentTopic?.recordID)!, creatorRecordID: CurrentUser.shared().userRecordID!)
         //Code to create a new subtopic and segue the program to the subtopic created
         self.navigationController?.popViewController(animated: true)
     }
 
+    func hideKeyboard(textField: UITextField) {
+        self.newSubtopicName.resignFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -52,6 +52,9 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="newSubtopicNameKeyboardAction:" destination="ndx-Tu-VGu" eventType="primaryActionTriggered" id="33C-d1-3MC"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>

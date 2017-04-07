@@ -315,7 +315,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DdB-yN-1v3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Upcoming" image="Meetings" id="7f8-Nx-Odn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9M8-07-sak">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9M8-07-sak">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -334,7 +334,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mOV-1M-opU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Previous" image="Handshake" id="1aF-4w-Rmk"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LHI-h5-zGX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LHI-h5-zGX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

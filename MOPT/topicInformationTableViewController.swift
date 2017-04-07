@@ -17,7 +17,9 @@ class topicInformationTableViewController: UITableViewController {
     private let topicServices = TopicServices()
     
     @IBOutlet weak var currentUserPicture: UIImageView!
+    
     @IBOutlet weak var commentTextField: UITextView!
+    
     @IBAction func sendCommentButton(_ sender: UIButton) {
         topicServices.addComment(topicRecordID: (currentTopic?.recordID)!, commentText: commentTextField.text, creatorRecordID: CurrentUser.shared().userRecordID!)
         self.tableView.reloadData()
