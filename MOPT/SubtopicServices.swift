@@ -42,7 +42,7 @@ class SubtopicServices: NSObject, SubtopicDelegate {
     
 
 
-    func getSubtopicComments(subtopicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
+    func getSubtopicComments(subtopicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord], Error?) -> Void) {
         let subtopicReference = CKReference(recordID: subtopicRecordID, action: .deleteSelf)
         let predicate = NSPredicate(format: "subtopic = %@", subtopicReference)
         let query = CKQuery(recordType: "Comment", predicate: predicate)

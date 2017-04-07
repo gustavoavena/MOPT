@@ -32,22 +32,22 @@ class topicInformationTableViewController: UITableViewController {
         
         topicServices.getSubtopics(topicRecordID: (currentTopic?.recordID)!) {
             (subtopicRecords, error) in
-            guard error == nil && subtopicRecords != nil else {
+            guard error == nil else {
                 print("Error fetching subtopics")
                 return
             }
-            self.subtopics = subtopicRecords!
+            self.subtopics = subtopicRecords
             OperationQueue.main.addOperation({
                 self.tableView.reloadData()
             })
         }
         topicServices.getTopicComments(topicRecordID: (currentTopic?.recordID)!) {
             (commentRecords, error) in
-            guard error == nil && commentRecords != nil else {
+            guard error == nil else {
                 print("Error fetching comments")
                 return
             }
-            self.comments = commentRecords!
+            self.comments = commentRecords
             OperationQueue.main.addOperation({
                 self.tableView.reloadData()
             })

@@ -20,7 +20,7 @@ class MeetingServices: NSObject, MeetingDelegate {
         userServices = UserServices()
     }
     
-    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool = true, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
+    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool = true, completionHandler: @escaping ([CKRecord], Error?) -> Void) {
         
         print("Getting user meetings")
         var predicate: NSPredicate

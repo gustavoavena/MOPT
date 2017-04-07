@@ -95,7 +95,7 @@ class TopicServices: NSObject, TopicDelegate {
     }
     
    
-    func getSubtopics(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?)-> Void) {
+    func getSubtopics(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord], Error?)-> Void) {
         let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
         let predicate = NSPredicate(format: "parentTopic = %@", topicReference)
         let query = CKQuery(recordType: "Subtopic", predicate: predicate)
@@ -121,7 +121,7 @@ class TopicServices: NSObject, TopicDelegate {
     }
     
     
-    func getTopicComments(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
+    func getTopicComments(topicRecordID: CKRecordID, completionHandler: @escaping ([CKRecord], Error?) -> Void) {
         let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
         let predicate = NSPredicate(format: "topic = %@", topicReference)
         let query = CKQuery(recordType: "Comment", predicate: predicate)
@@ -130,13 +130,18 @@ class TopicServices: NSObject, TopicDelegate {
         self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
             (responseData, error) in
             guard error == nil && responseData != nil else {
-                print("problem getting topics from meeting")
+                print("Problem getting topics from meeting")
+                completionHandler([CKRecord](), error)
                 return
             }
             
-            let records = responseData!
+            if let records = responseData {
+                completionHandler(records, nil)
+            } else {
+                completionHandler([CKRecord](), error)
+            }
             
-            completionHandler(records, error)
+            
         }
 
         
