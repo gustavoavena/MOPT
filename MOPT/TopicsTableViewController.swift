@@ -45,6 +45,7 @@ class TopicsTableViewController: UITableViewController {
     }
     
     @IBAction func startMeetingButton(_ sender: UIBarButtonItem) {
+        print("Starting Meeting = \(String(describing:currentMeeting))")
         meetingServices.startMeeting(meetingID: (currentMeeting?.recordID)!)
         
     }
@@ -97,6 +98,7 @@ class TopicsTableViewController: UITableViewController {
         }
         if segue.identifier == "startMeeting",
             let segueDestination = segue.destination as? CurrentMeetingTableViewController {
+            print("Sending CurrentMeeting = \(String(describing:currentMeeting))")
             segueDestination.currentMeeting = currentMeeting
         }
     }
