@@ -19,11 +19,11 @@ class PreviousMeetingsTableViewController: UITableViewController {
         super.viewDidLoad()
         meetingServices.getUserMeetings(userRecordID: CurrentUser.shared().userRecordID!, false) {
             (meetingRecords, error) in
-            guard error == nil && meetingRecords != nil else {
+            guard error == nil else {
                 print("Error fetching meeting")
                 return
             }
-            self.meetings = meetingRecords!
+            self.meetings = meetingRecords
             OperationQueue.main.addOperation({
                 self.tableView.reloadData()
             })

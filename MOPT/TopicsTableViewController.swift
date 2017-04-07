@@ -67,11 +67,11 @@ class TopicsTableViewController: UITableViewController {
         cell.topicName.text = self.topics[indexPath.row]["title"] as? String
         topicServices.getSubtopics(topicRecordID:self.topics[indexPath.row].recordID){
             (subtopicRecords, error) in
-            guard error == nil && subtopicRecords != nil else {
+            guard error == nil else {
                 print("Error fetching subtopics")
                 return
             }
-            subtopics = subtopicRecords!
+            subtopics = subtopicRecords
         }
         cell.numberOfSubtopics.text = String(describing: subtopics.count) + (" subtopics")
         //cell.topicCreatorPicture.image = UIImage.self.topics[indexPath.row][""]
