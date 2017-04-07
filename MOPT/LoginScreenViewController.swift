@@ -49,7 +49,7 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 if let userInfo = response {
                     
-                    print("Fetched fabcebook's user info.")
+                    print("Fetched facebook's user info.")
                     
                     let userName = userInfo["name"] as! String
                     let userEmail = userInfo["email"] as! String

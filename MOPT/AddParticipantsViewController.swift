@@ -9,12 +9,16 @@
 import UIKit
 import CloudKit
 
-class AddParticipantsViewController: UIViewController {
+class AddParticipantsViewController: UIViewController, UITextFieldDelegate {
     
     var currentMeeting:CKRecord?
     private let meetingServices = MeetingServices()
     
     @IBOutlet weak var invitedUserEmail: UITextField!
+    
+    @IBAction func inviteUserKeyboardAction(_ sender: UITextField) {
+       hideKeyboard(textField: invitedUserEmail)
+    }
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         meetingServices.addParticipant(meetingRecordID: (currentMeeting?.recordID)!, userEmail: self.invitedUserEmail.text!)
@@ -24,15 +28,21 @@ class AddParticipantsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        invitedUserEmail.delegate = self
+        
         // Do any additional setup after loading the view.
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func hideKeyboard(textField: UITextField) {
+        self.invitedUserEmail.resignFirstResponder()
+    }
 
     /*
     // MARK: - Navigation

@@ -16,10 +16,19 @@ class NewMeetingViewController: UIViewController {
     
     @IBOutlet weak var newMeetingDate: UIDatePicker!
     
+    @IBAction func newMeetingNameKeyboardAction(_ sender: UITextField) {
+        hideKeyboard(textField: newMeetingName)
+    }
+    
+    
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         meetingServices.createMeeting(title: self.newMeetingName.text!, date: self.newMeetingDate.date as NSDate, moderatorRecordID: CurrentUser.shared().userRecordID!)
         //Code to create a new meeting and segue the program to the meeting created
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func hideKeyboard(textField: UITextField) {
+        self.newMeetingName.resignFirstResponder()
     }
     
     override func viewDidLoad() {

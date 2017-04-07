@@ -60,13 +60,20 @@ class CurrentMeetingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var subtopics = [CKRecord]()
-        topicServices.getSubtopics(topicRecordID: topics[section].recordID) {
-            (subtopicRecords, error) in
-            guard error == nil && subtopicRecords != nil else {
-                print("Error fetching subtopics")
-                return
+        for i in 0 ..< section {
+            topicServices.getSubtopics(topicRecordID: topics[i].recordID) {
+                (subtopicRecords, error) in
+                guard error == nil else {
+                    print("Error fetching subtopics")
+                    return
+                }
+                subtopics = subtopicRecords
             }
-            subtopics = subtopicRecords!
+            if subtopics.count != 0 {
+                return subtopics.count
+            } else {
+                return 1
+            }
         }
         
         print("subtopiccount = \(subtopics.count)")
@@ -81,11 +88,11 @@ class CurrentMeetingTableViewController: UITableViewController {
 
         topicServices.getSubtopics(topicRecordID: topics[indexPath.section].recordID) {
             (subtopicRecords, error) in
-            guard error == nil && subtopicRecords != nil else {
+            guard error == nil else {
                 print("Error fetching subtopics")
                 return
             }
-            subtopics = subtopicRecords!
+            subtopics = subtopicRecords
         }
         
         sleep(2) // TODO: REMOVE IT
