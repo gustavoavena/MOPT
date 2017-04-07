@@ -22,6 +22,7 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         return button
     }()
     
+
     
     required  init?(coder aDecoder: NSCoder) {
         self.ckHandler = CloudKitHandler()
@@ -38,10 +39,10 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         if (FBSDKAccessToken.current() != nil) {
             print("Usuario logado no Facebook.")
             
-            
+            //TODO chamar funcao que trava tudo
             self.userDelegate.fetchFacebookUserInfo() {
                 (response, error) in
-                
+                //TODO atuala
                 guard error == nil else {
                     print("Error fetching user's facebook info.")
                     return
@@ -60,13 +61,13 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                     self.ckHandler.fetchByRecordID(recordID: userRecordID) {
                         (response, error) in
                         
-                        
                         if let userRecord = response {
                             let currentUser = CurrentUser.shared()
                             currentUser.userRecordID = userRecord.recordID // Logged user in
                         } else {
                             self.userDelegate.createUser(fbID: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
                         }
+                        //TODO habilitadar
                     }
                 }
             }
@@ -78,10 +79,9 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         //delegating loginButton to LoginScreenViewController
         self.loginButtonObject.delegate = self
-        
-        
-        
     }
+    
+    
     //loginButton: called when user logs in
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if ((error) != nil) {

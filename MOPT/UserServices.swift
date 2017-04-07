@@ -27,13 +27,12 @@ class UserServices: NSObject, UserDelegate {
         
         userRecord["name"] = name as NSString
         userRecord["email"] = email as NSString
-        userRecord["fbID"] = String(fbID) as NSString
+        userRecord["fbID"] = fbID as NSString
         userRecord["profilePictureURL"] = profilePictureURL.absoluteString as NSString
         
         // Logs user in:
         let currentUser = CurrentUser.shared()
         currentUser.userRecordID = userRecord.recordID // logged in
-        
         
         self.ckHandler.saveRecord(record: userRecord)
         
@@ -112,5 +111,25 @@ class UserServices: NSObject, UserDelegate {
             completionHandler(userID, error)
         }
     }
-
+    
+    
+    func downloadImage(imageURL: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+        print("Download of \(imageURL) started")
+        
+        URLSession.shared.dataTask(with: imageURL) {
+            (data, response, error) in
+            
+            guard let data = data, error == nil else {
+                print("Error downloading user profile picture")
+                completionHandler(nil, error)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completionHandler(UIImage(data: data), nil)
+            }
+            
+            print("Download of \(imageURL) finished")
+        }
+    }
 }

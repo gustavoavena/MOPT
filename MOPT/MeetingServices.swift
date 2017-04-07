@@ -23,10 +23,18 @@ class MeetingServices: NSObject, MeetingDelegate {
     func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool = true, completionHandler: @escaping ([CKRecord], Error?) -> Void) {
         
         print("Getting user meetings")
-        
+        var predicate: NSPredicate
         let userReference = CKReference(recordID: userRecordID, action: .none)
         
-        let predicate = NSPredicate(format: "%@ in participants", userReference)
+        //showing current meetings until 2 hours after it's date
+        let dateLimit = NSDate().addingTimeInterval(-120.0 * 60.0)
+        
+        if(nextMeetings) {
+            predicate = NSPredicate(format: "(%@ in participants) AND (date >= %@)", userReference, dateLimit)
+        } else {
+            predicate = NSPredicate(format: "(%@ in participants) AND (date < %@)", userReference, dateLimit)
+        }
+        
         let query = CKQuery(recordType: "Meeting", predicate: predicate)
         
         self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
@@ -40,27 +48,9 @@ class MeetingServices: NSObject, MeetingDelegate {
             
             
             if let records = responseData {
-                //dateLimit: current date - 2 hours
-                let dateLimit = Date().addingTimeInterval(-120.0 * 60.0)
-                var meetingsToShow = [CKRecord]()
-                
-                for meeting in records {
-                    let meetingDate = meeting["date"] as! Date
-                    
-                    //OBS: it would be interesting to set default meeting.endTime to 2 hours after meeting.date or meeting.startTime
-                    //TODO: in createUser set meetings[CKRecord] to empty array (not nil) and set endTime to 2 hours after meeting.date
-                    //meeting["endTime"] = date.addingTimeInterval(120.0 * 60.0)
-                    //if (Date() >= meetingEndTime && nextMeetings == true)
-                    if (meetingDate >= dateLimit && nextMeetings == true) {
-                        meetingsToShow.append(meeting)
-                      //else if (Date() < meetingEndTime && nextMeetings == false)
-                    } else if (meetingDate < dateLimit && nextMeetings == false) {
-                        meetingsToShow.append(meeting)
-                    }
-                }
-                
-                completionHandler(meetingsToShow, nil)
-            } else { //ATENTION: the condition for this else is the same as checked on guard above (responseData == nil)
+                completionHandler(records, nil)
+            } else { //ATENTION: this else condition is already checked on guard above (responseData == nil)
+                print("No meeting records were found.")
                 completionHandler([CKRecord](), nil)
             }
             
