@@ -12,15 +12,22 @@ import UIKit
 import CloudKit
 
 class meetingsTableViewController: UITableViewController {
-
-    public private(set) var meetingRecords = [CKRecord]()
     
     public private(set) var meetings = [CKRecord]()
     private let meetingServices = MeetingServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        meetingServices.getUserMeetings(userRecordID: CurrentUser.shared().userRecordID!, true) {
+        
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        
+        loadMeetings(CurrentUser.shared().userRecordID!, true)
+    
+    }
+
+    func loadMeetings(_ userId: CKRecordID, _ next: Bool){
+        
+        meetingServices.getUserMeetings(userRecordID: userId, next) {
             (meetingRecords, error) in
             guard error == nil else {
                 print("Error fetching meeting")
@@ -29,10 +36,11 @@ class meetingsTableViewController: UITableViewController {
             self.meetings = meetingRecords
             OperationQueue.main.addOperation({
                 self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
             })
         }
     }
-        
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -66,8 +74,8 @@ class meetingsTableViewController: UITableViewController {
         cell.meetingName.text = self.meetings[indexPath.row]["title"] as? String
         cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
-        //cell.moderatorPicture.image = self.meetings[indexPath.row][""]
         cell.moderatorPicture.image = UIImage(named:"example")
+        //cell.moderatorPicture.image = self.meetings[indexPath.row]["profilePicture"] as? UIImage
         
         
         return cell
@@ -82,5 +90,11 @@ class meetingsTableViewController: UITableViewController {
             segueDestination.currentMeeting = selectedMeeting
         }
     }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        loadMeetings(CurrentUser.shared().userRecordID!, false)
+       
+    }
+
     
 }

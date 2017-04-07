@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import CloudKit
+import Dispatch
 
 class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     
@@ -22,6 +23,7 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         return button
     }()
     
+    @IBOutlet weak var startupButton: UIButton!
 
     
     required  init?(coder aDecoder: NSCoder) {
@@ -73,7 +75,7 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             
         }
-
+        
         self.view.addSubview(loginButtonObject)
         loginButtonObject.center = self.view.center
         
@@ -117,6 +119,7 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                         } else {
                             self.userDelegate.createUser(fbID: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
                         }
+                        self.startupButton.isUserInteractionEnabled = true
                     }
                 }
             })

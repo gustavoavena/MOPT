@@ -100,12 +100,14 @@ class CurrentMeetingTableViewController: UITableViewController {
         if subtopics.count != 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicAddConclusionCell", for: indexPath) as! subtopicsTableViewCell
             cell.subtopicTitle.text = subtopics[indexPath.row]["title"] as? String
+            //cell.subtopicCreatorPicture.image = subtopics[indexPath.row]["profilePicture"] as? UIImage
             cell.subtopicCreatorPicture.image = UIImage(named:"example")
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "topicAddConclusionCell", for: indexPath) as! topicsTableViewCell
             cell.topicName.text = self.topics[indexPath.row]["title"] as? String
             //cell.numberOfSubtopics.text = ""
+            //cell.topicCreatorPicture.image = self.topics[indexPath.row]["profilePicture"] as? UIImage
             cell.topicCreatorPicture.image = UIImage(named:"example")
             return cell
         }
