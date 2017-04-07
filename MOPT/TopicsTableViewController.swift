@@ -17,6 +17,7 @@ class TopicsTableViewController: UITableViewController {
     private let topicServices = TopicServices()
     private let meetingServices = MeetingServices()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

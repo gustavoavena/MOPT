@@ -120,7 +120,6 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                             currentUser.userRecordID = userRecord.recordID // Logged user in
                         } else {
                             self.userDelegate.createUser(fbID: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
-                            // TODO: Jump to next view
                         }
                     }
                 }
