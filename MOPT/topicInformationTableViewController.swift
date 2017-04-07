@@ -20,7 +20,7 @@ class topicInformationTableViewController: UITableViewController {
     @IBOutlet weak var commentTextField: UITextView!
     @IBAction func sendCommentButton(_ sender: UIButton) {
         topicServices.addComment(topicRecordID: (currentTopic?.recordID)!, commentText: commentTextField.text, creatorRecordID: CurrentUser.shared().userRecordID!)
-        self.tableView.reloadData()
+        loadTopicInformation(topicID: (currentTopic?.recordID)!)
         commentTextField.text = ""
     }
     
@@ -28,9 +28,15 @@ class topicInformationTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.currentUserPicture.image = UIImage(named:"example")
-        //self.currentUserPicture.image = UIImage(named:"example")
         
-        topicServices.getSubtopics(topicRecordID: (currentTopic?.recordID)!) {
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        
+        loadTopicInformation(topicID: (currentTopic?.recordID)!)
+        
+    }
+    
+    func loadTopicInformation(topicID:CKRecordID) {
+        topicServices.getSubtopics(topicRecordID: topicID) {
             (subtopicRecords, error) in
             guard error == nil else {
                 print("Error fetching subtopics")
@@ -41,7 +47,7 @@ class topicInformationTableViewController: UITableViewController {
                 self.tableView.reloadData()
             })
         }
-        topicServices.getTopicComments(topicRecordID: (currentTopic?.recordID)!) {
+        topicServices.getTopicComments(topicRecordID: topicID) {
             (commentRecords, error) in
             guard error == nil else {
                 print("Error fetching comments")
@@ -52,7 +58,7 @@ class topicInformationTableViewController: UITableViewController {
                 self.tableView.reloadData()
             })
         }
-
+        self.refreshControl?.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,45 +132,7 @@ class topicInformationTableViewController: UITableViewController {
         }
     }
     
-    // User commenting space
-    
-
-    
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        loadTopicInformation(topicID: (currentTopic?.recordID)!)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
 }
