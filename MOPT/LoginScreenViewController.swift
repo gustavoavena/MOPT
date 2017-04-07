@@ -34,9 +34,12 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.startupButton.isUserInteractionEnabled = false
         //checking if user is already logged in
         if (FBSDKAccessToken.current() != nil) {
             print("Usuario logado no Facebook.")
@@ -69,7 +72,7 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                         } else {
                             self.userDelegate.createUser(fbID: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
                         }
-                        //TODO habilitadar
+                        self.startupButton.isUserInteractionEnabled = true
                     }
                 }
             }
