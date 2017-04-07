@@ -20,7 +20,7 @@ class MeetingServices: NSObject, MeetingDelegate {
         userServices = UserServices()
     }
     
-    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool = true, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
+    func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool = true, completionHandler: @escaping ([CKRecord], Error?) -> Void) {
         
         print("Getting user meetings")
         var predicate: NSPredicate
@@ -37,7 +37,7 @@ class MeetingServices: NSObject, MeetingDelegate {
         self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
             (responseData, error) in
             
-            guard error == nil && responseData != nil else {
+            guard error == nil else {
                 print("problem getting user meetings")
                 completionHandler([CKRecord](), error)
                 return
@@ -47,6 +47,7 @@ class MeetingServices: NSObject, MeetingDelegate {
             if let records = responseData {
                 completionHandler(records, nil)
             } else {
+                print("No meeting records were found.")
                 completionHandler([CKRecord](), nil)
             }
             

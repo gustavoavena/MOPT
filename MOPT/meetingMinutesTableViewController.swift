@@ -62,11 +62,11 @@ class meetingMinutesTableViewController: UITableViewController {
             var subtopics = [CKRecord]()
             topicServices.getSubtopics(topicRecordID: topics[i].recordID) {
                 (subtopicRecords, error) in
-                guard error == nil && subtopicRecords != nil else {
+                guard error == nil else {
                     print("Error fetching subtopics")
                     return
                 }
-                subtopics = subtopicRecords!
+                subtopics = subtopicRecords
             }
             if subtopics.count != 0 {
                 return subtopics.count
@@ -83,11 +83,11 @@ class meetingMinutesTableViewController: UITableViewController {
         var subtopics = [CKRecord]()
         topicServices.getSubtopics(topicRecordID: topics[indexPath.section].recordID) {
             (subtopicRecords, error) in
-            guard error == nil && subtopicRecords != nil else {
+            guard error == nil else {
                 print("Error fetching subtopics")
                 return
             }
-            subtopics = subtopicRecords!
+            subtopics = subtopicRecords
         }
         if subtopics.count != 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicConclusionCell", for: indexPath) as! SubtopicsConclusionTableViewCell

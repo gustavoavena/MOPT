@@ -28,11 +28,11 @@ class SubtopicTableViewController: UITableViewController {
         super.viewDidLoad()
         subtopicServices.getSubtopicComments(subtopicRecordID: (currentSubtopic?.recordID)!) {
             (commentRecords, error) in
-            guard error == nil && commentRecords != nil else {
+            guard error == nil else {
                 print("Error fetching comments")
                 return
             }
-            self.comments = commentRecords!
+            self.comments = commentRecords
             OperationQueue.main.addOperation({
                 self.tableView.reloadData()
             })
