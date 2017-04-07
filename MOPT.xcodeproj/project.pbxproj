@@ -54,6 +54,7 @@
 		D4BD50EF1E8FD6EB0091A37F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */; };
 		D4E651B31E9409D00093CEB9 /* meetingMinutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B21E9409D00093CEB9 /* meetingMinutesTableViewController.swift */; };
 		D4E651B91E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */; };
+		D4FDC3311E97D25100F6FAF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4FDC32F1E97D25100F6FAF6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		D4E651B21E9409D00093CEB9 /* meetingMinutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingMinutesTableViewController.swift; sourceTree = "<group>"; };
 		D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousMeetingsTableViewController.swift; sourceTree = "<group>"; };
+		D4FDC3301E97D25100F6FAF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 		4DD2AD9B1E9689A900DB8899 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D4FDC32F1E97D25100F6FAF6 /* LaunchScreen.storyboard */,
 				4DD2AD711E96886D00DB8899 /* AddParticipant.storyboard */,
 				4DD2AD751E96886E00DB8899 /* NewMeeting.storyboard */,
 				D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */,
@@ -359,6 +362,7 @@
 				4DD2AD991E96899100DB8899 /* CurrentMeeting.storyboard in Resources */,
 				4D3AB6FE1E96A7D90076EC3E /* KeepCalm-Medium.ttf in Resources */,
 				4D3CC5791E8AA6A3000136FB /* Flow.storyboard in Resources */,
+				D4FDC3311E97D25100F6FAF6 /* LaunchScreen.storyboard in Resources */,
 				4DD2AD811E96886E00DB8899 /* AddParticipant.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +418,14 @@
 				4D3CC5781E8AA6A3000136FB /* Base */,
 			);
 			name = Flow.storyboard;
+			sourceTree = "<group>";
+		};
+		D4FDC32F1E97D25100F6FAF6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4FDC3301E97D25100F6FAF6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
