@@ -59,8 +59,8 @@ class CurrentMeetingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var subtopics = [CKRecord]()
         for i in 0 ..< section {
-            var subtopics = [CKRecord]()
             topicServices.getSubtopics(topicRecordID: topics[i].recordID) {
                 (subtopicRecords, error) in
                 guard error == nil else {
@@ -74,7 +74,6 @@ class CurrentMeetingTableViewController: UITableViewController {
             } else {
                 return 1
             }
-            subtopics = subtopicRecords!
         }
         
         print("subtopiccount = \(subtopics.count)")
