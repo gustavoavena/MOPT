@@ -19,6 +19,7 @@ class CurrentMeetingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print ("Getting CurrentMeeting = \(String(describing: currentMeeting))")
         topicServices.getMeetingTopics(meetingRecordID: (currentMeeting?.recordID)!) {
             (topicRecords, error) in
             guard error == nil else {
@@ -58,25 +59,21 @@ class CurrentMeetingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        for i in 0 ..< section {
-            var subtopics = [CKRecord]()
-            topicServices.getSubtopics(topicRecordID: topics[i].recordID) {
-                (subtopicRecords, error) in
-                guard error == nil && subtopicRecords != nil else {
-                    print("Error fetching subtopics")
-                    return
-                }
-                subtopics = subtopicRecords!
+        var subtopics = [CKRecord]()
+        topicServices.getSubtopics(topicRecordID: topics[section].recordID) {
+            (subtopicRecords, error) in
+            guard error == nil && subtopicRecords != nil else {
+                print("Error fetching subtopics")
+                return
             }
-            if subtopics.count != 0 {
-                return subtopics.count
-            } else {
-                return 1
-            }
+            subtopics = subtopicRecords!
         }
         
-        return 0
-        
+        print("subtopiccount = \(subtopics.count)")
+        if subtopics.count != 0 {
+            return subtopics.count
+        }
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -95,19 +92,24 @@ class CurrentMeetingTableViewController: UITableViewController {
         if subtopics.count != 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicAddConclusionCell", for: indexPath) as! subtopicsTableViewCell
             cell.subtopicTitle.text = subtopics[indexPath.row]["title"] as? String
-            //cell.subtopicCreatorPicture.image =
+            cell.subtopicCreatorPicture.image = UIImage(named:"example")
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "topicAddConclusionCell", for: indexPath) as!topicsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "topicAddConclusionCell", for: indexPath) as! topicsTableViewCell
             cell.topicName.text = self.topics[indexPath.row]["title"] as? String
-            cell.numberOfSubtopics.text = ""
+            //cell.numberOfSubtopics.text = ""
+            cell.topicCreatorPicture.image = UIImage(named:"example")
             return cell
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return topics[section]["title"] as? String
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        let header = view as! UITableViewHeaderFooterView
+        header.backgroundView?.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
