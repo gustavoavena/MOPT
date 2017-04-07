@@ -105,7 +105,7 @@ class topicInformationTableViewController: UITableViewController {
         else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicCell", for: indexPath) as! subtopicsTableViewCell
             cell.subtopicTitle.text = self.subtopics[indexPath.row]["title"] as? String
-            //cell.subtopicCreatorPicture.image = self.subtopics[indexPath.row].creator.profilePicture
+            //cell.subtopicCreatorPicture.image = self.subtopics[indexPath.row]["profilePicture"] as? UIImage
             cell.subtopicCreatorPicture.image = UIImage(named:"example")
             return cell
             
@@ -115,6 +115,7 @@ class topicInformationTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
             cell.commentText.text = self.comments[indexPath.row]["text"] as? String
             //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
+            //cell.commentCreatorPicture.image = self.comments[indexPath.row]["profilePicture"] as? UIImage
             cell.commentCreatorPicture.image = UIImage(named:"example")
             return cell
         }

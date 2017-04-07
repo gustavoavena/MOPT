@@ -77,6 +77,7 @@ class SubtopicTableViewController: UITableViewController {
         //print("printing comment = \(self.comments[indexPath.row]["text"])")
         cell.commentText.text = self.comments[indexPath.row]["text"] as? String
         //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
+        //cell.commentCreatorPicture.image = self.comments[indexPath.row]["profilePicture"] as? UIImage
         cell.commentCreatorPicture.image = UIImage(named:"example")
         return cell
     }

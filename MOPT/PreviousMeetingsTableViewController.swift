@@ -72,9 +72,8 @@ class PreviousMeetingsTableViewController: UITableViewController {
         cell.meetingName.text = self.meetings[indexPath.row]["title"] as? String
         cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
-        //cell.moderatorPicture.image = self.meetings[indexPath.row][""]
+        //cell.moderatorPicture.image = self.meetings[indexPath.row]["profilePicture"] as? UIImage
         cell.moderatorPicture.image = UIImage(named:"example")
-        
         
         return cell
     }

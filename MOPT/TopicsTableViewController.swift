@@ -84,8 +84,8 @@ class TopicsTableViewController: UITableViewController {
             subtopics = subtopicRecords
         }
         cell.numberOfSubtopics.text = String(describing: subtopics.count) + (" subtopics")
-        //cell.topicCreatorPicture.image = UIImage.self.topics[indexPath.row][""]
         cell.topicCreatorPicture.image = UIImage(named:"example")
+        //cell.topicCreatorPicture.image = self.topics[indexPath.row]["profilePicture"] as? UIImage
 
         return cell
     }
