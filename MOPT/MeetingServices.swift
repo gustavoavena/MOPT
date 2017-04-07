@@ -24,12 +24,15 @@ class MeetingServices: NSObject, MeetingDelegate {
         
         print("Getting user meetings")
         var predicate: NSPredicate
-        
         let userReference = CKReference(recordID: userRecordID, action: .none)
+        
+        //showing current meetings until 2 hours after it's date
+        let dateLimit = NSDate().addingTimeInterval(-120.0 * 60.0)
+        
         if(nextMeetings) {
-            predicate = NSPredicate(format: "%@ in participants", userReference) // next meetings (date same day or later as current date).
+            predicate = NSPredicate(format: "(%@ in participants) AND (date >= %@)", userReference, dateLimit)
         } else {
-            predicate = NSPredicate(format: "%@ in participants", userReference)
+            predicate = NSPredicate(format: "(%@ in participants) AND (date < %@)", userReference, dateLimit)
         }
         
         let query = CKQuery(recordType: "Meeting", predicate: predicate)
@@ -48,7 +51,7 @@ class MeetingServices: NSObject, MeetingDelegate {
             
             if let records = responseData {
                 completionHandler(records, nil)
-            } else {
+            } else { //ATENTION: this else condition is already checked on guard above (responseData == nil)
                 print("No meeting records were found.")
                 completionHandler([CKRecord](), nil)
             }
