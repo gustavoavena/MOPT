@@ -19,6 +19,7 @@ class CurrentMeetingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         print ("Getting CurrentMeeting = \(String(describing: currentMeeting))")
         topicServices.getMeetingTopics(meetingRecordID: (currentMeeting?.recordID)!) {
             (topicRecords, error) in
@@ -130,6 +131,5 @@ class CurrentMeetingTableViewController: UITableViewController {
         
         
     }
-    
    
 }
