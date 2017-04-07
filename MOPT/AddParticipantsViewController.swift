@@ -25,6 +25,10 @@ class AddParticipantsViewController: UIViewController, UITextFieldDelegate {
         //Code to add a new participant and segue the program back to the meeting
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func hideKeyboard(textField: UITextField) {
+        self.invitedUserEmail.resignFirstResponder()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +44,6 @@ class AddParticipantsViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func hideKeyboard(textField: UITextField) {
-        self.invitedUserEmail.resignFirstResponder()
-    }
 
     /*
     // MARK: - Navigation
