@@ -119,6 +119,8 @@ class UserServices: NSObject, UserDelegate {
         var urlStr = imageURL.absoluteString
         urlStr = urlStr.replacingOccurrences(of: "http", with: "https")
         
+        print("imageURL string = \(urlStr)")
+        
         
         let request = URLRequest(url: URL(string: urlStr)!)
 
