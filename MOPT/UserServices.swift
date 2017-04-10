@@ -116,11 +116,18 @@ class UserServices: NSObject, UserDelegate {
     func downloadImage(imageURL: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         print("Download of \(imageURL) started")
         
-        URLSession.shared.dataTask(with: imageURL) {
+        var urlStr = imageURL.absoluteString
+        urlStr = urlStr.replacingOccurrences(of: "http", with: "https")
+        
+        
+        let request = URLRequest(url: URL(string: urlStr)!)
+
+        
+        URLSession.shared.dataTask(with: request) {
             (data, response, error) in
             
             guard let data = data, error == nil else {
-                print("Error downloading user profile picture")
+                print("Error downloading user profile picture -> \(String(describing: error?.localizedDescription))")
                 completionHandler(nil, error)
                 return
             }
@@ -130,6 +137,6 @@ class UserServices: NSObject, UserDelegate {
             }
             
             print("Download of \(imageURL) finished")
-        }
+            }.resume()
     }
 }
