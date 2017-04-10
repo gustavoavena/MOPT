@@ -74,29 +74,48 @@ class meetingsTableViewController: UITableViewController {
         cell.meetingName.text = self.meetings[indexPath.row]["title"] as? String
         cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
+        cell.moderatorPicture.image = UIImage(named:"example") // Setting profile picture as default, in case query doesn't work.
         let userServices = UserServices()
-        let meetingCreator = self.meetings[indexPath.row]["creator"] as! CKReference
-        let profilePictureURLString = meetingCreator["profilePictureURL"] as! String
-        if let profilePictureURL = URL(string: profilePictureURLString) {
-            userServices.downloadImage(imageURL: profilePictureURL) {
-                (data, error) in
+        let ckHandler = CloudKitHandler()
+        
+        ckHandler.fetchByRecordID(recordID: (self.meetings[indexPath.row]["creator"] as! CKReference).recordID) {
+            (response, error) in
+            
+            guard error == nil else {
+                print("Error finding meeting creator record.")
+                return
+            }
+            
+            if let creatorRecord = response {
+                let profilePictureURLString = creatorRecord["profilePictureURL"] as! String
                 
-                guard error == nil else {
-                    print("Error setting profile picture.")
-                    return
-                }
                 
-                if let image = data {
-                    cell.moderatorPicture.image = image
+                if let profilePictureURL = URL(string: profilePictureURLString) {
+                    userServices.downloadImage(imageURL: profilePictureURL) {
+                        (data, error) in
+                        
+                        guard error == nil else {
+                            print("Error setting profile picture.")
+                            return
+                        }
+                        
+                        if let image = data {
+                            cell.moderatorPicture.image = image
+                        } else {
+                            cell.moderatorPicture.image = UIImage(named:"example")
+                        }
+                        
+                    }
+                    
                 } else {
+                    print("Found nil when unwrapping URL.")
                     cell.moderatorPicture.image = UIImage(named:"example")
                 }
-                
+            } else {
+                print("Couldn't find meeting creator record.")
+                return
             }
-
-        } else {
-            print("Found nil when unwrapping URL.")
-            cell.moderatorPicture.image = UIImage(named:"example")
+                
         }
         
         

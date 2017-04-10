@@ -22,7 +22,7 @@ public class CloudKitHandler: NSObject {
     
     func fetchByRecordID(recordID: CKRecordID, handleUserObject: @escaping (CKRecord?, Error?) -> Void) {
         
-        publicDB.fetch(withRecordID: recordID){
+        self.publicDB.fetch(withRecordID: recordID){
             (record, error) in
             
             guard error == nil else {
@@ -35,8 +35,8 @@ public class CloudKitHandler: NSObject {
             
             if let record = record {
                 handleUserObject(record, error)
-                
             } else {
+                print("Record not found - CloudKitHandler.fetchByRecordID.")
                 handleUserObject(nil, CKHandlerError.NoRecordFound)
             }
             

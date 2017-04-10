@@ -55,9 +55,6 @@ class MeetingServices: NSObject, MeetingDelegate {
                 print("No meeting records were found.")
                 completionHandler([CKRecord](), nil)
             }
-            
-            
-
         }
     }
     
