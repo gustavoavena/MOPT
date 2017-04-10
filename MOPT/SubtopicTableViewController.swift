@@ -77,29 +77,29 @@ class SubtopicTableViewController: UITableViewController {
         //print("printing comment = \(self.comments[indexPath.row]["text"])")
         cell.commentText.text = self.comments[indexPath.row]["text"] as? String
         
-        cell.commentCreatorPicture.image = UIImage(named:"\((self.comments[indexPath.row]["creator"] as! CKRecord).recordID.recordName)ProfilePicture.jpg")
+        //cell.commentCreatorPicture.image = UIImage(named:"\((self.comments[indexPath.row]["creator"] as! CKRecord).recordID.recordName)ProfilePicture.jpg")
         
-        let userServices = UserServices()
-        userServices.downloadImage(imageURL: self.comments[indexPath.row]["profilePictureURL"]) {
-            (data, error) in
-            
-            guard error == nil else {
-                print("Error setting profile picture.")
-                return
-            }
-            
-            if let image = data {
-                 cell.commentCreatorPicture.image = image
-            } else {
-                cell.commentCreatorPicture.image = UIImage(named:"example")
-            }
-           
-        }
+//        let userServices = UserServices()
+//        userServices.downloadImage(imageURL: self.comments[indexPath.row]["profilePictureURL"]) {
+//            (data, error) in
+//            
+//            guard error == nil else {
+//                print("Error setting profile picture.")
+//                return
+//            }
+//            
+//            if let image = data {
+//                 cell.commentCreatorPicture.image = image
+//            } else {
+//                cell.commentCreatorPicture.image = UIImage(named:"example")
+//            }
+//           
+//        }
         
         //print(self.comments[indexPath.row]["creator"].recordID.recordName)
         //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
         //cell.commentCreatorPicture.image = self.comments[indexPath.row]["profilePicture"] as? UIImage
-        //cell.commentCreatorPicture.image = UIImage(named:"example")
+        cell.commentCreatorPicture.image = UIImage(named:"example")
         return cell
     }
     

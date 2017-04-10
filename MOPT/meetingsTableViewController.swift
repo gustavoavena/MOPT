@@ -74,23 +74,24 @@ class meetingsTableViewController: UITableViewController {
         cell.meetingName.text = self.meetings[indexPath.row]["title"] as? String
         cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
-        let userServices = UserServices()
-        userServices.downloadImage(imageURL: self.meetings[indexPath.row]["profilePictureURL"]) {
-            (data, error) in
-            
-            guard error == nil else {
-                print("Error setting profile picture.")
-                return
-            }
-            
-            if let image = data {
-                cell.moderatorPicture.image = image
-            } else {
-                cell.moderatorPicture.image = UIImage(named:"example")
-            }
-            
-        }
-        return cell        //cell.moderatorPicture.image = self.meetings[indexPath.row]["profilePicture"] as? UIImage
+//        let userServices = UserServices()
+//        userServices.downloadImage(imageURL: self.meetings[indexPath.row]["profilePictureURL"]) {
+//            (data, error) in
+//            
+//            guard error == nil else {
+//                print("Error setting profile picture.")
+//                return
+//            }
+//            
+//            if let image = data {
+//                cell.moderatorPicture.image = image
+//            } else {
+//                cell.moderatorPicture.image = UIImage(named:"example")
+//            }
+//            
+//        }
+        cell.moderatorPicture.image = UIImage(named:"example")
+        return cell        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
