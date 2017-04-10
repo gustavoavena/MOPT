@@ -22,6 +22,7 @@ class meetingsTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
         loadMeetings(CurrentUser.shared().userRecordID!, true)
+        print("Loaded meetings view")
     
     }
 
@@ -75,10 +76,13 @@ class meetingsTableViewController: UITableViewController {
         cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.moderatorPicture.image = UIImage(named:"example") // Setting profile picture as default, in case query doesn't work.
+        
+        
         let userServices = UserServices()
         let ckHandler = CloudKitHandler()
         
-        ckHandler.fetchByRecordID(recordID: (self.meetings[indexPath.row]["creator"] as! CKReference).recordID) {
+        
+        ckHandler.fetchByRecordID(recordID: (self.meetings[indexPath.row]["moderator"] as! CKReference).recordID) {
             (response, error) in
             
             guard error == nil else {
