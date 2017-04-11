@@ -89,7 +89,7 @@
                                             <rect key="frame" x="8" y="27" width="359" height="108"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mOpt" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="30" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yx4-59-uls">
-                                                    <rect key="frame" x="61" y="8" width="290" height="41"/>
+                                                    <rect key="frame" x="61" y="8" width="290" height="42.5"/>
                                                     <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="35"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -107,27 +107,27 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar_white" translatesAutoresizingMaskIntoConstraints="NO" id="Aow-qd-cII">
-                                                    <rect key="frame" x="61" y="57" width="22" height="22"/>
+                                                    <rect key="frame" x="61" y="58.5" width="22" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="CbX-lk-813"/>
                                                         <constraint firstAttribute="height" constant="22" id="xGJ-xM-8o6"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clock_white" translatesAutoresizingMaskIntoConstraints="NO" id="Olc-Cn-pvo">
-                                                    <rect key="frame" x="169" y="57" width="22" height="22"/>
+                                                    <rect key="frame" x="169" y="58.5" width="22" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="Ufw-GY-ZUR"/>
                                                         <constraint firstAttribute="width" constant="22" id="rdj-07-eDN"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fwf-p0-lQL">
-                                                    <rect key="frame" x="199" y="56" width="56" height="24"/>
+                                                    <rect key="frame" x="199" y="57.5" width="56" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30/03" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAj-kh-dZ4">
-                                                    <rect key="frame" x="91" y="56" width="56" height="24"/>
+                                                    <rect key="frame" x="91" y="57.5" width="56" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -240,7 +240,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tópico 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fO-qe-w9u">
-                                                    <rect key="frame" x="61" y="8" width="98" height="36"/>
+                                                    <rect key="frame" x="61" y="8" width="105" height="36"/>
                                                     <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="25"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -323,7 +323,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DdB-yN-1v3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Upcoming" image="Meetings" id="7f8-Nx-Odn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9M8-07-sak">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9M8-07-sak">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -342,7 +342,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mOV-1M-opU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Previous" image="Handshake" id="1aF-4w-Rmk"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LHI-h5-zGX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LHI-h5-zGX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -375,7 +375,7 @@
                                             <rect key="frame" x="8" y="27" width="359" height="108"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mOpt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZeR-9B-qPn">
-                                                    <rect key="frame" x="61" y="8" width="290" height="41"/>
+                                                    <rect key="frame" x="61" y="8" width="290" height="42.5"/>
                                                     <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="35"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -393,27 +393,27 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar_white" translatesAutoresizingMaskIntoConstraints="NO" id="jkT-xn-ly9">
-                                                    <rect key="frame" x="61" y="57" width="22" height="22"/>
+                                                    <rect key="frame" x="61" y="58.5" width="22" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="0ge-f3-eWV"/>
                                                         <constraint firstAttribute="height" constant="22" id="mYY-HP-93D"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clock_white" translatesAutoresizingMaskIntoConstraints="NO" id="KpQ-Vx-mga">
-                                                    <rect key="frame" x="169" y="57" width="22" height="22"/>
+                                                    <rect key="frame" x="169" y="58.5" width="22" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="FX8-ye-fdV"/>
                                                         <constraint firstAttribute="height" constant="22" id="LMk-eN-uc6"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLn-By-TXs">
-                                                    <rect key="frame" x="199" y="56" width="56" height="24"/>
+                                                    <rect key="frame" x="199" y="57.5" width="56" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30/03" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yO7-0y-5uQ">
-                                                    <rect key="frame" x="91" y="56" width="56" height="24"/>
+                                                    <rect key="frame" x="91" y="57.5" width="56" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -476,11 +476,11 @@
             </objects>
             <point key="canvasLocation" x="2125.5999999999999" y="427.73613193403304"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Previous-->
         <scene sceneID="0Kq-vW-ROQ">
             <objects>
                 <tableViewController id="zVR-lK-7DK" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="TdJ-HK-ToO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="TdJ-HK-ToO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -498,7 +498,7 @@
                                                     <rect key="frame" x="8" y="27" width="359" height="108"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amsterdam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="3pm-tg-mJR">
-                                                            <rect key="frame" x="61" y="8" width="290" height="43"/>
+                                                            <rect key="frame" x="61" y="8" width="290" height="42.5"/>
                                                             <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="35"/>
                                                             <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -516,27 +516,27 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar_white" translatesAutoresizingMaskIntoConstraints="NO" id="mEw-OD-ZGB">
-                                                            <rect key="frame" x="61" y="58.5" width="22" height="22"/>
+                                                            <rect key="frame" x="61" y="58" width="22" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="22" id="IqG-ZL-xrq"/>
                                                                 <constraint firstAttribute="height" constant="22" id="xgP-Uk-IqJ"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clock_white" translatesAutoresizingMaskIntoConstraints="NO" id="hJf-jX-jcz">
-                                                            <rect key="frame" x="169" y="58.5" width="22" height="22"/>
+                                                            <rect key="frame" x="169" y="58" width="22" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="22" id="bp6-Eh-sZX"/>
                                                                 <constraint firstAttribute="height" constant="22" id="rdm-OR-S41"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21:00" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcl-pb-wlw">
-                                                            <rect key="frame" x="199" y="57.5" width="52" height="24"/>
+                                                            <rect key="frame" x="199" y="57" width="52" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05/03" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iE-8f-Nif">
-                                                            <rect key="frame" x="91" y="57.5" width="56" height="24"/>
+                                                            <rect key="frame" x="91" y="57" width="56" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -624,14 +624,14 @@
                                                                 <constraint firstAttribute="height" constant="22" id="BLK-C6-Ldb"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lam-dg-dlZ">
-                                                            <rect key="frame" x="199" y="57.5" width="56" height="24"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:30" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lam-dg-dlZ">
+                                                            <rect key="frame" x="199" y="57.5" width="52" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30/03" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8H-wM-jg3">
-                                                            <rect key="frame" x="91" y="57.5" width="56" height="24"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13/04" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8H-wM-jg3">
+                                                            <rect key="frame" x="91" y="57.5" width="53" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -676,100 +676,6 @@
                                             <outlet property="moderatorPicture" destination="UeD-7m-XSa" id="LCU-XY-r82"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="previousMeetingCell" rowHeight="135" id="jQv-6N-yVR" customClass="PrevoiusMeetingsTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="270" width="375" height="135"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jQv-6N-yVR" id="s1h-Cy-ouN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGa-ax-EYf">
-                                                    <rect key="frame" x="8" y="27" width="359" height="108"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mOpt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="IR9-WQ-zg8">
-                                                            <rect key="frame" x="61" y="8" width="290" height="42.5"/>
-                                                            <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="35"/>
-                                                            <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example" translatesAutoresizingMaskIntoConstraints="NO" id="zL5-XP-Qlx">
-                                                            <rect key="frame" x="8" y="8" width="45" height="45"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="45" id="3Zx-uY-pgE"/>
-                                                                <constraint firstAttribute="height" constant="45" id="6kL-WT-tLK"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="4"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar_white" translatesAutoresizingMaskIntoConstraints="NO" id="NhJ-sW-ay2">
-                                                            <rect key="frame" x="61" y="58.5" width="22" height="22"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="22" id="HXW-MS-kIC"/>
-                                                                <constraint firstAttribute="height" constant="22" id="vDT-Li-UoX"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clock_white" translatesAutoresizingMaskIntoConstraints="NO" id="R8u-mr-v8D">
-                                                            <rect key="frame" x="169" y="58.5" width="22" height="22"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="22" id="dV8-Gt-GSi"/>
-                                                                <constraint firstAttribute="height" constant="22" id="so1-C8-A3T"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hq2-xo-ENR">
-                                                            <rect key="frame" x="199" y="57.5" width="56" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30/03" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqo-G2-9ws">
-                                                            <rect key="frame" x="91" y="57.5" width="56" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.35294117650000001" green="0.70196078429999997" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstItem="R8u-mr-v8D" firstAttribute="top" secondItem="IR9-WQ-zg8" secondAttribute="bottom" constant="8" id="8le-tv-q6O"/>
-                                                        <constraint firstItem="NhJ-sW-ay2" firstAttribute="top" secondItem="IR9-WQ-zg8" secondAttribute="bottom" constant="8" id="8zU-tg-0EG"/>
-                                                        <constraint firstItem="hq2-xo-ENR" firstAttribute="leading" secondItem="R8u-mr-v8D" secondAttribute="trailing" constant="8" id="CMB-pJ-L1v"/>
-                                                        <constraint firstItem="hq2-xo-ENR" firstAttribute="top" secondItem="IR9-WQ-zg8" secondAttribute="bottom" constant="7" id="Gth-bs-pyy"/>
-                                                        <constraint firstItem="Cqo-G2-9ws" firstAttribute="top" secondItem="IR9-WQ-zg8" secondAttribute="bottom" constant="7" id="HQ9-aP-ysE"/>
-                                                        <constraint firstItem="Cqo-G2-9ws" firstAttribute="leading" secondItem="NhJ-sW-ay2" secondAttribute="trailing" constant="8" id="MG5-Ho-MzD"/>
-                                                        <constraint firstItem="IR9-WQ-zg8" firstAttribute="leading" secondItem="EGa-ax-EYf" secondAttribute="leading" constant="61" id="Xib-dh-fiY"/>
-                                                        <constraint firstItem="zL5-XP-Qlx" firstAttribute="leading" secondItem="EGa-ax-EYf" secondAttribute="leading" constant="8" id="hj3-g8-Xiy"/>
-                                                        <constraint firstAttribute="trailing" secondItem="IR9-WQ-zg8" secondAttribute="trailing" constant="8" id="oUB-7y-IeE"/>
-                                                        <constraint firstItem="NhJ-sW-ay2" firstAttribute="leading" secondItem="EGa-ax-EYf" secondAttribute="leading" constant="61" id="p4E-uw-57X"/>
-                                                        <constraint firstItem="zL5-XP-Qlx" firstAttribute="top" secondItem="EGa-ax-EYf" secondAttribute="top" constant="8" id="q82-vX-vuE"/>
-                                                        <constraint firstItem="IR9-WQ-zg8" firstAttribute="leading" secondItem="zL5-XP-Qlx" secondAttribute="trailing" constant="8" id="squ-rd-fbK"/>
-                                                        <constraint firstItem="IR9-WQ-zg8" firstAttribute="top" secondItem="EGa-ax-EYf" secondAttribute="top" constant="8" id="tV5-Kv-7kT"/>
-                                                        <constraint firstItem="R8u-mr-v8D" firstAttribute="leading" secondItem="NhJ-sW-ay2" secondAttribute="trailing" constant="86" id="xwL-Hm-bcQ"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="4"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.96068006750000001" green="0.96084433790000001" blue="0.96066969629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="EGa-ax-EYf" secondAttribute="trailing" id="1s6-u7-0Rp"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="EGa-ax-EYf" secondAttribute="leading" id="cEL-c7-aFS"/>
-                                                <constraint firstItem="EGa-ax-EYf" firstAttribute="height" secondItem="s1h-Cy-ouN" secondAttribute="height" multiplier="0.8" id="pIv-dS-vgH"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="EGa-ax-EYf" secondAttribute="bottom" constant="-8" id="r23-i7-VLc"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="meetingDate" destination="Cqo-G2-9ws" id="w1P-TD-fpl"/>
-                                            <outlet property="meetingName" destination="IR9-WQ-zg8" id="8cY-tX-xOp"/>
-                                            <outlet property="meetingTime" destination="hq2-xo-ENR" id="elh-y0-R6S"/>
-                                            <outlet property="moderatorPicture" destination="zL5-XP-Qlx" id="CxX-4B-QXm"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -778,7 +684,7 @@
                             <outlet property="delegate" destination="zVR-lK-7DK" id="7sl-Jk-X7m"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wVO-dE-dBY"/>
+                    <navigationItem key="navigationItem" title="Previous" id="wVO-dE-dBY"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Nu-tp-6Cl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -787,68 +693,31 @@
         <!--Amsterdam-->
         <scene sceneID="GL4-9g-8Yt">
             <objects>
-                <tableViewController id="VyC-xk-fKZ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="267" sectionHeaderHeight="28" sectionFooterHeight="28" id="gEA-XR-Sf6">
+                <tableViewController id="VyC-xk-fKZ" customClass="PresentationPreviousMeetingsTableViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="267" sectionHeaderHeight="28" sectionFooterHeight="28" id="gEA-XR-Sf6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="Financeiro" id="dpp-pD-kYf">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="HQr-N9-fsn" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="267"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HQr-N9-fsn" id="lHR-Ba-hTK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tpb-rT-Ccr">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
-                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otp-QX-krN">
-                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Tpb-rT-Ccr" firstAttribute="top" secondItem="otp-QX-krN" secondAttribute="bottom" constant="5" id="2E8-5L-uYg"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Tpb-rT-Ccr" secondAttribute="bottom" constant="-8.5" id="FeB-mK-yNP"/>
-                                                <constraint firstAttribute="topMargin" secondItem="otp-QX-krN" secondAttribute="top" id="Q1y-SS-YOY"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Tpb-rT-Ccr" secondAttribute="trailing" id="UJA-4v-ido"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="otp-QX-krN" secondAttribute="leading" id="UVV-2Y-Tuv"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="otp-QX-krN" secondAttribute="trailing" id="rWH-1U-jN8"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="Tpb-rT-Ccr" secondAttribute="leading" id="uS9-yK-hTE"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="subtopicMinute" destination="Tpb-rT-Ccr" id="i9J-mh-eBH"/>
-                                            <outlet property="subtopicTitle" destination="otp-QX-krN" id="tZt-rM-63d"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="MTb-R3-IcD" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="295" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="123" id="MTb-R3-IcD" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MTb-R3-IcD" id="Xpt-22-mw3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fcj-vg-7oe">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="89"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">As notas fiscais de compras para a república devem ser entregues até o fechamento da planilha do mês. Caso contrário, o abatimento só valerá no mês seguinte.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dl-KN-b0G">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notas Fiscais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dl-KN-b0G">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -869,23 +738,23 @@
                                             <outlet property="subtopicTitle" destination="9Dl-KN-b0G" id="InW-nx-RtF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="Z1t-Dz-AXs" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="562" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="152" id="Z1t-Dz-AXs" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="151" width="375" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z1t-Dz-AXs" id="Kw4-0Y-Agj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kbU-C3-zWJ">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="118"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">A partir de agora, quem fizer compras ou tiver que resolver qualquer coisa para a rep usando carro terá um abatimento de R$0,77 por quilômetro rodado (ida e volta), a ser calculado através do maps no momento da viagem.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvW-md-uik">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quilometragem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvW-md-uik">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -906,23 +775,23 @@
                                             <outlet property="subtopicTitle" destination="mvW-md-uik" id="E3Q-6U-Bjl"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="5sb-tT-eXW" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="829" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="99" id="5sb-tT-eXW" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="303" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5sb-tT-eXW" id="4sO-hq-RhJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B16-Mm-3ot">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="65"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Para amenizar o custo com quilometragem desnecessária, será feita uma planilha de compras mensal que ficará anexada no quadro da cozinha.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83C-P7-UH5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83C-P7-UH5">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -943,23 +812,23 @@
                                             <outlet property="subtopicTitle" destination="83C-P7-UH5" id="vwb-Kw-xWr"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="pKR-0w-fbq" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1096" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="121" id="pKR-0w-fbq" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="402" width="375" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKR-0w-fbq" id="BwI-tj-CFe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DRB-5Y-CU5">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="87"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Com o fim da reforma e o início de novos tempos, temos que reestruturar o caixa para podermos comprar coisas novas para a rep, como uma nova TV. Foram dadas sugestões de sorvetadas e açaizadas.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6P-Jv-K93">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caixa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6P-Jv-K93">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -980,23 +849,22 @@
                                             <outlet property="subtopicTitle" destination="a6P-Jv-K93" id="rsi-3V-z3f"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="MpR-8l-3XY" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1363" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="85" id="MpR-8l-3XY" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="523" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MpR-8l-3XY" id="4GZ-Pr-tu8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ch9-ys-sou">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" text="O primeiro gasto do caixa da casa será com beliches para acomodar os novos moradores." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ch9-ys-sou">
+                                                    <rect key="frame" x="8" y="34" width="359" height="51"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxb-Bg-6HU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxb-Bg-6HU">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1021,23 +889,23 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Eventos" id="Fxo-Tc-Gb6">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="an3-ed-6BM" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1658" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="154" id="an3-ed-6BM" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="636" width="375" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="an3-ed-6BM" id="lpl-13-haq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="154"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Tg-E8-ARl">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="120"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Conforme sugestão do Coelho, faremos um calendário compartilhado para a república, com as datas de eventos importantes, como o churrasco dos pais, eventos da ARU e pedidos dos produtos. Coelho marcará uma reunião posterior com Farol, Tite, Buiu e Lukota para organizar isso.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jls-DQ-Har">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendário" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jls-DQ-Har">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1058,23 +926,23 @@
                                             <outlet property="subtopicTitle" destination="Jls-DQ-Har" id="vUb-wQ-qwb"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="fbT-Qw-48A" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1925" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="136" id="fbT-Qw-48A" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="790" width="375" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fbT-Qw-48A" id="KCc-YS-yNZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="136"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nQX-MR-cG0">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="102"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Combinamos que será no dia 25/03. Custo de 25 reais por pessoa. Compraremos mais perto do dia as carnes e bebidas. Queremos fazer um evento mais privado, apenas com os atuais e ex-moradores, além das namoradas.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znb-4p-QQD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Churrasco dos ex-moradores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znb-4p-QQD">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1095,23 +963,23 @@
                                             <outlet property="subtopicTitle" destination="Znb-4p-QQD" id="EdA-4d-2OM"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="CCd-O4-dgp" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="2192" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="115" id="CCd-O4-dgp" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="926" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CCd-O4-dgp" id="3Sq-ng-WcD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gZ0-7b-hdj">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="81"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Possivelmente será realizado na última sexta de cada mês, e os aniversariantes do mês não pagam. Marcaremos os dias com mais certeza no dia da reunião do calendário.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnC-Mi-wgB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bar dos aniversariantes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnC-Mi-wgB">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1136,23 +1004,23 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Manutenção" id="ht7-wF-1AN">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="B01-OE-XjC" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="2487" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="182" id="B01-OE-XjC" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1069" width="375" height="182"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B01-OE-XjC" id="45b-6V-maW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="182"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JJs-SQ-YNc">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="148"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Nova casa, novas responsabilidades. Temos que fazer a nossa contestação da vistoria e precisamos definir todos os problemas da casa. Anderson, Tanus, Pancada e Lukota estão responsáveis por fazer a vistoria das áreas comuns, e cada morador terá de fazer a do próprio quarto e banheiros. Farol montará a planilha para se adicionar os erros e referências das fotos que devem ser tiradas.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fB-8W-l4V">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vistoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fB-8W-l4V">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1173,23 +1041,23 @@
                                             <outlet property="subtopicTitle" destination="6fB-8W-l4V" id="mgV-Tf-mH6"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="q4h-UR-v7w" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="2754" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="119" id="q4h-UR-v7w" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1251" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q4h-UR-v7w" id="9FF-6t-Odj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Aw-q4-h2z">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="85"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Ao longo do ano, Tanus será responsável por anotar os problemas que surgirem na casa e repassar aos demais envolvidos na área de manutenção (Anderson e Pancada)</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApX-PS-5iU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Busca por problemas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApX-PS-5iU">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1214,23 +1082,30 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Organização" id="DI3-vT-RJX">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="mWC-z4-8se" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="3049" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="186" id="mWC-z4-8se" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1398" width="375" height="186"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mWC-z4-8se" id="8qf-ol-pk9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="71l-N6-1ig">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="152"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Os cargos ficaram como a seguir:
+- Financeiro: Fibo e Coelho
+- Marketing: Zé
+- Produtos: Farol
+- Eventos externos: Tite
+- Eventos Internos: Buiu
+- ARU: Martelo e Lukota
+- Compras: Pinguim</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FY-Ed-rPq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FY-Ed-rPq">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1251,23 +1126,23 @@
                                             <outlet property="subtopicTitle" destination="6FY-Ed-rPq" id="2IC-W9-uDJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="Dvm-DQ-SCk" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="3316" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="161" id="Dvm-DQ-SCk" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1584" width="375" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dvm-DQ-SCk" id="bjC-cQ-wNE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eu5-2b-hLR">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="127"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Na intenção de realmente nos tornarmos mais organizados com as nossas obrigações, passaremos a cobrar um plano de metas em relação aos cargos. Caso, ao longo do semestre, alguém não fique muito aquém das suas obrigações na república, essa pessoa será afastada do cargo.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TF-oe-zwi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Objetivos dos cargos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TF-oe-zwi">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1288,138 +1163,27 @@
                                             <outlet property="subtopicTitle" destination="8TF-oe-zwi" id="luv-YJ-FMl"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="Hoa-Q0-eD2" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="3583" width="375" height="267"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hoa-Q0-eD2" id="ews-ZV-pU5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J0h-55-Yno">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
-                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKa-t5-gAn">
-                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="leadingMargin" secondItem="J0h-55-Yno" secondAttribute="leading" id="04r-8h-dde"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="fKa-t5-gAn" secondAttribute="leading" id="Kmu-MD-EwL"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="fKa-t5-gAn" secondAttribute="trailing" id="Lxw-bT-M7G"/>
-                                                <constraint firstItem="J0h-55-Yno" firstAttribute="top" secondItem="fKa-t5-gAn" secondAttribute="bottom" constant="5" id="LzK-iK-xbE"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="J0h-55-Yno" secondAttribute="bottom" constant="-8.5" id="Tcq-tK-qdg"/>
-                                                <constraint firstAttribute="topMargin" secondItem="fKa-t5-gAn" secondAttribute="top" id="WEP-rm-emh"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="J0h-55-Yno" secondAttribute="trailing" id="hK8-WI-dkq"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="subtopicMinute" destination="J0h-55-Yno" id="bBI-0U-ZEZ"/>
-                                            <outlet property="subtopicTitle" destination="fKa-t5-gAn" id="zp2-uL-oKc"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="oE1-Ee-yhm" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="3850" width="375" height="267"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oE1-Ee-yhm" id="a4G-Ev-paV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Y6-5g-nUz">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
-                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9V-th-p2h">
-                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="4Y6-5g-nUz" firstAttribute="top" secondItem="p9V-th-p2h" secondAttribute="bottom" constant="5" id="EOM-db-dWi"/>
-                                                <constraint firstAttribute="topMargin" secondItem="p9V-th-p2h" secondAttribute="top" id="QIk-im-4oG"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="p9V-th-p2h" secondAttribute="leading" id="Re4-Fa-JiN"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="4Y6-5g-nUz" secondAttribute="bottom" constant="-8.5" id="SBr-Gx-N3y"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="4Y6-5g-nUz" secondAttribute="trailing" id="Wr1-fM-HU8"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="4Y6-5g-nUz" secondAttribute="leading" id="pVY-0B-EwU"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="p9V-th-p2h" secondAttribute="trailing" id="sPE-hV-hq2"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="subtopicMinute" destination="4Y6-5g-nUz" id="ZQF-3S-1Np"/>
-                                            <outlet property="subtopicTitle" destination="p9V-th-p2h" id="Igr-DL-R1G"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="Qew-9K-rJi" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4117" width="375" height="267"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qew-9K-rJi" id="hIn-TZ-c8y">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SI1-IS-VWl">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
-                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJ0-K8-9xU">
-                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="XJ0-K8-9xU" secondAttribute="trailing" id="5vP-wd-lVp"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="SI1-IS-VWl" secondAttribute="bottom" constant="-8.5" id="8U2-5f-B6Z"/>
-                                                <constraint firstItem="SI1-IS-VWl" firstAttribute="top" secondItem="XJ0-K8-9xU" secondAttribute="bottom" constant="5" id="EbP-Nx-ABJ"/>
-                                                <constraint firstAttribute="topMargin" secondItem="XJ0-K8-9xU" secondAttribute="top" id="MCt-Fm-XnL"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="SI1-IS-VWl" secondAttribute="leading" id="oY4-Dy-ZRF"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="XJ0-K8-9xU" secondAttribute="leading" id="pcc-dW-3pj"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="SI1-IS-VWl" secondAttribute="trailing" id="zhD-X6-hmH"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="subtopicMinute" destination="SI1-IS-VWl" id="3Zc-o8-EEF"/>
-                                            <outlet property="subtopicTitle" destination="XJ0-K8-9xU" id="gkJ-1S-Duw"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Outros" id="lSj-ng-aV6">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="K43-P1-Ni3" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4412" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="161" id="K43-P1-Ni3" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1773" width="375" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K43-P1-Ni3" id="cPx-XJ-AyK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rp5-Bj-bQN">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="127"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Bitoka ficou responsável por orçar e levantar informações sobre um possível Hall da Fama, que contaria as fotos dos ex-moradores da república. Entre as coisas que devem ser feitas quanto a isso, estão: definição do cômodo, filtro por tempo de casa, organização, etc.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uK5-AV-t3e">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hall da Fama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uK5-AV-t3e">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1440,23 +1204,23 @@
                                             <outlet property="subtopicTitle" destination="uK5-AV-t3e" id="sDr-bA-6Pl"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="vL1-vL-Yjx" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4679" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="102" id="vL1-vL-Yjx" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1934" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vL1-vL-Yjx" id="Jva-nJ-qCq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MAg-Jj-Xax">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                    <rect key="frame" x="8" y="34" width="359" height="68"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <string key="text">Pancada e Gabriel vão à prefeitura amanhã para ver o que podem fazer em relação aos infinitos buracos que existem na rua de casa.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Py-eC-ORL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buracos na rua" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Py-eC-ORL">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1477,23 +1241,22 @@
                                             <outlet property="subtopicTitle" destination="7Py-eC-ORL" id="wQh-jW-NGU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="267" id="o8D-iA-mEj" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4946" width="375" height="267"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="85" id="o8D-iA-mEj" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="2036" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8D-iA-mEj" id="HHH-Ei-wY9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b89-ym-YmF">
-                                                    <rect key="frame" x="8" y="34" width="359" height="233"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" text="Pinguim ficou responsável por comprar novos cadeados e tirar cópias das chaves para todos." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b89-ym-YmF">
+                                                    <rect key="frame" x="8" y="34" width="359" height="51"/>
                                                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prototype Cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcI-Dm-bEP">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chaves e Cadeados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcI-Dm-bEP">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1541,7 +1304,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="289"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="goR-Ig-1yv" id="M3N-zW-dUt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="288.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xES-JK-vcU">
@@ -1578,7 +1341,7 @@
                                 <rect key="frame" x="0.0" y="317" width="375" height="289"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PpA-Uu-bSt" id="s7N-Nc-4EA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="288.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ACI-Mn-LbD">
@@ -1729,7 +1492,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtópico 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTc-3Q-yJm">
-                                                    <rect key="frame" x="51" y="16" width="109" height="24"/>
+                                                    <rect key="frame" x="51" y="16" width="119.5" height="24"/>
                                                     <fontDescription key="fontDescription" name="KeepCalm-Medium" family="Keep Calm" pointSize="20"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>

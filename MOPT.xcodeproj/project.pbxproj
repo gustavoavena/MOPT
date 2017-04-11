@@ -51,6 +51,7 @@
 		D45B26AF1E92850A002A1866 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B269D1E92850A002A1866 /* UserServices.swift */; };
 		D45B26C11E9289D2002A1866 /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C01E9289D2002A1866 /* TopicsTableViewController.swift */; };
 		D45B26C51E928AB6002A1866 /* topicInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C41E928AB6002A1866 /* topicInformationTableViewController.swift */; };
+		D46181F51E9D12AA00059244 /* PresentationPreviousMeetingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46181F41E9D12AA00059244 /* PresentationPreviousMeetingTableViewController.swift */; };
 		D4BD50EF1E8FD6EB0091A37F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */; };
 		D4E651B31E9409D00093CEB9 /* meetingMinutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B21E9409D00093CEB9 /* meetingMinutesTableViewController.swift */; };
 		D4E651B91E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */; };
@@ -104,6 +105,7 @@
 		D45B26C01E9289D2002A1866 /* TopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
 		D45B26C41E928AB6002A1866 /* topicInformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topicInformationTableViewController.swift; sourceTree = "<group>"; };
 		D45B26CD1E928D30002A1866 /* SubtopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtopicTableViewController.swift; sourceTree = "<group>"; };
+		D46181F41E9D12AA00059244 /* PresentationPreviousMeetingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationPreviousMeetingTableViewController.swift; sourceTree = "<group>"; };
 		D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		D4E651B21E9409D00093CEB9 /* meetingMinutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meetingMinutesTableViewController.swift; sourceTree = "<group>"; };
 		D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousMeetingsTableViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		4D3CC5721E8AA6A3000136FB /* MOPT */ = {
 			isa = PBXGroup;
 			children = (
+				D46181F11E9D10BA00059244 /* Presentation Table Views */,
 				D45B26831E926B5B002A1866 /* Table View Controllers */,
 				4DD2AD9D1E9689F700DB8899 /* TableViewCells */,
 				4DD2AD9B1E9689A900DB8899 /* Storyboards */,
@@ -285,6 +288,14 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		D46181F11E9D10BA00059244 /* Presentation Table Views */ = {
+			isa = PBXGroup;
+			children = (
+				D46181F41E9D12AA00059244 /* PresentationPreviousMeetingTableViewController.swift */,
+			);
+			name = "Presentation Table Views";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -393,6 +404,7 @@
 				4DD2AD8F1E96886E00DB8899 /* topicsTableViewCell.swift in Sources */,
 				D45B26A61E92850A002A1866 /* MeetingServices.swift in Sources */,
 				D45B26AF1E92850A002A1866 /* UserServices.swift in Sources */,
+				D46181F51E9D12AA00059244 /* PresentationPreviousMeetingTableViewController.swift in Sources */,
 				4DD2AD981E96899100DB8899 /* AddTopicConclusionViewController.swift in Sources */,
 				D4E651B31E9409D00093CEB9 /* meetingMinutesTableViewController.swift in Sources */,
 				4DD2AD8B1E96886E00DB8899 /* PrevoiusMeetingsTableViewCell.swift in Sources */,
