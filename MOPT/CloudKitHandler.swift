@@ -31,8 +31,8 @@ public class CloudKitHandler: NSObject {
                 return
             }
             
-            print("record:", record as Any, terminator: "\n\n")
-            
+//            print("record:", record as Any, terminator: "\n\n")
+			
             if let record = record {
                 handleUserObject(record, error)
             } else {

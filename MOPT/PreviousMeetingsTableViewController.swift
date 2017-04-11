@@ -73,23 +73,8 @@ class PreviousMeetingsTableViewController: UITableViewController {
         cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         //cell.moderatorPicture.image = self.meetings[indexPath.row]["profilePicture"] as? UIImage
-//        let userServices = UserServices()
-//        userServices.downloadImage(imageURL: self.meetings[indexPath.row]["profilePictureURL"]) {
-//            (data, error) in
-//            
-//            guard error == nil else {
-//                print("Error setting profile picture.")
-//                return
-//            }
-//            
-//            if let image = data {
-//                cell.moderatorPicture.image = image
-//            } else {
-//                cell.moderatorPicture.image = UIImage(named:"example")
-//            }
-//            
-//        }
         cell.moderatorPicture.image = UIImage(named:"example")
+		
         return cell
         
     }
@@ -104,7 +89,7 @@ class PreviousMeetingsTableViewController: UITableViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        loadMeetings(CurrentUser.shared().userRecordID!, true)
+        loadMeetings(CurrentUser.shared().userRecordID!, false)
         
     }
     

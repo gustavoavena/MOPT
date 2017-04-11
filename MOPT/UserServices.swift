@@ -113,14 +113,16 @@ class UserServices: NSObject, UserDelegate {
     }
     
     
-    func downloadImage(imageURL: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+	func downloadImage(imageURL: URL, userRecordID: CKRecordID) {
         print("Download of \(imageURL) started")
         
         var urlStr = imageURL.absoluteString
         urlStr = urlStr.replacingOccurrences(of: "http", with: "https")
-        
-        print("imageURL string = \(urlStr)")
-        
+		
+		let documentsDirectory = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+		let fileName = documentsDirectory.appendingPathComponent(String(format: "%@ProfilePicture.jpg", userRecordID.recordName))
+		
+		
         
         let request = URLRequest(url: URL(string: urlStr)!)
 
@@ -130,12 +132,21 @@ class UserServices: NSObject, UserDelegate {
             
             guard let data = data, error == nil else {
                 print("Error downloading user profile picture -> \(String(describing: error?.localizedDescription))")
-                completionHandler(nil, error)
+//                completionHandler(nil, error)
                 return
             }
             
             DispatchQueue.main.async {
-                completionHandler(UIImage(data: data), nil)
+				
+				do {
+					try data.write(to: fileName)
+					print("User \(userRecordID.recordName)'s profile picture saved successfully")
+				}
+				catch {
+					print("Error when trying to save profile picture")
+					return
+				}
+//                completionHandler(UIImage(data: data), nil)
             }
             
             print("Download of \(imageURL) finished")
