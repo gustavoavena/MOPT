@@ -1,5 +1,5 @@
 //
-//  meetingsTableViewController.swift
+//  MeetingsTableViewController.swift
 //  MOPT
 //
 //  Created by Filipe Marques on 03/04/17.
@@ -11,7 +11,7 @@
 import UIKit
 import CloudKit
 
-class meetingsTableViewController: UITableViewController {
+class MeetingsTableViewController: UITableViewController {
     
     public private(set) var meetings = [CKRecord]()
     private let meetingServices = MeetingServices()
@@ -22,6 +22,7 @@ class meetingsTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
         loadMeetings(CurrentUser.shared().userRecordID!, true)
+        print("Loaded meetings view")
     
     }
 
@@ -40,6 +41,8 @@ class meetingsTableViewController: UITableViewController {
             })
         }
     }
+	
+	
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,7 +67,7 @@ class meetingsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as! meetingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as! MeetingsTableViewCell
         
         let dateFormatter = DateFormatter()
         let timeFormatter = DateFormatter()
@@ -74,33 +77,12 @@ class meetingsTableViewController: UITableViewController {
         cell.meetingName.text = self.meetings[indexPath.row]["title"] as? String
         cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
-//        let userServices = UserServices()
-//        let meetingCreator = self.meetings[indexPath.row]["creator"] as! CKReference
-//        let profilePictureURLString = meetingCreator["profilePictureURL"] as! String
-//        if let profilePictureURL = URL(string: profilePictureURLString) {
-//            userServices.downloadImage(imageURL: profilePictureURL) {
-//                (data, error) in
-//                
-//                guard error == nil else {
-//                    print("Error setting profile picture.")
-//                    return
-//                }
-//                
-//                if let image = data {
-//                    cell.moderatorPicture.image = image
-//                } else {
-//                    cell.moderatorPicture.image = UIImage(named:"example")
-//                }
-//                
-//            }
-//
-//        } else {
-//            print("Found nil when unwrapping URL.")
-//            cell.moderatorPicture.image = UIImage(named:"example")
-//        }
-        cell.moderatorPicture.image = UIImage(named:"example")
-        
-        return cell        
+        cell.moderatorPicture.image = UIImage(named:"example") // Setting profile picture as default, in case query doesn't work.
+		
+		let moderatorReference =  self.meetings[indexPath.row]["moderator"] as! CKReference
+		
+        return TableViewHelper.loadCellProfilePicture(userRecordID: moderatorReference.recordID, cell: cell)
+		
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,7 +96,7 @@ class meetingsTableViewController: UITableViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        loadMeetings(CurrentUser.shared().userRecordID!, false)
+        loadMeetings(CurrentUser.shared().userRecordID!, true)
        
     }
 

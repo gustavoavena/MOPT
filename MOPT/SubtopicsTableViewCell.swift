@@ -1,5 +1,5 @@
 //
-//  meetingsTableViewCell.swift
+//  SubtopicsTableViewCell.swift
 //  MOPT
 //
 //  Created by Filipe Marques on 03/04/17.
@@ -8,12 +8,11 @@
 
 import UIKit
 
-class meetingsTableViewCell: UITableViewCell {
+class SubtopicsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var meetingName: UILabel!
-    @IBOutlet weak var meetingDate: UILabel!
-    @IBOutlet weak var meetingTime: UILabel!
-    @IBOutlet weak var moderatorPicture: UIImageView!
+    @IBOutlet weak var subtopicTitle: UILabel!
+    
+    @IBOutlet weak var subtopicCreatorPicture: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

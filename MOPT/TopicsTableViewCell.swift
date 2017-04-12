@@ -1,5 +1,5 @@
 //
-//  commentsTableViewCell.swift
+//  TopicsTableViewCell.swift
 //  MOPT
 //
 //  Created by Filipe Marques on 03/04/17.
@@ -8,10 +8,12 @@
 
 import UIKit
 
-class commentsTableViewCell: UITableViewCell {
+class TopicsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var commentText: UITextView!
-    @IBOutlet weak var commentCreatorPicture: UIImageView!
+    @IBOutlet weak var topicName: UILabel!
+    @IBOutlet weak var numberOfSubtopics: UILabel!
+    @IBOutlet weak var topicCreatorPicture: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

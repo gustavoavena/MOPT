@@ -73,7 +73,7 @@ class TopicsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var subtopics = [CKRecord]()
-        let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as!topicsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as!TopicsTableViewCell
         cell.topicName.text = self.topics[indexPath.row]["title"] as? String
         topicServices.getSubtopics(topicRecordID:self.topics[indexPath.row].recordID){
             (subtopicRecords, error) in
@@ -84,31 +84,18 @@ class TopicsTableViewController: UITableViewController {
             subtopics = subtopicRecords
         }
         cell.numberOfSubtopics.text = String(describing: subtopics.count) + (" subtopics")
-//        let userServices = UserServices()
-//        userServices.downloadImage(imageURL: self.topics[indexPath.row]["profilePictureURL"]) {
-//            (data, error) in
-//            
-//            guard error == nil else {
-//                print("Error setting profile picture.")
-//                return
-//            }
-//            
-//            if let image = data {
-//                cell.topicCreatorPicture.image = image
-//            } else {
-//                cell.topicCreatorPicture.image = UIImage(named:"example")
-//            }
-//            
-//        }
         cell.topicCreatorPicture.image = UIImage(named:"example")
-        return cell        //cell.topicCreatorPicture.image = self.topics[indexPath.row]["profilePicture"] as? UIImage
-
+		
+		let creatorReference = self.topics[indexPath.row]["creator"] as! CKReference
+		
+		return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
+		
     }
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToTopicInformation",
-            let segueDestination = segue.destination as? topicInformationTableViewController,
+            let segueDestination = segue.destination as? TopicInformationTableViewController,
             let indexPath = self.tableView.indexPathForSelectedRow {
             let selectedTopic = topics[indexPath.row]
             segueDestination.currentTopic = selectedTopic

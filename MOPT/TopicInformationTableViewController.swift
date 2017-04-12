@@ -1,5 +1,5 @@
 //
-//  topicInformationTableViewController.swift
+//  TopicInformationTableViewController.swift
 //  MOPT
 //
 //  Created by Filipe Marques on 03/04/17.
@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class topicInformationTableViewController: UITableViewController {
+class TopicInformationTableViewController: UITableViewController {
     
     public var currentTopic:CKRecord?
     private var subtopics = [CKRecord]()
@@ -32,8 +32,11 @@ class topicInformationTableViewController: UITableViewController {
         self.currentUserPicture.image = UIImage(named:"example")
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
-        
+		
+		
+		
         loadTopicInformation(topicID: (currentTopic?.recordID)!)
+		
         
     }
     
@@ -68,8 +71,13 @@ class topicInformationTableViewController: UITableViewController {
         self.tableView.reloadData()
         self.navigationItem.title = currentTopic?["title"] as? String
         
-        self.currentUserPicture.image = UIImage(named:"example")
-        //self.currentUserPicture.image = UIImage(named:"example")
+        if let imageFile = TableViewHelper.getImageFromDirectory(userRecordName: CurrentUser.shared().userRecordID?.recordName){
+            self.currentUserPicture.image = imageFile
+        } else {
+            print("Couldn't load user picture to display by the comment textbox.")
+            self.currentUserPicture.image = UIImage(named:"example")
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,61 +104,33 @@ class topicInformationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! descriptionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! DescriptionTableViewCell
             cell.topicDescription.text = self.currentTopic?["description"] as? String
             return cell
             
         }
             
         else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicCell", for: indexPath) as! subtopicsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicCell", for: indexPath) as! SubtopicsTableViewCell
             cell.subtopicTitle.text = self.subtopics[indexPath.row]["title"] as? String
-            //cell.subtopicCreatorPicture.image = self.subtopics[indexPath.row]["profilePicture"] as? UIImage
-//            let userServices = UserServices()
-//            userServices.downloadImage(imageURL: self.subtopics[indexPath.row]["profilePictureURL"]) {
-//                (data, error) in
-//                
-//                guard error == nil else {
-//                    print("Error setting profile picture.")
-//                    return
-//                }
-//                
-//                if let image = data {
-//                    cell.subtopicCreatorPicture.image = image
-//                } else {
-//                    cell.subtopicCreatorPicture.image = UIImage(named:"example")
-//                }
-//                
-//            }
             cell.subtopicCreatorPicture.image = UIImage(named:"example")
-            return cell
-            
+			
+			let creatorReference = self.subtopics[indexPath.row]["creator"] as! CKReference
+			
+			return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
+
+			
         }
             
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentsTableViewCell
             cell.commentText.text = self.comments[indexPath.row]["text"] as? String
-            //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
-            //cell.commentCreatorPicture.image = self.comments[indexPath.row]["profilePicture"] as? UIImage
-            //cell.commentCreatorPicture.image = UIImage(named:"example")
-//            let userServices = UserServices()
-//            userServices.downloadImage(imageURL: self.comments[indexPath.row]["profilePictureURL"]) {
-//                (data, error) in
-//                
-//                guard error == nil else {
-//                    print("Error setting profile picture.")
-//                    return
-//                }
-//                
-//                if let image = data {
-//                    cell.commentCreatorPicture.image = image
-//                } else {
-//                    cell.commentCreatorPicture.image = UIImage(named:"example")
-//                }
-//                
-//            }
             cell.commentCreatorPicture.image = UIImage(named:"example")
-            return cell
+			
+			
+			let creatorReference = self.comments[indexPath.row]["creator"] as! CKReference
+			
+			return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
         }
     }
     

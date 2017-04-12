@@ -98,13 +98,17 @@ class CurrentMeetingTableViewController: UITableViewController {
         
         sleep(2) // TODO: REMOVE IT
         if subtopics.count != 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicAddConclusionCell", for: indexPath) as! subtopicsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicAddConclusionCell", for: indexPath) as! SubtopicsTableViewCell
             cell.subtopicTitle.text = subtopics[indexPath.row]["title"] as? String
             //cell.subtopicCreatorPicture.image = subtopics[indexPath.row]["profilePicture"] as? UIImage
             cell.subtopicCreatorPicture.image = UIImage(named:"example")
-            return cell
+			
+			let creatorReference = self.topics[indexPath.row]["creator"] as! CKReference
+			
+			return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
+			
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "topicAddConclusionCell", for: indexPath) as! topicsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "topicAddConclusionCell", for: indexPath) as! TopicsTableViewCell
             cell.topicName.text = self.topics[indexPath.row]["title"] as? String
             //cell.numberOfSubtopics.text = ""
             //cell.topicCreatorPicture.image = self.topics[indexPath.row]["profilePicture"] as? UIImage

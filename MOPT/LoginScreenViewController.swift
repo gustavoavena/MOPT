@@ -69,6 +69,9 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                         if let userRecord = response {
                             let currentUser = CurrentUser.shared()
                             currentUser.userRecordID = userRecord.recordID // Logged user in
+							let userServices = UserServices()
+							userServices.downloadImage(imageURL: userPictureURL, userRecordID: userRecord.recordID)
+							
                         } else {
                             self.userDelegate.createUser(fbID: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
                         }
