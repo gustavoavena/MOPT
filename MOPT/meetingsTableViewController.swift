@@ -76,8 +76,10 @@ class meetingsTableViewController: UITableViewController {
         cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.moderatorPicture.image = UIImage(named:"example") // Setting profile picture as default, in case query doesn't work.
-        
-        return TableViewHelper.loadCellProfilePicture(userRecordID: (self.meetings[indexPath.row]["moderator"] as! CKReference).recordID, cell: cell)
+		
+		let moderatorReference =  self.meetings[indexPath.row]["moderator"] as! CKReference
+		
+        return TableViewHelper.loadCellProfilePicture(userRecordID: moderatorReference.recordID, cell: cell)
 		
     }
     

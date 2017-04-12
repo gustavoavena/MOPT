@@ -86,10 +86,9 @@ class TopicsTableViewController: UITableViewController {
         cell.numberOfSubtopics.text = String(describing: subtopics.count) + (" subtopics")
         cell.topicCreatorPicture.image = UIImage(named:"example")
 		
-//		let userServices = UserServices()
-//		userServices.downloadImage(imageURL: <#T##URL#>, userRecordID: CKRecordID)
+		let creatorReference = self.topics[indexPath.row]["creator"] as! CKReference
 		
-		return TableViewHelper.loadCellProfilePicture(userRecordID: (self.topics[indexPath.row]["creator"] as! CKReference).recordID, cell: cell)
+		return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
 		
     }
 
