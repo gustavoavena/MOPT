@@ -323,7 +323,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DdB-yN-1v3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Upcoming" image="Meetings" id="7f8-Nx-Odn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9M8-07-sak">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9M8-07-sak">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -342,7 +342,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mOV-1M-opU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Previous" image="Handshake" id="1aF-4w-Rmk"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LHI-h5-zGX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LHI-h5-zGX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -674,6 +674,7 @@
                                             <outlet property="meetingName" destination="Xqx-do-1vJ" id="FeT-AG-c3s"/>
                                             <outlet property="meetingTime" destination="Lam-dg-dlZ" id="lxC-1l-Jbk"/>
                                             <outlet property="moderatorPicture" destination="UeD-7m-XSa" id="LCU-XY-r82"/>
+                                            <segue destination="JLc-jz-D48" kind="show" id="Fdm-E4-6Gg"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1290,6 +1291,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIk-jw-KgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3108" y="1231.9340329835084"/>
+        </scene>
+        <!--mOpt-->
+        <scene sceneID="gLe-Lx-qH5">
+            <objects>
+                <tableViewController id="JLc-jz-D48" customClass="PresentationPreviousMeetingsTableViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YVD-6g-aOu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="se0-um-PAT">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtopicConclusionCell" rowHeight="123" id="GDq-ue-57G" customClass="SubtopicsConclusionTableViewCell" customModule="MOPT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GDq-ue-57G" id="3gp-fu-CP0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0sO-3G-p2m">
+                                                    <rect key="frame" x="8" y="34" width="359" height="89"/>
+                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <string key="text">As notas fiscais de compras para a república devem ser entregues até o fechamento da planilha do mês. Caso contrário, o abatimento só valerá no mês seguinte.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notas Fiscais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJ2-6j-xAb">
+                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" red="0.20784313730000001" green="0.61960784310000006" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="aJ2-6j-xAb" secondAttribute="trailing" id="6mQ-gx-YiP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0sO-3G-p2m" secondAttribute="bottom" constant="-8.5" id="C3T-dN-H8w"/>
+                                                <constraint firstAttribute="topMargin" secondItem="aJ2-6j-xAb" secondAttribute="top" id="hos-GV-vD0"/>
+                                                <constraint firstItem="0sO-3G-p2m" firstAttribute="top" secondItem="aJ2-6j-xAb" secondAttribute="bottom" constant="5" id="jQg-HJ-t7u"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="0sO-3G-p2m" secondAttribute="leading" id="p7m-0g-UdF"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="aJ2-6j-xAb" secondAttribute="leading" id="tFT-ES-nmx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0sO-3G-p2m" secondAttribute="trailing" id="uXA-MH-RvR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="subtopicMinute" destination="0sO-3G-p2m" id="asm-K2-UMo"/>
+                                            <outlet property="subtopicTitle" destination="aJ2-6j-xAb" id="K7C-gK-J5i"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="JLc-jz-D48" id="vYF-5T-UCY"/>
+                            <outlet property="delegate" destination="JLc-jz-D48" id="Agi-Xl-j1g"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="mOpt" id="GVs-gv-E0s"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FeL-bo-hTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3994" y="1232"/>
         </scene>
         <!--mOpt-->
         <scene sceneID="IlV-Rv-dbG">
