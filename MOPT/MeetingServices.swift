@@ -13,11 +13,13 @@ class MeetingServices: NSObject, MeetingDelegate {
     
     let ckHandler: CloudKitHandler
     let userServices: UserServices
+	let meetingRecords: [CKRecord]
     
     
     override init() {
-        ckHandler = CloudKitHandler()
-        userServices = UserServices()
+        self.ckHandler = CloudKitHandler()
+        self.userServices = UserServices()
+		self.meetingRecords = [CKRecord]()
     }
     
     func getUserMeetings(userRecordID: CKRecordID, _ nextMeetings: Bool = true, completionHandler: @escaping ([CKRecord], Error?) -> Void) {
@@ -71,7 +73,8 @@ class MeetingServices: NSObject, MeetingDelegate {
         meetingRecord["date"] = date as NSDate
         meetingRecord["moderator"] = moderatorReference
         meetingRecord["participants"] = [moderatorReference] as NSArray
-        
+		
+		
         ckHandler.saveRecord(record: meetingRecord)
     }
     

@@ -17,16 +17,16 @@ class TableViewHelper: NSObject {
 	
 	
 	static func assignImageByClass(cell: UITableViewCell, imageFile: UIImage) {
-		if cell is meetingsTableViewCell {
-			(cell as! meetingsTableViewCell).moderatorPicture.image = imageFile
-		} else if cell is topicsTableViewCell {
-			(cell as! topicsTableViewCell).topicCreatorPicture.image = imageFile
-		} else if cell is subtopicsTableViewCell {
-			(cell as! subtopicsTableViewCell).subtopicCreatorPicture.image = imageFile
-		} else if cell is commentsTableViewCell {
-			(cell as! commentsTableViewCell).commentCreatorPicture.image = imageFile
-		} else if cell is PrevoiusMeetingsTableViewCell {
-			(cell as! PrevoiusMeetingsTableViewCell).moderatorPicture.image = imageFile
+		if cell is MeetingsTableViewCell {
+			(cell as! MeetingsTableViewCell).moderatorPicture.image = imageFile
+		} else if cell is TopicsTableViewCell {
+			(cell as! TopicsTableViewCell).topicCreatorPicture.image = imageFile
+		} else if cell is SubtopicsTableViewCell {
+			(cell as! SubtopicsTableViewCell).subtopicCreatorPicture.image = imageFile
+		} else if cell is CommentsTableViewCell {
+			(cell as! CommentsTableViewCell).commentCreatorPicture.image = imageFile
+		} else if cell is PreviousMeetingsTableViewCell {
+			(cell as! PreviousMeetingsTableViewCell).moderatorPicture.image = imageFile
 		}
 	}
 	
@@ -79,5 +79,21 @@ class TableViewHelper: NSObject {
 		return cell
 
 	}
+    
+    public static func getImageFromDirectory(userRecordName: String?) -> UIImage? {
+        guard userRecordName != nil else {
+            return nil
+        }
+        
+        let documentsDirectory = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        let fileName = documentsDirectory.appendingPathComponent(String(format: "%@ProfilePicture.jpg", userRecordName!)) // Force unwrap because you can't get here without being logged in.
+        
+        if let imageFile = UIImage(contentsOfFile: fileName.path){
+            return imageFile
+        } else {
+            print("Couldn't load user picture to display by the comment textbox.")
+            return nil
+        }
+    }
 
 }

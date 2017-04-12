@@ -1,5 +1,5 @@
 //
-//  descriptionTableViewCell.swift
+//  MeetingsTableViewCell.swift
 //  MOPT
 //
 //  Created by Filipe Marques on 03/04/17.
@@ -8,10 +8,13 @@
 
 import UIKit
 
-class descriptionTableViewCell: UITableViewCell {
+class MeetingsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var topicDescription: UITextView!
-
+    @IBOutlet weak var meetingName: UILabel!
+    @IBOutlet weak var meetingDate: UILabel!
+    @IBOutlet weak var meetingTime: UILabel!
+    @IBOutlet weak var moderatorPicture: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

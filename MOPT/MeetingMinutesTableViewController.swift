@@ -1,5 +1,5 @@
 //
-//  meetingMinutesTableViewController.swift
+//  MeetingMinutesTableViewController.swift
 //  MOPT
 //
 //  Created by Filipe Marques on 04/04/17.
@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class meetingMinutesTableViewController: UITableViewController {
+class MeetingMinutesTableViewController: UITableViewController {
     
     var currentMeeting:CKRecord?
     var topics = [CKRecord]()

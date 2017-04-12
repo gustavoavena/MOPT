@@ -1,5 +1,5 @@
 //
-//  meetingsTableViewController.swift
+//  MeetingsTableViewController.swift
 //  MOPT
 //
 //  Created by Filipe Marques on 03/04/17.
@@ -11,7 +11,7 @@
 import UIKit
 import CloudKit
 
-class meetingsTableViewController: UITableViewController {
+class MeetingsTableViewController: UITableViewController {
     
     public private(set) var meetings = [CKRecord]()
     private let meetingServices = MeetingServices()
@@ -41,6 +41,8 @@ class meetingsTableViewController: UITableViewController {
             })
         }
     }
+	
+	
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -65,7 +67,7 @@ class meetingsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as! meetingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as! MeetingsTableViewCell
         
         let dateFormatter = DateFormatter()
         let timeFormatter = DateFormatter()

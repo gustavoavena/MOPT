@@ -1,5 +1,5 @@
 //
-//  topicInformationTableViewController.swift
+//  TopicInformationTableViewController.swift
 //  MOPT
 //
 //  Created by Filipe Marques on 03/04/17.
@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class topicInformationTableViewController: UITableViewController {
+class TopicInformationTableViewController: UITableViewController {
     
     public var currentTopic:CKRecord?
     private var subtopics = [CKRecord]()
@@ -71,16 +71,12 @@ class topicInformationTableViewController: UITableViewController {
         self.tableView.reloadData()
         self.navigationItem.title = currentTopic?["title"] as? String
         
-        self.currentUserPicture.image = UIImage(named:"example")
-		
-		let documentsDirectory = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-		let fileName = documentsDirectory.appendingPathComponent(String(format: "%@ProfilePicture.jpg", (CurrentUser.shared().userRecordID?.recordName)!)) // Force unwrap because you can't get here without being logged in.
-		
-		if let imageFile = UIImage(contentsOfFile: fileName.path){
-			self.currentUserPicture.image = imageFile
-		} else {
-			print("Couldn't load user picture to display by the comment textbox.")
-		}
+        if let imageFile = TableViewHelper.getImageFromDirectory(userRecordName: CurrentUser.shared().userRecordID?.recordName){
+            self.currentUserPicture.image = imageFile
+        } else {
+            print("Couldn't load user picture to display by the comment textbox.")
+            self.currentUserPicture.image = UIImage(named:"example")
+        }
 
     }
 
@@ -108,14 +104,14 @@ class topicInformationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! descriptionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! DescriptionTableViewCell
             cell.topicDescription.text = self.currentTopic?["description"] as? String
             return cell
             
         }
             
         else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicCell", for: indexPath) as! subtopicsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicCell", for: indexPath) as! SubtopicsTableViewCell
             cell.subtopicTitle.text = self.subtopics[indexPath.row]["title"] as? String
             cell.subtopicCreatorPicture.image = UIImage(named:"example")
 			
@@ -127,12 +123,12 @@ class topicInformationTableViewController: UITableViewController {
         }
             
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentsTableViewCell
             cell.commentText.text = self.comments[indexPath.row]["text"] as? String
             cell.commentCreatorPicture.image = UIImage(named:"example")
 			
 			
-			let creatorReference = self.subtopics[indexPath.row]["creator"] as! CKReference
+			let creatorReference = self.comments[indexPath.row]["creator"] as! CKReference
 			
 			return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
         }

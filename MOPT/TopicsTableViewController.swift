@@ -73,7 +73,7 @@ class TopicsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var subtopics = [CKRecord]()
-        let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as!topicsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as!TopicsTableViewCell
         cell.topicName.text = self.topics[indexPath.row]["title"] as? String
         topicServices.getSubtopics(topicRecordID:self.topics[indexPath.row].recordID){
             (subtopicRecords, error) in
@@ -95,7 +95,7 @@ class TopicsTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToTopicInformation",
-            let segueDestination = segue.destination as? topicInformationTableViewController,
+            let segueDestination = segue.destination as? TopicInformationTableViewController,
             let indexPath = self.tableView.indexPathForSelectedRow {
             let selectedTopic = topics[indexPath.row]
             segueDestination.currentTopic = selectedTopic

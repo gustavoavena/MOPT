@@ -51,8 +51,15 @@ class SubtopicTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.navigationItem.title = currentSubtopic?["title"] as? String
         
-        self.currentUserPicture.image = UIImage(named:"example")
-        //self.currentUserPicture.image = UIImage(named:"example")
+        
+        if let imageFile = TableViewHelper.getImageFromDirectory(userRecordName: CurrentUser.shared().userRecordID?.recordName){
+            self.currentUserPicture.image = imageFile
+        } else {
+            print("Couldn't load user picture to display by the comment textbox.")
+            self.currentUserPicture.image = UIImage(named:"example")
+        }
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,7 +80,7 @@ class SubtopicTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentsTableViewCell
         //print("printing comment = \(self.comments[indexPath.row]["text"])")
         cell.commentText.text = self.comments[indexPath.row]["text"] as? String
         

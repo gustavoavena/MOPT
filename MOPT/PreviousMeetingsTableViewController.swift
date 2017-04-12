@@ -1,5 +1,5 @@
 //
-//  meetingsTableViewController.swift
+//  MeetingsTableViewController.swift
 //  MOPT
 //
 //  Created by Filipe Marques on 03/04/17.
@@ -62,7 +62,7 @@ class PreviousMeetingsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "previousMeetingCell", for: indexPath) as! PrevoiusMeetingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "previousMeetingCell", for: indexPath) as! PreviousMeetingsTableViewCell
         
         let dateFormatter = DateFormatter()
         let timeFormatter = DateFormatter()
