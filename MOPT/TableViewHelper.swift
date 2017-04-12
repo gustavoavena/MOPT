@@ -43,7 +43,7 @@ class TableViewHelper: NSObject {
 			semaphore.signal()
 
 			
-			print("Loaded profile picture from file.")
+//			print("Loaded profile picture from file.")
 		} else {
 			
 			ckHandler.fetchByRecordID(recordID: userRecordID) {

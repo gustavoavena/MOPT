@@ -32,8 +32,11 @@ class topicInformationTableViewController: UITableViewController {
         self.currentUserPicture.image = UIImage(named:"example")
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
-        
+		
+		
+		
         loadTopicInformation(topicID: (currentTopic?.recordID)!)
+		
         
     }
     
@@ -69,7 +72,16 @@ class topicInformationTableViewController: UITableViewController {
         self.navigationItem.title = currentTopic?["title"] as? String
         
         self.currentUserPicture.image = UIImage(named:"example")
-        //self.currentUserPicture.image = UIImage(named:"example")
+		
+		let documentsDirectory = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+		let fileName = documentsDirectory.appendingPathComponent(String(format: "%@ProfilePicture.jpg", (CurrentUser.shared().userRecordID?.recordName)!)) // Force unwrap because you can't get here without being logged in.
+		
+		if let imageFile = UIImage(contentsOfFile: fileName.path){
+			self.currentUserPicture.image = imageFile
+		} else {
+			print("Couldn't load user picture to display by the comment textbox.")
+		}
+
     }
 
     override func didReceiveMemoryWarning() {
