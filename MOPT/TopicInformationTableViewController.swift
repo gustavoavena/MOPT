@@ -40,6 +40,12 @@ class TopicInformationTableViewController: UITableViewController {
         
     }
     
+    
+    
+    
+    
+    
+    
     func loadTopicInformation(topicID:CKRecordID) {
         topicServices.getSubtopics(topicRecordID: topicID) {
             (subtopicRecords, error) in
@@ -134,6 +140,23 @@ class TopicInformationTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Description"
+        } else if section == 1 {
+            return "Subtopics"
+        } else {
+            return "Comments"
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        let header = view as! UITableViewHeaderFooterView
+        header.backgroundView?.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 19)
+    }
+
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToSubtopic",
@@ -144,6 +167,10 @@ class TopicInformationTableViewController: UITableViewController {
         }
         if segue.identifier == "newSubtopic",
             let segueDestination = segue.destination as? NewSubtopicViewController {
+            segueDestination.currentTopic = currentTopic
+        }
+        if segue.identifier == "addConclusion",
+            let segueDestination = segue.destination as? AddConclusionViewController {
             segueDestination.currentTopic = currentTopic
         }
     }

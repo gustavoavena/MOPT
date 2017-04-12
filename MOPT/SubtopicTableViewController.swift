@@ -92,6 +92,13 @@ class SubtopicTableViewController: UITableViewController {
 
 	}
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addConclusion",
+            let segueDestination = segue.destination as? AddConclusionViewController {
+            segueDestination.currentTopic = currentSubtopic
+        }
+    }
+
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         loadSubtopicComments(subtopicID: (currentSubtopic?.recordID)!)

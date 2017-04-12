@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8gW-SN-GOk">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="K3x-nu-qXc">
+            <objects>
+                <viewController id="8gW-SN-GOk" customClass="AddConclusionViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HiQ-GA-9B9"/>
+                        <viewControllerLayoutGuide type="bottom" id="GOZ-Xt-uXF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uFr-WZ-oAD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Conclusion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcA-1t-uTd">
+                                <rect key="frame" x="89" y="30" width="197" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.6588235294" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a conclusion for this topic" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvL-2p-Ryj">
+                                <rect key="frame" x="75" y="64" width="226" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.6588235294" blue="0.54117647059999996" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sbz-QT-bJK">
+                                <rect key="frame" x="16" y="90" width="343" height="333.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Sbz-QT-bJK" secondAttribute="leading" id="4LN-Hy-lAB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sbz-QT-bJK" secondAttribute="trailing" id="4t7-g3-rNd"/>
+                            <constraint firstItem="ZcA-1t-uTd" firstAttribute="centerX" secondItem="uFr-WZ-oAD" secondAttribute="centerX" id="Ge9-BC-KrF"/>
+                            <constraint firstItem="LvL-2p-Ryj" firstAttribute="top" secondItem="ZcA-1t-uTd" secondAttribute="bottom" id="bma-s5-b4e"/>
+                            <constraint firstItem="ZcA-1t-uTd" firstAttribute="top" secondItem="HiQ-GA-9B9" secondAttribute="bottom" multiplier="1.1" constant="8" symbolic="YES" id="dS0-Fr-5wD"/>
+                            <constraint firstItem="Sbz-QT-bJK" firstAttribute="height" secondItem="uFr-WZ-oAD" secondAttribute="height" multiplier="0.5" id="gtH-xa-NBH"/>
+                            <constraint firstItem="LvL-2p-Ryj" firstAttribute="centerX" secondItem="uFr-WZ-oAD" secondAttribute="centerX" id="nVO-fh-t5j"/>
+                            <constraint firstItem="Sbz-QT-bJK" firstAttribute="top" secondItem="LvL-2p-Ryj" secondAttribute="bottom" constant="8" id="x0V-Xw-UZs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="lY6-l0-Tb1">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="3bD-bE-2dR">
+                            <color key="tintColor" red="0.25945022702217102" green="0.70861494541168213" blue="0.61128079891204834" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="finishConclusionButton:" destination="8gW-SN-GOk" id="CvN-pi-cbm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="conclusion" destination="Sbz-QT-bJK" id="IQx-hv-X81"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IED-wj-Jph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="45.600000000000001" y="41.829085457271368"/>
+        </scene>
+    </scenes>
+</document>
