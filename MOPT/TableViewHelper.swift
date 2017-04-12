@@ -21,6 +21,12 @@ class TableViewHelper: NSObject {
 			(cell as! meetingsTableViewCell).moderatorPicture.image = imageFile
 		} else if cell is topicsTableViewCell {
 			(cell as! topicsTableViewCell).topicCreatorPicture.image = imageFile
+		} else if cell is subtopicsTableViewCell {
+			(cell as! subtopicsTableViewCell).subtopicCreatorPicture.image = imageFile
+		} else if cell is commentsTableViewCell {
+			(cell as! commentsTableViewCell).commentCreatorPicture.image = imageFile
+		} else if cell is PrevoiusMeetingsTableViewCell {
+			(cell as! PrevoiusMeetingsTableViewCell).moderatorPicture.image = imageFile
 		}
 	}
 	

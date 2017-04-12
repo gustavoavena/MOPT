@@ -72,11 +72,13 @@ class PreviousMeetingsTableViewController: UITableViewController {
         cell.meetingName.text = self.meetings[indexPath.row]["title"] as? String
         cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
-        //cell.moderatorPicture.image = self.meetings[indexPath.row]["profilePicture"] as? UIImage
-        cell.moderatorPicture.image = UIImage(named:"example")
+
+		cell.moderatorPicture.image = UIImage(named:"example")
 		
-        return cell
-        
+		let moderatorReference =  self.meetings[indexPath.row]["moderator"] as! CKReference
+		
+		return TableViewHelper.loadCellProfilePicture(userRecordID: moderatorReference.recordID, cell: cell)
+		
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

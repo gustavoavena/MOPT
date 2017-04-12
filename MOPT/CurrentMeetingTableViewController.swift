@@ -102,7 +102,11 @@ class CurrentMeetingTableViewController: UITableViewController {
             cell.subtopicTitle.text = subtopics[indexPath.row]["title"] as? String
             //cell.subtopicCreatorPicture.image = subtopics[indexPath.row]["profilePicture"] as? UIImage
             cell.subtopicCreatorPicture.image = UIImage(named:"example")
-            return cell
+			
+			let creatorReference = self.topics[indexPath.row]["creator"] as! CKReference
+			
+			return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
+			
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "topicAddConclusionCell", for: indexPath) as! topicsTableViewCell
             cell.topicName.text = self.topics[indexPath.row]["title"] as? String

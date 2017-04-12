@@ -105,52 +105,24 @@ class topicInformationTableViewController: UITableViewController {
         else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicCell", for: indexPath) as! subtopicsTableViewCell
             cell.subtopicTitle.text = self.subtopics[indexPath.row]["title"] as? String
-            //cell.subtopicCreatorPicture.image = self.subtopics[indexPath.row]["profilePicture"] as? UIImage
-//            let userServices = UserServices()
-//            userServices.downloadImage(imageURL: self.subtopics[indexPath.row]["profilePictureURL"]) {
-//                (data, error) in
-//                
-//                guard error == nil else {
-//                    print("Error setting profile picture.")
-//                    return
-//                }
-//                
-//                if let image = data {
-//                    cell.subtopicCreatorPicture.image = image
-//                } else {
-//                    cell.subtopicCreatorPicture.image = UIImage(named:"example")
-//                }
-//                
-//            }
             cell.subtopicCreatorPicture.image = UIImage(named:"example")
-            return cell
-            
+			
+			let creatorReference = self.subtopics[indexPath.row]["creator"] as! CKReference
+			
+			return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
+
+			
         }
             
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentsTableViewCell
             cell.commentText.text = self.comments[indexPath.row]["text"] as? String
-            //cell.commentCreatorPicture.image = self.comments[indexPath.row].creator.profilePicture
-            //cell.commentCreatorPicture.image = self.comments[indexPath.row]["profilePicture"] as? UIImage
-            //cell.commentCreatorPicture.image = UIImage(named:"example")
-//            let userServices = UserServices()
-//            userServices.downloadImage(imageURL: self.comments[indexPath.row]["profilePictureURL"]) {
-//                (data, error) in
-//                
-//                guard error == nil else {
-//                    print("Error setting profile picture.")
-//                    return
-//                }
-//                
-//                if let image = data {
-//                    cell.commentCreatorPicture.image = image
-//                } else {
-//                    cell.commentCreatorPicture.image = UIImage(named:"example")
-//                }
-//                
-//            }
             cell.commentCreatorPicture.image = UIImage(named:"example")
-            return cell
+			
+			
+			let creatorReference = self.subtopics[indexPath.row]["creator"] as! CKReference
+			
+			return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
         }
     }
     
