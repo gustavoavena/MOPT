@@ -14,10 +14,12 @@ public class CloudKitHandler: NSObject {
     let myContainer: CKContainer
     
     let publicDB: CKDatabase
+	let privateDB: CKDatabase
     
     override init() {
-        myContainer = CKContainer.default()
-        publicDB = myContainer.publicCloudDatabase
+        self.myContainer = CKContainer.default()
+        self.publicDB = myContainer.publicCloudDatabase
+		self.privateDB = myContainer.privateCloudDatabase
     }
     
     func fetchByRecordID(recordID: CKRecordID, handleUserObject: @escaping (CKRecord?, Error?) -> Void) {

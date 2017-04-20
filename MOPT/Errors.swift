@@ -17,6 +17,7 @@ enum TimeError: Error {
 
 enum CKHandlerError: Error {
     case NoRecordFound
+	case FetchByID
 }
 
 enum QueryError: Error {
