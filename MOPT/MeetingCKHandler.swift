@@ -16,29 +16,70 @@ enum UpdateOperation {
 	case endTime
 	case date
 	case newParticipant
+	
+	// TODO: assign callbacks to the enum values?
 }
 
 class MeetingCKHandler: CloudKitHandler {
 	
+	/*
 	
-	func update(attribute:String, value: Any, meeting: Meeting) {
+	Basic workflow for update operations:
+	1) Someone calls the update with the proper signature for each record attribute.
+	2) this update method calls the "big" one that is common to everyone.
+	3) The switch statement inside this "big" update method will call the proper assign method to update the record and save it.
+	
+	*/
+	
+	
+	// Directly assign attributes to the record that follow the protocol CKRecordValue
+	func assign(attribute: String, value: CKRecordValue, record: CKRecord) {
+		record[attribute] = value
+		self.saveRecord(record: record)
+	}
+	
+	
+	// Append a new participant to the meeting.
+	func assign(newParticipant: CKRecordValue, record: CKRecord) {
+		let userReference = newParticipant as! CKReference // Force downcasting because I guarantee it will be a CKReference.
+		
+		if var participants = (record["participants"] as? [CKReference]) {
+			participants.append(userReference)
+			record["participants"] = participants as CKRecordValue
+		} else {
+			let participants = [userReference]
+			record["participants"] = participants as CKRecordValue
+		}
+		
+		self.saveRecord(record: record)
+
+	}
+	
+	/**
+		This is the update method that gets called from all the others.
+	*/
+	func update(operation: UpdateOperation, attribute:String, value: CKRecordValue, meeting: Meeting) {
 		let meetingRecordID = CKRecordID(recordName: meeting.ID) // Fetch CKRecord
 		
 		fetchRecordByID(recordID: meetingRecordID) {
 			(record, error) in
 			
 			guard error == nil else {
-				print("Error when trying to update meeting \(meeting)'s title.")
+				print("Error when trying to update meeting \(meeting)'s attribute. UpdateOperation = [Insert operation here]")
 				return
 			}
 			
 			if let record = record {
-				if let value = value as? CKRecordValue {
-					record[attribute] = value
-					self.saveRecord(record: record)
-				} else {
-					print("Couldn't downcast value to a CloudKit Record Type.") // TODO: define an error!
+				
+				switch operation {
+				case .title, .startTime, .endTime, .date:
+					self.assign(attribute: attribute, value: value, record: record)
+				case .newParticipant:
+					self.assign(newParticipant: value, record: record)
+				default:
+					print("Update operation not found.") // TODO: define error
 				}
+				
 				
 			} else {
 				print("No meeting record found.")
@@ -53,43 +94,16 @@ class MeetingCKHandler: CloudKitHandler {
 	
 	
 	func update(title: String, meeting: Meeting) {
-		update(attribute: "title", value: title, meeting: meeting)
+		update(operation: UpdateOperation.title, attribute: "title", value: title as CKRecordValue, meeting: meeting)
 	}
 	
 	func update(newParticipant: User, meeting: Meeting) {
-		let meetingRecordID = CKRecordID(recordName: meeting.ID)
+		let userRecordID = CKRecordID(recordName: newParticipant.ID)
+		let userReference = CKReference(recordID: userRecordID, action: .none)
 		
-		fetchRecordByID(recordID: meetingRecordID) {
-			(record, error) in
-			
-			guard error == nil else {
-				print("Error when trying to update meeting \(meeting)'s participants.")
-				return
-			}
-			
-			if let record = record {
-				let userRecordID = CKRecordID(recordName: newParticipant.ID)
-				let userReference = CKReference(recordID: userRecordID, action: .none)
-
-				if var participants = (record["participants"] as? [CKReference]) {
-					participants.append(userReference)
-					record["participants"] = participants as CKRecordValue
-				} else {
-					let participants = [userReference]
-					record["participants"] = participants as CKRecordValue
-				}
-				
-				self.saveRecord(record: record)
-				
-			} else {
-				print("No meeting record found.")
-				// TODO: alert caller or create new record?
-			}
-		}
-		
+		update(operation: .newParticipant, attribute: "", value: userReference, meeting: meeting)
 	}
 	
-	// TODO: update startTime
 	
 	
 
