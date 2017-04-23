@@ -9,11 +9,18 @@
 import UIKit
 
 class User: NSObject {
-	let ID: String
+	let ID: String = ""
+	var meetingsIDs: [String]
 	var meetings: [Meeting] {
 		get {
-			return getMeetings(fromUser: self)
+			// get all meeting objects with a query
 		}
+		// there is no set! it's read-only!
 	}
+//	var meetings: [Meeting] {
+//		get {
+//			return getMeetings(fromUser: self)
+//		}
+//	}
 
 }

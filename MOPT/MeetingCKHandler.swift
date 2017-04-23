@@ -8,25 +8,18 @@
 
 import CloudKit
 
+
+// Define possible UpdateOperations for Meeting objects
+enum UpdateOperation {
+	case title
+	case startTime
+	case endTime
+	case date
+	case newParticipant
+}
+
 class MeetingCKHandler: CloudKitHandler {
-//	let possibleTypes = [NSString.self, NSDate, CKRecordValue]
 	
-	func getType(_ attribute: String) -> Any {
-		
-		switch(attribute) {
-		case "title", "conclusion", "text":
-			return NSString.self
-			break
-		case "endTime", "startTime", "date":
-			return NSDate.self
-			break
-		default:
-			print("Couldn't find attribute \(attribute)'s type.")
-			return CKRecordValue.self
-			break
-		}
-		
-	}
 	
 	func update(attribute:String, value: Any, meeting: Meeting) {
 		let meetingRecordID = CKRecordID(recordName: meeting.ID) // Fetch CKRecord
@@ -40,8 +33,13 @@ class MeetingCKHandler: CloudKitHandler {
 			}
 			
 			if let record = record {
-				record[attribute] = (value as? CKRecordValue) ?? "NONE" as NSString
-				self.saveRecord(record: record)
+				if let value = value as? CKRecordValue {
+					record[attribute] = value
+					self.saveRecord(record: record)
+				} else {
+					print("Couldn't downcast value to a CloudKit Record Type.") // TODO: define an error!
+				}
+				
 			} else {
 				print("No meeting record found.")
 				// TODO: alert caller or create new record?
@@ -59,8 +57,6 @@ class MeetingCKHandler: CloudKitHandler {
 	}
 	
 	func update(newParticipant: User, meeting: Meeting) {
-		let userRecordID = CKRecordID(recordName: newParticipant.ID)
-		let userReference = CKReference(recordID: userRecordID, action: .none)
 		let meetingRecordID = CKRecordID(recordName: meeting.ID)
 		
 		fetchRecordByID(recordID: meetingRecordID) {
@@ -72,6 +68,9 @@ class MeetingCKHandler: CloudKitHandler {
 			}
 			
 			if let record = record {
+				let userRecordID = CKRecordID(recordName: newParticipant.ID)
+				let userReference = CKReference(recordID: userRecordID, action: .none)
+
 				if var participants = (record["participants"] as? [CKReference]) {
 					participants.append(userReference)
 					record["participants"] = participants as CKRecordValue
@@ -113,10 +112,13 @@ class MeetingCKHandler: CloudKitHandler {
 	func fetchByID(recordID: CKRecordID, handleUserObject: @escaping (CKRecord?, Error?) -> Void)
 	func saveRecord(record: CKRecord)
 
+	Maybe create abstract class???
+
 	They will probably all inherit from CloudKitHandler...
 
 	Notes: We need to decide which will by synchronous and which will be asynchronous, to avoid delaying the main thread and UI operations.
 	For example, *save* methods can by async, because they will not affect the UI (the object will be locally modified and willbe correctly displayed, while on the background the record is updated remotely).
+
 
 
 */
