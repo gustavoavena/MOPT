@@ -10,7 +10,11 @@ import Foundation
 
 class Meeting: NSObject {
 	var ID: String
-	var title: String
+	var title: String {
+		didSet(oldValue) {
+			MeetingCKHandler.update(title: _title, meeting: self)
+		}
+	}
 	var currentTopic: Topic?
 	var date: Date
 	var endTime: Date?

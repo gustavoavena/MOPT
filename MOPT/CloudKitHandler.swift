@@ -22,7 +22,7 @@ public class CloudKitHandler: NSObject {
 		self.privateDB = myContainer.privateCloudDatabase
     }
     
-    func fetchByRecordID(recordID: CKRecordID, handleUserObject: @escaping (CKRecord?, Error?) -> Void) {
+    func fetchRecordByID(recordID: CKRecordID, handleUserObject: @escaping (CKRecord?, Error?) -> Void) {
         
         self.publicDB.fetch(withRecordID: recordID){
             (record, error) in

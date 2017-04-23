@@ -10,5 +10,10 @@ import UIKit
 
 class User: NSObject {
 	let ID: String
+	var meetings: [Meeting] {
+		get {
+			return getMeetings(fromUser: self)
+		}
+	}
 
 }

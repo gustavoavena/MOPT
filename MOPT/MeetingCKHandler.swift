@@ -9,20 +9,38 @@
 import CloudKit
 
 class MeetingCKHandler: CloudKitHandler {
+//	let possibleTypes = [NSString.self, NSDate, CKRecordValue]
 	
-	func update(conclusion: String, meeting: Meeting) {
-		// Fetch CKRecord
-		let recordID = CKRecordID(recordName: meeting.ID)
-		fetchByRecordID(recordID: recordID) {
+	func getType(_ attribute: String) -> Any {
+		
+		switch(attribute) {
+		case "title", "conclusion", "text":
+			return NSString.self
+			break
+		case "endTime", "startTime", "date":
+			return NSDate.self
+			break
+		default:
+			print("Couldn't find attribute \(attribute)'s type.")
+			return CKRecordValue.self
+			break
+		}
+		
+	}
+	
+	func update(attribute:String, value: Any, meeting: Meeting) {
+		let meetingRecordID = CKRecordID(recordName: meeting.ID) // Fetch CKRecord
+		
+		fetchRecordByID(recordID: meetingRecordID) {
 			(record, error) in
 			
 			guard error == nil else {
-				print("Error when trying to update meeting \(meeting)'s conclusion.")
+				print("Error when trying to update meeting \(meeting)'s title.")
 				return
 			}
 			
 			if let record = record {
-				record["conclusion"] = conclusion as NSString
+				record[attribute] = (value as? CKRecordValue) ?? "NONE" as NSString
 				self.saveRecord(record: record)
 			} else {
 				print("No meeting record found.")
@@ -35,16 +53,48 @@ class MeetingCKHandler: CloudKitHandler {
 		// TODO: error handling, in case the remote update is not successfull
 	}
 	
+	
+	func update(title: String, meeting: Meeting) {
+		update(attribute: "title", value: title, meeting: meeting)
+	}
+	
 	func update(newParticipant: User, meeting: Meeting) {
 		let userRecordID = CKRecordID(recordName: newParticipant.ID)
 		let userReference = CKReference(recordID: userRecordID, action: .none)
+		let meetingRecordID = CKRecordID(recordName: meeting.ID)
 		
-		
-		
+		fetchRecordByID(recordID: meetingRecordID) {
+			(record, error) in
+			
+			guard error == nil else {
+				print("Error when trying to update meeting \(meeting)'s participants.")
+				return
+			}
+			
+			if let record = record {
+				if var participants = (record["participants"] as? [CKReference]) {
+					participants.append(userReference)
+					record["participants"] = participants as CKRecordValue
+				} else {
+					let participants = [userReference]
+					record["participants"] = participants as CKRecordValue
+				}
+				
+				self.saveRecord(record: record)
+				
+			} else {
+				print("No meeting record found.")
+				// TODO: alert caller or create new record?
+			}
+		}
 		
 	}
 	
-	let arr = [1, 2, 3]
+	// TODO: update startTime
+	
+	
+
+		
 	
 
 }
