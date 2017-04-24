@@ -12,7 +12,7 @@ class Meeting: NSObject {
 	var ID: String
 	var title: String {
 		didSet(oldValue) {
-			MeetingCKHandler.update(title: _title, meeting: self)
+			MeetingCKHandler.update(title: title, meeting: self)
 		}
 	}
 	var currentTopic: Topic?
