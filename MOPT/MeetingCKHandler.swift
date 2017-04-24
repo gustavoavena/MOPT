@@ -15,7 +15,10 @@ enum UpdateOperation {
 	case startTime
 	case endTime
 	case date
-	case newParticipant
+	case addParticipant
+	case expectedDuration
+	case currentTopic
+	case addTopic
 	
 	// TODO: assign callbacks to the enum values?
 }
@@ -39,9 +42,13 @@ class MeetingCKHandler: CloudKitHandler {
 	}
 	
 	
+	// TODO: abstract addTopic and addParticipant to an add method
+	
+	
+	
 	// Append a new participant to the meeting.
-	func assign(newParticipant: CKRecordValue, record: CKRecord) {
-		let userReference = newParticipant as! CKReference // Force downcasting because I guarantee it will be a CKReference.
+	func assign(addParticipant: CKRecordValue, record: CKRecord) {
+		let userReference = addParticipant as! CKReference // Force downcasting because I guarantee it will be a CKReference.
 		
 		if var participants = (record["participants"] as? [CKReference]) {
 			participants.append(userReference)
@@ -52,7 +59,21 @@ class MeetingCKHandler: CloudKitHandler {
 		}
 		
 		self.saveRecord(record: record)
-
+	}
+	
+	// Append a new participant to the meeting.
+	func assign(addTopic: CKRecordValue, record: CKRecord) {
+		let topicReference = addTopic as! CKReference // Force downcasting because I guarantee it will be a CKReference.
+		
+		if var topics = (record["topics"] as? [CKReference]) {
+			topics.append(topicReference)
+			record["topics"] = topics as CKRecordValue
+		} else {
+			let topics = [topicReference]
+			record["topics"] = topics as CKRecordValue
+		}
+		
+		self.saveRecord(record: record)
 	}
 	
 	/**
@@ -72,10 +93,12 @@ class MeetingCKHandler: CloudKitHandler {
 			if let record = record {
 				
 				switch operation {
-				case .title, .startTime, .endTime, .date:
+				case .title, .startTime, .endTime, .date, .expectedDuration, .currentTopic:
 					self.assign(attribute: attribute, value: value, record: record)
-				case .newParticipant:
-					self.assign(newParticipant: value, record: record)
+				case .addParticipant:
+					self.assign(addParticipant: value, record: record)
+				case .addTopic:
+					self.assign(addTopic: value, record: record)
 				default:
 					print("Update operation not found.") // TODO: define error
 				}
@@ -97,12 +120,45 @@ class MeetingCKHandler: CloudKitHandler {
 		update(operation: UpdateOperation.title, attribute: "title", value: title as CKRecordValue, meeting: meeting)
 	}
 	
-	func update(newParticipant: User, meeting: Meeting) {
-		let userRecordID = CKRecordID(recordName: newParticipant.ID)
+	func update(startTime: Date, meeting: Meeting) {
+		update(operation: UpdateOperation.startTime, attribute: "startTime", value: startTime as CKRecordValue, meeting: meeting)
+	}
+	
+	func update(endTime: Date, meeting: Meeting) {
+		update(operation: UpdateOperation.endTime, attribute: "endTime", value: endTime as CKRecordValue, meeting: meeting)
+	}
+	
+	func update(date: Date, meeting: Meeting) {
+		update(operation: UpdateOperation.date, attribute: "date", value: date as CKRecordValue, meeting: meeting)
+	}
+	
+	func update(expectedDuration: Double, meeting: Meeting) {
+		update(operation: UpdateOperation.expectedDuration, attribute: "expectedDuration", value: expectedDuration as CKRecordValue, meeting: meeting)
+	}
+	
+	func update(currentTopic: Topic, meeting: Meeting) {
+		let topicRecordID = CKRecordID(recordName: currentTopic.ID)
+		let topicReference = CKReference(recordID: topicRecordID, action: .none)
+		
+		update(operation: UpdateOperation.currentTopic, attribute: "currentTopic", value: topicReference as CKRecordValue, meeting: meeting)
+	}
+	
+	func update(addParticipant: User, meeting: Meeting) {
+		let userRecordID = CKRecordID(recordName: addParticipant.ID)
 		let userReference = CKReference(recordID: userRecordID, action: .none)
 		
-		update(operation: .newParticipant, attribute: "", value: userReference, meeting: meeting)
+		update(operation: .addParticipant, attribute: "", value: userReference, meeting: meeting)
 	}
+	
+	func update(addTopic: Topic, meeting: Meeting) {
+		let topicRecordID = CKRecordID(recordName: addTopic.ID)
+		let topicReference = CKReference(recordID: topicRecordID, action: .none)
+		
+		update(operation: UpdateOperation.addTopic, attribute: "", value: topicReference as CKRecordValue, meeting: meeting)
+	}
+
+	
+	
 	
 	
 	
