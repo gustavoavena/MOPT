@@ -27,7 +27,7 @@
 		4D99B6B11EA8ED4B00308688 /* Subtopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99B6B01EA8ED4B00308688 /* Subtopic.swift */; };
 		4D99B6B31EA92EE700308688 /* ClassesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99B6B21EA92EE700308688 /* ClassesProtocols.swift */; };
 		4D99B6B51EA930E000308688 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99B6B41EA930E000308688 /* Cache.swift */; };
-		4D99B6B81EA93D6800308688 /* CKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99B6B71EA93D6800308688 /* CKHandler.swift */; };
+		4D99B6B81EA93D6800308688 /* CloudKitMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99B6B71EA93D6800308688 /* CloudKitMapper.swift */; };
 		4DAEF16A1E93D52C00A99E0D /* ControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEF1691E93D52C00A99E0D /* ControllerProtocols.swift */; };
 		4DAEF16F1E952DC400A99E0D /* SubtopicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEF16E1E952DC400A99E0D /* SubtopicServices.swift */; };
 		4DB933021E96668900C647C6 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB933011E96668900C647C6 /* CurrentUser.swift */; };
@@ -87,7 +87,7 @@
 		4D99B6B01EA8ED4B00308688 /* Subtopic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtopic.swift; sourceTree = "<group>"; };
 		4D99B6B21EA92EE700308688 /* ClassesProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesProtocols.swift; sourceTree = "<group>"; };
 		4D99B6B41EA930E000308688 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
-		4D99B6B71EA93D6800308688 /* CKHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKHandler.swift; sourceTree = "<group>"; };
+		4D99B6B71EA93D6800308688 /* CloudKitMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitMapper.swift; sourceTree = "<group>"; };
 		4DAEF1691E93D52C00A99E0D /* ControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerProtocols.swift; sourceTree = "<group>"; };
 		4DAEF16E1E952DC400A99E0D /* SubtopicServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtopicServices.swift; sourceTree = "<group>"; };
 		4DB933011E96668900C647C6 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 				4DD2AD9C1E9689DD00DB8899 /* ViewControllers */,
 				4D30EFF61E9DBF6400AA49E0 /* Services */,
 				4D99B6791EA8E2C500308688 /* Classes */,
-				4D99B6B61EA93CD800308688 /* CloudKitHandlers */,
+				4D99B6B61EA93CD800308688 /* CloudKitMappers */,
 				4D3CC5751E8AA6A3000136FB /* ViewController.swift */,
 				4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */,
 				4DE50C261E9D039F00ED9A50 /* TableViewHelper.swift */,
@@ -222,12 +222,12 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		4D99B6B61EA93CD800308688 /* CloudKitHandlers */ = {
+		4D99B6B61EA93CD800308688 /* CloudKitMappers */ = {
 			isa = PBXGroup;
 			children = (
-				4D99B6B71EA93D6800308688 /* CKHandler.swift */,
+				4D99B6B71EA93D6800308688 /* CloudKitMapper.swift */,
 			);
-			name = CloudKitHandlers;
+			name = CloudKitMappers;
 			sourceTree = "<group>";
 		};
 		4DD2AD9B1E9689A900DB8899 /* Storyboards */ = {
@@ -389,7 +389,7 @@
 				4D99B67B1EA8E2DA00308688 /* Meeting.swift in Sources */,
 				4DAEF16F1E952DC400A99E0D /* SubtopicServices.swift in Sources */,
 				4DD2AD831E96886E00DB8899 /* CommentsTableViewCell.swift in Sources */,
-				4D99B6B81EA93D6800308688 /* CKHandler.swift in Sources */,
+				4D99B6B81EA93D6800308688 /* CloudKitMapper.swift in Sources */,
 				D45B26A31E92850A002A1866 /* LoginScreenViewController.swift in Sources */,
 				D4E651B91E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift in Sources */,
 				4D99B6AB1EA8ECF300308688 /* Topic.swift in Sources */,

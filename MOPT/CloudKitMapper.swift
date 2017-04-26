@@ -7,6 +7,7 @@
 //
 
 import CloudKit
+import Dispatch
 
 typealias ObjectID = String // TODO: replace String with ObjectID where it is proper.
 
@@ -53,7 +54,7 @@ Basic workflow for update operations:
 
 */
 
-class CloudKitMapper: CloudKitHandler {
+class CloudKitMapper {
 	
 	private static let publicDB: CKDatabase = CKContainer.default().publicCloudDatabase
 	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
@@ -244,9 +245,70 @@ class CloudKitMapper: CloudKitHandler {
 	static func update(text: String, object: MoptObject) {
 		update(operation: UpdateOperation.text, attribute: "text", value: text as CKRecordValue, object: object)
 	}
-	public static func createObject(meetingRecordID recordID: CKRecordID) -> Meeting {
+	
+	
+	public static func create(objectType: MoptObjectType, fromRecordID recordID: CKRecordID, completionHandler: @escaping (MoptObject, Error?) -> Void) {
 		// fetch record and call the method to create object from record.
+		// will this be synchronous??
+		// Does completionHandler need an Error? It will be used in the view... it should be simple.
+		
+		publicDB.fetch(withRecordID: recordID) {
+			(record, error) in
+			
+			guard let record = record, error != nil else {
+				print("Error fetching record.")
+				print(error.debugDescription)
+				return
+			}
+			
+			var object: MoptObject?
+			
+			switch objectType {
+			case .meeting:
+				object = createMeeting(fromRecord: record)
+			case .topic:
+				object = createTopic(fromRecord: record)
+			case .subtopic:
+				object = createSubtopic(fromRecord: record)
+			case .user:
+				object = createUser(fromRecord: record)
+			default:
+				print("Couldn't decide which object to create.")
+			}
+			
+			if let object = object {
+				completionHandler(object, nil)
+			} else {
+				print("Couldn't call completionHandler because the object was not created.")
+			}
+		}
+		
 	}
+	
+	
+//	
+//	public static func createObject(meetingRecordID recordID: CKRecordID, completionHandler: @escaping (Meeting, Error?) -> Void) {
+//		// fetch record and call the method to create object from record.
+//		// will this be synchronous??
+//		// Does completionHandler need an Error? It will be used in the view... it should be simple.
+//		
+//		publicDB.fetch(withRecordID: recordID) {
+//			(record, error) in
+//			
+//			guard let record = record, error != nil else {
+//				print("Error fetching record.")
+//				print(error.debugDescription)
+//				return
+//			}
+//			
+//			if let meeting = createMeeting(fromRecord: record) {
+//				completionHandler(meeting, nil)
+//			} else {
+//				print("Couldn't call completionHandler because the meeting was not created.")
+//			}
+//		}
+//		
+//	}
 	
 	public static func createMeeting(fromRecord record: CKRecord) -> Meeting? {
 		var meeting: Meeting
@@ -264,7 +326,7 @@ class CloudKitMapper: CloudKitHandler {
 			return nil
 		}
 		
-		meeting = Meeting(ID: ID, title: title!, date: date!, creatorID: creatorID)
+		meeting = Meeting(ID: ID, title: title, date: date, creatorID: creatorID)
 		
 		
 		if let startTime = record["startTime"] as? Date {
@@ -328,7 +390,7 @@ class CloudKitMapper: CloudKitHandler {
 			topic.conclusion = conclusion
 		}
 		
-		var commentIDs: [ObjectID]
+		var commentIDs: [ObjectID] = [ObjectID]()
 		
 		if let commentReferences = record["comment"] as? [CKReference] {
 			for cr in commentReferences {
@@ -367,7 +429,7 @@ class CloudKitMapper: CloudKitHandler {
 			subtopic.conclusion = conclusion
 		}
 		
-		var commentIDs: [ObjectID]
+		var commentIDs: [ObjectID] = [ObjectID]()
 		
 		if let commentReferences = record["comment"] as? [CKReference] {
 			for cr in commentReferences {
@@ -408,7 +470,64 @@ class CloudKitMapper: CloudKitHandler {
 		
 		return user
 	}
+	
+	public static func createRecord(fromMeeting meeting: Meeting) -> CKRecord { // return the record. Another method will take it and save it.
+		let recordID = CKRecordID(recordName: meeting.ID)
+		let record = CKRecord(recordType: "Meeting", recordID: recordID)
+		
+		record["title"] = meeting.title as NSString
+		record["date"] = meeting.date as NSDate
+		
+		let creatorRecordID = CKRecordID(recordName: meeting.creatorID)
+		let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
+		
+		record["creator"] = creatorReference
+		
+		
+		if let ct = meeting.currentTopic {
+			let ctRecordID = CKRecordID(recordName: ct)
+			record["currentTopic"] = CKReference(recordID: ctRecordID, action: .none)
+		}
+		
+		if let startTime = meeting.startTime {
+			record["startTime"] = startTime as NSDate
+		}
+		
+		if let endTime = meeting.endTime {
+			record["endTime"] = endTime as NSDate
+		}
+		
+		if let expectedDuration = meeting.expectedDuration {
+			record["expectedDuration"] = expectedDuration as CKRecordValue
+		}
+		
+		var participants = [CKReference]()
+		for p in meeting.participantIDs {
+			let pRecordID = CKRecordID(recordName: p)
+			let pReference = CKReference(recordID: pRecordID, action: .none)
+			
+			participants.append(pReference)
+			// TODO: append creator twice?
+		}
+		
+		record["participants"] = participants as CKRecordValue
+		
+		
+		var topics = [CKReference]()
+		for topicID in meeting.topicIDs {
+			let topicRecordID = CKRecordID(recordName: topicID)
+			let topicReference = CKReference(recordID: topicRecordID, action: .none)
+			
+			topics.append(topicReference)
+			// TODO: append creator twice?
+		}
+		
+		record["topics"] = topics as CKRecordValue
+		
+		return record
+	}
 
+	// TODO: createRecord for Topic, Subtopic, Comment and User
 
 		
 	

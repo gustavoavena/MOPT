@@ -12,7 +12,7 @@ class Meeting: NSObject, MoptObject {
 	public static var meetings: [String: Meeting] = [String: Meeting]() // TODO: use internal??
 	
 	let ID: ObjectID
-	let creator: ObjectID
+	let creatorID: ObjectID
 	var title: String {
 		didSet {
 			CloudKitMapper.update(title: title, object: self)
@@ -67,7 +67,7 @@ class Meeting: NSObject, MoptObject {
 	init(ID: String, title: String, date: Date, creatorID: ObjectID) {
 		self.ID = ID
 		self.title = title
-		self.creator = creatorID
+		self.creatorID = creatorID
 		self.date = date
 
 		self.participantIDs = [creatorID]
