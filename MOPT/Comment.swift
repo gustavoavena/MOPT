@@ -8,18 +8,23 @@
 
 import UIKit
 
-class Comment: NSObject {
-	let ID: String
-	var createdAt: Date = Date()
-	var creator: User
+class Comment: NSObject, MoptObject {
+	let ID: ObjectID
+	let createdAt: Date = Date()
+	let creatorID: ObjectID
+	let topicID: ObjectID
 	var text: String
-	var topic: Topic
 	
-	init(ID: String, creator: User, text: String, topic: Topic) {
+	var topic: Topic
+	var creator: User
+	
+	public static var comments: [String: Comment] = [String: Comment]()
+	
+	init(ID: String, creatorID: ObjectID, text: String, topicID: ObjectID) {
 		self.ID = ID
-		self.creator = creator
+		self.creatorID = creatorID
 		self.text = text
-		self.topic = topic
+		self.topicID = topicID
 		
 	}
 	

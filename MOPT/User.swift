@@ -8,19 +8,22 @@
 
 import UIKit
 
-class User: NSObject {
-	let ID: String = ""
-	var meetingsIDs: [String]
+class User: NSObject, MoptObject {
+	let ID: ObjectID = ""
+	var meetingsIDs: [ObjectID]
 	var meetings: [Meeting] {
 		get {
-			// get all meeting objects with a query
+			var _meetings = [Meeting]()
+			
+			for id in meetingsIDs {
+				if let m = Meeting.meetings[id] {
+					_meetings.append(m)
+				}
+			}
+			return _meetings
 		}
-		// there is no set! it's read-only!
 	}
-//	var meetings: [Meeting] {
-//		get {
-//			return getMeetings(fromUser: self)
-//		}
-//	}
+	
+	public static var users: [String: User] = [String: User]()
 
 }

@@ -8,36 +8,46 @@
 
 import Foundation
 
-class Meeting: NSObject {
-	var ID: String
+class Meeting: NSObject, MoptObject {
+	let ID: ObjectID
+	let creator: ObjectID
 	var title: String {
-		didSet(oldValue) {
-			MeetingCKHandler.update(title: title, meeting: self)
+		get {
+			return title
+		}
+		set(newValue) {
+			CKHandler.update(title: newValue, object: self)
 		}
 	}
-	var currentTopic: Topic?
 	var date: Date
+	var currentTopic: ObjectID?
 	var endTime: Date?
 	var startTime: Date?
 	var expectedDuration: TimeInterval?
-	var creator: User
-	var participants: [User]
-	var topics: [Topic]
+	var participantIDs: [ObjectID]
+	var participants: [User] // computed property
+	var topicIDs: [ObjectID] = [ObjectID]()
+	var topics: [Topic] // computed property
+	public static var meetings: [String: Meeting] = [String: Meeting]() // TODO: use internal??
 	
 	
 	
-	init(ID: String, title: String, date: Date, creator: User, expectedDuration: TimeInterval?) {
+	init(ID: String, title: String, date: Date, creatorID: ObjectID) {
 		self.ID = ID
 		self.title = title
-		self.creator = creator
+		self.creator = creatorID
 		self.date = date
 
-		self.expectedDuration = expectedDuration
-		self.participants = [creator]
-		self.topics = [Topic]()
-		
-		
+		self.participantIDs = [creatorID]
 	}
+	
+	convenience init(ID: String, title: String, date: Date, creatorID: ObjectID, expectedDuration: TimeInterval?) {
+		self.init(ID: ID, title: title, date: date, creatorID: creatorID)
+		self.expectedDuration = expectedDuration
+	}
+	
+	
+	
 	
 
 	

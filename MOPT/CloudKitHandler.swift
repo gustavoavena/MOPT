@@ -11,18 +11,12 @@ import CloudKit
 
 public class CloudKitHandler: NSObject {
     
-    let myContainer: CKContainer
-    
-    let publicDB: CKDatabase
-	let privateDB: CKDatabase
-    
-    override init() {
-        self.myContainer = CKContainer.default()
-        self.publicDB = myContainer.publicCloudDatabase
-		self.privateDB = myContainer.privateCloudDatabase
-    }
-    
-    func fetchRecordByID(recordID: CKRecordID, handleUserObject: @escaping (CKRecord?, Error?) -> Void) {
+	private static let publicDB: CKDatabase = CKContainer.default().publicCloudDatabase
+	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
+
+	
+	
+    private static func fetchRecordByID(recordID: CKRecordID, handleUserObject: @escaping (CKRecord?, Error?) -> Void) {
         
         self.publicDB.fetch(withRecordID: recordID){
             (record, error) in
@@ -45,21 +39,21 @@ public class CloudKitHandler: NSObject {
         }
     }
     
-    func saveRecord(record: CKRecord) {
-        
-        print("Attempting to save record \(record.recordID.recordName)")
-        
-        self.publicDB.save(record) {
-            (record, error) in
-            if let error = error {
-                // Insert error handling
-                print("Error when saving the record \(String(describing: record?.recordID.recordName)).")
-                print(error.localizedDescription)
-                return
-            }
-            // Insert successfully saved record code
-            print("Record \(String(describing: record?.recordID.recordName)) saved successfully.")
-        }
-        
-    }
-}
+	private static func saveRecord(_ record: CKRecord) {
+		
+		print("Attempting to save record \(record.recordID.recordName).")
+		
+		self.publicDB.save(record) {
+			(record, error) in
+			if let error = error {
+				// TODO: define error
+				print("Error when saving the record \(String(describing: record?.recordID.recordName)).")
+				print(error.localizedDescription)
+				return
+			} else {
+				print("Record \(String(describing: record?.recordID.recordName)) saved successfully.")
+			}
+			
+		}
+		
+	}}
