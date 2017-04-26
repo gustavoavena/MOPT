@@ -9,8 +9,11 @@
 import UIKit
 
 class User: NSObject, MoptObject {
-	let ID: ObjectID = ""
-	var meetingsIDs: [ObjectID]
+	let ID: ObjectID
+	let name: String
+	let email: String
+	let profilePictureURL: URL // Store a string instead of an URL?
+	var meetingsIDs: [ObjectID] = [ObjectID]()
 	var meetings: [Meeting] {
 		get {
 			var _meetings = [Meeting]()
@@ -25,5 +28,14 @@ class User: NSObject, MoptObject {
 	}
 	
 	public static var users: [String: User] = [String: User]()
+	
+	init(ID: ObjectID, name: String, email: String, profilePictureURL: URL) {
+		self.ID = ID
+		self.name = name
+		self.email = email
+		self.profilePictureURL = profilePictureURL
+	}
+	
+	
 
 }

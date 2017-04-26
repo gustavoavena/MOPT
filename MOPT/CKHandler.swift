@@ -251,29 +251,33 @@ class CloudKitMapper: CloudKitHandler {
 	public static func createMeeting(fromRecord record: CKRecord) -> Meeting? {
 		var meeting: Meeting
 		let ID = record.recordID.recordName
-		let title = record["title"] as? String
-		let date = record["date"]! as? Date
-		let startTime: Date? = record["startTime"] as? Date
-		let endTime: Date? = record["endTime"] as? Date
-		let expectedDuration: TimeInterval? = record["expectedDuration"] as? TimeInterval
-		
 		var creatorID: ObjectID
+		
 		if let creatorReference = record["creator"] as? CKReference {
 			creatorID = creatorReference.recordID.recordName
 		} else {
 			print("Couldn't initialize meeting's user.")
 			return nil
 		}
-		guard title != nil && date != nil else {
+		guard let title = record["title"] as? String, let date = record["date"]! as? Date else {
 			print("Couldnt create meeting object.")
 			return nil
 		}
 		
 		meeting = Meeting(ID: ID, title: title!, date: date!, creatorID: creatorID)
 		
-		meeting.startTime = startTime
-		meeting.endTime = endTime
-		meeting.expectedDuration = expectedDuration
+		
+		if let startTime = record["startTime"] as? Date {
+			meeting.startTime = startTime
+		}
+		
+		if let endTime = record["endTime"] as? Date {
+			meeting.endTime = endTime
+		}
+		
+		if let expectedDuration = record["expectedDuration"] as? TimeInterval {
+			meeting.expectedDuration = expectedDuration
+		}
 		
 		Meeting.meetings[ID] = meeting
 		
@@ -336,6 +340,73 @@ class CloudKitMapper: CloudKitHandler {
 		Topic.topics[ID] = topic
 		
 		return topic
+	}
+	
+	public static func createSubtopic(fromRecord record: CKRecord) -> Subtopic? {
+		let ID = record.recordID.recordName
+		var subtopic: Subtopic
+		var creatorID: ObjectID
+		var topicID: ObjectID
+		
+		if let creatorReference = record["creator"] as? CKReference, let topicReference =  record["topic"] as? CKReference {
+			creatorID = creatorReference.recordID.recordName
+			topicID = topicReference.recordID.recordName
+		} else {
+			print("Couldn't initialize topic's user and/or meeting.")
+			return nil
+		}
+		
+		guard let title = record["title"] as? String else {
+			print("Couldnt create meeting object.")
+			return nil
+		}
+		
+		subtopic = Subtopic(ID: ID, title: title, creatorID: creatorID, parentTopicID: topicID)
+		
+		if let conclusion = record["conclusion"] as? String {
+			subtopic.conclusion = conclusion
+		}
+		
+		var commentIDs: [ObjectID]
+		
+		if let commentReferences = record["comment"] as? [CKReference] {
+			for cr in commentReferences {
+				commentIDs.append(cr.recordID.recordName)
+			}
+			subtopic.commentIDs = commentIDs
+		}
+		
+		Subtopic.subtopics[ID] = subtopic
+		
+		return subtopic
+	}
+
+
+	public static func createUser(fromRecord record: CKRecord) -> User? {
+		var user: User
+		let ID = record.recordID.recordName
+
+		guard let name = record["name"] as? String, let email = record["email"]! as? String else {
+			print("Couldn't create meeting object.")
+			return nil
+		}
+		
+		guard let urlString = record["profilePictureURL"] as? String else {
+			print("profile picture URL string not found in the record.")
+			return nil
+		}
+		
+		guard let url = URL(string: urlString) else {
+			print("Couldn't create URL object from string.")
+			return nil
+		}
+		
+		
+		user = User(ID: ID, name: name, email: email, profilePictureURL: url)
+		
+		User.users[ID] = user
+		
+		return user
 	}
 
 
