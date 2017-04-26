@@ -15,8 +15,28 @@ class Comment: NSObject, MoptObject {
 	let topicID: ObjectID
 	var text: String
 	
-	var topic: Topic
-	var creator: User
+	var topic: Topic {
+		get {
+			if let topic = Topic.topics[ID] {
+				return topic
+			} else {
+				print("Couldn't find Comment's topic.")
+				// TODO: fetch record and create object
+				return Topic.topics[ID]! // TODO: remove this
+			}
+		}
+	}
+	var creator: User {
+		get {
+			if let creator = User.users[ID] {
+				return creator
+			} else {
+				print("Couldn't find Comment's user.")
+				// TODO: fetch record and create object
+				return User.users[ID]! // TODO: remove this
+			}
+		}
+	}
 	
 	public static var comments: [String: Comment] = [String: Comment]()
 	

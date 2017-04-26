@@ -185,8 +185,8 @@ class CloudKitMapper: CloudKitHandler {
 	
 
 	
-	static func update(currentTopic: Topic, object: Meeting) {
-		let topicRecordID = CKRecordID(recordName: currentTopic.ID)
+	static func update(currentTopicID: ObjectID, object: Meeting) {
+		let topicRecordID = CKRecordID(recordName: currentTopicID)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
 		update(operation: UpdateOperation.currentTopic, attribute: "currentTopic", value: topicReference as CKRecordValue, object: object)

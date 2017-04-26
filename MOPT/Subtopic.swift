@@ -9,6 +9,8 @@
 import UIKit
 
 class Subtopic: Topic {
+	public static var subtopics: [String: Subtopic] = [String: Subtopic]()
+	
 	let parentTopicID: ObjectID
 	var parentTopic: Topic {
 		get {
@@ -23,11 +25,10 @@ class Subtopic: Topic {
 		
 	}
 	
-	public static var subtopics: [String: Subtopic] = [String: Subtopic]()
 	
 	init(ID: String, title: String, creatorID: ObjectID, parentTopicID: ObjectID) {
-		super.init(ID: ID, title: title, creatorID: creatorID, meetingID: "")
 		self.parentTopicID = parentTopicID
+		super.init(ID: ID, title: title, creatorID: creatorID, meetingID: "")
 	}
 	
 }

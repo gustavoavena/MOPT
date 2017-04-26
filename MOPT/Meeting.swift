@@ -9,26 +9,58 @@
 import Foundation
 
 class Meeting: NSObject, MoptObject {
+	public static var meetings: [String: Meeting] = [String: Meeting]() // TODO: use internal??
+	
 	let ID: ObjectID
 	let creator: ObjectID
 	var title: String {
-		get {
-			return title
-		}
-		set(newValue) {
-			CKHandler.update(title: newValue, object: self)
+		didSet {
+			CloudKitMapper.update(title: title, object: self)
 		}
 	}
-	var date: Date
-	var currentTopic: ObjectID?
+	var date: Date {
+		didSet {
+			CloudKitMapper.update(date: date, object: self)
+		}
+	}
+	var currentTopic: ObjectID? {
+		didSet {
+			if let ct = currentTopic {
+				CloudKitMapper.update(currentTopicID: ct, object: self)
+			}
+			// TODO: currentTopic set to nil?
+		}
+	}
 	var endTime: Date?
 	var startTime: Date?
 	var expectedDuration: TimeInterval?
 	var participantIDs: [ObjectID]
-	var participants: [User] // computed property
 	var topicIDs: [ObjectID] = [ObjectID]()
-	var topics: [Topic] // computed property
-	public static var meetings: [String: Meeting] = [String: Meeting]() // TODO: use internal??
+	
+	var topics: [Topic]  {
+		get {
+			var _topics = [Topic]()
+			for id in topicIDs {
+				if let topic = Topic.topics[id] {
+					_topics.append(topic)
+				}
+			}
+			return _topics
+		}
+	}
+	
+	var participants: [User]  {
+		get {
+			var _participants = [User]()
+			for id in participantIDs {
+				if let p = User.users[id] {
+					_participants.append(p)
+				}
+			}
+			return _participants
+		}
+	}
+	
 	
 	
 	
@@ -45,6 +77,8 @@ class Meeting: NSObject, MoptObject {
 		self.init(ID: ID, title: title, date: date, creatorID: creatorID)
 		self.expectedDuration = expectedDuration
 	}
+	
+	// TODO: user setters instead of observers??
 	
 	
 	
