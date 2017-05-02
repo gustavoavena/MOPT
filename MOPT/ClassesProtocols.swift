@@ -8,9 +8,12 @@
 
 import Foundation
 
+typealias ObjectID = String
+
+
 protocol MoptObject {
 	// TODO: define protocols
-	var ID: String {
+	var ID: ObjectID {
 		get
 	}
 }

@@ -14,6 +14,8 @@ class Topic: NSObject, MoptObject {
 	let ID: ObjectID
 	let meetingID: ObjectID // TODO: fix inheritance problem.
 	let creatorID: ObjectID
+	let subjectID: ObjectID?
+	
 	var title: String
 	var conclusion: String?
 	var info: String?

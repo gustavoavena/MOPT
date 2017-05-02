@@ -9,7 +9,7 @@
 import CloudKit
 import Dispatch
 
-typealias ObjectID = String // TODO: replace String with ObjectID where it is proper.
+ // TODO: replace String with ObjectID where it is proper.
 
 
 enum MoptObjectType {
@@ -17,7 +17,7 @@ enum MoptObjectType {
 	case topic
 	case user
 	case comment
-	case subtopic
+	case subject
 }
 
 // Define possible UpdateOperations for objects
@@ -247,18 +247,24 @@ class CloudKitMapper {
 	}
 	
 	
-	public static func create(objectType: MoptObjectType, fromRecordID recordID: CKRecordID, completionHandler: @escaping (MoptObject, Error?) -> Void) {
+	public static func create(objectType: MoptObjectType, fromID ID: ObjectID, completionHandler: @escaping (MoptObject?, Error?) -> Void) {
 		// fetch record and call the method to create object from record.
 		// will this be synchronous??
 		// Does completionHandler need an Error? It will be used in the view... it should be simple.
+		let recordID = CKRecordID(recordName: ID)
 		
 		publicDB.fetch(withRecordID: recordID) {
 			(record, error) in
 			
-			guard let record = record, error != nil else {
+			guard error != nil else {
 				print("Error fetching record.")
 				print(error.debugDescription)
-				return
+				completionHandler(nil, error)
+			}
+			
+			guard let record = record else {
+				print("No record found on CloudKit.") // TODO: define error.
+				completionHandler(nil, error)
 			}
 			
 			var object: MoptObject?
@@ -268,8 +274,7 @@ class CloudKitMapper {
 				object = createMeeting(fromRecord: record)
 			case .topic:
 				object = createTopic(fromRecord: record)
-			case .subtopic:
-				object = createSubtopic(fromRecord: record)
+			
 			case .user:
 				object = createUser(fromRecord: record)
 			default:
@@ -280,36 +285,15 @@ class CloudKitMapper {
 				completionHandler(object, nil)
 			} else {
 				print("Couldn't call completionHandler because the object was not created.")
+				let e = Error("Record not found.")
+				completionHandler(nil, e)
 			}
 		}
 		
 	}
 	
 	
-//	
-//	public static func createObject(meetingRecordID recordID: CKRecordID, completionHandler: @escaping (Meeting, Error?) -> Void) {
-//		// fetch record and call the method to create object from record.
-//		// will this be synchronous??
-//		// Does completionHandler need an Error? It will be used in the view... it should be simple.
-//		
-//		publicDB.fetch(withRecordID: recordID) {
-//			(record, error) in
-//			
-//			guard let record = record, error != nil else {
-//				print("Error fetching record.")
-//				print(error.debugDescription)
-//				return
-//			}
-//			
-//			if let meeting = createMeeting(fromRecord: record) {
-//				completionHandler(meeting, nil)
-//			} else {
-//				print("Couldn't call completionHandler because the meeting was not created.")
-//			}
-//		}
-//		
-//	}
-	
+
 	public static func createMeeting(fromRecord record: CKRecord) -> Meeting? {
 		var meeting: Meeting
 		let ID = record.recordID.recordName
@@ -485,7 +469,7 @@ class CloudKitMapper {
 		
 		
 		if let ct = meeting.currentTopic {
-			let ctRecordID = CKRecordID(recordName: ct)
+			let ctRecordID = CKRecordID(recordName: ct.ID)
 			record["currentTopic"] = CKReference(recordID: ctRecordID, action: .none)
 		}
 		
@@ -527,7 +511,7 @@ class CloudKitMapper {
 		return record
 	}
 
-	// TODO: createRecord for Topic, Subtopic, Comment and User
+	// TODO: createRecord for Topic, Subject, Comment and User
 
 		
 	
