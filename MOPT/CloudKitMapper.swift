@@ -399,45 +399,12 @@ class CloudKitMapper {
 	
 	// TODO: createSubject(fromRecord record: CKRecord) -> Subject?
 	
-//	public static func createSubtopic(fromRecord record: CKRecord) -> Subtopic? {
-//		let ID = record.recordID.recordName
-//		var subtopic: Subtopic
-//		var creatorID: ObjectID
-//		var topicID: ObjectID
-//		
-//		if let creatorReference = record["creator"] as? CKReference, let topicReference =  record["topic"] as? CKReference {
-//			creatorID = creatorReference.recordID.recordName
-//			topicID = topicReference.recordID.recordName
-//		} else {
-//			print("Couldn't initialize topic's user and/or meeting.")
-//			return nil
-//		}
-//		
-//		guard let title = record["title"] as? String else {
-//			print("Couldnt create meeting object.")
-//			return nil
-//		}
-//		
-//		subtopic = Subtopic(ID: ID, title: title, creatorID: creatorID, parentTopicID: topicID)
-//		
-//		if let conclusion = record["conclusion"] as? String {
-//			subtopic.conclusion = conclusion
-//		}
-//		
-//		var commentIDs: [ObjectID] = [ObjectID]()
-//		
-//		if let commentReferences = record["comment"] as? [CKReference] {
-//			for cr in commentReferences {
-//				commentIDs.append(cr.recordID.recordName)
-//			}
-//			subtopic.commentIDs = commentIDs
-//		}
-//		
-//		
-//		return subtopic
-//	}
-
-
+	
+	// XUPITA
+	public static func createSubject(fromRecord record: CKRecord) -> Subject? {
+		return nil // remove this and write the code.
+	}
+	
 	public static func createUser(fromRecord record: CKRecord) -> User? {
 		var user: User
 		let ID = record.recordID.recordName
@@ -521,6 +488,27 @@ class CloudKitMapper {
 	}
 
 	// TODO: createRecord for Topic, Subject, Comment and User
+	
+	
+	// XUPITA
+	public static func createRecord(fromTopic topic: Topic) {
+		
+	}
+	
+	// XUPITA
+	public static func createRecord(fromUser user: User) {
+		
+	}
+	
+	// XUPITA
+	public static func createRecord(fromSubject subject: Subject) {
+		
+	}
+	
+	// XUPITA
+	public static func createRecord(fromComment comment: Comment) {
+		
+	}
 
 		
 	
