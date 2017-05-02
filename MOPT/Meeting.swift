@@ -29,12 +29,11 @@ class Meeting: NSObject, MoptObject {
 	var currentTopicID: ObjectID?
 	var currentTopic: Topic? {
 		get {
-			if let ct = currentTopicID, let topic = Topic.get(topicWithID: ct) {
-				return topic
+			if let ct = currentTopicID, let topic = Cache.get(objectType: .topic, objectWithID: ct) {
+				return (topic as! Topic)
+			} else {
+				return nil
 			}
-			return nil
-			
-			// TODO: currentTopic set to nil?
 		}
 	}
 	var endTime: Date?
@@ -47,8 +46,8 @@ class Meeting: NSObject, MoptObject {
 		get {
 			var _topics = [Topic]()
 			for id in topicIDs {
-				if let topic = Topic.get(topicWithID: id) {
-					_topics.append(topic)
+				if let topic = Cache.get(objectType: .topic, objectWithID: id) {
+					_topics.append(topic as! Topic)
 				}
 			}
 			return _topics
@@ -59,8 +58,8 @@ class Meeting: NSObject, MoptObject {
 		get {
 			var _participants = [User]()
 			for id in participantIDs {
-				if let p = User.users[id] {
-					_participants.append(p)
+				if let p = Cache.get(objectType: .user, objectWithID: id) {
+					_participants.append(p as! User)
 				}
 			}
 			return _participants

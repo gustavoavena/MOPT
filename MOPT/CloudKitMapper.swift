@@ -185,36 +185,36 @@ class CloudKitMapper {
 	
 	
 
-	
-	static func update(currentTopicID: ObjectID, object: Meeting) {
+	// TODO: implement authorization (permissions)
+	public static func update(currentTopicID: ObjectID, object: Meeting) {
 		let topicRecordID = CKRecordID(recordName: currentTopicID)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
 		update(operation: UpdateOperation.currentTopic, attribute: "currentTopic", value: topicReference as CKRecordValue, object: object)
 	}
 	
-	static func update(addParticipant participant: User, object: Meeting) {
+	public static func update(addParticipant participant: User, object: Meeting) {
 		let userRecordID = CKRecordID(recordName: participant.ID)
 		let userReference = CKReference(recordID: userRecordID, action: .none)
 		
 		update(operation: .addParticipant, attribute: "participants", value: userReference, object: object)
 	}
 	
-	static func update(removeParticipant participant: Topic, object: Meeting) {
+	public static func update(removeParticipant participant: Topic, object: Meeting) {
 		let userRecordID = CKRecordID(recordName: participant.ID)
 		let userReference = CKReference(recordID: userRecordID, action: .none)
 		
 		update(operation: UpdateOperation.removeParticipant, attribute: "participants", value: userReference as CKRecordValue, object: object)
 	}
 	
-	static func update(addTopic topic: Topic, object: Meeting) {
+	public static func update(addTopic topic: Topic, object: Meeting) {
 		let topicRecordID = CKRecordID(recordName: topic.ID)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
 		update(operation: UpdateOperation.addTopic, attribute: "topics", value: topicReference as CKRecordValue, object: object)
 	}
 	
-	static func update(removeTopic topic: Topic, object: Meeting) {
+	public static func update(removeTopic topic: Topic, object: Meeting) {
 		let topicRecordID = CKRecordID(recordName: topic.ID)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
@@ -223,7 +223,7 @@ class CloudKitMapper {
 	
 	
 	// Topic update operations
-	static func update(addComment comment: Comment, object: Topic) {
+	public static func update(addComment comment: Comment, object: Topic) {
 		let commentRecordID = CKRecordID(recordName: comment.ID)
 		let commentReference = CKReference(recordID: commentRecordID, action: .none)
 
@@ -231,11 +231,11 @@ class CloudKitMapper {
 		update(operation: UpdateOperation.addComment, attribute: "comments", value: commentReference as CKRecordValue, object: object)
 	}
 	
-	static func update(conclusion: String, object: MoptObject) {
+	public static func update(conclusion: String, object: MoptObject) {
 		update(operation: UpdateOperation.conclusion, attribute: "conclusion", value: conclusion as CKRecordValue, object: object)
 	}
 	
-	static func update(info: String, object: MoptObject) {
+	public static func update(info: String, object: MoptObject) {
 		update(operation: UpdateOperation.info, attribute: "info", value: info as CKRecordValue, object: object)
 	}
 
@@ -274,9 +274,9 @@ class CloudKitMapper {
 				object = createMeeting(fromRecord: record)
 			case .topic:
 				object = createTopic(fromRecord: record)
-			
 			case .user:
 				object = createUser(fromRecord: record)
+				// TODO: create subject
 			default:
 				print("Couldn't decide which object to create.")
 			}
@@ -284,7 +284,6 @@ class CloudKitMapper {
 			if let object = object {
 				completionHandler(object)
 			} else {
-				print("Couldn't call completionHandler because the object was not created.")
 				completionHandler(nil)
 			}
 		}
@@ -324,7 +323,6 @@ class CloudKitMapper {
 			meeting.expectedDuration = expectedDuration
 		}
 		
-		Meeting.meetings[ID] = meeting
 		
 		return meeting
 	}
@@ -382,7 +380,6 @@ class CloudKitMapper {
 			topic.commentIDs = commentIDs
 		}
 		
-		Topic.topics[ID] = topic
 		
 		return topic
 	}
@@ -421,7 +418,6 @@ class CloudKitMapper {
 			subtopic.commentIDs = commentIDs
 		}
 		
-		Subtopic.subtopics[ID] = subtopic
 		
 		return subtopic
 	}
@@ -449,7 +445,6 @@ class CloudKitMapper {
 		
 		user = User(ID: ID, name: name, email: email, profilePictureURL: url)
 		
-		User.users[ID] = user
 		
 		return user
 	}

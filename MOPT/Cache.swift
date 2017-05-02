@@ -20,28 +20,6 @@ class Cache: NSObject {
 	
 	
 	
-	
-	public static func get(meetingWithID ID: ObjectID) -> Meeting? { // TODO: Abstract to MoptObject class??
-		let semaphore: DispatchSemaphore = DispatchSemaphore(value: 0)
-		
-		if let m = meetings[ID] {
-			return m
-		} else  {
-			CloudKitMapper.create(objectType: .meeting, fromID: ID) { (object) in
-				
-				guard let meeting = object as? Meeting else {
-					semaphore.signal()
-					return
-				}
-				meetings[ID] = meeting
-				semaphore.signal()
-			}
-		}
-		
-		semaphore.wait()
-		return meetings[ID] ?? nil
-	}
-	
 	private static func get(fromCache: MoptObjectType, withID ID: ObjectID) -> MoptObject? {
 		switch fromCache {
 		case .meeting:
@@ -60,8 +38,25 @@ class Cache: NSObject {
 		}
 	}
 	
+	private static func set(inCache: MoptObjectType, withID ID: ObjectID, object: MoptObject) {
+		switch inCache {
+		case .meeting:
+			meetings[ID] = (object as! Meeting)
+		case .topic:
+			topics[ID] = (object as! Topic)
+		case .comment:
+			comments[ID] = (object as! Comment)
+		case .user:
+			users[ID] = (object as! User)
+		case .subject:
+			subjects[ID] = (object as! Subject)
+		default:
+			print("Object cache not found")
+		}
+	}
+	
 
-	public static func get(objectType: MoptObjectType, objectWithID ID: ObjectID) -> MoptObject? { 
+	public static func get(objectType: MoptObjectType, objectWithID ID: ObjectID) -> MoptObject? {
 		let semaphore: DispatchSemaphore = DispatchSemaphore(value: 0)
 		
 		if let object = get(fromCache: objectType, withID: ID) {
@@ -74,20 +69,7 @@ class Cache: NSObject {
 					return
 				}
 
-				switch objectType {
-				case .meeting:
-					meetings[ID] = (object as! Meeting)
-				case .topic:
-					topics[ID] = (object as! Topic)
-				case .comment:
-					comments[ID] = (object as! Comment)
-				case .user:
-					users[ID] = (object as! User)
-				case .subject:
-					subjects[ID] = (object as! Subject)
-				default:
-					print("Object cache not found")
-				}
+				Cache.set(inCache: objectType, withID: ID, object: object)
 				
 				semaphore.signal()
 			}

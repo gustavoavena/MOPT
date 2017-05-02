@@ -22,25 +22,16 @@ class Subject: NSObject, MoptObject {
 	
 	var meeting: Meeting {
 		get {
-			if let meeting = Meeting.meetings[ID] {
-				return meeting
-			} else {
-				print("Couldn't find Subject's meeting.")
-				// TODO: fetch record and create object
-				return Meeting.meetings[ID]! // TODO: remove this
+			if let meeting = Cache.get(objectType: .meeting, objectWithID: ID) {
+				return meeting as! Meeting
 			}
 		}
-
 	}
 	
 	var creator: User {
 		get {
-			if let creator = User.users[ID] {
-				return creator
-			} else {
-				print("Couldn't find Subject's creator.")
-				// TODO: fetch record and create object
-				return User.users[ID]! // TODO: remove this
+			if let creator = Cache.get(objectType: .user, objectWithID: ID) {
+				return creator as! User
 			}
 		}
 	}
