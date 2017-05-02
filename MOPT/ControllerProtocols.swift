@@ -53,6 +53,13 @@ protocol UserDelegate {
     func fetchFacebookUserInfo(completionHandler:@escaping ([String:Any]?, Error?) -> Void)
 }
 
+enum DBStatus {
+	case found
+	case notFound
+	case fetching
+	case empty
+}
+
 
 /*
  

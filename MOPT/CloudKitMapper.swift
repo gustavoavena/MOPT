@@ -247,7 +247,7 @@ class CloudKitMapper {
 	}
 	
 	
-	public static func create(objectType: MoptObjectType, fromID ID: ObjectID, completionHandler: @escaping (MoptObject?, Error?) -> Void) {
+	public static func create(objectType: MoptObjectType, fromID ID: ObjectID, completionHandler: @escaping (MoptObject?) -> Void) {
 		// fetch record and call the method to create object from record.
 		// will this be synchronous??
 		// Does completionHandler need an Error? It will be used in the view... it should be simple.
@@ -259,12 +259,12 @@ class CloudKitMapper {
 			guard error != nil else {
 				print("Error fetching record.")
 				print(error.debugDescription)
-				completionHandler(nil, error)
+				completionHandler(nil)
 			}
 			
 			guard let record = record else {
 				print("No record found on CloudKit.") // TODO: define error.
-				completionHandler(nil, error)
+				completionHandler(nil)
 			}
 			
 			var object: MoptObject?
@@ -282,11 +282,10 @@ class CloudKitMapper {
 			}
 			
 			if let object = object {
-				completionHandler(object, nil)
+				completionHandler(object)
 			} else {
 				print("Couldn't call completionHandler because the object was not created.")
-				let e = Error("Record not found.")
-				completionHandler(nil, e)
+				completionHandler(nil)
 			}
 		}
 		
