@@ -7,10 +7,11 @@
 //
 
 import UIKit
-import CloudKit
+//import CloudKit
 import FBSDKLoginKit
 
 
+/*
 class UserServices: NSObject, UserDelegate {
     
     let ckHandler: CloudKitHandler
@@ -152,4 +153,10 @@ class UserServices: NSObject, UserDelegate {
             print("Download of \(imageURL) finished")
             }.resume()
     }
+} */
+
+
+
+extension User: NewUserDelegate {
+	func create(ID: ObjectID, name: String, email: String, profilePictureURL: URL) -> User
 }

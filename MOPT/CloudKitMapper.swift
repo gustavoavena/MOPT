@@ -49,6 +49,8 @@ enum UpdateOperation {
 }
 
 
+// TODO: Use sets instead of arrays for IDs
+
 /*
 
 Basic workflow for update operations:
@@ -194,37 +196,37 @@ class CloudKitMapper {
 
 	// TODO: implement authorization (permissions)
 	// TODO: set currentTopic to nil.
-	public static func update(currentTopic: Topic, object: Meeting) {
-		let topicRecordID = CKRecordID(recordName: currentTopic.ID)
+	public static func update(currentTopic topic: ObjectID, object: Meeting) {
+		let topicRecordID = CKRecordID(recordName: topic)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
 		update(operation: UpdateOperation.currentTopic, attribute: "currentTopic", value: topicReference as CKRecordValue, object: object)
 	}
 	
 	
-	public static func update(addParticipant participant: User, object: Meeting) {
-		let userRecordID = CKRecordID(recordName: participant.ID)
+	public static func add(participant: ObjectID, object: Meeting) {
+		let userRecordID = CKRecordID(recordName: participant)
 		let userReference = CKReference(recordID: userRecordID, action: .none)
 		
 		update(operation: .addParticipant, attribute: "participants", value: userReference, object: object)
 	}
 	
-	public static func update(removeParticipant participant: Topic, object: Meeting) {
-		let userRecordID = CKRecordID(recordName: participant.ID)
+	public static func remove(participant: ObjectID, object: Meeting) {
+		let userRecordID = CKRecordID(recordName: participant)
 		let userReference = CKReference(recordID: userRecordID, action: .none)
 		
 		update(operation: UpdateOperation.removeParticipant, attribute: "participants", value: userReference as CKRecordValue, object: object)
 	}
 	
-	public static func update(addTopic topic: Topic, object: Meeting) {
-		let topicRecordID = CKRecordID(recordName: topic.ID)
+	public static func add(topic: ObjectID, object: Meeting) {
+		let topicRecordID = CKRecordID(recordName: topic)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
 		update(operation: UpdateOperation.addTopic, attribute: "topics", value: topicReference as CKRecordValue, object: object)
 	}
 	
-	public static func update(removeTopic topic: Topic, object: Meeting) {
-		let topicRecordID = CKRecordID(recordName: topic.ID)
+	public static func remove(topic: ObjectID, object: Meeting) {
+		let topicRecordID = CKRecordID(recordName: topic)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
 		update(operation: UpdateOperation.removeTopic, attribute: "topics", value: topicReference as CKRecordValue, object: object)
@@ -232,8 +234,8 @@ class CloudKitMapper {
 	
 	
 	// Topic update operations
-	public static func update(addComment comment: Comment, object: Topic) {
-		let commentRecordID = CKRecordID(recordName: comment.ID)
+	public static func add(comment: ObjectID, object: Topic) {
+		let commentRecordID = CKRecordID(recordName: comment)
 		let commentReference = CKReference(recordID: commentRecordID, action: .none)
 
 		
@@ -462,7 +464,7 @@ class CloudKitMapper {
 		return user
 	}
 	
-	public static func createRecord(fromMeeting meeting: Meeting) -> CKRecord { // return the record. Another method will take it and save it.
+	public static func createRecord(fromMeeting meeting: Meeting) {
 		let recordID = CKRecordID(recordName: meeting.ID)
 		let record = CKRecord(recordType: "Meeting", recordID: recordID)
 		
@@ -515,7 +517,7 @@ class CloudKitMapper {
 		
 		record["topics"] = topics as CKRecordValue
 		
-		return record
+		saveRecord(record)
 	}
 
 	// TODO: createRecord for Topic, Subject, Comment and User

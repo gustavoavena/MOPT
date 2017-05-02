@@ -60,10 +60,20 @@ class Topic: NSObject, MoptObject {
 		self.meetingID = meetingID
 	}
 	
+	// Use this
+	convenience init(ID: String, title: String, creator creatorID: ObjectID, meeting meetingID: ObjectID, subject subjectID: ObjectID?, info: String?) {
+		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID)
+		self.subjectID = subjectID
+		self.info = info
+	}
+
+	
 	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID, subjectID: ObjectID) {
 		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID)
 		self.subjectID = subjectID
 	}
+	
+	
 	
 	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID,  expectedDuration: TimeInterval) {
 		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID)

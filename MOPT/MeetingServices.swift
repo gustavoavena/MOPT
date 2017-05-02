@@ -6,9 +6,9 @@
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
-import UIKit
-import CloudKit
+import Foundation
 
+/*
 class MeetingServices: NSObject, MeetingDelegate {
     
     let ckHandler: CloudKitHandler
@@ -251,7 +251,52 @@ class MeetingServices: NSObject, MeetingDelegate {
 
 
 }
+*/
 
+extension Meeting: NewMeetingDelegate {
+	
+	
+	static func create(title: String, date: Date, creator: ObjectID) -> Meeting {
+		let ID: String = String(format: "%@:%@:%@", title, creator, date.description)
+		let meeting = Meeting(ID: ID, title: title, date: date, creatorID: creator)
+		Cache.set(inCache: .meeting, withID: ID, object: meeting)
+		
+		CloudKitMapper.createRecord(fromMeeting: meeting) // Saves it to the DB
+		
+		return meeting
+	}
+	
+	func add(participant ID: ObjectID) {
+		participantIDs.append(ID)
+		CloudKitMapper.add(participant: ID, object: self)
+	}
+	
+	func remove(participant ID: ObjectID) {
+		if let index = participantIDs.index(of: ID) {
+			participantIDs.remove(at: index)
+			CloudKitMapper.remove(participant: ID, object: self)
+		} else {
+			print("Couldn't remove participant")
+		}
+	}
+	
+	func add(topic ID: ObjectID) {
+		topicIDs.append(ID)
+		CloudKitMapper.add(topic: ID, object: self)
+	}
+	
+	func remove(topic ID: ObjectID) {
+		if let index = topicIDs.index(of: ID) {
+			participantIDs.remove(at: index)
+			CloudKitMapper.remove(topic: ID, object: self)
+		} else {
+			print("Couldn't remove topic")
+		}
+	}
+
+	// TODO: subject services.
+	
+}
 
 
 

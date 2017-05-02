@@ -35,7 +35,7 @@ class Cache: NSObject {
 		}
 	}
 	
-	private static func set(inCache: MoptObjectType, withID ID: ObjectID, object: MoptObject) {
+	public static func set(inCache: MoptObjectType, withID ID: ObjectID, object: MoptObject) {
 		switch inCache {
 		case .meeting:
 			meetings[ID] = (object as! Meeting)
