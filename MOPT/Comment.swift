@@ -38,7 +38,7 @@ class Comment: NSObject, MoptObject {
 		}
 	}
 	
-	public static var comments: [String: Comment] = [String: Comment]()
+	
 	
 	init(ID: String, creatorID: ObjectID, text: String, topicID: ObjectID) {
 		self.ID = ID

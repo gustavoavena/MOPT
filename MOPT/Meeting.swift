@@ -12,8 +12,7 @@ import Foundation
 
 
 class Meeting: NSObject, MoptObject {
-	private static var meetings: [String: Meeting] = [String: Meeting]() // TODO: use internal??
-	static var fetching: [ObjectID: DBStatus] = [ObjectID:DBStatus]() // TODO: set default to false
+	
 	
 	let ID: ObjectID
 	let creatorID: ObjectID
@@ -88,39 +87,7 @@ class Meeting: NSObject, MoptObject {
 	// TODO: user setters instead of observers??
 	
 	
-	public static func get(meetingWithID ID: ObjectID) -> Meeting? { // TODO: Abstract to MoptObject class??
 		
-		
-		if let m = Meeting.meetings[ID] {
-				return m
-		} else if (fetching[ID] ?? .empty) == DBStatus.empty {
-			fetching[ID] = DBStatus.fetching
-			
-			CloudKitMapper.create(objectType: .meeting, fromID: ID) { (object) in
-				
-				guard let meeting = object as? Meeting else {
-					fetching[ID] = .notFound
-					return
-				}
-				Meeting.meetings[ID] = meeting
-				fetching[ID] = .found
-			}
-			
-			return get(meetingWithID: ID)
-		} else {
-			while(fetching[ID] == DBStatus.fetching) {} // Wait until operation finishes.
-			
-			if fetching[ID] == .found {
-				fetching[ID] = .empty
-				return get(meetingWithID:ID)
-			} else { // Not found
-				fetching[ID] = .empty
-				return nil
-			}
-		}
-		
-	}
-	
 
 	
 }

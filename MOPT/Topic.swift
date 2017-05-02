@@ -9,8 +9,7 @@
 import Foundation
 
 class Topic: NSObject, MoptObject {
-	public static var topics: [String: Topic] = [String: Topic]()
-	static var fetching: [ObjectID: DBStatus] = [ObjectID:DBStatus]() // TODO: set default to false
+	
 	
 	let ID: ObjectID
 	let meetingID: ObjectID // TODO: fix inheritance problem.
@@ -80,36 +79,36 @@ class Topic: NSObject, MoptObject {
 		self.expectedDuration = expectedDuration
 	}
 	
-	public static func get(topicWithID ID: ObjectID) -> Topic? {
-		
-		if let m = Topic.topics[ID] {
-			return m
-		} else if (fetching[ID] ?? .empty) == DBStatus.empty { // Default value to empty
-			fetching[ID] = DBStatus.fetching
-			
-			CloudKitMapper.create(objectType: .meeting, fromID: ID) { (object) in
-				
-				guard let meeting = object as? Topic else {
-					fetching[ID] = .notFound
-					return
-				}
-				Topic.topics[ID] = meeting
-				fetching[ID] = .found
-			}
-			
-			return get(topicWithID: ID)
-		} else {
-			while(fetching[ID] == DBStatus.fetching) {} // Wait until operation finishes.
-			
-			if fetching[ID] == .found {
-				fetching[ID] = .empty
-				return get(topicWithID:ID)
-			} else { // Not found
-				fetching[ID] = .empty
-				return nil
-			}
-		}
-		
-	}
+//	public static func get(topicWithID ID: ObjectID) -> Topic? {
+//		
+//		if let m = Topic.topics[ID] {
+//			return m
+//		} else if (fetching[ID] ?? .empty) == DBStatus.empty { // Default value to empty
+//			fetching[ID] = DBStatus.fetching
+//			
+//			CloudKitMapper.create(objectType: .meeting, fromID: ID) { (object) in
+//				
+//				guard let meeting = object as? Topic else {
+//					fetching[ID] = .notFound
+//					return
+//				}
+//				Topic.topics[ID] = meeting
+//				fetching[ID] = .found
+//			}
+//			
+//			return get(topicWithID: ID)
+//		} else {
+//			while(fetching[ID] == DBStatus.fetching) {} // Wait until operation finishes.
+//			
+//			if fetching[ID] == .found {
+//				fetching[ID] = .empty
+//				return get(topicWithID:ID)
+//			} else { // Not found
+//				fetching[ID] = .empty
+//				return nil
+//			}
+//		}
+//		
+//	}
 
 }

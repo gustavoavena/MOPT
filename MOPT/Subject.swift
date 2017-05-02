@@ -9,7 +9,7 @@
 import Foundation
 
 class Subject: NSObject, MoptObject {
-	public static var subjects: [String: Subject] = [String: Subject]()
+	
 	
 	let ID: ObjectID
 	let meetingID: ObjectID
