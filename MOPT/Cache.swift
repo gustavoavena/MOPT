@@ -32,9 +32,6 @@ class Cache: NSObject {
 			return users[ID]
 		case .subject:
 			return subjects[ID]
-		default:
-			print("Object cache not found")
-			return nil
 		}
 	}
 	
@@ -50,8 +47,6 @@ class Cache: NSObject {
 			users[ID] = (object as! User)
 		case .subject:
 			subjects[ID] = (object as! Subject)
-		default:
-			print("Object cache not found")
 		}
 	}
 	

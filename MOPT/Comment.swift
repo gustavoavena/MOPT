@@ -13,28 +13,17 @@ class Comment: NSObject, MoptObject {
 	let createdAt: Date = Date()
 	let creatorID: ObjectID
 	let topicID: ObjectID
-	var text: String
+	
+	var text: String // TODO: observer didSet that doesn't allow nil
 	
 	var topic: Topic {
 		get {
-			if let topic = Topic.topics[ID] {
-				return topic
-			} else {
-				print("Couldn't find Comment's topic.")
-				// TODO: fetch record and create object
-				return Topic.topics[ID]! // TODO: remove this
-			}
+			return Cache.get(objectType: .topic, objectWithID: topicID) as! Topic // TODO: make sure this is never nil!
 		}
 	}
 	var creator: User {
 		get {
-			if let creator = User.users[ID] {
-				return creator
-			} else {
-				print("Couldn't find Comment's user.")
-				// TODO: fetch record and create object
-				return User.users[ID]! // TODO: remove this
-			}
+			return Cache.get(objectType: .user, objectWithID: creatorID) as! User // TODO: make sure this is never nil!
 		}
 	}
 	

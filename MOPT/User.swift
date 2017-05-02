@@ -22,8 +22,7 @@ class User: NSObject, MoptObject {
 			var _meetings = [Meeting]()
 			
 			for id in meetingsIDs {
-				m = Meeting.get(meetingByID: id)
-				if let m = Meeting.meetings[id] {
+				if let m = Cache.get(objectType: .meeting, objectWithID: id) as? Meeting {
 					_meetings.append(m)
 				}
 			}

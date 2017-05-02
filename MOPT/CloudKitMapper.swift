@@ -20,6 +20,7 @@ enum MoptObjectType {
 	case subject
 }
 
+// TODO: split by object type?
 // Define possible UpdateOperations for objects
 enum UpdateOperation {
 	case title
@@ -32,8 +33,11 @@ enum UpdateOperation {
 	case addTopic
 	case removeTopic
 	case removeParticipant
-	// TODO: assign callbacks to the enum values?
-	// TODO: split by object type?
+
+	// Meeting
+//	case removeCurrentTopic
+	
+	
 	
 	// Topic
 	case addComment
@@ -85,6 +89,11 @@ class CloudKitMapper {
 	// Directly assign attributes to the record that follow the protocol CKRecordValue
 	private static func assign(attribute: String, value: CKRecordValue, record: CKRecord) {
 		record[attribute] = value
+		saveRecord(record)
+	}
+	
+	private static func unset(attribute: String, record: CKRecord) {
+		record[attribute] = nil
 		saveRecord(record)
 	}
 	
@@ -150,8 +159,6 @@ class CloudKitMapper {
 					self.add(attribute: attribute, value: value, record: record)
 				case .removeTopic, .removeParticipant:
 					self.remove(attribute: attribute, value: value, record: record)
-				default:
-					print("Update operation not found.") // TODO: define error
 				}
 				
 			} else {
@@ -186,12 +193,14 @@ class CloudKitMapper {
 	
 
 	// TODO: implement authorization (permissions)
-	public static func update(currentTopicID: ObjectID, object: Meeting) {
-		let topicRecordID = CKRecordID(recordName: currentTopicID)
+	// TODO: set currentTopic to nil.
+	public static func update(currentTopic: Topic, object: Meeting) {
+		let topicRecordID = CKRecordID(recordName: currentTopic.ID)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
 		update(operation: UpdateOperation.currentTopic, attribute: "currentTopic", value: topicReference as CKRecordValue, object: object)
 	}
+	
 	
 	public static func update(addParticipant participant: User, object: Meeting) {
 		let userRecordID = CKRecordID(recordName: participant.ID)
@@ -260,11 +269,13 @@ class CloudKitMapper {
 				print("Error fetching record.")
 				print(error.debugDescription)
 				completionHandler(nil)
+				return
 			}
 			
 			guard let record = record else {
 				print("No record found on CloudKit.") // TODO: define error.
 				completionHandler(nil)
+				return
 			}
 			
 			var object: MoptObject?
@@ -380,47 +391,49 @@ class CloudKitMapper {
 			topic.commentIDs = commentIDs
 		}
 		
-		
 		return topic
 	}
 	
-	public static func createSubtopic(fromRecord record: CKRecord) -> Subtopic? {
-		let ID = record.recordID.recordName
-		var subtopic: Subtopic
-		var creatorID: ObjectID
-		var topicID: ObjectID
-		
-		if let creatorReference = record["creator"] as? CKReference, let topicReference =  record["topic"] as? CKReference {
-			creatorID = creatorReference.recordID.recordName
-			topicID = topicReference.recordID.recordName
-		} else {
-			print("Couldn't initialize topic's user and/or meeting.")
-			return nil
-		}
-		
-		guard let title = record["title"] as? String else {
-			print("Couldnt create meeting object.")
-			return nil
-		}
-		
-		subtopic = Subtopic(ID: ID, title: title, creatorID: creatorID, parentTopicID: topicID)
-		
-		if let conclusion = record["conclusion"] as? String {
-			subtopic.conclusion = conclusion
-		}
-		
-		var commentIDs: [ObjectID] = [ObjectID]()
-		
-		if let commentReferences = record["comment"] as? [CKReference] {
-			for cr in commentReferences {
-				commentIDs.append(cr.recordID.recordName)
-			}
-			subtopic.commentIDs = commentIDs
-		}
-		
-		
-		return subtopic
-	}
+	
+	// TODO: createSubject(fromRecord record: CKRecord) -> Subject?
+	
+//	public static func createSubtopic(fromRecord record: CKRecord) -> Subtopic? {
+//		let ID = record.recordID.recordName
+//		var subtopic: Subtopic
+//		var creatorID: ObjectID
+//		var topicID: ObjectID
+//		
+//		if let creatorReference = record["creator"] as? CKReference, let topicReference =  record["topic"] as? CKReference {
+//			creatorID = creatorReference.recordID.recordName
+//			topicID = topicReference.recordID.recordName
+//		} else {
+//			print("Couldn't initialize topic's user and/or meeting.")
+//			return nil
+//		}
+//		
+//		guard let title = record["title"] as? String else {
+//			print("Couldnt create meeting object.")
+//			return nil
+//		}
+//		
+//		subtopic = Subtopic(ID: ID, title: title, creatorID: creatorID, parentTopicID: topicID)
+//		
+//		if let conclusion = record["conclusion"] as? String {
+//			subtopic.conclusion = conclusion
+//		}
+//		
+//		var commentIDs: [ObjectID] = [ObjectID]()
+//		
+//		if let commentReferences = record["comment"] as? [CKReference] {
+//			for cr in commentReferences {
+//				commentIDs.append(cr.recordID.recordName)
+//			}
+//			subtopic.commentIDs = commentIDs
+//		}
+//		
+//		
+//		return subtopic
+//	}
 
 
 	public static func createUser(fromRecord record: CKRecord) -> User? {
