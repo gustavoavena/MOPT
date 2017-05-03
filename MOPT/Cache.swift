@@ -51,27 +51,26 @@ class Cache: NSObject {
 	}
 	
 
+	// TODO: add this to MoptObject class?
 	public static func get(objectType: MoptObjectType, objectWithID ID: ObjectID) -> MoptObject? {
 		let semaphore: DispatchSemaphore = DispatchSemaphore(value: 0)
 		
 		if let object = get(fromCache: objectType, withID: ID) {
 			return object
 		} else  {
-			CloudKitMapper.create(objectType: objectType, fromID: ID) { (object) in
+			CloudKitMapper.get(object: objectType, fromID: ID) { (response) in
 				
-				guard let object = object else {
-					semaphore.signal()
-					return
+				if let object = response {
+					Cache.set(inCache: objectType, withID: ID, object: object)
+					print("Object \(object) found.")
 				}
-
-				Cache.set(inCache: objectType, withID: ID, object: object)
 				
 				semaphore.signal()
 			}
+			
+			semaphore.wait()
+			return get(fromCache: objectType, withID: ID)
 		}
-		
-		semaphore.wait()
-		return get(fromCache: objectType, withID: ID)
 	}
 	
 	

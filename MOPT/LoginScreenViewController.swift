@@ -13,7 +13,7 @@ import Dispatch
 
 class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-    fileprivate var userDelegate: UserDelegate
+    fileprivate var userDelegate: UserServices
     fileprivate let ckHandler: CloudKitHandler
     
     //creating facebook login button instance
@@ -55,28 +55,42 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 if let userInfo = response {
                     
-                    print("Fetched facebook's user info.")
-                    
-                    let userName = userInfo["name"] as! String
-                    let userEmail = userInfo["email"] as! String
-                    let userID = userInfo["id"] as! String
-                    let userPictureURL = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")!
-                    
-                    let userRecordID = CKRecordID(recordName: userID)
-                    self.ckHandler.fetchByRecordID(recordID: userRecordID) {
-                        (response, error) in
-                        
-                        if let userRecord = response {
-                            let currentUser = CurrentUser.shared()
-                            currentUser.userRecordID = userRecord.recordID // Logged user in
-							let userServices = UserServices()
-							userServices.downloadImage(imageURL: userPictureURL, userRecordID: userRecord.recordID)
-							
-                        } else {
-                            self.userDelegate.createUser(fbID: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
-                        }
-                        self.startupButton.isUserInteractionEnabled = true
-                    }
+                    print("Fetched user's Facebook info.")
+					
+					var user = Cache.get(objectType: .user, objectWithID: userInfo["id"] as! ObjectID) as? User
+					
+					if user == nil {
+						let urlString = "http://graph.facebook.com/\(userInfo["id"] as! String)/picture?type=large"
+						user = User.create(ID: userInfo["id"] as! ObjectID, name: userInfo["name"] as! String, email: userInfo["email"] as! String, profilePictureURL: urlString)
+					}
+					
+					let currentUser = CurrentUser.shared()
+					currentUser.userID = user!.ID // TODO: fix this!
+					// Logged user in
+					self.startupButton.isUserInteractionEnabled = true
+					
+					
+					
+//                    let userName = userInfo["name"] as! String
+//                    let userEmail = userInfo["email"] as! String
+//                    let userID = userInfo["id"] as! String
+//                    let userPictureURL = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")!
+//                    
+//                    let userRecordID = CKRecordID(recordName: userID)
+//                    self.ckHandler.fetchByRecordID(recordID: userRecordID) {
+//                        (response, error) in
+//                        
+//                        if let userRecord = response {
+//                            let currentUser = CurrentUser.shared()
+//                            currentUser.userRecordID = userRecord.recordID // Logged user in
+//							let userServices = UserServices()
+//							userServices.downloadImage(imageURL: userPictureURL, userRecordID: userRecord.recordID)
+//							
+//                        } else {
+//                            self.userDelegate.createUser(fbID: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
+//                        }
+//						  self.startupButton.isUserInteractionEnabled = true
+//                    }
                 }
             }
             
@@ -115,23 +129,23 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                     let userPictureURL = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")!
                     
                     let userRecordID = CKRecordID(recordName: userID)
-                    self.ckHandler.fetchByRecordID(recordID: userRecordID) {
-                        (response, error) in
-                        
-                        
-                        if let userRecord = response {
-                            let currentUser = CurrentUser.shared()
-                            currentUser.userRecordID = userRecord.recordID // Logged user in
-                        } else {
-                            self.userDelegate.createUser(fbID: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
-                        }
-                        self.startupButton.isUserInteractionEnabled = true
-                    }
+//                    self.ckHandler.fetchByRecordID(recordID: userRecordID) {
+//                        (response, error) in
+//                        
+//                        
+//                        if let userRecord = response {
+//                            let currentUser = CurrentUser.shared()
+//                            currentUser.userRecordID = userRecord.recordID // Logged user in
+//                        } else {
+//                            self.userDelegate.createUser(fbID: userID, name: userName, email: userEmail, profilePictureURL: userPictureURL)
+//                        }
+//                        self.startupButton.isUserInteractionEnabled = true
+//                    }
                 }
             })
         }
     }
-    
+	
     
     //loginButtonDidLogOut: called when user logs out
     public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {

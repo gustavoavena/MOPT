@@ -257,7 +257,7 @@ class CloudKitMapper {
 	}
 	
 	
-	public static func create(objectType: MoptObjectType, fromID ID: ObjectID, completionHandler: @escaping (MoptObject?) -> Void) {
+	public static func get(object objectType: MoptObjectType, fromID ID: ObjectID, completionHandler: @escaping (MoptObject?) -> Void) {
 		// fetch record and call the method to create object from record.
 		// will this be synchronous??
 		// Does completionHandler need an Error? It will be used in the view... it should be simple.
@@ -425,6 +425,12 @@ class CloudKitMapper {
 		
 		
 		user = User(ID: ID, name: name, email: email, profilePictureURL: url)
+		
+		if let meetingIDs = record["meetingIDs"] as? [ObjectID] {
+			for id in meetingIDs {
+				user.meetingsIDs.append(id)
+			}
+		}
 		
 		
 		return user

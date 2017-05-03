@@ -7,38 +7,14 @@
 //
 
 import UIKit
-//import CloudKit
+import CloudKit
 import FBSDKLoginKit
 
 
-/*
-class UserServices: NSObject, UserDelegate {
+
+class UserServices: NSObject {
     
-    let ckHandler: CloudKitHandler
-    
-    override init() {
-        ckHandler = CloudKitHandler()
-    }
-    
-    func createUser(fbID: String, name: String, email: String, profilePictureURL: URL) {
-        let recordID = CKRecordID(recordName: String(fbID))
-        let userRecord = CKRecord(recordType: "User", recordID: recordID)
-        
-        print("Creating user \(name) with fbID = \(String(describing: String(fbID)))")
-        
-        userRecord["name"] = name as NSString
-        userRecord["email"] = email as NSString
-        userRecord["fbID"] = fbID as NSString
-        userRecord["profilePictureURL"] = profilePictureURL.absoluteString as NSString
-        
-        // Logs user in:
-        let currentUser = CurrentUser.shared()
-        currentUser.userRecordID = userRecord.recordID // logged in
-        
-        self.ckHandler.saveRecord(record: userRecord)
-        
-    }
-    
+
     //fetching user's facebook information
     func fetchFacebookUserInfo(completionHandler:@escaping ([String:Any]?, Error?) -> Void) {
         
@@ -57,48 +33,32 @@ class UserServices: NSObject, UserDelegate {
     }
     
 
-    public func getUserRecordFromEmail(email: String, completionHandler: @escaping (CKRecord?, Error?) -> Void) {
-        let predicate = NSPredicate(format: "email == %@", email)
-        let query = CKQuery(recordType: "User", predicate: predicate)
-        
-        self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
-            (results, error) in
-            
-            guard error == nil && results != nil else {
-                print("error getting user record by email.")
-                return
-            }
-            
-            let records = results!
-            
-            if records.count > 0 {
-                completionHandler(records[0], nil)
-            } else {
-                completionHandler(nil, QueryError.UserByEmail)
-            }
-            
-        }
-        
-        
-    }
-    
-    
-    func getUserProfilePictureURL(userReference: CKReference, completionHandler: @escaping (URL?, Error?) -> Void) {
-        fetchFacebookUserInfo {
-            (userInfo, error) in
-            
-            guard error == nil && userInfo != nil else {
-                print("error getting user's facebook profile picture URL")
-                return
-            }
-            
-            let userID = CKRecordID(recordName: userInfo?["id"] as! String)
-            let userPictureURL = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")!
-            completionHandler(userPictureURL, error)
-        }
-    }
-    
-    
+//    public func getUserRecordFromEmail(email: String, completionHandler: @escaping (CKRecord?, Error?) -> Void) {
+//        let predicate = NSPredicate(format: "email == %@", email)
+//        let query = CKQuery(recordType: "User", predicate: predicate)
+//        
+//        self.ckHandler.publicDB.perform(query, inZoneWith: nil) {
+//            (results, error) in
+//            
+//            guard error == nil && results != nil else {
+//                print("error getting user record by email.")
+//                return
+//            }
+//            
+//            let records = results!
+//            
+//            if records.count > 0 {
+//                completionHandler(records[0], nil)
+//            } else {
+//                completionHandler(nil, QueryError.UserByEmail)
+//            }
+//            
+//        }
+//        
+//        
+//    }
+	
+
     func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void) {
         fetchFacebookUserInfo {
             (userInfo, error) in
@@ -114,14 +74,14 @@ class UserServices: NSObject, UserDelegate {
     }
     
     
-	func downloadImage(imageURL: URL, userRecordID: CKRecordID) {
+	func downloadImage(imageURL: URL, userID: ObjectID) {
         print("Download of \(imageURL) started")
         
         var urlStr = imageURL.absoluteString
         urlStr = urlStr.replacingOccurrences(of: "http", with: "https")
 		
 		let documentsDirectory = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-		let fileName = documentsDirectory.appendingPathComponent(String(format: "%@ProfilePicture.jpg", userRecordID.recordName))
+		let fileName = documentsDirectory.appendingPathComponent(String(format: "%@ProfilePicture.jpg", userID))
 		
 		
         
@@ -141,7 +101,7 @@ class UserServices: NSObject, UserDelegate {
 				
 				do {
 					try data.write(to: fileName)
-					print("User \(userRecordID.recordName)'s profile picture saved successfully")
+					print("User \(userID)'s profile picture saved successfully")
 				}
 				catch {
 					print("Error when trying to save profile picture")
@@ -153,7 +113,7 @@ class UserServices: NSObject, UserDelegate {
             print("Download of \(imageURL) finished")
             }.resume()
     }
-} */
+}
 
 
 
@@ -175,7 +135,7 @@ extension User: UserDelegate {
 	}
 	
 	
-	func getUser(fromEmail: String) -> User? {
+	func getUser(withEmail: String) -> User? {
 		// TODO: fazer query e pegar objeto. Implementar o query no CloudKitMapper. Vai dar trabalho.
 		return nil
 	}

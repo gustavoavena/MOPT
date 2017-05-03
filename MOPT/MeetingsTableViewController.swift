@@ -13,34 +13,27 @@ import CloudKit
 
 class MeetingsTableViewController: UITableViewController {
     
-    public private(set) var meetings = [CKRecord]()
-    private let meetingServices = MeetingServices()
-    
+    public private(set) var meetings = [Meeting]()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
-        loadMeetings(CurrentUser.shared().userRecordID!, true)
+		self.meetings = loadMeetings(fromUser: CurrentUser.shared().userID!, true)
         print("Loaded meetings view")
     
     }
 
-    func loadMeetings(_ userId: CKRecordID, _ next: Bool){
-        
-        meetingServices.getUserMeetings(userRecordID: userId, next) {
-            (meetingRecords, error) in
-            guard error == nil else {
-                print("Error fetching meeting")
-                return
-            }
-            self.meetings = meetingRecords
-            OperationQueue.main.addOperation({
-                self.tableView.reloadData()
-                self.refreshControl?.endRefreshing()
-            })
-        }
-    }
+    func loadMeetings(fromUser userId: ObjectID, _ next: Bool) -> [Meeting] {
+		
+		if let user = Cache.get(objectType: .user, objectWithID: userId) as? User {
+			return user.meetings
+		} else {
+			return [Meeting]()
+		}
+		
+	}
 	
 	
     
@@ -68,35 +61,35 @@ class MeetingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as! MeetingsTableViewCell
-        
+		
+		let meeting: Meeting = self.meetings[indexPath.row]
         let dateFormatter = DateFormatter()
         let timeFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM"
         timeFormatter.dateFormat = "HH:mm"
         
-        cell.meetingName.text = self.meetings[indexPath.row]["title"] as? String
-        cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
-        cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
+        cell.meetingName.text = meeting.title
+        cell.meetingTime.text = "\(timeFormatter.string(from:meeting.date))"
+        cell.meetingDate.text = "\(dateFormatter.string(from:meeting.date))"
         cell.moderatorPicture.image = UIImage(named:"example") // Setting profile picture as default, in case query doesn't work.
 		
-		let moderatorReference =  self.meetings[indexPath.row]["moderator"] as! CKReference
 		
-        return TableViewHelper.loadCellProfilePicture(userRecordID: moderatorReference.recordID, cell: cell)
+        return TableViewHelper.loadCellProfilePicture(fromUser: meeting.creator.ID, cell: cell)
 		
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToTopics",
-            let segueDestination = segue.destination as? TopicsTableViewController,
-            let indexPath = self.tableView.indexPathForSelectedRow {
-            let selectedMeeting = meetings[indexPath.row]
-            print("selectedMeeting = \(selectedMeeting)") // TODO: Remove it
-            segueDestination.currentMeeting = selectedMeeting
-        }
-    }
-    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "segueToTopics",
+//            let segueDestination = segue.destination as? TopicsTableViewController,
+//            let indexPath = self.tableView.indexPathForSelectedRow {
+//            let selectedMeeting = meetings[indexPath.row]
+//            print("selectedMeeting = \(selectedMeeting)") // TODO: Remove it
+//            segueDestination.currentMeeting = selectedMeeting
+//        }
+//    }
+	
     func handleRefresh(refreshControl: UIRefreshControl) {
-        loadMeetings(CurrentUser.shared().userRecordID!, true)
+		self.meetings = loadMeetings(fromUser: CurrentUser.shared().userID!, true)
        
     }
 
