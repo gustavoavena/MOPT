@@ -9,7 +9,6 @@
 import CloudKit
 import Dispatch
 
- // TODO: replace String with ObjectID where it is proper.
 
 
 enum MoptObjectType {
@@ -21,7 +20,7 @@ enum MoptObjectType {
 }
 
 // TODO: split by object type?
-// Define possible UpdateOperations for objects
+// Defines possible UpdateOperations for objects
 enum UpdateOperation {
 	case title
 	case startTime
@@ -54,20 +53,20 @@ enum UpdateOperation {
 /*
 
 Basic workflow for update operations:
-1) Someone calls the update with the proper signature for each record attribute.
-2) this update method calls the "big" one that is common to everyone.
-3) The switch statement inside this "big" update method will call the proper assign method to update the record and save it.
+1) Someone calls the update/add/remove with the proper signature for each record attribute.
+2) this update method calls the "main" update method.
+3) The switch statement inside this "main" update method will call the proper assign/add/remove method to update the record and save it.
 
 */
 
 class CloudKitMapper {
 	
 	private static let publicDB: CKDatabase = CKContainer.default().publicCloudDatabase
-	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
+//	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
 	
 	
 	
-	private static func saveRecord(_ record: CKRecord) {
+	private static func save(record: CKRecord) {
 		
 		print("Attempting to save record \(record.recordID.recordName).")
 		
@@ -91,12 +90,12 @@ class CloudKitMapper {
 	// Directly assign attributes to the record that follow the protocol CKRecordValue
 	private static func assign(attribute: String, value: CKRecordValue, record: CKRecord) {
 		record[attribute] = value
-		saveRecord(record)
+		save(record: record)
 	}
 	
 	private static func unset(attribute: String, record: CKRecord) {
 		record[attribute] = nil
-		saveRecord(record)
+		save(record: record)
 	}
 	
 	
@@ -113,7 +112,7 @@ class CloudKitMapper {
 			record[attribute] = array as CKRecordValue
 		}
 		
-		saveRecord(record)
+		save(record: record)
 	}
 	
 	private static func remove(attribute: String, value: CKRecordValue, record: CKRecord) {
@@ -131,7 +130,7 @@ class CloudKitMapper {
 			print("Couldn't find the \(attribute) in the array (array is empty).")
 		}
 		
-		saveRecord(record)
+		save(record: record)
 	}
 	
 
@@ -267,7 +266,7 @@ class CloudKitMapper {
 		publicDB.fetch(withRecordID: recordID) {
 			(record, error) in
 			
-			guard error != nil else {
+			guard error == nil else {
 				print("Error fetching record.")
 				print(error.debugDescription)
 				completionHandler(nil)
@@ -484,7 +483,7 @@ class CloudKitMapper {
 		
 		record["topics"] = topics as CKRecordValue
 		
-		saveRecord(record)
+		save(record: record)
 	}
 
 	// TODO: createRecord for Topic, Subject, Comment and User

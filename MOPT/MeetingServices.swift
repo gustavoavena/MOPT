@@ -253,7 +253,7 @@ class MeetingServices: NSObject, MeetingDelegate {
 }
 */
 
-extension Meeting: NewMeetingDelegate {
+extension Meeting: MeetingDelegate {
 	
 	
 	static func create(title: String, date: Date, creator: ObjectID) -> Meeting {

@@ -157,8 +157,8 @@ class UserServices: NSObject, UserDelegate {
 
 
 
-extension User: NewUserDelegate {
-	func create(ID: ObjectID, name: String, email: String, profilePictureURL: String) -> User {
+extension User: UserDelegate {
+	static func create(ID: ObjectID, name: String, email: String, profilePictureURL: String) -> User {
 		
 		guard let url = URL(string: profilePictureURL) else {
 			print("Couldn't create profile picture URL") // TODO: deal with this!

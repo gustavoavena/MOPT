@@ -34,9 +34,9 @@ protocol CommentDelegate {
 
 
 protocol UserDelegate {
-	func create(ID: ObjectID, name: String, email: String, profilePictureURL: String) -> User
-	func getUser(fromEmail: String) -> User?
-	func fetchFacebookUserInfo(completionHandler:@escaping ([String:Any]?, Error?) -> Void)
+	static func create(ID: ObjectID, name: String, email: String, profilePictureURL: String) -> User
+//	func getUser(fromEmail: String) -> User?
+//	func fetchFacebookUserInfo(completionHandler:@escaping ([String:Any]?, Error?) -> Void)
 	//    func getCurrentUserRecordID(completionHandler: @escaping (CKRecordID?, Error?) -> Void)
 }
 

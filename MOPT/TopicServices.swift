@@ -194,7 +194,7 @@ class TopicServices: NSObject, TopicDelegate {
 */
 
 
-extension Topic: NewTopicDelegate {
+extension Topic: TopicDelegate {
 	
 	static func create(title: String, meeting meetingID: ObjectID, creator creatorID: ObjectID, subject subjectID: ObjectID?, info: String?) -> Topic {
 		let ID: String = String(format: "%@:%@:%@", title, meetingID, creatorID)
