@@ -9,26 +9,28 @@
 import Foundation
 
 
-
-
 class Meeting: NSObject, MoptObject {
-	private static var meetings: [String: Meeting] = [String: Meeting]() // TODO: use internal??
+	public static var meetings: [String: Meeting] = [String: Meeting]() // TODO: use internal??
 	static var fetching: [ObjectID: DBStatus] = [ObjectID:DBStatus]() // TODO: set default to false
 	
 	let ID: ObjectID
 	let creatorID: ObjectID
+    
 	var title: String {
 		didSet {
 			CloudKitMapper.update(title: title, object: self)
 		}
 	}
-	var date: Date {
+	
+    var date: Date {
 		didSet {
 			CloudKitMapper.update(date: date, object: self)
 		}
 	}
-	var currentTopicID: ObjectID?
-	var currentTopic: Topic? {
+	
+    var currentTopicID: ObjectID?
+	
+    var currentTopic: Topic? {
 		get {
 			if let ct = currentTopicID, let topic = Topic.get(topicWithID: ct) {
 				return topic
@@ -38,7 +40,8 @@ class Meeting: NSObject, MoptObject {
 			// TODO: currentTopic set to nil?
 		}
 	}
-	var endTime: Date?
+	
+    var endTime: Date?
 	var startTime: Date?
 	var expectedDuration: TimeInterval?
 	var participantIDs: [ObjectID]
@@ -67,8 +70,6 @@ class Meeting: NSObject, MoptObject {
 			return _participants
 		}
 	}
-	
-	
 	
 	
 	init(ID: String, title: String, date: Date, creatorID: ObjectID) {
@@ -107,6 +108,7 @@ class Meeting: NSObject, MoptObject {
 			}
 			
 			return get(meetingWithID: ID)
+            
 		} else {
 			while(fetching[ID] == DBStatus.fetching) {} // Wait until operation finishes.
 			
@@ -118,9 +120,6 @@ class Meeting: NSObject, MoptObject {
 				return nil
 			}
 		}
-		
 	}
-	
-
-	
+    
 }
