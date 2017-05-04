@@ -304,36 +304,6 @@ class CloudKitMapper {
 		}
 		
 	}
-	
-	
-    // Creates User given CKRecord
-    public static func createUser(fromRecord record: CKRecord) -> User? {
-        var user: User
-        let ID = record.recordID.recordName
-        
-        guard let name = record["name"] as? String, let email = record["email"]! as? String else {
-            print("Couldn't create meeting object.")
-            return nil
-        }
-        
-        guard let urlString = record["profilePictureURL"] as? String else {
-            print("profile picture URL string not found in the record.")
-            return nil
-        }
-        
-        guard let url = URL(string: urlString) else {
-            print("Couldn't create URL object from string.")
-            return nil
-        }
-        
-        
-        user = User(ID: ID, name: name, email: email, profilePictureURL: url)
-        
-        Cache.set(inCache: .user, withID: ID, object: user)
-        
-        return user
-    }
-    
 
     // Creates meeting given CKRecord
 	public static func createMeeting(fromRecord record: CKRecord) -> Meeting? {
@@ -424,31 +394,39 @@ class CloudKitMapper {
 		}
 		
 		return topic
-	}
+    }
     
-	
-    // Creates CKRecord given User
-	func createRecord(fromUser user: User) -> CKRecord {
-        let recordID = CKRecordID(recordName: user.ID)
-        let record = CKRecord(recordType: "User", recordID: recordID)
+    
+    // Creates User given CKRecord
+    public static func createUser(fromRecord record: CKRecord) -> User? {
+        var user: User
+        let ID = record.recordID.recordName
         
-        record["name"] = user.name as NSString
-        record["email"] = user.email as NSString
-        record["profilePictureURL"] = user.profilePictureURL as? CKRecordValue
-        
-        var meetings = [CKReference]()
-        for m in user.meetingsIDs {
-            let mRecordID = CKRecordID(recordName: m)
-            let mReference = CKReference(recordID: mRecordID, action: .none)
-            
-            meetings.append(mReference)
+        guard let name = record["name"] as? String, let email = record["email"]! as? String else {
+            print("Couldn't create meeting object.")
+            return nil
         }
         
-        record["meetings"] = meetings as CKRecordValue
+        guard let urlString = record["profilePictureURL"] as? String else {
+            print("profile picture URL string not found in the record.")
+            return nil
+        }
         
-        return record
+        guard let url = URL(string: urlString) else {
+            print("Couldn't create URL object from string.")
+            return nil
+        }
+        
+        
+        user = User(ID: ID, name: name, email: email, profilePictureURL: url)
+        
+        Cache.set(inCache: .user, withID: ID, object: user)
+        
+        return user
     }
+    
 	
+   	
     // Creates CKRecord given Meeting
 	public static func createRecord(fromMeeting meeting: Meeting) -> CKRecord { // return the record. Another method will take it and save it.
 		let recordID = CKRecordID(recordName: meeting.ID)
@@ -506,6 +484,29 @@ class CloudKitMapper {
 		save(record: record)
 	}
     
+    // Creates CKRecord given User
+    func createRecord(fromUser user: User) -> CKRecord {
+        let recordID = CKRecordID(recordName: user.ID)
+        let record = CKRecord(recordType: "User", recordID: recordID)
+        
+        record["name"] = user.name as NSString
+        record["email"] = user.email as NSString
+        record["profilePictureURL"] = user.profilePictureURL as? CKRecordValue
+        
+        var meetings = [CKReference]()
+        for m in user.meetingsIDs {
+            let mRecordID = CKRecordID(recordName: m)
+            let mReference = CKReference(recordID: mRecordID, action: .none)
+            
+            meetings.append(mReference)
+        }
+        
+        record["meetings"] = meetings as CKRecordValue
+        
+        return record
+    }
+    
+
     
     // Creates CKRecord given Subject
     public static func createRecord(fromSubject subject: Subject) -> CKRecord {
