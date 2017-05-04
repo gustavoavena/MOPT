@@ -13,9 +13,15 @@ class Meeting: NSObject, MoptObject {
 	public static var meetings: [String: Meeting] = [String: Meeting]() // TODO: use internal??
 	static var fetching: [ObjectID: DBStatus] = [ObjectID:DBStatus]() // TODO: set default to false
 	
+	
 	let ID: ObjectID
 	let creatorID: ObjectID
-    
+	
+	var creator: User {
+		get {
+			return Cache.get(objectType: .user, objectWithID: creatorID) as! User // TODO: make sure this is never nil!
+		}
+	}
 	var title: String {
 		didSet {
 			CloudKitMapper.update(title: title, object: self)
@@ -28,9 +34,9 @@ class Meeting: NSObject, MoptObject {
 		}
 	}
 	
-    var currentTopicID: ObjectID?
-	
-    var currentTopic: Topic? {
+	var currentTopicID: ObjectID? // TODO: observer didSet that allows nil
+
+	var currentTopic: Topic? {
 		get {
 			if let ct = currentTopicID, let topic = Cache.get(objectType: .topic, objectWithID: ct) as? Topic {
 				return topic
@@ -46,10 +52,9 @@ class Meeting: NSObject, MoptObject {
 			}
 		}
 	}
-	
-    var endTime: Date?
-	var startTime: Date?
-	var expectedDuration: TimeInterval?
+	var endTime: Date? // TODO: observer didSet that allows nil
+	var startTime: Date? // TODO: observer didSet that allows nil
+	var expectedDuration: TimeInterval? // TODO: observer didSet that allows nil
 	var participantIDs: [ObjectID]
 	var topicIDs: [ObjectID] = [ObjectID]()
 	var subjectIDs: [ObjectID] = [ObjectID]()
@@ -94,6 +99,7 @@ class Meeting: NSObject, MoptObject {
 	}
 	
 	// TODO: user setters instead of observers??
+
 	
 	
 	public static func get(meetingWithID ID: ObjectID) -> Meeting? { // TODO: Abstract to MoptObject class??

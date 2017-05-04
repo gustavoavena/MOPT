@@ -65,7 +65,7 @@ class CloudKitMapper {
 //	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
 	
 	// Saves record to public database (CloudKit)
-	private static func saveRecord(_ record: CKRecord) {
+	private static func save(record: CKRecord) {
 		print("Attempting to save record \(record.recordID.recordName).")
 		
 		self.publicDB.save(record) {
@@ -92,6 +92,7 @@ class CloudKitMapper {
 		record[attribute] = nil
 		save(record: record)
 	}
+	
 	
 
 	// Adds a new topic or user to the object
@@ -187,10 +188,12 @@ class CloudKitMapper {
 	static func update(expectedDuration: Double, object: MoptObject) {
 		update(operation: UpdateOperation.expectedDuration, attribute: "expectedDuration", value: expectedDuration as CKRecordValue, object: object)
 	}
-    
 	
-	static func update(currentTopicID: ObjectID, object: Meeting) {
-		let topicRecordID = CKRecordID(recordName: currentTopicID)
+
+	// TODO: implement authorization (permissions)
+	// TODO: set currentTopic to nil.
+	public static func update(currentTopic topic: ObjectID, object: Meeting) {
+		let topicRecordID = CKRecordID(recordName: topic)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
 		update(operation: UpdateOperation.currentTopic, attribute: "currentTopic", value: topicReference as CKRecordValue, object: object)
@@ -326,7 +329,7 @@ class CloudKitMapper {
         
         user = User(ID: ID, name: name, email: email, profilePictureURL: url)
         
-        User.users[ID] = user
+        Cache.set(inCache: .user, withID: ID, object: user)
         
         return user
     }
@@ -363,7 +366,6 @@ class CloudKitMapper {
 		if let expectedDuration = record["expectedDuration"] as? TimeInterval {
 			meeting.expectedDuration = expectedDuration
 		}
-		
 		
 		return meeting
 	}
@@ -446,7 +448,6 @@ class CloudKitMapper {
         
         return record
     }
-
 	
     // Creates CKRecord given Meeting
 	public static func createRecord(fromMeeting meeting: Meeting) -> CKRecord { // return the record. Another method will take it and save it.
@@ -517,11 +518,6 @@ class CloudKitMapper {
         let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
         
         record["meeting"] = meetingReference
-        
-        let creatorRecordID = CKRecordID(recordName: subject.creatorID)
-        let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
-        
-        record["creator"] = creatorReference
         
         var topics = [CKReference]()
         for t in subject.topics {
