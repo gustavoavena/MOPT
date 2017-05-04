@@ -584,18 +584,15 @@ class CloudKitMapper {
 
 
 
-	IMPORTANT: use a Hash table to store all the records and have instant lookup time. The key will be the ID. Everytime you create and object, put it in the hash table. When you wanna find it, just look for it there. If it's not there, fetch from DB.
 
 
+	CloudKit Record Attributes:
 
-
-	TODO (reina):
-
-
-	- Fatalerror (development) nos forced unwraps dos atributos computados que sao obrigatorios.
-	- Erros.
-
-
+	- Comment: createdAt, creatorID, text, topicID.
+	- Meeting: creatorID, currentTopicID, date, endTime, expectedDuration, participantIDs, startTime, title, topicIDs.
+	- Topic: comments, conclusion, creatorID, description, endTime, expectedDuration, meetingID, startTime, title.
+	- User: email, meetingIDs, name, profilePictureURL.
+	- Subject (needs to be created)
 
 
 
