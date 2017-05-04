@@ -533,30 +533,128 @@ class CloudKitMapper {
 		save(record: record)
 	}
 
-	// TODO: createRecord for Topic, Subject, Comment and User
 	
 	
-	// XUPITA
-	public static func createRecord(fromTopic topic: Topic) {
+	// Creates CKRecord given User
+	func createRecord(fromUser user: User) -> CKRecord {
+		let recordID = CKRecordID(recordName: user.ID)
+		let record = CKRecord(recordType: "User", recordID: recordID)
 		
+		record["name"] = user.name as NSString
+		record["email"] = user.email as NSString
+		record["profilePictureURL"] = user.profilePictureURL as? CKRecordValue
+		
+		var meetings = [CKReference]()
+		for m in user.meetingsIDs {
+			let mRecordID = CKRecordID(recordName: m)
+			let mReference = CKReference(recordID: mRecordID, action: .none)
+			
+			meetings.append(mReference)
+		}
+		
+		record["meetings"] = meetings as CKRecordValue
+		
+		return record
 	}
 	
-	// XUPITA
-	public static func createRecord(fromUser user: User) {
+	
+	
+	// Creates CKRecord given Subject
+	public static func createRecord(fromSubject subject: Subject) -> CKRecord {
+		let recordID = CKRecordID(recordName: subject.ID)
+		let record = CKRecord(recordType: "Subject", recordID: recordID)
 		
+		record["title"] = subject.title as NSString
+		
+		let meetingRecordID = CKRecordID(recordName: subject.meetingID)
+		let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
+		
+		record["meeting"] = meetingReference
+		
+		var topics = [CKReference]()
+		for t in subject.topics {
+			let tRecordID = CKRecordID(recordName: t.ID)
+			let tReference = CKReference(recordID: tRecordID, action: .none)
+			
+			topics.append(tReference)
+		}
+		
+		record["topics"] = topics as CKRecordValue
+		
+		return record
 	}
 	
-	// XUPITA
-	public static func createRecord(fromSubject subject: Subject) {
+	
+	// Creates CKRecord given Topic
+	public static func createRecord(fromTopic topic: Topic) -> CKRecord {
+		let recordID = CKRecordID(recordName: topic.ID)
+		let record = CKRecord(recordType: "Topic", recordID: recordID)
 		
+		record["title"] = topic.title as NSString
+		
+		let meetingRecordID = CKRecordID(recordName: topic.meetingID)
+		let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
+		
+		record["meeting"] = meetingReference
+		
+		let creatorRecordID = CKRecordID(recordName: topic.creatorID)
+		let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
+		
+		record["creator"] = creatorReference
+		
+		if let conclusion = topic.conclusion {
+			record["conclusion"] = conclusion as NSString
+		}
+		
+		if let info = topic.info {
+			record["info"] = info as NSString
+		}
+		
+		if let startTime = topic.startTime {
+			record["startTime"] = startTime as NSDate
+		}
+		
+		if let endTime = topic.endTime {
+			record["endTime"] = endTime as NSDate
+		}
+		
+		if let expectedDuration = topic.expectedDuration {
+			record["expectedDuration"] = expectedDuration as CKRecordValue
+		}
+		
+		var comments = [CKReference]()
+		for c in topic.commentIDs {
+			let cRecordID = CKRecordID(recordName: c)
+			let cReference = CKReference(recordID: cRecordID, action: .none)
+			
+			comments.append(cReference)
+		}
+		
+		record["comments"] = comments as CKRecordValue
+		
+		return record
 	}
 	
-	// XUPITA
-	public static func createRecord(fromComment comment: Comment) {
+	// Creates CKRecord given Comment
+	func createRecord(fromComment comment: Comment) -> CKRecord {
+		let recordID = CKRecordID(recordName: comment.ID)
+		let record = CKRecord(recordType: "Comment", recordID: recordID)
 		
+		let topicRecordID = CKRecordID(recordName: comment.topicID)
+		let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
+		
+		record["topic"] = topicReference
+		
+		let creatorRecordID = CKRecordID(recordName: comment.creatorID)
+		let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
+		
+		record["creator"] = creatorReference
+		record["createdAt"] = comment.createdAt as NSDate
+		record["text"] = comment.text as NSString
+		
+		return record
 	}
-
-		
+	
 	
 
 }
