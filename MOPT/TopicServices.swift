@@ -6,8 +6,9 @@
 //  Copyright © 2017 Gustavo Avena. All rights reserved.
 //
 
-import CloudKit
+import Foundation
 
+/*
 class TopicServices: NSObject, TopicDelegate {
     
     let ckHandler: CloudKitHandler
@@ -190,3 +191,34 @@ class TopicServices: NSObject, TopicDelegate {
 
 
 }
+*/
+
+
+extension Topic: TopicDelegate {
+	
+	static func create(title: String, meeting meetingID: ObjectID, creator creatorID: ObjectID, subject subjectID: ObjectID?, info: String?) -> Topic {
+		let ID: String = String(format: "%@:%@:%@", title, meetingID, creatorID)
+		let topic = Topic(ID: ID, title: title, creator: creatorID, meeting: meetingID, subject: subjectID, info: info)
+		
+		Cache.set(inCache: .topic, withID: ID, object: topic) // Adds it to the Cache
+		
+		CloudKitMapper.createRecord(fromTopic: topic) // Saves it to the DB
+		
+		return topic
+	}
+
+	
+	func add(comment ID: ObjectID) {
+		commentIDs.append(ID)
+		CloudKitMapper.add(comment: ID, object: self)
+	}
+}
+
+
+
+
+
+
+
+
+

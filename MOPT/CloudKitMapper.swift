@@ -9,7 +9,6 @@
 import CloudKit
 import Dispatch
 
- // TODO: replace String with ObjectID where it is proper.
 
 
 enum MoptObjectType {
@@ -20,7 +19,8 @@ enum MoptObjectType {
 	case subject
 }
 
-// Define possible UpdateOperations for objects
+// TODO: split by object type?
+// Defines possible UpdateOperations for objects
 enum UpdateOperation {
 	case title
 	case startTime
@@ -32,8 +32,11 @@ enum UpdateOperation {
 	case addTopic
 	case removeTopic
 	case removeParticipant
-	// TODO: assign callbacks to the enum values?
-	// TODO: split by object type?
+
+	// Meeting
+//	case removeCurrentTopic
+	
+	
 	
 	// Topic
 	case addComment
@@ -45,19 +48,21 @@ enum UpdateOperation {
 }
 
 
+// TODO: Use sets instead of arrays for IDs
+
 /*
 
 Basic workflow for update operations:
-1) Someone calls the update with the proper signature for each record attribute.
-2) this update method calls the "big" one that is common to everyone.
-3) The switch statement inside this "big" update method will call the proper assign method to update the record and save it.
+1) Someone calls the update/add/remove with the proper signature for each record attribute.
+2) this update method calls the "main" update method.
+3) The switch statement inside this "main" update method will call the proper assign/add/remove method to update the record and save it.
 
 */
 
 class CloudKitMapper {
     
 	private static let publicDB: CKDatabase = CKContainer.default().publicCloudDatabase
-	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
+//	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
 	
 	// Saves record to public database (CloudKit)
 	private static func saveRecord(_ record: CKRecord) {
@@ -80,7 +85,12 @@ class CloudKitMapper {
 	// Directly assign attributes to the record that follow the protocol CKRecordValue
 	private static func assign(attribute: String, value: CKRecordValue, record: CKRecord) {
 		record[attribute] = value
-		saveRecord(record)
+		save(record: record)
+	}
+	
+	private static func unset(attribute: String, record: CKRecord) {
+		record[attribute] = nil
+		save(record: record)
 	}
 	
 
@@ -96,7 +106,7 @@ class CloudKitMapper {
 			record[attribute] = array as CKRecordValue
 		}
 		
-		saveRecord(record)
+		save(record: record)
 	}
     
 	
@@ -116,7 +126,7 @@ class CloudKitMapper {
 			print("Couldn't find the \(attribute) in the array (array is empty).")
 		}
 		
-		saveRecord(record)
+		save(record: record)
 	}
 	
 
@@ -143,8 +153,6 @@ class CloudKitMapper {
 					self.add(attribute: attribute, value: value, record: record)
 				case .removeTopic, .removeParticipant:
 					self.remove(attribute: attribute, value: value, record: record)
-				default:
-					print("Update operation not found.") // TODO: define error
 				}
 				
 			} else {
@@ -189,32 +197,33 @@ class CloudKitMapper {
 	}
     
 	
-	static func update(addParticipant participant: User, object: Meeting) {
-		let userRecordID = CKRecordID(recordName: participant.ID)
+	
+	public static func add(participant: ObjectID, object: Meeting) {
+		let userRecordID = CKRecordID(recordName: participant)
 		let userReference = CKReference(recordID: userRecordID, action: .none)
 		
 		update(operation: .addParticipant, attribute: "participants", value: userReference, object: object)
 	}
     
 	
-	static func update(removeParticipant participant: Topic, object: Meeting) {
-		let userRecordID = CKRecordID(recordName: participant.ID)
+	public static func remove(participant: ObjectID, object: Meeting) {
+		let userRecordID = CKRecordID(recordName: participant)
 		let userReference = CKReference(recordID: userRecordID, action: .none)
 		
 		update(operation: UpdateOperation.removeParticipant, attribute: "participants", value: userReference as CKRecordValue, object: object)
 	}
     
 	
-	static func update(addTopic topic: Topic, object: Meeting) {
-		let topicRecordID = CKRecordID(recordName: topic.ID)
+	public static func add(topic: ObjectID, object: Meeting) {
+		let topicRecordID = CKRecordID(recordName: topic)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
 		update(operation: UpdateOperation.addTopic, attribute: "topics", value: topicReference as CKRecordValue, object: object)
 	}
     
 	
-	static func update(removeTopic topic: Topic, object: Meeting) {
-		let topicRecordID = CKRecordID(recordName: topic.ID)
+	public static func remove(topic: ObjectID, object: Meeting) {
+		let topicRecordID = CKRecordID(recordName: topic)
 		let topicReference = CKReference(recordID: topicRecordID, action: .none)
 		
 		update(operation: UpdateOperation.removeTopic, attribute: "topics", value: topicReference as CKRecordValue, object: object)
@@ -222,8 +231,8 @@ class CloudKitMapper {
 	
 	
 	// Topic update operations
-	static func update(addComment comment: Comment, object: Topic) {
-		let commentRecordID = CKRecordID(recordName: comment.ID)
+	public static func add(comment: ObjectID, object: Topic) {
+		let commentRecordID = CKRecordID(recordName: comment)
 		let commentReference = CKReference(recordID: commentRecordID, action: .none)
 
 		
@@ -231,11 +240,11 @@ class CloudKitMapper {
 	}
     
 	
-	static func update(conclusion: String, object: MoptObject) {
+	public static func update(conclusion: String, object: MoptObject) {
 		update(operation: UpdateOperation.conclusion, attribute: "conclusion", value: conclusion as CKRecordValue, object: object)
 	}
 	
-	static func update(info: String, object: MoptObject) {
+	public static func update(info: String, object: MoptObject) {
 		update(operation: UpdateOperation.info, attribute: "info", value: info as CKRecordValue, object: object)
 	}
 
@@ -257,7 +266,7 @@ class CloudKitMapper {
 		publicDB.fetch(withRecordID: recordID) {
 			(record, error) in
 			
-			guard error != nil else {
+			guard error == nil else {
 				print("Error fetching record.")
 				print(error.debugDescription)
 				completionHandler(nil)
@@ -279,6 +288,7 @@ class CloudKitMapper {
 				object = createTopic(fromRecord: record)
 			case .user:
 				object = createUser(fromRecord: record)
+				// TODO: create subject
 			default:
 				print("Couldn't decide which object to create.")
 			}
@@ -286,7 +296,6 @@ class CloudKitMapper {
 			if let object = object {
 				completionHandler(object)
 			} else {
-				print("Couldn't call completionHandler because the object was not created.")
 				completionHandler(nil)
 			}
 		}
@@ -355,7 +364,6 @@ class CloudKitMapper {
 			meeting.expectedDuration = expectedDuration
 		}
 		
-		Meeting.meetings[ID] = meeting
 		
 		return meeting
 	}
@@ -412,8 +420,6 @@ class CloudKitMapper {
 			}
 			topic.commentIDs = commentIDs
 		}
-		
-		Topic.topics[ID] = topic
 		
 		return topic
 	}
@@ -496,7 +502,7 @@ class CloudKitMapper {
 		
 		record["topics"] = topics as CKRecordValue
 		
-		return record
+		save(record: record)
 	}
     
     

@@ -27,7 +27,6 @@
 		4D99B6B31EA92EE700308688 /* ClassesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99B6B21EA92EE700308688 /* ClassesProtocols.swift */; };
 		4D99B6B81EA93D6800308688 /* CloudKitMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99B6B71EA93D6800308688 /* CloudKitMapper.swift */; };
 		4DAEF16A1E93D52C00A99E0D /* ControllerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEF1691E93D52C00A99E0D /* ControllerProtocols.swift */; };
-		4DAEF16F1E952DC400A99E0D /* SubtopicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEF16E1E952DC400A99E0D /* SubtopicServices.swift */; };
 		4DB933021E96668900C647C6 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB933011E96668900C647C6 /* CurrentUser.swift */; };
 		4DD2AD811E96886E00DB8899 /* AddParticipant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2AD711E96886D00DB8899 /* AddParticipant.storyboard */; };
 		4DD2AD821E96886E00DB8899 /* AddParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD721E96886D00DB8899 /* AddParticipantsViewController.swift */; };
@@ -87,7 +86,6 @@
 		4D99B6B21EA92EE700308688 /* ClassesProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesProtocols.swift; sourceTree = "<group>"; };
 		4D99B6B71EA93D6800308688 /* CloudKitMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitMapper.swift; sourceTree = "<group>"; };
 		4DAEF1691E93D52C00A99E0D /* ControllerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerProtocols.swift; sourceTree = "<group>"; };
-		4DAEF16E1E952DC400A99E0D /* SubtopicServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtopicServices.swift; sourceTree = "<group>"; };
 		4DB933011E96668900C647C6 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		4DD2AD711E96886D00DB8899 /* AddParticipant.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddParticipant.storyboard; sourceTree = "<group>"; };
 		4DD2AD721E96886D00DB8899 /* AddParticipantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddParticipantsViewController.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				D45B269B1E92850A002A1866 /* TopicServices.swift */,
-				4DAEF16E1E952DC400A99E0D /* SubtopicServices.swift */,
 				D45B269D1E92850A002A1866 /* UserServices.swift */,
 				D45B26921E92850A002A1866 /* MeetingServices.swift */,
 			);
@@ -387,7 +384,6 @@
 			files = (
 				4D3AB6F41E96A4B90076EC3E /* SubtopicTableViewController.swift in Sources */,
 				4D99B67B1EA8E2DA00308688 /* Meeting.swift in Sources */,
-				4DAEF16F1E952DC400A99E0D /* SubtopicServices.swift in Sources */,
 				4DD2AD831E96886E00DB8899 /* CommentsTableViewCell.swift in Sources */,
 				4D99B6B81EA93D6800308688 /* CloudKitMapper.swift in Sources */,
 				D45B26A31E92850A002A1866 /* LoginScreenViewController.swift in Sources */,

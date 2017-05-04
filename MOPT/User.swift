@@ -9,7 +9,7 @@
 import UIKit
 
 class User: NSObject, MoptObject {
-	public static var users: [String: User] = [String: User]()
+	
 	
 	let ID: ObjectID
 	let name: String
