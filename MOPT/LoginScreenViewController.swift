@@ -65,7 +65,7 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
 					}
 					
 					let currentUser = CurrentUser.shared()
-					currentUser.userID = user!.ID // TODO: fix this!
+					currentUser.userID = user!.ID // FIXME: make sure currentUser is never nil
 					// Logged user in
 					self.startupButton.isUserInteractionEnabled = true
 					

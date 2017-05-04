@@ -13,7 +13,7 @@ class Topic: NSObject, MoptObject {
 	
 	let ID: ObjectID
 	var title: String
-	let meetingID: ObjectID // TODO: fix inheritance problem.
+	let meetingID: ObjectID
 	let creatorID: ObjectID
 	var subjectID: ObjectID? = nil
 	
@@ -21,6 +21,7 @@ class Topic: NSObject, MoptObject {
 	
 	var conclusion: String? // TODO: observer didSet that allows nil
 	var info: String? // TODO: observer didSet that allows nil
+	
 	var endTime: Date? // TODO: observer didSet that allows nil
 	var startTime: Date? // TODO: observer didSet that allows nil
 	var expectedDuration: TimeInterval? // TODO: observer didSet that allows nil

@@ -14,16 +14,16 @@ class Comment: NSObject, MoptObject {
 	let creatorID: ObjectID
 	let topicID: ObjectID
 	
-	var text: String // TODO: observer didSet that doesn't allow nil
+	var text: String
 	
 	var topic: Topic {
 		get {
-			return Cache.get(objectType: .topic, objectWithID: topicID) as! Topic // TODO: make sure this is never nil!
+			return Cache.get(objectType: .topic, objectWithID: topicID) as! Topic // FIXME: make sure this is never nil!
 		}
 	}
 	var creator: User {
 		get {
-			return Cache.get(objectType: .user, objectWithID: creatorID) as! User // TODO: make sure this is never nil!
+			return Cache.get(objectType: .user, objectWithID: creatorID) as! User // FIXME: make sure this is never nil!
 		}
 	}
 	

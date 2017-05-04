@@ -19,7 +19,7 @@ class Meeting: NSObject, MoptObject {
 	
 	var creator: User {
 		get {
-			return Cache.get(objectType: .user, objectWithID: creatorID) as! User // TODO: make sure this is never nil!
+			return Cache.get(objectType: .user, objectWithID: creatorID) as! User // FIXME: make sure this is never nil!
 		}
 	}
 	var title: String {
@@ -100,7 +100,7 @@ class Meeting: NSObject, MoptObject {
 		self.expectedDuration = expectedDuration
 	}
 	
-	// TODO: user setters instead of observers??
+	// MARK: use setters instead of observers??
 
 	
 }

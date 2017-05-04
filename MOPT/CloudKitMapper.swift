@@ -19,7 +19,6 @@ enum MoptObjectType {
 	case subject
 }
 
-// TODO: split by object type?
 // Defines possible UpdateOperations for objects
 enum UpdateOperation {
 	case title
@@ -32,23 +31,15 @@ enum UpdateOperation {
 	case addTopic
 	case removeTopic
 	case removeParticipant
-
-	// Meeting
 //	case removeCurrentTopic
-	
-	
-	
-	// Topic
 	case addComment
 	case conclusion
 	case info
-	
-	// Comment
 	case text
 }
 
 
-// TODO: Use sets instead of arrays for IDs
+
 
 /*
 
@@ -62,7 +53,7 @@ Basic workflow for update operations:
 class CloudKitMapper {
 	
 	private static let publicDB: CKDatabase = CKContainer.default().publicCloudDatabase
-//	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
+	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
 	
 	
 	
@@ -87,7 +78,14 @@ class CloudKitMapper {
 	
 
 	
-	// Directly assign attributes to the record that follow the protocol CKRecordValue
+	/**
+	Sets a value in a record's attribute.
+	Example: updated a meeting's title.
+	
+	- parameter attribute: the name of the attribute to be updated (e.g. title, date).
+	- parameter value: the value to assign to the attribute described above.
+	- parameter record: the record to be modified.
+	*/
 	private static func assign(attribute: String, value: CKRecordValue, record: CKRecord) {
 		record[attribute] = value
 		save(record: record)
@@ -100,7 +98,14 @@ class CloudKitMapper {
 	
 	
 
-	// Adds a new topic or user to the object
+	/**
+		Adds a reference/value to a list attribute inside the record.
+		Example: adds a topic to the topics list in a meeting record.
+	
+		- parameter attribute: the name of the list to be updated (e.g. participants, topics).
+		- parameter value: the object/value to be added to the list described above.
+		- parameter record: the record to be modified.
+	*/
 	private static func add(attribute: String, value: CKRecordValue, record: CKRecord) {
 		let reference = value as! CKReference
 		
@@ -115,6 +120,14 @@ class CloudKitMapper {
 		save(record: record)
 	}
 	
+	/**
+		Removes a reference (or a value) from a list attribute in the record.
+		Example: removes a user from the participants list in a Meeting record.
+		
+		- parameter attribute: the name of the list to be updated (e.g. participants, topics).
+		- parameter value: the object/value to be removed from the list described above.
+		- parameter record: the record to be modified.
+	*/
 	private static func remove(attribute: String, value: CKRecordValue, record: CKRecord) {
 		let reference = value as! CKReference
 		
@@ -138,7 +151,11 @@ class CloudKitMapper {
 	
 
 	/**
-		This is the update method that gets called from all the others.
+		This update method is responsible for fetching the record associated with the MoptObject that was modified. It also.
+		- parameter operation: the opertation type (e.g. addParticipant, removeTopic).
+		- parameter attribute: the key (string) to the attribute that will be updated in the CloudKit record.
+		- parameter value: the new value of this attribute.
+		- parameter object: the MoptObject that was updated. The corresponding CloudKit record will be fetched and updated.
 	*/
 	private static func update(operation: UpdateOperation, attribute:String, value: CKRecordValue, object: MoptObject) {
 		let objectRecordID = CKRecordID(recordName: object.ID) // Fetch CKRecord
@@ -167,7 +184,6 @@ class CloudKitMapper {
 				// TODO: alert caller or create new record?
 			}
 		}
-		// TODO: error handling, in case the remote update is not successfull
 	}
 	
 	
@@ -192,6 +208,7 @@ class CloudKitMapper {
 	}
 	
 	
+	// TODO: document everything with comments
 
 	// TODO: implement authorization (permissions)
 	// TODO: set currentTopic to nil.
@@ -232,7 +249,6 @@ class CloudKitMapper {
 	}
 	
 	
-	// Topic update operations
 	public static func add(comment: ObjectID, object: Topic) {
 		let commentRecordID = CKRecordID(recordName: comment)
 		let commentReference = CKReference(recordID: commentRecordID, action: .none)
@@ -250,17 +266,19 @@ class CloudKitMapper {
 	}
 
 
-	
-	// Comment update operations
 	static func update(text: String, object: MoptObject) {
 		update(operation: UpdateOperation.text, attribute: "text", value: text as CKRecordValue, object: object)
 	}
 	
-	
-	public static func get(object objectType: MoptObjectType, fromID ID: ObjectID, completionHandler: @escaping (MoptObject?) -> Void) {
+	/**
+		This method will fetch a record by ID and create its object (MoptObject).
+		- parameter object: The object type (an instance of the MoptObjectType enumeration).
+		- parameter withID: the ID of the object to be fetched from the DB and instantiated.
+		- parameter completionHandler: a closure that receives the newly created MoptObject as an argument.
+	*/
+	public static func create(object objectType: MoptObjectType, withID ID: ObjectID, completionHandler: @escaping (MoptObject?) -> Void) {
 		// fetch record and call the method to create object from record.
-		// will this be synchronous??
-		// Does completionHandler need an Error? It will be used in the view... it should be simple.
+
 		let recordID = CKRecordID(recordName: ID)
 		
 		publicDB.fetch(withRecordID: recordID) {
@@ -303,7 +321,12 @@ class CloudKitMapper {
 	}
 	
 	
-
+	/**
+		Creates a Meeting object from a CKRecord object.
+	
+		- parameter fromRecord: the CKRecord to be mapped to a Meeting.
+		- returns: the matching Meeting object.
+	*/
 	public static func createMeeting(fromRecord record: CKRecord) -> Meeting? {
 		var meeting: Meeting
 		let ID = record.recordID.recordName
@@ -339,6 +362,12 @@ class CloudKitMapper {
 		return meeting
 	}
 	
+	/**
+		Creates a Topic object from a CKRecord object.
+		
+		- parameter fromRecord: the CKRecord to be mapped to a Topic.
+		- returns: the matching Topic object.
+	*/
 	public static func createTopic(fromRecord record: CKRecord) -> Topic? {
 		let ID = record.recordID.recordName
 		var topic: Topic
@@ -404,6 +433,12 @@ class CloudKitMapper {
 		return nil // remove this and write the code.
 	}
 	
+	/**
+		Creates a User object from a CKRecord object.
+		
+		- parameter fromRecord: the CKRecord to be mapped to a User.
+		- returns: the matching User object.
+	*/
 	public static func createUser(fromRecord record: CKRecord) -> User? {
 		var user: User
 		let ID = record.recordID.recordName
@@ -436,6 +471,12 @@ class CloudKitMapper {
 		return user
 	}
 	
+	/**
+		Creates a CKRecord object object from a Meeting object.
+		
+		- parameter fromMeeting: the Meeting object to be mapped to a CKRecord object.
+		- returns: the matching CKRecord object.
+	*/
 	public static func createRecord(fromMeeting meeting: Meeting) {
 		let recordID = CKRecordID(recordName: meeting.ID)
 		let record = CKRecord(recordType: "Meeting", recordID: recordID)
@@ -544,5 +585,18 @@ class CloudKitMapper {
 
 
 	IMPORTANT: use a Hash table to store all the records and have instant lookup time. The key will be the ID. Everytime you create and object, put it in the hash table. When you wanna find it, just look for it there. If it's not there, fetch from DB.
+
+
+
+
+	TODO (reina):
+
+
+	- Fatalerror (development) nos forced unwraps dos atributos computados que sao obrigatorios.
+	- Erros.
+
+
+
+
 
 */

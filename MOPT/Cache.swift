@@ -18,6 +18,8 @@ class Cache: NSObject {
 	private static var comments: [String: Comment] = [String: Comment]()
 	private static var subjects: [String: Subject] = [String: Subject]()
 	
+	// TODO: Use sets instead of arrays for IDs
+	
 	
 	
 	private static func get(fromCache: MoptObjectType, withID ID: ObjectID) -> MoptObject? {
@@ -58,7 +60,7 @@ class Cache: NSObject {
 		if let object = get(fromCache: objectType, withID: ID) {
 			return object
 		} else  {
-			CloudKitMapper.get(object: objectType, fromID: ID) { (response) in
+			CloudKitMapper.create(object: objectType, withID: ID) { (response) in
 				
 				if let object = response {
 					Cache.set(inCache: objectType, withID: ID, object: object)

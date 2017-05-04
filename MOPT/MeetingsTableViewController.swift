@@ -30,6 +30,7 @@ class MeetingsTableViewController: UITableViewController {
 		if let user = Cache.get(objectType: .user, objectWithID: userId) as? User {
 			return user.meetings
 		} else {
+			print("user not found.")
 			return [Meeting]()
 		}
 		
@@ -54,7 +55,6 @@ class MeetingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return meetings.count
     }
     
@@ -75,7 +75,6 @@ class MeetingsTableViewController: UITableViewController {
 		
 		
         return TableViewHelper.loadCellProfilePicture(fromUser: meeting.creator.ID, cell: cell)
-		
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,14 +82,12 @@ class MeetingsTableViewController: UITableViewController {
 //            let segueDestination = segue.destination as? TopicsTableViewController,
 //            let indexPath = self.tableView.indexPathForSelectedRow {
 //            let selectedMeeting = meetings[indexPath.row]
-//            print("selectedMeeting = \(selectedMeeting)") // TODO: Remove it
 //            segueDestination.currentMeeting = selectedMeeting
 //        }
 //    }
 	
     func handleRefresh(refreshControl: UIRefreshControl) {
 		self.meetings = loadMeetings(fromUser: CurrentUser.shared().userID!, true)
-       
     }
 
     

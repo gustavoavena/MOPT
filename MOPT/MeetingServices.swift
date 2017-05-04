@@ -152,7 +152,6 @@ class MeetingServices: NSObject, MeetingDelegate {
         
     }
     
-    // TODO: Modify it and make it like startMeeting (using if let)
     func endMeeting(meetingID: CKRecordID)  {
         
         ckHandler.fetchByRecordID(recordID: meetingID) {
@@ -294,7 +293,7 @@ extension Meeting: MeetingDelegate {
 		}
 	}
 
-	// TODO: subject services.
+	// TODO: add subject and remove subject.
 	
 }
 
