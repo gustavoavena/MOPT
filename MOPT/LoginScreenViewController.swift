@@ -26,7 +26,7 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var startupButton: UIButton!
 
     
-    required  init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.ckHandler = CloudKitHandler()
         
         self.userDelegate = UserServices()
@@ -34,12 +34,11 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     
- 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.startupButton.isUserInteractionEnabled = false
+        
         //checking if user is already logged in
         if (FBSDKAccessToken.current() != nil) {
             print("Usuario logado no Facebook.")
@@ -70,7 +69,8 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
 					self.startupButton.isUserInteractionEnabled = true
 					
 					
-					
+					// TODO: delete comments below (?)
+                    
 //                    let userName = userInfo["name"] as! String
 //                    let userEmail = userInfo["email"] as! String
 //                    let userID = userInfo["id"] as! String
@@ -129,6 +129,9 @@ class LoginScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                     let userPictureURL = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")!
                     
                     let userRecordID = CKRecordID(recordName: userID)
+                    
+                    // TODO: Change ckHandler object to ckMapper (?)
+                    
 //                    self.ckHandler.fetchByRecordID(recordID: userRecordID) {
 //                        (response, error) in
 //                        
