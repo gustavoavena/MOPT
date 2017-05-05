@@ -364,10 +364,10 @@ class CloudKitMapper {
 	}
     
     /**
-     Creates a Subject object from a CKRecord object.
-     
-     - parameter fromRecord: the CKRecord to be mapped to a Subject.
-     - returns: the matching Subject object.
+         Creates a Subject object from a CKRecord object.
+         
+         - parameter fromRecord: the CKRecord to be mapped to a Subject.
+         - returns: the matching Subject object.
      */
     public static func createSubject(fromRecord record: CKRecord) -> Subject? {
         var subject: Subject
