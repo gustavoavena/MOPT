@@ -74,7 +74,7 @@ class MeetingsTableViewController: UITableViewController {
         cell.moderatorPicture.image = UIImage(named:"example") // Setting profile picture as default, in case query doesn't work.
 		
 		
-        return TableViewHelper.loadCellProfilePicture(fromUser: meeting.creator.ID, cell: cell)
+        return TableViewHelper.loadCellProfilePicture(fromUserID: meeting.creator.ID, cell: cell)
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

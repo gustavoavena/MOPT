@@ -31,7 +31,7 @@ class TableViewHelper: NSObject {
 //		}
 	}
 	
-	public static func loadCellProfilePicture(fromUser userID: ObjectID, cell: UITableViewCell) -> UITableViewCell {
+	public static func loadCellProfilePicture(fromUserID userID: ObjectID, cell: UITableViewCell) -> UITableViewCell {
 		let semaphore = DispatchSemaphore(value: 0)
 		
 		

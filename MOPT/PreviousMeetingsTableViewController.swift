@@ -77,7 +77,7 @@ class PreviousMeetingsTableViewController: UITableViewController {
 		
 		let moderatorReference =  self.meetings[indexPath.row]["moderator"] as! CKReference
 		
-		return TableViewHelper.loadCellProfilePicture(userRecordID: moderatorReference.recordID, cell: cell)
+		return TableViewHelper.loadCellProfilePicture(fromUserID: moderatorReference.recordID.recordName, cell: cell)
 		
     }
     

@@ -88,7 +88,7 @@ class TopicsTableViewController: UITableViewController {
 		
 		let creatorReference = self.topics[indexPath.row]["creator"] as! CKReference
 		
-		return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
+		return TableViewHelper.loadCellProfilePicture(fromUserID: creatorReference.recordID.recordName, cell: cell)
 		
     }
 
