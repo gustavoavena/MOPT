@@ -55,8 +55,10 @@ class CloudKitMapper {
 	private static let publicDB: CKDatabase = CKContainer.default().publicCloudDatabase
 	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
 	
-	// Saves record to public database (CloudKit)
+	
+	
 	private static func save(record: CKRecord) {
+		
 		print("Attempting to save record \(record.recordID.recordName).")
 		
 		self.publicDB.save(record) {
@@ -69,9 +71,12 @@ class CloudKitMapper {
 			} else {
 				print("Record \(String(describing: record?.recordID.recordName)) saved successfully.")
 			}
+			
 		}
+		
 	}
-    
+	
+
 	
 	/**
 	Sets a value in a record's attribute.
@@ -114,9 +119,15 @@ class CloudKitMapper {
 		
 		save(record: record)
 	}
-    
 	
-    // Removes CKReference object from (record[attribute] as? [CKReference])
+	/**
+		Removes a reference (or a value) from a list attribute in the record.
+		Example: removes a user from the participants list in a Meeting record.
+		
+		- parameter attribute: the name of the list to be updated (e.g. participants, topics).
+		- parameter value: the object/value to be removed from the list described above.
+		- parameter record: the record to be modified.
+	*/
 	private static func remove(attribute: String, value: CKRecordValue, record: CKRecord) {
 		let reference = value as! CKReference
 		
@@ -134,6 +145,9 @@ class CloudKitMapper {
 		
 		save(record: record)
 	}
+	
+
+	
 	
 
 	/**
@@ -176,7 +190,6 @@ class CloudKitMapper {
 	static func update(title: String, object: MoptObject) {
 		update(operation: UpdateOperation.title, attribute: "title", value: title as CKRecordValue, object: object)
 	}
-    
 	
 	static func update(startTime: Date, object: MoptObject) {
 		update(operation: UpdateOperation.startTime, attribute: "startTime", value: startTime as CKRecordValue, object: object)
@@ -186,17 +199,17 @@ class CloudKitMapper {
 	static func update(endTime: Date, object: MoptObject) {
 		update(operation: UpdateOperation.endTime, attribute: "endTime", value: endTime as CKRecordValue, object: object)
 	}
-    
 	
 	static func update(date: Date, object: Meeting) {
 		update(operation: UpdateOperation.date, attribute: "date", value: date as CKRecordValue, object: object)
 	}
-    
 	
 	static func update(expectedDuration: Double, object: MoptObject) {
 		update(operation: UpdateOperation.expectedDuration, attribute: "expectedDuration", value: expectedDuration as CKRecordValue, object: object)
 	}
 	
+	
+	// TODO: document everything with comments
 
 	// TODO: implement authorization (permissions)
 	// TODO: set currentTopic to nil.
@@ -206,7 +219,6 @@ class CloudKitMapper {
 		
 		update(operation: UpdateOperation.currentTopic, attribute: "currentTopic", value: topicReference as CKRecordValue, object: object)
 	}
-    
 	
 	
 	public static func add(participant: ObjectID, object: Meeting) {
@@ -215,7 +227,6 @@ class CloudKitMapper {
 		
 		update(operation: .addParticipant, attribute: "participants", value: userReference, object: object)
 	}
-    
 	
 	public static func remove(participant: ObjectID, object: Meeting) {
 		let userRecordID = CKRecordID(recordName: participant)
@@ -223,7 +234,6 @@ class CloudKitMapper {
 		
 		update(operation: UpdateOperation.removeParticipant, attribute: "participants", value: userReference as CKRecordValue, object: object)
 	}
-    
 	
 	public static func add(topic: ObjectID, object: Meeting) {
 		let topicRecordID = CKRecordID(recordName: topic)
@@ -231,7 +241,6 @@ class CloudKitMapper {
 		
 		update(operation: UpdateOperation.addTopic, attribute: "topics", value: topicReference as CKRecordValue, object: object)
 	}
-    
 	
 	public static func remove(topic: ObjectID, object: Meeting) {
 		let topicRecordID = CKRecordID(recordName: topic)
@@ -248,7 +257,6 @@ class CloudKitMapper {
 		
 		update(operation: UpdateOperation.addComment, attribute: "comments", value: commentReference as CKRecordValue, object: object)
 	}
-    
 	
 	public static func update(conclusion: String, object: MoptObject) {
 		update(operation: UpdateOperation.conclusion, attribute: "conclusion", value: conclusion as CKRecordValue, object: object)
@@ -263,9 +271,13 @@ class CloudKitMapper {
 		update(operation: UpdateOperation.text, attribute: "text", value: text as CKRecordValue, object: object)
 	}
 	
-	
-    // Creates a MoptObject given a type (user, meeting, topic) and send back in completionHandler
-	public static func create(objectType: MoptObjectType, fromID ID: ObjectID, completionHandler: @escaping (MoptObject?) -> Void) {
+	/**
+		This method will fetch a record by ID and create its object (MoptObject).
+		- parameter object: The object type (an instance of the MoptObjectType enumeration).
+		- parameter withID: the ID of the object to be fetched from the DB and instantiated.
+		- parameter completionHandler: a closure that receives the newly created MoptObject as an argument.
+	*/
+	public static func create(object objectType: MoptObjectType, withID ID: ObjectID, completionHandler: @escaping (MoptObject?) -> Void) {
 		// fetch record and call the method to create object from record.
 
 		let recordID = CKRecordID(recordName: ID)
@@ -277,13 +289,13 @@ class CloudKitMapper {
 				print("Error fetching record.")
 				print(error.debugDescription)
 				completionHandler(nil)
-                return
+				return
 			}
 			
 			guard let record = record else {
 				print("No record found on CloudKit.") // TODO: define error.
 				completionHandler(nil)
-                return
+				return
 			}
 			
 			var object: MoptObject?
@@ -308,8 +320,14 @@ class CloudKitMapper {
 		}
 		
 	}
-
-    // Creates meeting given CKRecord
+	
+	
+	/**
+		Creates a Meeting object from a CKRecord object.
+	
+		- parameter fromRecord: the CKRecord to be mapped to a Meeting.
+		- returns: the matching Meeting object.
+	*/
 	public static func createMeeting(fromRecord record: CKRecord) -> Meeting? {
 		var meeting: Meeting
 		let ID = record.recordID.recordName
@@ -341,11 +359,16 @@ class CloudKitMapper {
 			meeting.expectedDuration = expectedDuration
 		}
 		
+		
 		return meeting
 	}
-    
 	
-    // Creates Topic given CKRecord
+	/**
+		Creates a Topic object from a CKRecord object.
+		
+		- parameter fromRecord: the CKRecord to be mapped to a Topic.
+		- returns: the matching Topic object.
+	*/
 	public static func createTopic(fromRecord record: CKRecord) -> Topic? {
 		let ID = record.recordID.recordName
 		var topic: Topic
@@ -353,7 +376,9 @@ class CloudKitMapper {
 		var creatorID: ObjectID
 		var meetingID: ObjectID
 		
-		if let creatorReference = record["creator"] as? CKReference, let meetingReference = record["meeting"] as? CKReference {
+
+		
+		if let creatorReference = record["creator"] as? CKReference, let meetingReference =  record["meeting"] as? CKReference {
 			creatorID = creatorReference.recordID.recordName
 			meetingID = meetingReference.recordID.recordName
 		} else {
@@ -398,41 +423,62 @@ class CloudKitMapper {
 		}
 		
 		return topic
-    }
-    
-    
-    // Creates User given CKRecord
-    public static func createUser(fromRecord record: CKRecord) -> User? {
-        var user: User
-        let ID = record.recordID.recordName
-        
-        guard let name = record["name"] as? String, let email = record["email"]! as? String else {
-            print("Couldn't create meeting object.")
-            return nil
-        }
-        
-        guard let urlString = record["profilePictureURL"] as? String else {
-            print("profile picture URL string not found in the record.")
-            return nil
-        }
-        
-        guard let url = URL(string: urlString) else {
-            print("Couldn't create URL object from string.")
-            return nil
-        }
-        
-        
-        user = User(ID: ID, name: name, email: email, profilePictureURL: url)
-        
-        Cache.set(inCache: .user, withID: ID, object: user)
-        
-        return user
-    }
-    
+	}
 	
-   	
-    // Creates CKRecord given Meeting
-	public static func createRecord(fromMeeting meeting: Meeting) -> CKRecord { // return the record. Another method will take it and save it.
+	
+	// TODO: createSubject(fromRecord record: CKRecord) -> Subject?
+	
+	
+	// XUPITA
+	public static func createSubject(fromRecord record: CKRecord) -> Subject? {
+		return nil // remove this and write the code.
+	}
+	
+	/**
+		Creates a User object from a CKRecord object.
+		
+		- parameter fromRecord: the CKRecord to be mapped to a User.
+		- returns: the matching User object.
+	*/
+	public static func createUser(fromRecord record: CKRecord) -> User? {
+		var user: User
+		let ID = record.recordID.recordName
+
+		guard let name = record["name"] as? String, let email = record["email"]! as? String else {
+			print("Couldn't create meeting object.")
+			return nil
+		}
+		
+		guard let urlString = record["profilePictureURL"] as? String else {
+			print("profile picture URL string not found in the record.")
+			return nil
+		}
+		
+		guard let url = URL(string: urlString) else {
+			print("Couldn't create URL object from string.")
+			return nil
+		}
+		
+		
+		user = User(ID: ID, name: name, email: email, profilePictureURL: url)
+		
+		if let meetingIDs = record["meetingIDs"] as? [ObjectID] {
+			for id in meetingIDs {
+				user.meetingsIDs.append(id)
+			}
+		}
+		
+		
+		return user
+	}
+	
+	/**
+		Creates a CKRecord object object from a Meeting object.
+		
+		- parameter fromMeeting: the Meeting object to be mapped to a CKRecord object.
+		- returns: the matching CKRecord object.
+	*/
+	public static func createRecord(fromMeeting meeting: Meeting) {
 		let recordID = CKRecordID(recordName: meeting.ID)
 		let record = CKRecord(recordType: "Meeting", recordID: recordID)
 		
@@ -487,127 +533,131 @@ class CloudKitMapper {
 		
 		save(record: record)
 	}
-    
-    // Creates CKRecord given User
-    func createRecord(fromUser user: User) -> CKRecord {
-        let recordID = CKRecordID(recordName: user.ID)
-        let record = CKRecord(recordType: "User", recordID: recordID)
-        
-        record["name"] = user.name as NSString
-        record["email"] = user.email as NSString
-        record["profilePictureURL"] = user.profilePictureURL as? CKRecordValue
-        
-        var meetings = [CKReference]()
-        for m in user.meetingsIDs {
-            let mRecordID = CKRecordID(recordName: m)
-            let mReference = CKReference(recordID: mRecordID, action: .none)
-            
-            meetings.append(mReference)
-        }
-        
-        record["meetings"] = meetings as CKRecordValue
-        
-        return record
-    }
-    
 
-    
-    // Creates CKRecord given Subject
-    public static func createRecord(fromSubject subject: Subject) -> CKRecord {
-        let recordID = CKRecordID(recordName: subject.ID)
-        let record = CKRecord(recordType: "Subject", recordID: recordID)
-        
-        record["title"] = subject.title as NSString
-        
-        let meetingRecordID = CKRecordID(recordName: subject.meetingID)
-        let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
-        
-        record["meeting"] = meetingReference
-        
-        var topics = [CKReference]()
-        for t in subject.topics {
-            let tRecordID = CKRecordID(recordName: t.ID)
-            let tReference = CKReference(recordID: tRecordID, action: .none)
-            
-            topics.append(tReference)
-        }
-        
-        record["topics"] = topics as CKRecordValue
-        
-        return record
-    }
-    
-    
-    // Creates CKRecord given Topic
-    public static func createRecord(fromTopic topic: Topic) -> CKRecord {
-        let recordID = CKRecordID(recordName: topic.ID)
-        let record = CKRecord(recordType: "Topic", recordID: recordID)
-        
-        record["title"] = topic.title as NSString
-        
-        let meetingRecordID = CKRecordID(recordName: topic.meetingID)
-        let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
-        
-        record["meeting"] = meetingReference
-        
-        let creatorRecordID = CKRecordID(recordName: topic.creatorID)
-        let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
-        
-        record["creator"] = creatorReference
-        
-        if let conclusion = topic.conclusion {
-            record["conclusion"] = conclusion as NSString
-        }
-        
-        if let info = topic.info {
-            record["info"] = info as NSString
-        }
-        
-        if let startTime = topic.startTime {
-            record["startTime"] = startTime as NSDate
-        }
-        
-        if let endTime = topic.endTime {
-            record["endTime"] = endTime as NSDate
-        }
-        
-        if let expectedDuration = topic.expectedDuration {
-            record["expectedDuration"] = expectedDuration as CKRecordValue
-        }
-        
-        var comments = [CKReference]()
-        for c in topic.commentIDs {
-            let cRecordID = CKRecordID(recordName: c)
-            let cReference = CKReference(recordID: cRecordID, action: .none)
-            
-            comments.append(cReference)
-        }
-        
-        record["comments"] = comments as CKRecordValue
-        
-        return record
-    }
-    
-    
-    // Creates CKRecord given Comment
-    func createRecord(fromComment comment: Comment) -> CKRecord {
-        let recordID = CKRecordID(recordName: comment.ID)
-        let record = CKRecord(recordType: "Comment", recordID: recordID)
-        
-        let topicRecordID = CKRecordID(recordName: comment.topicID)
-        let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
-        
-        record["topic"] = topicReference
-        
-        let creatorRecordID = CKRecordID(recordName: comment.creatorID)
-        let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
-        
-        record["creator"] = creatorReference
-        record["createdAt"] = comment.createdAt as NSDate
-        record["text"] = comment.text as NSString
-        
-        return record
-    }
+	
+	
+	// Creates CKRecord given User
+	func createRecord(fromUser user: User) -> CKRecord {
+		let recordID = CKRecordID(recordName: user.ID)
+		let record = CKRecord(recordType: "User", recordID: recordID)
+		
+		record["name"] = user.name as NSString
+		record["email"] = user.email as NSString
+		record["profilePictureURL"] = user.profilePictureURL as? CKRecordValue
+		
+		var meetings = [CKReference]()
+		for m in user.meetingsIDs {
+			let mRecordID = CKRecordID(recordName: m)
+			let mReference = CKReference(recordID: mRecordID, action: .none)
+			
+			meetings.append(mReference)
+		}
+		
+		record["meetings"] = meetings as CKRecordValue
+		
+		return record
+	}
+	
+	
+	
+	// Creates CKRecord given Subject
+	public static func createRecord(fromSubject subject: Subject) -> CKRecord {
+		let recordID = CKRecordID(recordName: subject.ID)
+		let record = CKRecord(recordType: "Subject", recordID: recordID)
+		
+		record["title"] = subject.title as NSString
+		
+		let meetingRecordID = CKRecordID(recordName: subject.meetingID)
+		let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
+		
+		record["meeting"] = meetingReference
+		
+		var topics = [CKReference]()
+		for t in subject.topics {
+			let tRecordID = CKRecordID(recordName: t.ID)
+			let tReference = CKReference(recordID: tRecordID, action: .none)
+			
+			topics.append(tReference)
+		}
+		
+		record["topics"] = topics as CKRecordValue
+		
+		return record
+	}
+	
+	
+	// Creates CKRecord given Topic
+	public static func createRecord(fromTopic topic: Topic) -> CKRecord {
+		let recordID = CKRecordID(recordName: topic.ID)
+		let record = CKRecord(recordType: "Topic", recordID: recordID)
+		
+		record["title"] = topic.title as NSString
+		
+		let meetingRecordID = CKRecordID(recordName: topic.meetingID)
+		let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
+		
+		record["meeting"] = meetingReference
+		
+		let creatorRecordID = CKRecordID(recordName: topic.creatorID)
+		let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
+		
+		record["creator"] = creatorReference
+		
+		if let conclusion = topic.conclusion {
+			record["conclusion"] = conclusion as NSString
+		}
+		
+		if let info = topic.info {
+			record["info"] = info as NSString
+		}
+		
+		if let startTime = topic.startTime {
+			record["startTime"] = startTime as NSDate
+		}
+		
+		if let endTime = topic.endTime {
+			record["endTime"] = endTime as NSDate
+		}
+		
+		if let expectedDuration = topic.expectedDuration {
+			record["expectedDuration"] = expectedDuration as CKRecordValue
+		}
+		
+		var comments = [CKReference]()
+		for c in topic.commentIDs {
+			let cRecordID = CKRecordID(recordName: c)
+			let cReference = CKReference(recordID: cRecordID, action: .none)
+			
+			comments.append(cReference)
+		}
+		
+		record["comments"] = comments as CKRecordValue
+		
+		return record
+	}
+	
+	// Creates CKRecord given Comment
+	func createRecord(fromComment comment: Comment) -> CKRecord {
+		let recordID = CKRecordID(recordName: comment.ID)
+		let record = CKRecord(recordType: "Comment", recordID: recordID)
+		
+		let topicRecordID = CKRecordID(recordName: comment.topicID)
+		let topicReference = CKReference(recordID: topicRecordID, action: .deleteSelf)
+		
+		record["topic"] = topicReference
+		
+		let creatorRecordID = CKRecordID(recordName: comment.creatorID)
+		let creatorReference = CKReference(recordID: creatorRecordID, action: .deleteSelf)
+		
+		record["creator"] = creatorReference
+		record["createdAt"] = comment.createdAt as NSDate
+		record["text"] = comment.text as NSString
+		
+		return record
+	}
+	
+	
+
 }
 
 
