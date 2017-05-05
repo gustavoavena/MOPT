@@ -40,7 +40,6 @@ enum UpdateOperation {
 
 
 
-
 /*
 
 Basic workflow for update operations:
@@ -56,7 +55,11 @@ class CloudKitMapper {
 	private static let privateDB: CKDatabase = CKContainer.default().privateCloudDatabase
 	
 	
-	
+	/**
+         Saves a record to CloudKit's public database
+     
+        - parameter record: record to be saved on public database
+     */
 	private static func save(record: CKRecord) {
 		
 		print("Attempting to save record \(record.recordID.recordName).")
@@ -71,20 +74,18 @@ class CloudKitMapper {
 			} else {
 				print("Record \(String(describing: record?.recordID.recordName)) saved successfully.")
 			}
-			
 		}
-		
 	}
 	
 
 	
 	/**
-	Sets a value in a record's attribute.
-	Example: updated a meeting's title.
-	
-	- parameter attribute: the name of the attribute to be updated (e.g. title, date).
-	- parameter value: the value to assign to the attribute described above.
-	- parameter record: the record to be modified.
+        Sets a value in a record's attribute.
+        Example: updated a meeting's title.
+        
+        - parameter attribute: the name of the attribute to be updated (e.g. title, date).
+        - parameter value: the value to assign to the attribute described above.
+        - parameter record: the record to be modified.
 	*/
 	private static func assign(attribute: String, value: CKRecordValue, record: CKRecord) {
 		record[attribute] = value
@@ -361,6 +362,40 @@ class CloudKitMapper {
 		
 		return meeting
 	}
+    
+    /**
+     Creates a Subject object from a CKRecord object.
+     
+     - parameter fromRecord: the CKRecord to be mapped to a Subject.
+     - returns: the matching Subject object.
+     */
+    public static func createSubject(fromRecord record: CKRecord) -> Subject? {
+        var subject: Subject
+        let ID = record.recordID.recordName
+        var meetingID: ObjectID
+        
+        if let meetingReference =  record["meeting"] as? CKReference {
+            meetingID = meetingReference.recordID.recordName
+        } else {
+            print("Couldn't initialize subject's meeting.")
+            return nil
+        }
+        
+        guard let title = record["title"] as? String else {
+            print("Couldn't create subject object: title = nil")
+            return nil
+        }
+        
+        subject = Subject(ID: ID, title: title, meetingID: meetingID)
+        
+        if let topicIDs = record["topicIDs"] as? [ObjectID] {
+            for id in topicIDs {
+                subject.topicIDs.append(id)
+            }
+        }
+        
+        return subject
+    }
 	
 	/**
 		Creates a Topic object from a CKRecord object.
@@ -422,15 +457,6 @@ class CloudKitMapper {
 		}
 		
 		return topic
-	}
-	
-	
-	// TODO: createSubject(fromRecord record: CKRecord) -> Subject?
-	
-	
-	// XUPITA
-	public static func createSubject(fromRecord record: CKRecord) -> Subject? {
-		return nil // remove this and write the code.
 	}
 	
 	/**

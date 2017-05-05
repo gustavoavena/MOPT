@@ -13,7 +13,7 @@ class Subject: NSObject, MoptObject {
 	
 	let ID: ObjectID
 	var title: String
-	
+    let meetingID: ObjectID
 	var topicIDs: [ObjectID] = [ObjectID]()
 	
 	var topics: [Topic] {
@@ -28,38 +28,15 @@ class Subject: NSObject, MoptObject {
 		}
 	}
 	
-	// Does the subject need a reference to the creator and/or meeting
-	
-//	let meetingID: ObjectID
-//	let creatorID: ObjectID
-//	
-//	var meeting: Meeting {
-//		get {
-//			if let meeting = Cache.get(objectType: .meeting, objectWithID: ID) {
-//				return meeting as! Meeting
-//			}
-//		}
-//	}
-//	
-//	var creator: User {
-//		get {
-//			if let creator = Cache.get(objectType: .user, objectWithID: ID) {
-//				return creator as! User
-//			}
-//		}
-//	}
-	
-	init(ID: ObjectID, title: String) {
-		self.ID = ID
-		self.title = title
+	var meeting: Meeting {
+		get {
+            return Cache.get(objectType: .meeting, objectWithID: ID) as! Meeting
+		}
 	}
 	
-//	init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID) {
-//		self.ID = ID
-//		self.title = title
-//		self.creatorID = creatorID
-//		self.meetingID = meetingID
-//	}
-	
-
+	init(ID: ObjectID, title: String, meetingID: ObjectID) {
+		self.ID = ID
+		self.title = title
+        self.meetingID = meetingID
+	}
 }
