@@ -20,7 +20,7 @@ class PreviousMeetingsTableViewController: UITableViewController {
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
-        loadMeetings(CurrentUser.shared().userRecordID!, false)
+        loadMeetings(CurrentUser.shared().userID!, false)
         
     }
     
@@ -91,8 +91,9 @@ class PreviousMeetingsTableViewController: UITableViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        loadMeetings(CurrentUser.shared().userRecordID!, false)
+        let currentUserRecordID = CKRecordID(recordName: CurrentUser.shared().userID!)
         
+        loadMeetings(currentUserRecordID, false)
     }
     
         
