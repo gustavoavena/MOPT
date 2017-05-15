@@ -1,17 +1,17 @@
 //
-//  CommentsTableViewCell.swift
-//  MOPT
+//  TopicTableViewCell.swift
+//  mOpt Storyboards
 //
-//  Created by Filipe Marques on 03/04/17.
-//  Copyright © 2017 Gustavo Avena. All rights reserved.
+//  Created by Filipe Marques on 30/04/17.
+//  Copyright © 2017 Filipe Marques. All rights reserved.
 //
 
 import UIKit
 
-class CommentsTableViewCell: UITableViewCell {
+class TopicTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var commentText: UITextView!
-    @IBOutlet weak var commentCreatorPicture: UIImageView!
+    @IBOutlet weak var topicName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

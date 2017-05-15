@@ -1,5 +1,5 @@
 //
-//  DescriptionTableViewCell.swift
+//  SubjectTableViewCell.swift
 //  mOpt Storyboards
 //
 //  Created by Filipe Marques on 30/04/17.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class DescriptionTableViewCell: UITableViewCell {
+class SubjectTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var topicDescription: UILabel!
-    @IBOutlet weak var topicInformation: UILabel!
+    @IBOutlet weak var subjectName: UILabel!
+    @IBOutlet weak var toggleButton: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

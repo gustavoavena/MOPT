@@ -1,19 +1,18 @@
 //
-//  MeetingsTableViewCell.swift
-//  MOPT
+//  MeetingTableViewCell.swift
+//  mOpt Storyboards
 //
-//  Created by Filipe Marques on 03/04/17.
-//  Copyright © 2017 Gustavo Avena. All rights reserved.
+//  Created by Filipe Marques on 29/04/17.
+//  Copyright © 2017 Filipe Marques. All rights reserved.
 //
 
 import UIKit
 
-class MeetingsTableViewCell: UITableViewCell {
+class MeetingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var meetingName: UILabel!
     @IBOutlet weak var meetingDate: UILabel!
     @IBOutlet weak var meetingTime: UILabel!
-    @IBOutlet weak var moderatorPicture: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,5 +1,5 @@
 //
-//  DescriptionTableViewCell.swift
+//  CommentTableViewCell.swift
 //  mOpt Storyboards
 //
 //  Created by Filipe Marques on 30/04/17.
@@ -8,10 +8,9 @@
 
 import UIKit
 
-class DescriptionTableViewCell: UITableViewCell {
+class CommentTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var topicDescription: UILabel!
-    @IBOutlet weak var topicInformation: UILabel!
+    @IBOutlet weak var commentText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
