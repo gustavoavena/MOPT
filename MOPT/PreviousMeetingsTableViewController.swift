@@ -12,34 +12,30 @@ import CloudKit
 
 class PreviousMeetingsTableViewController: UITableViewController {
     
-    public private(set) var meetings = [CKRecord]()
-    private let meetingServices = MeetingServices()
-    
+    public private(set) var meetings = [Meeting]()
+//    private let meetingServices = MeetingServices()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
-        loadMeetings(CurrentUser.shared().userRecordID!, false)
-        
+		self.meetings = loadMeetings(fromUser: CurrentUser.shared().userID!, false)
+		print("Loaded meetings view")
+
+		
     }
     
-    func loadMeetings(_ userId: CKRecordID, _ next: Bool){
-        
-        meetingServices.getUserMeetings(userRecordID: userId, next) {
-            (meetingRecords, error) in
-            guard error == nil else {
-                print("Error fetching meeting")
-                return
-            }
-            self.meetings = meetingRecords
-            OperationQueue.main.addOperation({
-                self.tableView.reloadData()
-                self.refreshControl?.endRefreshing()
-            })
-        }
-    }
-    
+	func loadMeetings(fromUser userId: ObjectID, _ next: Bool) -> [Meeting] {
+		
+		if let user = Cache.get(objectType: .user, objectWithID: userId) as? User {
+			return user.meetings
+		} else {
+			print("user not found.")
+			return [Meeting]()
+		}
+		
+	}
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -69,15 +65,15 @@ class PreviousMeetingsTableViewController: UITableViewController {
         dateFormatter.dateFormat = "dd/MM"
         timeFormatter.dateFormat = "HH:mm"
         
-        cell.meetingName.text = self.meetings[indexPath.row]["title"] as? String
-        cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
-        cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row]["date"] as! Date))"
+        cell.meetingName.text = self.meetings[indexPath.row].title
+        cell.meetingTime.text = "\(timeFormatter.string(from:self.meetings[indexPath.row].date))"
+        cell.meetingDate.text = "\(dateFormatter.string(from:self.meetings[indexPath.row].date))"
 
 		cell.moderatorPicture.image = UIImage(named:"example")
 		
-		let moderatorReference =  self.meetings[indexPath.row]["moderator"] as! CKReference
+		let creatorID =  self.meetings[indexPath.row].creatorID
 		
-		return TableViewHelper.loadCellProfilePicture(userRecordID: moderatorReference.recordID, cell: cell)
+		return TableViewHelper.loadCellProfilePicture(fromUser: creatorID, cell: cell)
 		
     }
     
@@ -91,7 +87,7 @@ class PreviousMeetingsTableViewController: UITableViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        loadMeetings(CurrentUser.shared().userRecordID!, false)
+		loadMeetings(fromUser: CurrentUser.shared().userID!, false)
         
     }
     

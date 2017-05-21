@@ -14,7 +14,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     //@IBOutlet weak var scrollViewComments: UIScrollView!
     
-    var currentTopic:Topic?
+    var currentTopic:Topic!
     
     @IBOutlet weak var commentsTableView: UITableView!
     
@@ -40,7 +40,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = currentTopic?.topicName
+        self.navigationItem.title = currentTopic.title
         //self.commentsTableView.reloadData()
     }
     
@@ -65,7 +65,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as! DescriptionTableViewCell
-            cell.topicDescription.text = currentTopic?.topicDescription
+            cell.topicDescription.text = currentTopic.info ?? ""
             
             
             let dateFormatter = DateFormatter()

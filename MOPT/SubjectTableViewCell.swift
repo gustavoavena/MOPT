@@ -10,7 +10,7 @@ import UIKit
 
 class SubjectTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var subjectName: UILabel!
+    @IBOutlet weak var title: UILabel!
     @IBOutlet weak var toggleButton: UIImageView!
     
     override func awakeFromNib() {

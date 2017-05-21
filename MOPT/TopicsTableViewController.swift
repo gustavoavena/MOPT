@@ -28,7 +28,7 @@ class TopicsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
-        self.navigationItem.title = currentMeeting?.meetingName
+        self.navigationItem.title = currentMeeting.title
     }
 
     // MARK: - Table view data source
@@ -48,7 +48,8 @@ class TopicsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let meeting = currentMeeting else {
+		// TODO: delete this and make sure that view doesn't load without a current meeting.
+		guard let meeting = currentMeeting else {
             print("meeting not loaded")
             return TopicTableViewCell()
         }
@@ -59,12 +60,12 @@ class TopicsTableViewController: UITableViewController {
         
         if section < currentMeeting.topics.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopicCell") as! TopicTableViewCell
-            cell.topicName.text = meeting.topics[section].topicName
+            cell.title.text = meeting.topics[section].title
             return cell
         } else {
             if row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SubjectCell") as! SubjectTableViewCell
-                cell.subjectName.text = subjects[section-currentMeeting.topics.count].subjectName
+                cell.title.text = subjects[section-currentMeeting.topics.count].title
                 cell.toggleButton.image = UIImage(named:(subjects[section-currentMeeting.topics.count].collapsed == true ? "Down Chevron" : "Up Chevron"))
                 //cell.addTarget(self, action: #selector(self.toggleCollapse(sender:self)), forControlEvents: .TouchUpInside)
                 
@@ -73,7 +74,7 @@ class TopicsTableViewController: UITableViewController {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TopicCell") as! TopicTableViewCell
-                cell.topicName.text = subjects[section-currentMeeting.topics.count].topics[row-1].topicName
+                cell.title.text = subjects[section-currentMeeting.topics.count].topics[row-1].title
                 return cell
             }
         }
@@ -91,7 +92,7 @@ class TopicsTableViewController: UITableViewController {
                 return 52.0
             }
             
-            return (currentMeeting?.subjects[section-currentMeeting.topics.count].collapsed!)! ? 0 : 48.0
+            return (currentMeeting.subjects[section-currentMeeting.topics.count].collapsed!)! ? 0 : 48.0
         }
     }
     

@@ -17,6 +17,8 @@ class Topic: NSObject, MoptObject {
 	let creatorID: ObjectID
 	var subjectID: ObjectID? = nil
 	
+	let date: Date
+	
 	
 	
 	var conclusion: String? // TODO: observer didSet that allows nil
@@ -54,40 +56,41 @@ class Topic: NSObject, MoptObject {
 		}
 	}
 	
-	init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID) {
+	init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID, date: Date) {
 		self.ID = ID
 		self.title = title
 		self.creatorID = creatorID
 		self.meetingID = meetingID
+		self.date = date
 	}
 	
 	// Use this
-	convenience init(ID: String, title: String, creator creatorID: ObjectID, meeting meetingID: ObjectID, subject subjectID: ObjectID?, info: String?) {
-		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID)
+	convenience init(ID: String, title: String, creator creatorID: ObjectID, meeting meetingID: ObjectID, subject subjectID: ObjectID?, info: String?, date: Date) {
+		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID, date: date)
 		self.subjectID = subjectID
 		self.info = info
 	}
 
 	
-	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID, subjectID: ObjectID) {
-		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID)
+	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID, subjectID: ObjectID, date: Date) {
+		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID, date: date)
 		self.subjectID = subjectID
 	}
 	
 	
 	
-	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID,  expectedDuration: TimeInterval) {
-		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID)
+	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID,  expectedDuration: TimeInterval, date: Date) {
+		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID, date: date)
 		self.expectedDuration = expectedDuration
 	}
 	
-	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID, info: String) {
-		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID)
+	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID, info: String, date: Date) {
+		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID, date: date)
 		self.info = info
 	}
 	
-	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID, info: String, expectedDuration: TimeInterval) {
-		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID)
+	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID, info: String, expectedDuration: TimeInterval, date: Date) {
+		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID, date: date)
 		self.info = info
 		self.expectedDuration = expectedDuration
 	}

@@ -17,9 +17,9 @@ class TableViewHelper: NSObject {
 	
 	
 	static func assignImageByClass(cell: UITableViewCell, imageFile: UIImage) {
-		if cell is MeetingsTableViewCell {
-			(cell as! MeetingsTableViewCell).moderatorPicture.image = imageFile
-		}
+//		if cell is MeetingTableViewCell {
+//			(cell as! MeetingTableViewCell).moderatorPicture.image = imageFile
+//		}
 //		else if cell is TopicsTableViewCell {
 //			(cell as! TopicsTableViewCell).topicCreatorPicture.image = imageFile
 //		} else if cell is SubtopicsTableViewCell {

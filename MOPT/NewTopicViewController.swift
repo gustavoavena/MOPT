@@ -11,9 +11,9 @@ import CloudKit
 
 class NewTopicViewController: UIViewController {
     
-    var currentMeeting:CKRecord?
-    private let topicServices = TopicServices()
-    
+    var currentMeeting:Meeting!
+//    private let topicServices = TopicServices()
+	
     @IBOutlet weak var newTopicName: UITextField!
 
     @IBOutlet weak var newTopicDescription: UITextView!
@@ -23,7 +23,8 @@ class NewTopicViewController: UIViewController {
     }
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        topicServices.createTopic(title: self.newTopicName.text!, description: self.newTopicDescription.text, meetingRecordID: (currentMeeting?.recordID)!, creatorRecordID: CurrentUser.shared().userRecordID!)
+//        topicServices.createTopic(title: self.newTopicName.text!, description: self.newTopicDescription.text, meetingRecordID: (currentMeeting?.recordID)!, creatorRecordID: CurrentUser.shared().userRecordID!)
+		Topic.create(title: self.newTopicName.text!, meeting: currentMeeting.ID, creator: CurrentUser.shared().userID!, subject: nil, info: self.newTopicDescription.text!)
         //Code to create a new topic and segue the program to the topic created
         self.navigationController?.popViewController(animated: true)
     }

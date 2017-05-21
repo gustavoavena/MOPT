@@ -33,7 +33,7 @@ class CommentsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = currentTopic.topicName
+        self.navigationItem.title = currentTopic.title
         //self.commentsTableView.reloadData()
     }
     
@@ -58,22 +58,22 @@ class CommentsTableViewController: UITableViewController {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as! DescriptionTableViewCell
             
-            cell.topicDescription.text = currentTopic.topicDescription
+            cell.topicDescription.text = currentTopic.info ?? ""
             
             let dateFormatter = DateFormatter()
             let timeFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM"
             timeFormatter.dateFormat = "HH:mm"
             
-            let topicDateCreation = dateFormatter.string(from:meetings[indexPath.row].meetingDate)
-            let topicTimeCreation = timeFormatter.string(from:meetings[indexPath.row].meetingDate)
+            let topicDateCreation = dateFormatter.string(from:currentTopic.date)
+            let topicTimeCreation = timeFormatter.string(from:currentTopic.date)
             
-            cell.topicInformation.text = "[ Created by \(currentTopic.topicCreator.userName) - \(topicDateCreation) \(topicTimeCreation) ]"
+            cell.topicInformation.text = "[ Created by \(currentTopic.creator.name) - \(topicDateCreation) \(topicTimeCreation) ]"
             
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
-            cell.commentText.text = currentTopic.comments[indexPath.row].commentText
+            cell.commentText.text = currentTopic.comments[indexPath.row].text
             return cell
         }
     }

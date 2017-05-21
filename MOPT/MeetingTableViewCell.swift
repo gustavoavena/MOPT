@@ -13,6 +13,8 @@ class MeetingTableViewCell: UITableViewCell {
     @IBOutlet weak var meetingName: UILabel!
     @IBOutlet weak var meetingDate: UILabel!
     @IBOutlet weak var meetingTime: UILabel!
+	
+	// TODO: declare creatorImage outlet.
     
     override func awakeFromNib() {
         super.awakeFromNib()

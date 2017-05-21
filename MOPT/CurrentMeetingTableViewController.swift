@@ -11,27 +11,17 @@ import CloudKit
 
 class CurrentMeetingTableViewController: UITableViewController {
     
-    var currentMeeting:CKRecord?
-    var topics = [CKRecord]()
-    private let meetingServices = MeetingServices()
-    private let topicServices = TopicServices()
-    private let subtopicServices = SubtopicServices()
-    
+    var currentMeeting:Meeting! // Force unwraps it because it's a mandatory value here.
+    var topics = [Topic]()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print ("Getting CurrentMeeting = \(String(describing: currentMeeting))")
-        topicServices.getMeetingTopics(meetingRecordID: (currentMeeting?.recordID)!) {
-            (topicRecords, error) in
-            guard error == nil else {
-                print("Error fetching topics")
-                return
-            }
-            self.topics = topicRecords
-            OperationQueue.main.addOperation({
-                self.tableView.reloadData()
-            })
-        }
+
+		self.topics = currentMeeting.topics
+		self.tableView.reloadData()
+		
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,11 +33,11 @@ class CurrentMeetingTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = currentMeeting?["title"] as? String
+        self.navigationItem.title = currentMeeting.title as? String
     }
     
     @IBAction func endMeetingButton(_ sender: UIBarButtonItem) {
-        meetingServices.endMeeting(meetingID: (currentMeeting?.recordID)!)
+//        meetingServices.endMeeting(meetingID: (currentMeeting?.recordID)!)
         self.navigationController?.popViewController(animated: true)
         self.navigationController?.popViewController(animated: true)
     }
@@ -60,21 +50,22 @@ class CurrentMeetingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var subtopics = [CKRecord]()
+        var subtopics = [Topic]()
         for i in 0 ..< section {
-            topicServices.getSubtopics(topicRecordID: topics[i].recordID) {
-                (subtopicRecords, error) in
-                guard error == nil else {
-                    print("Error fetching subtopics")
-                    return
-                }
-                subtopics = subtopicRecords
-            }
-            if subtopics.count != 0 {
-                return subtopics.count
-            } else {
-                return 1
-            }
+//            topicServices.getSubtopics(topicRecordID: topics[i].recordID) {
+//                (subtopicRecords, error) in
+//                guard error == nil else {
+//                    print("Error fetching subtopics")
+//                    return
+//                }
+//                subtopics = subtopicRecords
+//            }
+//            if subtopics.count != 0 {
+//                return subtopics.count
+//            } else {
+//                return 1
+//            }
+			
         }
         
         print("subtopiccount = \(subtopics.count)")
@@ -98,7 +89,7 @@ class CurrentMeetingTableViewController: UITableViewController {
         
         sleep(2) // TODO: REMOVE IT
         if subtopics.count != 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "subtopicAddConclusionCell", for: indexPath) as! SubtopicsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SubtopicAddConclusionCell", for: indexPath) as! SubtopicsTableViewCell
             cell.subtopicTitle.text = subtopics[indexPath.row]["title"] as? String
             //cell.subtopicCreatorPicture.image = subtopics[indexPath.row]["profilePicture"] as? UIImage
             cell.subtopicCreatorPicture.image = UIImage(named:"example")
@@ -108,7 +99,7 @@ class CurrentMeetingTableViewController: UITableViewController {
 			return TableViewHelper.loadCellProfilePicture(userRecordID: creatorReference.recordID, cell: cell)
 			
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "topicAddConclusionCell", for: indexPath) as! TopicsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TopicAddConclusionCell", for: indexPath) as! TopicsTableViewCell
             cell.topicName.text = self.topics[indexPath.row]["title"] as? String
             //cell.numberOfSubtopics.text = ""
             //cell.topicCreatorPicture.image = self.topics[indexPath.row]["profilePicture"] as? UIImage

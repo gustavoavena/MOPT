@@ -10,7 +10,7 @@ import UIKit
 
 class TopicTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var topicName: UILabel!
+    @IBOutlet weak var title: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

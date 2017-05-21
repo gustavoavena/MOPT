@@ -10,7 +10,7 @@ import UIKit
 
 class NewMeetingViewController: UIViewController {
     
-    let meetingServices = MeetingServices()
+//    let meetingServices = MeetingServices()
 
     @IBOutlet weak var newMeetingName: UITextField!
     
@@ -22,7 +22,8 @@ class NewMeetingViewController: UIViewController {
     
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        meetingServices.createMeeting(title: self.newMeetingName.text!, date: self.newMeetingDate.date as NSDate, moderatorRecordID: CurrentUser.shared().userRecordID!)
+//        meetingServices.createMeeting(title: self.newMeetingName.text!, date: self.newMeetingDate.date as NSDate, moderatorRecordID: CurrentUser.shared().userRecordID!)
+		Meeting.create(title: self.newMeetingName.text!, date: self.newMeetingDate.date as Date, creator: CurrentUser.shared().userID!)
         //Code to create a new meeting and segue the program to the meeting created
         self.navigationController?.popViewController(animated: true)
     }

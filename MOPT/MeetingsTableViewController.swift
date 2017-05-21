@@ -13,7 +13,7 @@ import CloudKit
 
 class MeetingsTableViewController: UITableViewController {
     
-    public private(set) var meetings = [Meeting]()
+	public private(set) var meetings: [Meeting] = [Meeting]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class MeetingsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "meetingCell", for: indexPath) as! MeetingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MeetingCell", for: indexPath) as! MeetingTableViewCell
 		
 		let meeting: Meeting = self.meetings[indexPath.row]
         let dateFormatter = DateFormatter()
@@ -71,7 +71,7 @@ class MeetingsTableViewController: UITableViewController {
         cell.meetingName.text = meeting.title
         cell.meetingTime.text = "\(timeFormatter.string(from:meeting.date))"
         cell.meetingDate.text = "\(dateFormatter.string(from:meeting.date))"
-        cell.moderatorPicture.image = UIImage(named:"example") // Setting profile picture as default, in case query doesn't work.
+//        cell.moderatorPicture.image = UIImage(named:"example") // Setting profile picture as default, in case query doesn't work.
 		
 		
         return TableViewHelper.loadCellProfilePicture(fromUser: meeting.creator.ID, cell: cell)

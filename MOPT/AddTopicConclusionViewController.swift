@@ -11,14 +11,15 @@ import CloudKit
 
 class AddTopicConclusionViewController: UIViewController {
     
-    var currentTopic:CKRecord?
-    private var topicServices = TopicServices()
-    
+    var currentTopic:Topic!
+//    private var topicServices = TopicServices()
+	
     @IBOutlet weak var topicConclusion: UITextField!
     
     
     @IBAction func doneConclusionButton(_ sender: UIBarButtonItem) {
-        topicServices.addTopicConclusion(topicRecordID: (currentTopic?.recordID)!, conclusion: self.topicConclusion.text!)
+//        topicServices.addTopicConclusion(topicRecordID: (currentTopic?.recordID)!, conclusion: self.topicConclusion.text!)
+		currentTopic.conclusion = self.topicConclusion.text!
         self.navigationController?.popViewController(animated: true)
     }
     

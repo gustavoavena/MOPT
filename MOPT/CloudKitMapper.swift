@@ -390,7 +390,12 @@ class CloudKitMapper {
 			return nil
 		}
 		
-		topic = Topic(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID)
+		guard let date = record["date"] as? Date else {
+			print("Couldnt create meeting object.")
+			return nil
+		}
+		
+		topic = Topic(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID, date: date)
 		
 		if let info = record["info"] as? String {
 			topic.info = info
@@ -536,7 +541,7 @@ class CloudKitMapper {
 	
 	
 	// Creates CKRecord given User
-	func createRecord(fromUser user: User) -> CKRecord {
+	public static func createRecord(fromUser user: User) {
 		let recordID = CKRecordID(recordName: user.ID)
 		let record = CKRecord(recordType: "User", recordID: recordID)
 		
@@ -554,22 +559,22 @@ class CloudKitMapper {
 		
 		record["meetings"] = meetings as CKRecordValue
 		
-		return record
+		save(record: record)
 	}
 	
 	
 	
 	// Creates CKRecord given Subject
-	public static func createRecord(fromSubject subject: Subject) -> CKRecord {
+	public static func createRecord(fromSubject subject: Subject) {
 		let recordID = CKRecordID(recordName: subject.ID)
 		let record = CKRecord(recordType: "Subject", recordID: recordID)
 		
 		record["title"] = subject.title as NSString
 		
-		let meetingRecordID = CKRecordID(recordName: subject.meetingID)
-		let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
-		
-		record["meeting"] = meetingReference
+//		let meetingRecordID = CKRecordID(recordName: subject.meetingID)
+//		let meetingReference = CKReference(recordID: meetingRecordID, action: .deleteSelf)
+//		
+//		record["meeting"] = meetingReference
 		
 		var topics = [CKReference]()
 		for t in subject.topics {
@@ -581,12 +586,12 @@ class CloudKitMapper {
 		
 		record["topics"] = topics as CKRecordValue
 		
-		return record
+		save(record: record)
 	}
 	
 	
 	// Creates CKRecord given Topic
-	public static func createRecord(fromTopic topic: Topic) -> CKRecord {
+	public static func createRecord(fromTopic topic: Topic) {
 		let recordID = CKRecordID(recordName: topic.ID)
 		let record = CKRecord(recordType: "Topic", recordID: recordID)
 		
@@ -632,11 +637,11 @@ class CloudKitMapper {
 		
 		record["comments"] = comments as CKRecordValue
 		
-		return record
+		save(record: record)
 	}
 	
 	// Creates CKRecord given Comment
-	func createRecord(fromComment comment: Comment) -> CKRecord {
+	public static func createRecord(fromComment comment: Comment) {
 		let recordID = CKRecordID(recordName: comment.ID)
 		let record = CKRecord(recordType: "Comment", recordID: recordID)
 		
@@ -652,7 +657,7 @@ class CloudKitMapper {
 		record["createdAt"] = comment.createdAt as NSDate
 		record["text"] = comment.text as NSString
 		
-		return record
+		save(record: record)
 	}
 	
 	

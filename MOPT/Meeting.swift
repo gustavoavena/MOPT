@@ -17,14 +17,10 @@ class Meeting: NSObject, MoptObject {
 	let ID: ObjectID
 	let creatorID: ObjectID
 	
-	var creator: User {
-		get {
-			return Cache.get(objectType: .user, objectWithID: creatorID) as! User // FIXME: make sure this is never nil!
-		}
-	}
+	// TODO: decouple this from the CKMapper. Make sure no calls to the CKMapper are here. They should only be in the extension.
 	var title: String {
 		didSet {
-			CloudKitMapper.update(title: title, object: self)
+			CloudKitMapper.update(title: title, object: self) // this should be implemented by the delegate.
 		}
 	}
 	var date: Date {
@@ -35,6 +31,50 @@ class Meeting: NSObject, MoptObject {
 	
 	var currentTopicID: ObjectID? // TODO: observer didSet that allows nil
 
+	var endTime: Date? // TODO: observer didSet that allows nil
+	var startTime: Date? // TODO: observer didSet that allows nil
+	var expectedDuration: TimeInterval? // TODO: observer didSet that allows nil
+	
+	var participantIDs: [ObjectID]
+	var topicIDs: [ObjectID] = [ObjectID]()
+	var subjectIDs: [ObjectID] = [ObjectID]()
+	
+	
+	
+	
+	
+	
+	init(ID: String, title: String, date: Date, creatorID: ObjectID) {
+		self.ID = ID
+		self.title = title
+		self.creatorID = creatorID
+		self.date = date
+
+		self.participantIDs = [creatorID]
+	}
+	
+	convenience init(ID: String, title: String, date: Date, creatorID: ObjectID, expectedDuration: TimeInterval?) {
+		self.init(ID: ID, title: title, date: date, creatorID: creatorID)
+		self.expectedDuration = expectedDuration
+	}
+	
+	// MARK: use setters instead of observers??
+
+	
+}
+
+
+// Keep references to other objects in this extension to decouple the classes from the CloudKitMapper (the references interact more with the CKMapper).
+extension Meeting {
+	
+	
+	var creator: User {
+		get {
+			return Cache.get(objectType: .user, objectWithID: creatorID) as! User // FIXME: make sure this is never nil!
+		}
+	}
+	
+	
 	var currentTopic: Topic? {
 		get {
 			if let ct = currentTopicID, let topic = Cache.get(objectType: .topic, objectWithID: ct) as? Topic {
@@ -51,13 +91,7 @@ class Meeting: NSObject, MoptObject {
 			}
 		}
 	}
-	var endTime: Date? // TODO: observer didSet that allows nil
-	var startTime: Date? // TODO: observer didSet that allows nil
-	var expectedDuration: TimeInterval? // TODO: observer didSet that allows nil
-	
-	var participantIDs: [ObjectID]
-	var topicIDs: [ObjectID] = [ObjectID]()
-	var subjectIDs: [ObjectID] = [ObjectID]()
+
 	
 	var topics: [Topic]  {
 		get {
@@ -83,24 +117,18 @@ class Meeting: NSObject, MoptObject {
 		}
 	}
 	
-	
-	
-	
-	init(ID: String, title: String, date: Date, creatorID: ObjectID) {
-		self.ID = ID
-		self.title = title
-		self.creatorID = creatorID
-		self.date = date
-
-		self.participantIDs = [creatorID]
+	var subjects: [Subject]  {
+		get {
+			var _subjects = [Subject]()
+			for id in subjectIDs {
+				if let p = Cache.get(objectType: .subject, objectWithID: id) as? Subject {
+					_subjects.append(p)
+				}
+			}
+			return _subjects
+		}
 	}
 	
-	convenience init(ID: String, title: String, date: Date, creatorID: ObjectID, expectedDuration: TimeInterval?) {
-		self.init(ID: ID, title: title, date: date, creatorID: creatorID)
-		self.expectedDuration = expectedDuration
-	}
 	
-	// MARK: use setters instead of observers??
 
-	
 }
