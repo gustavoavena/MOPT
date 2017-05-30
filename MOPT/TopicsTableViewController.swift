@@ -66,8 +66,10 @@ class TopicsTableViewController: UITableViewController {
             if row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SubjectCell") as! SubjectTableViewCell
                 cell.title.text = subjects[section-currentMeeting.topics.count].title
-                cell.toggleButton.image = UIImage(named:(subjects[section-currentMeeting.topics.count].collapsed == true ? "Down Chevron" : "Up Chevron"))
-                //cell.addTarget(self, action: #selector(self.toggleCollapse(sender:self)), forControlEvents: .TouchUpInside)
+//                cell.toggleButton.image = UIImage(named:(subjects[section-currentMeeting.topics.count].collapsed == true ? "Down Chevron" : "Up Chevron"))
+                cell.toggleButton.image = UIImage(named: cell.collapsed == true ? "Down Chevron" : "Up Chevron")
+                
+//                cell.toggleButton.addTarget(self, action: #selector(self.toggleCollapse(sender:self, cell: cell)), forControlEvents: .TouchUpInside)
                 
                 cell.tag = section
 
@@ -92,7 +94,7 @@ class TopicsTableViewController: UITableViewController {
                 return 52.0
             }
             
-            return (currentMeeting.subjects[section-currentMeeting.topics.count].collapsed!)! ? 0 : 48.0
+            return ((tableView.cellForRow(at: indexPath) as! SubjectTableViewCell).collapsed) ? 0 : 48.0
         }
     }
     
@@ -113,27 +115,28 @@ class TopicsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.cellForRow(at: indexPath) is SubjectTableViewCell {
             if (indexPath.row == 0) {
-                toggleCollapse(at: indexPath)
+                toggleCollapse(at: indexPath, cell: (tableView.cellForRow(at: indexPath) as! SubjectTableViewCell))
             }
         }
     }
     
-    func toggleCollapse(at indexPath: IndexPath) {
+    func toggleCollapse(at indexPath: IndexPath, cell: SubjectTableViewCell) {
         
-        let collapsed = (currentMeeting?.subjects[indexPath.section-currentMeeting.topics.count].collapsed)!
+        cell.collapsed = !(cell.collapsed)
         
         // Toggle collapse
-        currentMeeting?.subjects[indexPath.section-currentMeeting.topics.count].collapsed = !collapsed
+//        currentMeeting?.subjects[indexPath.section-currentMeeting.topics.count].collapsed = cell.collapsed
         
-        
-        let start = 0
-        let end = start + (currentMeeting?.subjects[indexPath.section-currentMeeting.topics.count].topics.count)! + 1
-        
-        tableView.beginUpdates()
-            for _ in start ..< end + 1 {
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-        }
-        tableView.endUpdates()
+        // FIXME: fix the logic.
+//        
+//        let start = 0
+//        let end = start + (currentMeeting?.subjects[indexPath.section-currentMeeting.topics.count].topics.count)! + 1
+//        
+//        tableView.beginUpdates()
+//            for _ in start ..< end + 1 {
+//            tableView.reloadRows(at: [indexPath], with: .automatic)
+//        }
+//        tableView.endUpdates()
     }
 
     

@@ -198,7 +198,7 @@ extension Topic: TopicDelegate {
 	
 	static func create(title: String, meeting meetingID: ObjectID, creator creatorID: ObjectID, subject subjectID: ObjectID?, info: String?) -> Topic {
 		let ID: String = String(format: "%@:%@:%@", title, meetingID, creatorID)
-		let topic = Topic(ID: ID, title: title, creator: creatorID, meeting: meetingID, subject: subjectID, info: info)
+        let topic = Topic(ID: ID, title: title, creator: creatorID, meeting: meetingID, subject: subjectID, info: info, date: Date())
 		
 		Cache.set(inCache: .topic, withID: ID, object: topic) // Adds it to the Cache
 		

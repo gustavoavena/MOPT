@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D36004C1E929A9F0030574C /* CloudKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36004B1E929A9F0030574C /* CloudKitHandler.swift */; };
 		4D36004D1E93C1D40030574C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D19E7441E8C3E20003782E6 /* CloudKit.framework */; };
+		4D3AB2551EDDABBD00145F00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3AB2531EDDABBD00145F00 /* LaunchScreen.storyboard */; };
 		4D3AB6F91E96A7560076EC3E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3AB6F51E96A7560076EC3E /* Bolts.framework */; };
 		4D3AB6FA1E96A7560076EC3E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3AB6F61E96A7560076EC3E /* FBSDKCoreKit.framework */; };
 		4D3AB6FB1E96A7560076EC3E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3AB6F71E96A7560076EC3E /* FBSDKLoginKit.framework */; };
@@ -16,7 +17,6 @@
 		4D3AB6FE1E96A7D90076EC3E /* KeepCalm-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D3AB6FD1E96A7D90076EC3E /* KeepCalm-Medium.ttf */; };
 		4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */; };
 		4D3CC5761E8AA6A3000136FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3CC5751E8AA6A3000136FB /* ViewController.swift */; };
-		4D3CC5791E8AA6A3000136FB /* Flow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC5771E8AA6A3000136FB /* Flow.storyboard */; };
 		4D3CC57E1E8AA6A3000136FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */; };
 		4D3CC5811E8AA6A3000136FB /* (null) in Resources */ = {isa = PBXBuildFile; };
 		4D99B67B1EA8E2DA00308688 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99B67A1EA8E2DA00308688 /* Meeting.swift */; };
@@ -38,8 +38,6 @@
 		4DD2AD8E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD7E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift */; };
 		4DD2AD981E96899100DB8899 /* AddTopicConclusionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD941E96899100DB8899 /* AddTopicConclusionViewController.swift */; };
 		4DD2AD991E96899100DB8899 /* CurrentMeeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2AD951E96899100DB8899 /* CurrentMeeting.storyboard */; };
-		4DD2AD9A1E96899100DB8899 /* CurrentMeetingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2AD961E96899100DB8899 /* CurrentMeetingTableViewController.swift */; };
-		4DE2732F1ECA0498008F78BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE2732E1ECA0498008F78BC /* LaunchScreen.storyboard */; };
 		4DE273311ECA04BB008F78BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE273301ECA04BB008F78BC /* Main.storyboard */; };
 		4DE273331ECA04F7008F78BC /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE273321ECA04F7008F78BC /* CommentsViewController.swift */; };
 		4DE2733F1ECA058C008F78BC /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE2733E1ECA058C008F78BC /* CommentsTableViewController.swift */; };
@@ -60,7 +58,6 @@
 		D45B26A61E92850A002A1866 /* MeetingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26921E92850A002A1866 /* MeetingServices.swift */; };
 		D45B26AD1E92850A002A1866 /* TopicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B269B1E92850A002A1866 /* TopicServices.swift */; };
 		D45B26AF1E92850A002A1866 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B269D1E92850A002A1866 /* UserServices.swift */; };
-		D45B26C51E928AB6002A1866 /* TopicInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B26C41E928AB6002A1866 /* TopicInformationTableViewController.swift */; };
 		D4BD50EF1E8FD6EB0091A37F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */; };
 		D4E651B31E9409D00093CEB9 /* MeetingMinutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B21E9409D00093CEB9 /* MeetingMinutesTableViewController.swift */; };
 		D4E651B91E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */; };
@@ -69,6 +66,7 @@
 /* Begin PBXFileReference section */
 		4D19E7441E8C3E20003782E6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4D36004B1E929A9F0030574C /* CloudKitHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitHandler.swift; sourceTree = "<group>"; };
+		4D3AB2541EDDABBD00145F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D3AB6F51E96A7560076EC3E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
 		4D3AB6F61E96A7560076EC3E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		4D3AB6F71E96A7560076EC3E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 		4D3CC5701E8AA6A3000136FB /* MOPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3CC5731E8AA6A3000136FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D3CC5751E8AA6A3000136FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4D3CC5781E8AA6A3000136FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Flow.storyboard; sourceTree = "<group>"; };
 		4D3CC57D1E8AA6A3000136FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D3CC5821E8AA6A3000136FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D99B67A1EA8E2DA00308688 /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
@@ -99,8 +96,6 @@
 		4DD2AD7E1E96886E00DB8899 /* TopicConclusionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicConclusionTableViewCell.swift; sourceTree = "<group>"; };
 		4DD2AD941E96899100DB8899 /* AddTopicConclusionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTopicConclusionViewController.swift; sourceTree = "<group>"; };
 		4DD2AD951E96899100DB8899 /* CurrentMeeting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CurrentMeeting.storyboard; sourceTree = "<group>"; };
-		4DD2AD961E96899100DB8899 /* CurrentMeetingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMeetingTableViewController.swift; sourceTree = "<group>"; };
-		4DE2732E1ECA0498008F78BC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DE273301ECA04BB008F78BC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4DE273321ECA04F7008F78BC /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		4DE2733E1ECA058C008F78BC /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +117,6 @@
 		D45B26931E92850A002A1866 /* MOPT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = MOPT.entitlements; sourceTree = "<group>"; };
 		D45B269B1E92850A002A1866 /* TopicServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicServices.swift; sourceTree = "<group>"; };
 		D45B269D1E92850A002A1866 /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
-		D45B26C41E928AB6002A1866 /* TopicInformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicInformationTableViewController.swift; sourceTree = "<group>"; };
 		D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		D4E651B21E9409D00093CEB9 /* MeetingMinutesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingMinutesTableViewController.swift; sourceTree = "<group>"; };
 		D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousMeetingsTableViewController.swift; sourceTree = "<group>"; };
@@ -225,12 +219,11 @@
 		4DD2AD9B1E9689A900DB8899 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				4DE2732E1ECA0498008F78BC /* LaunchScreen.storyboard */,
 				4DD2AD711E96886D00DB8899 /* AddParticipant.storyboard */,
 				4DD2AD751E96886E00DB8899 /* NewMeeting.storyboard */,
 				D4BD50EE1E8FD6EB0091A37F /* Login.storyboard */,
-				4D3CC5771E8AA6A3000136FB /* Flow.storyboard */,
 				4DE273301ECA04BB008F78BC /* Main.storyboard */,
+				4D3AB2531EDDABBD00145F00 /* LaunchScreen.storyboard */,
 				4DD2AD771E96886E00DB8899 /* NewSubtopic.storyboard */,
 				4DD2AD791E96886E00DB8899 /* NewTopic.storyboard */,
 				4DD2AD951E96899100DB8899 /* CurrentMeeting.storyboard */,
@@ -277,11 +270,9 @@
 			isa = PBXGroup;
 			children = (
 				D45B26841E926B8B002A1866 /* MeetingsTableViewController.swift */,
-				4DD2AD961E96899100DB8899 /* CurrentMeetingTableViewController.swift */,
 				4DE2734C1ECA0790008F78BC /* TopicsTableViewController.swift */,
 				4DE2734E1ECA07A0008F78BC /* UpcomingMeetingsTableViewController.swift */,
 				4DE2733E1ECA058C008F78BC /* CommentsTableViewController.swift */,
-				D45B26C41E928AB6002A1866 /* TopicInformationTableViewController.swift */,
 				D4E651B21E9409D00093CEB9 /* MeetingMinutesTableViewController.swift */,
 				D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */,
 			);
@@ -365,8 +356,7 @@
 				4DD2AD891E96886E00DB8899 /* NewTopic.storyboard in Resources */,
 				4DD2AD991E96899100DB8899 /* CurrentMeeting.storyboard in Resources */,
 				4D3AB6FE1E96A7D90076EC3E /* KeepCalm-Medium.ttf in Resources */,
-				4D3CC5791E8AA6A3000136FB /* Flow.storyboard in Resources */,
-				4DE2732F1ECA0498008F78BC /* LaunchScreen.storyboard in Resources */,
+				4D3AB2551EDDABBD00145F00 /* LaunchScreen.storyboard in Resources */,
 				4DD2AD811E96886E00DB8899 /* AddParticipant.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,12 +396,10 @@
 				4D36004C1E929A9F0030574C /* CloudKitHandler.swift in Sources */,
 				4D3CC5741E8AA6A3000136FB /* AppDelegate.swift in Sources */,
 				4DD2AD8A1E96886E00DB8899 /* NewTopicViewController.swift in Sources */,
-				4DD2AD9A1E96899100DB8899 /* CurrentMeetingTableViewController.swift in Sources */,
 				4DE273471ECA064B008F78BC /* TopicTableViewCell.swift in Sources */,
 				4D99B6B31EA92EE700308688 /* ClassesProtocols.swift in Sources */,
 				4DE273331ECA04F7008F78BC /* CommentsViewController.swift in Sources */,
 				D45B26A11E92850A002A1866 /* Errors.swift in Sources */,
-				D45B26C51E928AB6002A1866 /* TopicInformationTableViewController.swift in Sources */,
 				4DE273441ECA064B008F78BC /* CommentTableViewCell.swift in Sources */,
 				4DE2734D1ECA0790008F78BC /* TopicsTableViewController.swift in Sources */,
 				4D99B6AD1EA8ECFA00308688 /* User.swift in Sources */,
@@ -424,12 +412,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4D3CC5771E8AA6A3000136FB /* Flow.storyboard */ = {
+		4D3AB2531EDDABBD00145F00 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D3CC5781E8AA6A3000136FB /* Base */,
+				4D3AB2541EDDABBD00145F00 /* Base */,
 			);
-			name = Flow.storyboard;
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

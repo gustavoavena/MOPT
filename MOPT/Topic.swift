@@ -79,10 +79,10 @@ class Topic: NSObject, MoptObject {
 	
 	
 	
-	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID,  expectedDuration: TimeInterval, date: Date) {
-		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID, date: date)
-		self.expectedDuration = expectedDuration
-	}
+//	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID,  expectedDuration: TimeInterval, date: Date) {
+//		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID, date: date)
+//		self.expectedDuration = expectedDuration
+//	}
 	
 	convenience init(ID: String, title: String, creatorID: ObjectID, meetingID: ObjectID, info: String, date: Date) {
 		self.init(ID: ID, title: title, creatorID: creatorID, meetingID: meetingID, date: date)

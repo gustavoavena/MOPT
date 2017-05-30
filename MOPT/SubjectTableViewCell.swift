@@ -12,6 +12,7 @@ class SubjectTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var toggleButton: UIImageView!
+    public var collapsed = true
     
     override func awakeFromNib() {
         super.awakeFromNib()

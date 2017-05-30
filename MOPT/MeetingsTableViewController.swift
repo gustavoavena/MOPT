@@ -11,6 +11,8 @@
 import UIKit
 import CloudKit
 
+// TODO: merge with UpcomingMeetings. They're supposed to be the same file.
+
 class MeetingsTableViewController: UITableViewController {
     
 	public private(set) var meetings: [Meeting] = [Meeting]()

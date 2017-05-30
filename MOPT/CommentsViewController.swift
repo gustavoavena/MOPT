@@ -73,15 +73,15 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             dateFormatter.dateFormat = "dd/MM"
             timeFormatter.dateFormat = "HH:mm"
             
-            let topicDateCreation = dateFormatter.string(from:meetings[indexPath.row].meetingDate)
-            let topicTimeCreation = timeFormatter.string(from:meetings[indexPath.row].meetingDate)
+            let topicDateCreation = dateFormatter.string(from:currentTopic.date)
+            let topicTimeCreation = timeFormatter.string(from:currentTopic.date)
             
-            cell.topicInformation.text = "[ Created by \((currentTopic?.topicCreator.userName)!) - \(topicDateCreation) \(topicTimeCreation) ]"
+            cell.topicInformation.text = "[ Created by \((currentTopic?.creator.name)!) - \(topicDateCreation) \(topicTimeCreation) ]"
             
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
-            cell.commentText.text = currentTopic?.comments[indexPath.row].commentText
+            cell.commentText.text = currentTopic?.comments[indexPath.row].text
             return cell
         }
     }
