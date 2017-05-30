@@ -15,22 +15,31 @@ import CloudKit
 
 class MeetingsTableViewController: UITableViewController {
     
-	public private(set) var meetings: [Meeting] = [Meeting]()
+	public internal(set) var meetings: [Meeting] = [Meeting]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
         
-		self.meetings = loadMeetings(fromUser: CurrentUser.shared().userID!, true)
-        print("Loaded meetings view")
+//		self.meetings = loadMeetings(fromUser: CurrentUser.shared().userID!, true)
+//        print("Loaded meetings view")
     
     }
 
     func loadMeetings(fromUser userId: ObjectID, _ next: Bool) -> [Meeting] {
 		
 		if let user = Cache.get(objectType: .user, objectWithID: userId) as? User {
-			return user.meetings
+            var filtered:[Meeting]
+            
+            if next {
+                print("upcoming meetings") // TODO: log this.
+                filtered = user.meetings.filter { ($0).date.timeIntervalSinceNow >= 0 }
+            } else {
+                print("previous meetings") // TODO: log this.
+                filtered = user.meetings.filter { ($0).date.timeIntervalSinceNow < 0 }
+            }
+			return filtered
 		} else {
 			print("user not found.")
 			return [Meeting]()

@@ -168,7 +168,7 @@
         <!--Previous-->
         <scene sceneID="Wp4-bv-Xxi">
             <objects>
-                <tableViewController id="qvh-e9-QSq" customClass="UpcomingMeetingsTableViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qvh-e9-QSq" customClass="PreviousMeetingsTableViewController" customModule="MOPT" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" id="4yQ-b8-jn0">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -269,7 +269,7 @@
         <scene sceneID="l9j-za-ygX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jbd-Pw-a9x" userLabel="Previous" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Upcoming" image="Agreement Icon" id="fFM-0L-zOw"/>
+                    <tabBarItem key="tabBarItem" title="Previous" image="Agreement Icon" id="fFM-0L-zOw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="weZ-XD-yFI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
