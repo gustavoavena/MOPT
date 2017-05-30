@@ -270,11 +270,11 @@
 			isa = PBXGroup;
 			children = (
 				D45B26841E926B8B002A1866 /* MeetingsTableViewController.swift */,
-				4DE2734C1ECA0790008F78BC /* TopicsTableViewController.swift */,
 				4DE2734E1ECA07A0008F78BC /* UpcomingMeetingsTableViewController.swift */,
+				D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */,
+				4DE2734C1ECA0790008F78BC /* TopicsTableViewController.swift */,
 				4DE2733E1ECA058C008F78BC /* CommentsTableViewController.swift */,
 				D4E651B21E9409D00093CEB9 /* MeetingMinutesTableViewController.swift */,
-				D4E651B81E9419BD0093CEB9 /* PreviousMeetingsTableViewController.swift */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";

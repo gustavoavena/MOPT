@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopicsTableViewController: UITableViewController {
+class TopicsTableViewController {
     
     var currentMeeting:Meeting!
     
@@ -46,6 +46,7 @@ class TopicsTableViewController: UITableViewController {
     }
     
     
+    // FIXME: fix the logic.
     func toggleCollapse(at indexPath: IndexPath, cell: SubjectTableViewCell) {
         
         cell.collapsed = !(cell.collapsed)
@@ -53,7 +54,7 @@ class TopicsTableViewController: UITableViewController {
         // Toggle collapse
 //        currentMeeting?.subjects[indexPath.section-currentMeeting.topics.count].collapsed = cell.collapsed
         
-        // FIXME: fix the logic.
+        
 //        
 //        let start = 0
 //        let end = start + (currentMeeting?.subjects[indexPath.section-currentMeeting.topics.count].topics.count)! + 1
@@ -93,7 +94,7 @@ extension TopicsTableViewController: UITableViewDataSource {
             if row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SubjectCell") as! SubjectTableViewCell
                 cell.title.text = subjects[section-currentMeeting.topics.count].title
-                //                cell.toggleButton.image = UIImage(named:(subjects[section-currentMeeting.topics.count].collapsed == true ? "Down Chevron" : "Up Chevron"))
+                //                cell.toggleButton.image = UIImage(named:(subjects[section-.currentMeeting.topics.count].collapsed == true ? "Down Chevron" : "Up Chevron"))
                 cell.toggleButton.image = UIImage(named: cell.collapsed == true ? "Down Chevron" : "Up Chevron")
                 
                 //                cell.toggleButton.addTarget(self, action: #selector(self.toggleCollapse(sender:self, cell: cell)), forControlEvents: .TouchUpInside)

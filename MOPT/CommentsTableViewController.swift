@@ -37,51 +37,6 @@ class CommentsTableViewController: UITableViewController {
         //self.commentsTableView.reloadData()
     }
     
-    // MARK: - Table view data source
-
-    public override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
-    }
-    
-    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
-            return 1
-        } else {
-            return currentTopic.comments.count
-        }
-    }
-    
-    
-    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as! DescriptionTableViewCell
-            
-            cell.topicDescription.text = currentTopic.info ?? ""
-            
-            let dateFormatter = DateFormatter()
-            let timeFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd/MM"
-            timeFormatter.dateFormat = "HH:mm"
-            
-            let topicDateCreation = dateFormatter.string(from:currentTopic.date)
-            let topicTimeCreation = timeFormatter.string(from:currentTopic.date)
-            
-            cell.topicInformation.text = "[ Created by \(currentTopic.creator.name) - \(topicDateCreation) \(topicTimeCreation) ]"
-            
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
-            cell.commentText.text = currentTopic.comments[indexPath.row].text
-            return cell
-        }
-    }
-    
-    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
     override var canBecomeFirstResponder: Bool {
         return true
     }
@@ -141,4 +96,60 @@ class CommentsTableViewController: UITableViewController {
     }
     */
 
+}
+
+
+extension CommentsTableViewController: UITableViewDataSource {
+    
+    // MARK: - Table view data source
+    
+    
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as! DescriptionTableViewCell
+            
+            cell.topicDescription.text = currentTopic.info ?? ""
+            
+            let dateFormatter = DateFormatter()
+            let timeFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM"
+            timeFormatter.dateFormat = "HH:mm"
+            
+            let topicDateCreation = dateFormatter.string(from:currentTopic.date)
+            let topicTimeCreation = timeFormatter.string(from:currentTopic.date)
+            
+            cell.topicInformation.text = "[ Created by \(currentTopic.creator.name) - \(topicDateCreation) \(topicTimeCreation) ]"
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
+            cell.commentText.text = currentTopic.comments[indexPath.row].text
+            return cell
+        }
+    }
+    
+    
+    public override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 2
+    }
+    
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        if section == 0 {
+            return 1
+        } else {
+            return currentTopic.comments.count
+        }
+    }
+}
+
+
+
+extension CommentsTableViewController: UITableViewDelegate {
+    
+    public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
 }

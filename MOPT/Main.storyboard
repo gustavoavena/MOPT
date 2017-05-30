@@ -148,7 +148,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n4o-uw-ANf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Upcoming" image="Calendar Icon" id="CE4-Nh-CeJ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Ffq-rB-eEV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ffq-rB-eEV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2196078431372549" green="0.6588235294117647" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
@@ -271,7 +271,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jbd-Pw-a9x" userLabel="Previous" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Previous" image="Agreement Icon" id="fFM-0L-zOw"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="weZ-XD-yFI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="weZ-XD-yFI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.21960784310000001" green="0.6588235294" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
